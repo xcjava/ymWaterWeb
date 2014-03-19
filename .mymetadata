@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ymWaterWeb"
+  id="myeclipse.1395241285126"
+  context-root="/ymWaterWeb"
+  j2ee-spec="5.0"
+  archive="ymWaterWeb.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

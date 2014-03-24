@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+<struts>
+
+	<package name="public-default" extends="struts-default">
+		
+		<action name="*Jsp">
+			<result name="success">/WEB-INF/jsp/{1}.jsp</result>
+		</action>
+		
+		<action name="*/*Jsp">
+			<result name="success">/WEB-INF/jsp/{1}/{2}.jsp</result>
+		</action>
+			
+		<action name="*/*/*Jsp">
+			<result name="success">/WEB-INF/jsp/{1}/{2}/{3}.jsp</result>
+		</action>
+		
+		<action name="*AjaxAction">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+			<result name="check">/WEB-INF/jsp/ajax/check.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+<struts>
+
+	<!--下述语句是将struts2交给spring管理 -->	
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.action.extension" value="jspx" />
+	<constant name="com.opensymphony.xwork2.ognl.OgnlValueStack" value="error"></constant>
+	<constant name="struts.enable.SlashesInActionNames" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	<constant name="struts.objectFactory.spring.autoWire" value="name"></constant>
+	<constant name="struts.multipart.parser" value="jakarta"></constant>
+	<constant name="struts.multipart.maxSize" value="524288000" />
+	<constant name="struts.multipart.saveDir" value="/uploadTemp/" />
+	<constant name="struts.custom.i18n.resources" value="struts_message" />
+	<!-- <constant name= "struts.multipart.saveDir" value="/opt/gdcct_ec/uploadTemp/" /> -->
+	<!-- <constant name= "struts.multipart.saveDir" value="/www/bushu/gdcct_ec3/uploadTemp/" /> -->
+	
+	<!-- 部署时需删掉以下配置 -->
+	<!-- <constant name="struts.serve.static.borwerCache" value="false"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.i18n.reload" value="true"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant> -->
+	
+	<!--导入各个模块文件--> 
+	<include file="struts_global.xml"></include>
+</struts>

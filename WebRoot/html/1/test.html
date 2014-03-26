@@ -2,28 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>欢迎使用家电远程监控系统</title>
+<title></title>
 <link href="css/index.css" rel="stylesheet" type="text/css" />
-</head>
+<script>
+function IFrameResize()
+{
+ document.body.style.width=document.documentElement.clientWidth;
+    document.body.style.height=document.documentElement.clientHeight;
 
-<frameset rows="125,5,*" frameborder="no" border="0" framespacing="0" id="topFrameSet">
- <frameset rows="100,0,25" frameborder="no" border="0" framespacing="0" id="dd">
-     <frame src="top.vm" scrolling="no" name="topFrame"/>
-     <frame src="checkframe.jsp" scrolling="no" noresize frameborder="no" />
-     <frameset rows="*" cols="200,*" frameborder="no" border="0" framespacing="0" id="middleFrameSet">
-      <frame src="left_bar1.vm" name="leftMiddle" scrolling="no" noresize />
-      <frame src="right_bar.vm" name="rightMiddle" scrolling="no" noresize />
-     </frameset>
-    </frameset>
-    <frame src="leftmiddlebar1.vm" name="leftMiddleFrame1" scrolling="no" noresize />    
- <frameset rows="*" cols="200,5,*" frameborder="no" border="0" framespacing="0" id="mainFrameSet">
-   <frameset rows="230,5,*"frameborder="no" border="0" framespacing="0" id="leftFrameSet">
-    <frame src="menu.vm" name="leftFrame" scrolling="auto" noresize />
-    <frame src="leftmiddlebar.vm" name="leftMiddleFrame" scrolling="no" noresize />
-    <frame src="map.vm" name="mapFrame" scrolling="no" noresize />
-   </frameset>   
-   <frame src="middle.vm"  name="middleFrame" scrolling="no" noresize />
-   <frame src="loading.jsp" name="contentFrame" id="contentFrame" scrolling="no" noresize/>
- </frameset>
-</frameset>
+}
+</script>
+</head>
+<body>
+<div><iframe id="myframe" width="100%" height="100%" marginHeight=0 marginWidth=0 frameBorder=0 src="tab/tab.html" onload="IFrameResize()"></iframe>
+</div>
+</body>
 </html>

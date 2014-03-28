@@ -1,4 +1,4 @@
-package com.ymsino.water.view.web.manager.global;
+package com.ymsino.water.view.web.admin;
 
 
 import javax.servlet.http.HttpServletRequest;

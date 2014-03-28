@@ -1,4 +1,4 @@
-package com.ymsino.water.view.web.manager.global.interceptor;
+package com.ymsino.water.view.web.admin.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

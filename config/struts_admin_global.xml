@@ -24,15 +24,10 @@
 			<result name="error">/WEB-INF/jsp/admin/error.jsp</result>
 		</global-results>
 		
-		<!-- 后台主页 -->
-		<action name="admin/main">
-			<result>/WEB-INF/jsp/admin/main.jsp</result>
-			<interceptor-ref name="adminInterceptor"></interceptor-ref>
-		</action>
 
 		<!-- 后台登录 -->
 		<action name="admin/login" class="com.ymsino.water.view.web.admin.Login">
-			<result name="success" type="redirect">/admin/main.jspx</result>
+			<result name="success" type="redirect">/admin/index.jspx</result>
 			<result name="error">/WEB-INF/jsp/admin/login.jsp</result>
 		</action>
 		
@@ -48,17 +43,21 @@
 			<result name="input">/WEB-INF/jsp/admin/modifyPassword.jsp</result>
 			<interceptor-ref name="adminInterceptor"></interceptor-ref>
 		</action>
-		<!-- 后台头部 -->
-		<action name="admin/head" class="com.gdcct.ec.view.web.admin.global.Head">
-			<result name="success">/WEB-INF/jsp/admin/head.jsp</result>
-		</action>
 		<!-- 后台首页 -->
-		<action name="admin/index" class="com.gdcct.ec.view.web.admin.global.Index">
-			<interceptor-ref name="adminInterceptor">
-				<param name="adminDefaultInterceptor.moduleCode">0001</param>
-				<param name="adminDefaultInterceptor.operaCode">0001</param>
-			</interceptor-ref>
+		<action name="admin/index" class="com.ymsino.water.view.web.admin.Index">
 			<result name="success">/WEB-INF/jsp/admin/index.jsp</result>
+		</action>
+		<!-- 后台头部 -->
+		<action name="admin/header" class="com.ymsino.water.view.web.admin.Header">
+			<result name="success">/WEB-INF/jsp/admin/header.jsp</result>
+		</action>
+		<!-- 后台主页中间模块 -->
+		<action name="admin/main" class="com.ymsino.water.view.web.admin.Main">
+			<result>/WEB-INF/jsp/admin/main.jsp</result>
+		</action>
+		<!-- 后台底部 -->
+		<action name="admin/down">
+			<result name="success">/WEB-INF/jsp/admin/down.jsp</result>
 		</action>
 	</package>
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+<struts>
+
+	<!-- 后台拦截器类 -->
+	<package name="admin-global" extends="public-default">
+		<interceptors>
+			<!-- 保护后台 -->
+			<interceptor name="adminDefaultInterceptor" class="com.ymsino.water.view.web.admin.interceptor.Interceptor">
+				<param name="administrator">administrator</param>
+			</interceptor>
+			
+			<interceptor-stack name="adminInterceptor">
+				<interceptor-ref name="adminDefaultInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+	
+		<global-results>
+			<result name="login">/WEB-INF/jsp/admin/login.jsp</result>
+			<result name="error">/WEB-INF/jsp/admin/error.jsp</result>
+		</global-results>
+		
+		<!-- 后台主页 -->
+		<action name="admin/main">
+			<result>/WEB-INF/jsp/admin/main.jsp</result>
+			<interceptor-ref name="adminInterceptor"></interceptor-ref>
+		</action>
+
+		<!-- 后台登录 -->
+		<action name="admin/login" class="com.ymsino.water.view.web.admin.Login">
+			<result name="success" type="redirect">/admin/main.jspx</result>
+			<result name="error">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		
+		<!-- 后台注销 -->
+		<action name="admin/logout" class="com.ymsino.water.view.web.admin.Logout">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 修改密码 -->
+		<action name="admin/modifyPassword">
+			<result name="success">/WEB-INF/jsp/admin/modifyPassword.jsp</result>
+			<result name="input">/WEB-INF/jsp/admin/modifyPassword.jsp</result>
+			<interceptor-ref name="adminInterceptor"></interceptor-ref>
+		</action>
+		<!-- 后台头部 -->
+		<action name="admin/head" class="com.gdcct.ec.view.web.admin.global.Head">
+			<result name="success">/WEB-INF/jsp/admin/head.jsp</result>
+		</action>
+		<!-- 后台首页 -->
+		<action name="admin/index" class="com.gdcct.ec.view.web.admin.global.Index">
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0001</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
+			<result name="success">/WEB-INF/jsp/admin/index.jsp</result>
+		</action>
+	</package>
+
+</struts>

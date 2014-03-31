@@ -2,24 +2,24 @@ package com.ymsino.water.view.web.admin;
 
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.ymsino.water.view.web.common.AbstractAjaxAction;
 
-public class Logout extends ActionSupport {
-
-	private static final long serialVersionUID = 4429446669649054769L;
+public class Logout extends AbstractAjaxAction {
 
 	@Override
-	public String execute() throws Exception {
-		
-//		HttpServletRequest request = ServletActionContext.getRequest();
-//		HttpSession session = request.getSession();
-//		session.setAttribute("shopInfo", null);
-		
-		return SUCCESS;
+	protected String setPageage() {
+		return "com.gdcct.ec.admin.global";
+	}
+	
+	@Override
+	protected String setResult() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.getSession().removeAttribute("department");
+		request.getSession().removeAttribute("manager");
+		return null;
 	}
 
 

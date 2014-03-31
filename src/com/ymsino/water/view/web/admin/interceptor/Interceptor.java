@@ -49,6 +49,7 @@ public class Interceptor extends AbstractInterceptor {
 		if(department != null && !popedomJson.isEmpty()){
 			try {
 				JSONObject json = JSONObject.fromObject(popedomJson);
+				@SuppressWarnings("unchecked")
 				Iterator<String> it = json.keys();
 				while(it.hasNext()){
 					String key = it.next().toString();

@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -48,7 +48,7 @@ document.all("frmTitle").style.display=""
 	      <tr>
 	        <td  bgcolor="#1873aa" style="width:6px;">&nbsp;</td>
 	        <td width="165">
-	        	<iframe name="I1" height="516%" width="165" src="${baseUrl }/admin/leftJsp.jspx" border="0" frameborder="0" scrolling="no"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+	        	<iframe scrolling="auto" name="I1" height="100%" width="165" src="${baseUrl }/${module}/leftJsp.jspx" border="0" frameborder="0" scrolling="no"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
 	        </td>
 	      </tr>
 	    </table>
@@ -57,7 +57,7 @@ document.all("frmTitle").style.display=""
     	<SPAN class=navPoint id=switchPoint title=关闭/打开左栏><img src="${baseUrl }images/main_55.gif" name="img1" width=6 height=40 id=img1></SPAN>
     </td>
     <td width="100%" align="center" valign="top">
-    	<iframe name="I2" height="100%" width="100%" border="0" frameborder="0" src="${baseUrl }/admin/rightJsp.jspx"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+    	<iframe name="I2" scrolling="auto" height="100%" width="100%" border="0" frameborder="0" src="${baseUrl }/admin/rightJsp.jspx"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
     </td>
   </tr>
 </table>

@@ -1,11 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>头部</title>
+<script type="text/javascript" src="${baseUrl }js/jquery/jquery.js"></script>
 <style type="text/css">
 <!--
 body {
@@ -23,9 +23,33 @@ body {
 	color: #033d61;
 	font-size: 12px;
 }
--->
-</style></head>
+.STYLE3 a:link {color:#033d61; text-decoration:none;}    /* 未被访问的链接 */
+.STYLE3 a:visited {color:#033d61;} /* 已被访问的链接 */
+.STYLE3 a:hover {color:#033d61;}   /* 鼠标指针移动到链接上 */
+.STYLE3 a:active {color:#033d61;}  /* 正在被点击的链接 */
 
+.tdhover {
+background-image: url('${baseUrl }images/bg.gif');
+border-style: solid;
+border-width: 1px;
+/*border-color: #a6d0e7;*/
+}
+.tdouter {
+background-image: 'url()';
+border-style: none;
+}
+-->
+</style>
+<script type="text/javascript">
+	$(function(){
+		$('.navTD').hover(function() {
+				$(this).addClass("tdhover");
+			}, function() {
+				$(this).removeClass("tdhover");
+		});
+	});
+</script>
+</head>
 <body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -83,61 +107,55 @@ body {
         <td width="177" height="28" background="${baseUrl }images/main_32.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="20%"  height="22">&nbsp;</td>
-            <td width="59%" valign="bottom"><div align="center" class="STYLE1">当前用户：Admin</div></td>
+            <td width="59%" valign="bottom"><div align="center" class="STYLE1">欢迎您：admin</div></td>
             <td width="21%">&nbsp;</td>
           </tr>
         </table></td>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="65" height="28"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td height="23" valign="bottom"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr> 
-                    <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"> <div align="center" class="STYLE3">业务中心</div></td>
-                  </tr>
-                </table></td>
-              </tr>
-            </table></td>
-            <td width="3"><img src="${baseUrl }images/main_34.gif" width="3" height="28"></td>
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">系统管理</div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'archives' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">档案管理</a></div></td>
               </tr>
             </table></td>
+            
             <td width="3"><img src="${baseUrl }images/main_34.gif" width="3" height="28"></td>
+            
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">通讯录</div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'data' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">数据采集</a></div></td>
               </tr>
             </table></td>
+            
             <td width="3"><img src="${baseUrl }images/main_34.gif" width="3" height="28"></td>
+            
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">数据管理</div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'freesettle' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">费用计算</a></div></td>
               </tr>
             </table></td>
+            
             <td width="3"><img src="${baseUrl }images/main_34.gif" width="3" height="28"></td>
+            
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">统计报表</div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'freesettle2' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">费用结算</a></div></td>
               </tr>
             </table></td>
+            
             <td width="3"><img src="${baseUrl }images/main_34.gif" width="3" height="28"></td>
-            <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
+            
+            <td width="63"><table width="78" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">业务管理</div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'searchAnalysis' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">查询与分析</a></div></td>
               </tr>
             </table></td>
+            
             <td width="3"><img src="${baseUrl }images/main_34.gif" width="3" height="28"></td>
+            
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">系统配置</div></td>
-              </tr>
-            </table></td>
-            <td width="3"><img src="${baseUrl }images/main_34.gif" width="3" height="28"></td>
-            <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(${baseUrl }images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">升级维护</div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'manager' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">系统管理</a></div></td>
               </tr>
             </table></td>
             <td>&nbsp;</td>

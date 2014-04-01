@@ -1,0 +1,226 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, span, a, blockquote, th {margin:0;padding:0;}
+td input{border: 1px solid #A5AEB6;padding: 4px 2px;width: 196px;}
+select{border: 1px solid #A5AEB6;padding: 1px 1px;width: 196px;}
+.editBtn input{vertical-align: middle;padding: 4px 2px;}
+h1, h2, h3, h4, h5, h6 {font-size:100%; font-weight:normal;}
+ol, ul {list-style-image:none; list-style-type:none;}
+ul li {list-style-type:none; padding:0; margin:0;}
+img, fieldset {border:0 none; vertical-align:top;}
+html, body, #wrapper {height: 100%;}
+BODY {
+	BACKGROUND-COLOR: #fff; COLOR: #000;
+}
+BODY, TABLE {
+	LINE-HEIGHT: 150%; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; FONT-SIZE: 12px
+}
+INPUT, SELECT, TEXTAREA {
+	FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; FONT-SIZE: 12px
+}
+a:link,a:visited{color:#036; text-decoration:none;}
+a:hover,a:active{color:#ff0000; text-decoration:underline;}
+
+/* header file */
+.headerbg { height:56px; background:url(http://res.gdcct.com/images/admin/header_bg.jpg) repeat-x;}
+.toploca { background-color:#2B6FBD; height:30px;color:#FFFFFF;}
+.toploca_ico { float:left; padding-left:24px;}
+.titlebar { float:left; padding:4px 0 0 6px;}
+.titlebar span { color:#FFFF00; font-weight:bold;}
+.titlebar a:link, .titlebar a:visited{color:#fff; text-decoration:underline;}
+.titlebar a:hover, .titlebar a:active{color:#FFFF00; text-decoration:underline;}
+
+/* left file */
+#leftbg { background:url(http://res.gdcct.com/images/admin/menu_bg.jpg) repeat-y; width:170px;}
+#leftbg TABLE { text-align:left;}
+A.menuChild:link {
+	COLOR: #036; TEXT-DECORATION: none
+}
+A.menuChild:visited {
+	COLOR: #036; TEXT-DECORATION: none
+}
+A.menuChild:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A.menuParent:link {
+	COLOR: #000; TEXT-DECORATION: none
+}
+A.menuParent:visited {
+	COLOR: #000; TEXT-DECORATION: none
+}
+A.menuParent:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.treef { COLOR: #fff; FONT-WEIGHT: bold; padding-left:24px; background:url(http://res.gdcct.com/images/admin/bg_title1.jpg) no-repeat;}
+.trees {  padding-left:24px; background:url(http://res.gdcct.com/images/admin/menu_bt.jpg) no-repeat;}
+
+/* right file*/
+#wrapper{width:100%;}
+body > #wrapper {height:auto; min-height:100%;}
+#main {padding-bottom: 54px;min-width:98%;}/* 必须使用和footer相同的高度,最小宽度ie6中加JS解决 */
+#footer {
+ position: relative;
+ margin-top: -54px; /* footer高度的负值 */
+ height: 54px;/* footer高度*/ 
+ width:98%;
+ min-width:98%;/*最小宽度ie6中加JS解决*/
+ clear:both;
+ text-align:center;
+ color:#000;
+}
+#infoot{text-align:center;height:54px;line-height:18px;width:98%;margin:0 auto; margin-top:15px;}
+
+TABLE.position {
+	WIDTH: 100%
+}
+TR.position {
+	BACKGROUND-COLOR: #f4f7fc; HEIGHT: 25px
+}
+TD.position {
+	BORDER-BOTTOM: #adceff 1px solid; PADDING-LEFT: 20px; BORDER-RIGHT: #adceff 1px solid
+}
+TABLE.listTable {
+	BACKGROUND-COLOR: #b1ceee; WIDTH: 98%
+}
+TR.listHeaderTr {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ebf4fd; HEIGHT: 25px; FONT-WEIGHT: bold
+}
+TR.listTr {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #fff; HEIGHT: 25px
+}
+TR.listAlternatingTr {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #fffdf0; HEIGHT: 25px
+}
+TR.listFooterTr {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ebf4fd; HEIGHT: 30px
+}
+TABLE.editTable {
+	BACKGROUND-COLOR: #b1ceee; WIDTH: 98%
+}
+TR.editHeaderTr {
+	BACKGROUND-COLOR: #ebf4fd; HEIGHT: 35px
+}
+TD.editHeaderTd {
+	PADDING-LEFT: 24px; FONT-WEIGHT: bold; font-size:14px;
+}
+TR.editTr {
+	HEIGHT: 30px
+}
+TD.editLeftTd {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #fffdf0; WIDTH: 150px
+}
+TD.editHeaderTdtit{
+	text-indent:24px; BACKGROUND-COLOR: #fffdf0;
+}
+TD.editRightTd {
+	BACKGROUND-COLOR: #fff; PADDING-LEFT: 10px; font-family:"宋体";
+}
+TR.editFooterTr {
+	BACKGROUND-COLOR: #ebf4fd; HEIGHT: 40px
+}
+TD.editFooterTd {
+	PADDING-LEFT: 150px
+}
+.qglink { font-weight:bold;}
+.fblink { background:url(http://res.gdcct.com/images/admin/indexpoint.gif) 0px 1px no-repeat; padding-left:10px; margin-left:10px;}
+.fbluebla { color:#036; font-weight:bold;}
+
+.popWindowMask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #d3ddea;
+	filter: ALPHA(opacity = 50);
+	-moz-opacity:0.5; 
+	opacity: 0.5;    
+	z-index: 1;
+}
+.popWindow{
+	display:none;
+	opacity:0;
+	position:absolute;
+	z-index:2;
+}
+.popWindowContent {
+	border: #99CCFF 1px solid;
+	/*overflow-y: auto;*/
+	background: #fff;
+	color: #036;
+	font-size: 12px;
+	line-height: 150%;
+}
+.popWindowHeader {
+	background: #99CCFF;
+	height: 24px;
+	padding: 3px 5px 0 5px;
+	color: #fff;
+}
+#txt100 {word-wrap : break-word; width:100px;}
+#txt200 {word-wrap : break-word; width:170px;}
+.currentFont { color:red;}/* 分页当前页页码样式 */
+
+/*2012-11-13*/
+.createDateTd, .orderPriceTd, .instationPayTd, .thirdPartyPayTd { position:relative;display: block;}
+@-moz-document url-prefix()
+{
+.createDateTd, .orderPriceTd, .instationPayTd, .thirdPartyPayTd { display: block; line-height:150%;}
+}
+.ordertimepop, .orderPricepop, .instationPaypop, .thirdPartyPaypop { border:#B1CEEE 1px solid; left:100%; top:0px; position:absolute; z-index:2;}
+table.ordertimetab, table.orderPricetab, table.instationPaytab, table.thirdPartyPaytab { background-color:#B1CEEE; text-align:center;}
+table.ordertimetab thead th, table.orderPricetab thead th, table.instationPaytab thead th, table.thirdPartyPaytab thead th { background-color:#EBF4FD; height:25px;}
+table.ordertimetab tbody td, table.orderPricetab tbody td, table.instationPaytab tbody td, table.thirdPartyPaytab tbody td { background-color:#fff; padding:5px;}
+table.ordertimetab tbody td.txtl, table.orderPricetab tbody td.txtl, table.instationPaytab tbody td.txtl, table.thirdPartyPaytab tbody td.txtl { text-align:left;}
+
+.tuaninvitepop { border:#B1CEEE 1px solid; width:600px; top:100px; left:50%; margin-left:-300px; position:absolute; z-index:9;}
+
+.qpop { float:left; background:url(http://res.gdcct.com/images/admin/btn_rank.gif) -102px -43px no-repeat; width:18px; height:18px; left:5px; cursor:help; position:relative;}
+.qpop p { background-color:#fffcee; border:#fed7b5 1px solid; padding:5px 10px; line-height:16px; color:#ff4000; width:260px; left:-50px; top:23px; position:absolute;}
+.qpop p s { background:url(http://res.gdcct.com/images/admin/btn_rank.gif) -105px -67px no-repeat; width:15px; height:7px; position:absolute; top:-7px; left:51px;}
+
+/*2012-08-03*/
+TABLE.cityTable { border:#b1ceee solid; border-width:3px 1px 1px 1px; background-color:#fafafa; margin:10px auto; width:98%;}
+.cityTd { border-bottom:#b1ceee 1px solid;}
+TR.cityTr TD { padding:5px 0;}
+.cityTable a { padding:3px 5px; display:inline-block; margin-right:10px;}
+.cityTable a:link, .cityTable a:visited {color:#036;}
+.cityTable a:hover, .cityTable a:active, .cityTable a.current {color:#fff; background-color:#06b; text-decoration:none;}
+/*2012-08-14*/
+.editCheck .editLeftTd, .editCheck .editRightTd {
+	background-color: #f5f6b3;
+}
+.editUnCheck .editLeftTd, .editUnCheck .editRightTd {
+	background-color: #f8b237;
+}
+
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+	margin-left:8px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+	color:#999;
+	font-size:12px;
+	width: 50px;
+}
+.Validform_right{
+	color:#71b83d;
+	padding-left:20px;
+	background:url(../images/right.png) no-repeat left center;
+}
+.Validform_wrong{
+	color:red;
+	padding-left:20px;
+	white-space:nowrap;
+	background:url(../images/error.png) no-repeat left center;
+}
+.Validform_loading{
+	padding-left:20px;
+	background:url(../images/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+	background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#000;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #000; border-top:none; text-align:left;}

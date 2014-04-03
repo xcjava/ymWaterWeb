@@ -8,15 +8,8 @@
     <link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
 	<style type="text/css">
 	body,ul,li{margin: 0;padding: 0;font: 12px normal "宋体", Arial, Helvetica, sans-serif;list-style: none;}
-	BODY {
-	BACKGROUND-COLOR: #fff; COLOR: #000;
-	margin-left: 3px;
-	margin-top: 0px;
-	margin-right: 3px;
-	margin-bottom: 0px;
-	}
+	body {BACKGROUND-COLOR: #fff; COLOR: #000;margin-left: 3px;margin-top: 0px;margin-right: 3px;margin-bottom: 0px;}
 	a{text-decoration: none;color: #000;font-size: 14px;}
-	
 	#tabbox{ width:100%; overflow:hidden; margin:5 auto;}
 	.tab_conbox{border: 1px solid #999;border-top: none;}
 	.tab_con{ display:none;}
@@ -38,7 +31,7 @@
 	});
 	</script>		
   </head>
-  <body>
+  <body style="min-width: 1100px;">
   	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
@@ -49,7 +42,7 @@
 	<div id="tabbox">
 	    <ul class="tabs" id="tabs">
 	       <li><a href="#">基本信息</a></li>
-	       <li <c:if test="${param.curr == 'clientAddress' }">class="curr"</c:if>><a href="#">客户地址</a></li>
+	       <li <c:if test="${param.curr == 'customerAddress' }">class="curr"</c:if>><a href="#">客户地址</a></li>
 	       <li <c:if test="${param.curr == 'contactInfo' }">class="curr"</c:if>><a href="#">联系信息</a></li>
 	       <li <c:if test="${param.curr == 'bankInfo' }">class="curr"</c:if>><a href="#">银行账号</a></li>
 	       <li <c:if test="${param.curr == 'bllAddress' }">class="curr"</c:if>><a href="#">业务地址</a></li>
@@ -58,34 +51,28 @@
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
-	           <iframe name="iframe1" scrolling="no"  width="100%" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
+	           <iframe name="iframe1" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	            
 	        <li class="tab_con">
-	        	<p>2<span><a href="http://www.51xuediannao.com/">懒人建站</a>2只收录实用和能提高用户体验的代码</span><br />
-				<span>我们只想解放出你的部分写代码时间来思考更高层次的设计，而不是要你懒惰、拼凑。</span></p>
+	        	<iframe name="iframe2" scrolling="no"  width="100%" height="435px" border="0" frameborder="0" src="${baseUrl }archives/customerAddressJsp.jspx"></iframe>
 	        </li>
 	    
 	        <li class="tab_con">
-	        	<p>3<span><a href="http://www.51xuediannao.com/">懒人建站</a>3只收录实用和能提高用户体验的代码</span><br />
-				<span>我们只想解放出你的部分写代码时间来思考更高层次的设计，而不是要你懒惰、拼凑。</span></p>
+	        	<iframe name="iframe3" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	    
 	        <li class="tab_con">
-	        	<p>4<span><a href="http://www.51xuediannao.com/">懒人建站</a>4只收录实用和能提高用户体验的代码</span><br />
-				<span>我们只想解放出你的部分写代码时间来思考更高层次的设计，而不是要你懒惰、拼凑。</span></p>
+	        	<iframe name="iframe4" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<p>4<span><a href="http://www.51xuediannao.com/">懒人建站</a>4只收录实用和能提高用户体验的代码</span><br />
-				<span>我们只想解放出你的部分写代码时间来思考更高层次的设计，而不是要你懒惰、拼凑。</span></p>
+	        	<iframe name="iframe5" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<p>4<span><a href="http://www.51xuediannao.com/">懒人建站</a>4只收录实用和能提高用户体验的代码</span><br />
-				<span>我们只想解放出你的部分写代码时间来思考更高层次的设计，而不是要你懒惰、拼凑。</span></p>
+	        	<iframe name="iframe6" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<p>4<span><a href="http://www.51xuediannao.com/">懒人建站</a>4只收录实用和能提高用户体验的代码</span><br />
-				<span>我们只想解放出你的部分写代码时间来思考更高层次的设计，而不是要你懒惰、拼凑。</span></p>
+	        	<iframe name="iframe7" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	    </ul>	
 	</div>

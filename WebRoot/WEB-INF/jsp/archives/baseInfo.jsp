@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title> </title>
+    <title>基本信息</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -16,7 +16,7 @@
 <body style="padding: 3px;">
 	<div id="main">
 		<form class="registerform" method="post" enctype="multipart/form-data" action="">
-			<table class="editTable" border="0" cellspacing="1" cellpadding="0" width="100%" align="center">
+			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<!-- <tr class="listHeaderTr">
 						<td colspan="4">添加新产品分类</td>

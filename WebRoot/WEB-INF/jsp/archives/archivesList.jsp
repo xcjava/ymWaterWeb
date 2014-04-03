@@ -28,7 +28,7 @@ $(function(){
 </script>
 </head>
 
-<body>
+<body style="min-width: 1100px;">
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">

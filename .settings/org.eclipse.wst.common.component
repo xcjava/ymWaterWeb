@@ -3,6 +3,12 @@
     <wb-module deploy-name="ymWaterWeb">
         <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/archives_ws_client"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/comm_ws_client"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/data_ws_client"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/freesettle_ws_client"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/manager_ws_client"/>
         <property name="context-root" value="/ymWaterWeb"/>
         <property name="java-output-path" value="/ymWaterWeb/WebRoot/WEB-INF/classes"/>
     </wb-module>

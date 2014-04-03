@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="config"/>
+	<classpathentry kind="src" path="archives_ws_client"/>
+	<classpathentry kind="src" path="comm_ws_client"/>
+	<classpathentry kind="src" path="data_ws_client"/>
+	<classpathentry kind="src" path="freesettle_ws_client"/>
+	<classpathentry kind="src" path="manager_ws_client"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>

@@ -115,7 +115,7 @@ border-style: none;
           <tr>
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" class="<c:choose><c:when test="${module == 'archives' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">档案管理</a></div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'archives' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="${baseUrl }admin/index.jspx?module=archives" target="_top">档案管理</a></div></td>
               </tr>
             </table></td>
             

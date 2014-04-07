@@ -35,7 +35,7 @@
   	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
-	 			<td class="position">当前位置: 团购管理 -&gt; 物流公司列表</td>
+	 			<td class="position">当前位置: 客户档案 -&gt; 客户档案信息</td>
 	 		</tr>
 	 	</tbody>
 	</table>
@@ -46,8 +46,8 @@
 	       <li <c:if test="${param.curr == 'contactInfo' }">class="curr"</c:if>><a href="#">联系信息</a></li>
 	       <li <c:if test="${param.curr == 'bankInfo' }">class="curr"</c:if>><a href="#">银行账号</a></li>
 	       <li <c:if test="${param.curr == 'bllAddress' }">class="curr"</c:if>><a href="#">业务地址</a></li>
-	       <li <c:if test="${param.curr == 'addShui' }">class="curr"</c:if>><a href="#">增值税</a></li>
-	       <li <c:if test="${param.curr == 'zhengjian' }">class="curr"</c:if>><a href="#">证件</a></li>
+	       <li <c:if test="${param.curr == 'vatInfo' }">class="curr"</c:if>><a href="#">增值税</a></li>
+	       <li <c:if test="${param.curr == 'credentials' }">class="curr"</c:if>><a href="#">证件</a></li>
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
@@ -59,20 +59,20 @@
 	        </li>
 	    
 	        <li class="tab_con">
-	        	<iframe name="iframe3" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe3" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/contactInfoJsp.jspx"></iframe>
 	        </li>
 	    
 	        <li class="tab_con">
-	        	<iframe name="iframe4" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe4" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/bankInfoJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<iframe name="iframe5" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe5" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/bllAddressJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<iframe name="iframe6" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe6" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/vatInfoJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<iframe name="iframe7" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe7" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/credentialsJsp.jspx"></iframe>
 	        </li>
 	    </ul>	
 	</div>

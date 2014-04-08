@@ -48,7 +48,7 @@ document.all("frmTitle").style.display=""
 	      <tr>
 	        <td  bgcolor="#1873aa" style="width:6px;">&nbsp;</td>
 	        <td width="165">
-	        	<iframe scrolling="auto" name="I1" height="100%" width="165" src="${baseUrl }/${module}/leftJsp.jspx" border="0" frameborder="0" scrolling="no"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+	        	<iframe scrolling="auto" name="I1" height="100%" width="165" src="${baseUrl }jsp/${module}/leftJsp.jspx" border="0" frameborder="0" scrolling="no"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
 	        </td>
 	      </tr>
 	    </table>
@@ -57,7 +57,7 @@ document.all("frmTitle").style.display=""
     	<SPAN class=navPoint id=switchPoint title=关闭/打开左栏><img src="${baseUrl }images/main_55.gif" name="img1" width=6 height=40 id=img1></SPAN>
     </td>
     <td width="100%" align="center" valign="top">
-    	<iframe name="main" scrolling="auto" height="100%" width="100%" border="0" frameborder="0" src="${baseUrl }/${module}/rightJsp.jspx"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+    	<iframe name="main" scrolling="auto" height="100%" width="100%" border="0" frameborder="0" src="${baseUrl }jsp/${module}/rightJsp.jspx"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
     </td>
   </tr>
 </table>

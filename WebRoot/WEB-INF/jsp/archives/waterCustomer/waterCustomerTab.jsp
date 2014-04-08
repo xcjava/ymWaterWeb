@@ -12,7 +12,7 @@
 	a{text-decoration: none;color: #000;font-size: 14px;}
 	#tabbox{ width:100%; overflow:hidden; margin:5 auto;}
 	.tab_conbox{border: 1px solid #999;border-top: none;}
-	.tab_con{ display:none;}
+	.tab_con{ display:;}
 	
 	.tabs{height: 32px;border-bottom:1px solid #999;border-left: 1px solid #999;width: 100%;}
 	.tabs li{height:31px;line-height:31px;float:left;border:1px solid #999;border-left:none;margin-bottom: -1px;background: #e0e0e0;overflow: hidden;position: relative;}
@@ -26,8 +26,18 @@
 	<script src="${baseUrl }js/jquery/plugins/jquery.jqtab.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$.jqtab("#tabs","#tab_conbox","click");
-		
+		//调用tab插件
+		$.jqtab("#tabs","#tab_conbox","#mainframe","click");
+		//重置iframe高度
+		setInterval(function reinitIframem(){
+			var iframe = document.getElementById("mainframe");
+			try{
+				var bHeight = iframe.contentWindow.document.body.scrollHeight;
+				var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+				var height = Math.max(bHeight, dHeight);
+				iframe.height =  height;
+			}catch (ex){}
+		}, 500);
 	});
 	</script>		
   </head>
@@ -41,16 +51,12 @@
 	</table>
 	<div id="tabbox">
 	    <ul class="tabs" id="tabs">
-	       <li><a href="#">用水用户</a></li>
-	       <li <c:if test="${param.curr == 'waterPoints' }">class="curr"</c:if>><a href="#">供水点</a></li>
+	       <li data-src="${baseUrl }jsp/archives/waterCustomer/waterCustomerInfoJsp.jspx"><a href="#">用水用户</a></li>
+	       <li data-src="${baseUrl }jsp/archives/waterCustomer/waterPointsJsp.jspx" <c:if test="${param.curr == 'waterPoints' }">class="curr"</c:if>><a href="#">供水点</a></li>
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
-	           <iframe name="iframe1" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }jsp/archives/waterCustomerInfoJsp.jspx"></iframe>
-	        </li>
-	            
-	        <li class="tab_con">
-	        	<iframe name="iframe2" scrolling="no"  width="100%" height="435px" border="0" frameborder="0" src="${baseUrl }jsp/archives/waterPointsJsp.jspx"></iframe>
+	           <iframe name="mainframe" id="mainframe" allowTransparency scrolling="no" onload="this.height=300;" scrolling="no"  width="100%" border="0" frameborder="0" src=""></iframe>
 	        </li>
 	    </ul>	
 	</div>

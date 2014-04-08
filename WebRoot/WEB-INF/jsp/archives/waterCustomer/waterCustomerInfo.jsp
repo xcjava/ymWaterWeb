@@ -193,7 +193,6 @@ $(function(){
 			if(!o.obj.is("form")){//验证表单元素时o.obj为该表单元素，全部验证通过提交表单时o.obj为该表单对象;
 				//var objtip=$(o.obj).parent().next().find(".Validform_checktip");
 				var objtip=o.obj.siblings(".Validform_checktip");
-				console.info(objtip);
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}

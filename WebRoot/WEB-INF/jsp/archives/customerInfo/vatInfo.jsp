@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>业务地址</title>
+    <title>增值税信息</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -19,104 +19,41 @@
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>省码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>00 湖南</option>
-								<option>01 广东</option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>市码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>00 长沙</option>
-								<option>01 常德</option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>区县码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option>01 广东</option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>街道码（乡镇）<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option>01 常德</option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>居委会码（村）<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>道路码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>小区码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>楼栋码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>单元码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>楼层码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
-							</select>
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>门牌号<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>增值税号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>业务联系人<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>增值税名<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span>
+						</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd"><span></span>增值税帐号<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span>
+						</td>
+						<td class="editLeftTd"><span></span>增值税银行<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span>
+						</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd"><span></span>电话号码<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span>
+						</td>
+						<td class="editRightTd" colspan="2"></td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd"><span></span>注册地址<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" colspan="3" >
+							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"></textarea>
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
@@ -130,10 +67,10 @@
 		<table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
 	      <tr class="listTableHead">
 	        <td width="4%"><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
-	        <td width="10%"><div><span>业务联系人</span></div></td>
-	        <td width="15%"><div><span>市码</span></div></td>
-	        <td width="14%"><div><span>区县码</span></div></td>
-	        <td width="16%"><div><span>街道码（乡镇）</span></div></td>
+	        <td width="10%"><div><span>增值税号</span></div></td>
+	        <td width="15%"><div><span>增值税名</span></div></td>
+	        <td width="14%"><div><span>增值税账号</span></div></td>
+	        <td width="16%"><div><span>增值税银行</span></div></td>
 	      </tr>
 	      <tr class="listTableTr">
 	        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
@@ -189,7 +126,6 @@ $(function(){
 			if(!o.obj.is("form")){//验证表单元素时o.obj为该表单元素，全部验证通过提交表单时o.obj为该表单对象;
 				//var objtip=$(o.obj).parent().next().find(".Validform_checktip");
 				var objtip=o.obj.siblings(".Validform_checktip");
-				console.info(objtip);
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}

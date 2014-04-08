@@ -46,11 +46,11 @@
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
-	           <iframe name="iframe1" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/waterCustomerInfoJsp.jspx"></iframe>
+	           <iframe name="iframe1" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }jsp/archives/waterCustomerInfoJsp.jspx"></iframe>
 	        </li>
 	            
 	        <li class="tab_con">
-	        	<iframe name="iframe2" scrolling="no"  width="100%" height="435px" border="0" frameborder="0" src="${baseUrl }archives/waterPointsJsp.jspx"></iframe>
+	        	<iframe name="iframe2" scrolling="no"  width="100%" height="435px" border="0" frameborder="0" src="${baseUrl }jsp/archives/waterPointsJsp.jspx"></iframe>
 	        </li>
 	    </ul>	
 	</div>

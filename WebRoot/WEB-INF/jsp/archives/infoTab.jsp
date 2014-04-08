@@ -51,28 +51,28 @@
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
-	           <iframe name="iframe1" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }archives/baseInfoJsp.jspx"></iframe>
+	           <iframe name="iframe1" scrolling="no"  width="100%" height="415px" border="0" frameborder="0" src="${baseUrl }jsp/archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	            
 	        <li class="tab_con">
-	        	<iframe name="iframe2" scrolling="no"  width="100%" height="435px" border="0" frameborder="0" src="${baseUrl }archives/customerAddressJsp.jspx"></iframe>
+	        	<iframe name="iframe2" scrolling="no"  width="100%" height="435px" border="0" frameborder="0" src="${baseUrl }jsp/archives/customerAddressJsp.jspx"></iframe>
 	        </li>
 	    
 	        <li class="tab_con">
-	        	<iframe name="iframe3" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/contactInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe3" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/contactInfoJsp.jspx"></iframe>
 	        </li>
 	    
 	        <li class="tab_con">
-	        	<iframe name="iframe4" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/bankInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe4" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/bankInfoJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<iframe name="iframe5" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/bllAddressJsp.jspx"></iframe>
+	        	<iframe name="iframe5" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/bllAddressJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<iframe name="iframe6" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/vatInfoJsp.jspx"></iframe>
+	        	<iframe name="iframe6" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/vatInfoJsp.jspx"></iframe>
 	        </li>
 	        <li class="tab_con">
-	        	<iframe name="iframe7" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }archives/credentialsJsp.jspx"></iframe>
+	        	<iframe name="iframe7" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/credentialsJsp.jspx"></iframe>
 	        </li>
 	    </ul>	
 	</div>

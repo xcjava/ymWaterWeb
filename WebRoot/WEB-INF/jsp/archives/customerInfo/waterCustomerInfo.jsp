@@ -20,53 +20,53 @@
 				<tbody>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>客户编号<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>客户名称<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="根据客户编号自动读取" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>收费单位名称<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="根据客户编号自动读取" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>用水用户编号<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>用水用户名称<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="根据客户编号自动读取" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>自定义查询号<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>原用户编号<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>用户分类<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>用户状态<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
@@ -75,57 +75,57 @@
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>行业分类<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>业务类别<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>合同容量<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>高耗能行业类别<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>开户日期<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>销户日期<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>到期日期<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>水费通知方式<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>水费结算方式<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
@@ -134,21 +134,21 @@
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>票据类型<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>停水标志<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>转供标志<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>
@@ -157,7 +157,7 @@
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>抄表段编号<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" colspan="5" width="250px">
+						<td class="editRightTd" colspan="5" width="200px">
 							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
 								<option></option>
 							</select>

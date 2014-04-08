@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
-	           <iframe name="iframe1" scrolling="no"  width="100%" border="0" frameborder="0" src="<%=basePath%>archives/baseInfoJsp.jspx"></iframe>
+	           <iframe name="iframe1" scrolling="no"  width="100%" border="0" frameborder="0" src="<%=basePath%>jsp/archives/baseInfoJsp.jspx"></iframe>
 	        </li>
 	            
 	        <li class="tab_con">

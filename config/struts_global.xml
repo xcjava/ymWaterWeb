@@ -6,15 +6,15 @@
 
 	<package name="public-default" extends="struts-default">
 		
-		<action name="*Jsp">
+		<action name="jsp/*Jsp">
 			<result name="success">/WEB-INF/jsp/{1}.jsp</result>
 		</action>
 		
-		<action name="*/*Jsp">
+		<action name="jsp/*/*Jsp">
 			<result name="success">/WEB-INF/jsp/{1}/{2}.jsp</result>
 		</action>
 			
-		<action name="*/*/*Jsp">
+		<action name="jsp/*/*/*Jsp">
 			<result name="success">/WEB-INF/jsp/{1}/{2}/{3}.jsp</result>
 		</action>
 		

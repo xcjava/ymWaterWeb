@@ -123,7 +123,7 @@ border-style: none;
             
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" class="<c:choose><c:when test="${module == 'data' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">数据采集</a></div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'data' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="${baseUrl }admin/index.jspx?module=data" target="_top">数据采集</a></div></td>
               </tr>
             </table></td>
             
@@ -131,7 +131,7 @@ border-style: none;
             
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" class="<c:choose><c:when test="${module == 'freesettle' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">费用计算</a></div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'costing' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="${baseUrl }admin/index.jspx?module=costing" target="_top">费用计算</a></div></td>
               </tr>
             </table></td>
             

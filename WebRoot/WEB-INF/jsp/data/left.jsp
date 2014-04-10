@@ -52,7 +52,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
             <td height="23" background="${baseUrl }images/main_47.gif" id="imgmenu1" class="menu_title" onMouseOver="this.className='menu_title2';" onClick="showsubmenu(1)" onMouseOut="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="18%">&nbsp;</td>
-                <td width="82%" class="STYLE1">客户档案</td>
+                <td width="82%" class="STYLE1">数据采集</td>
               </tr>
             </table></td>
           </tr>
@@ -67,7 +67,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/archivesListJsp.jspx" target="main">客户档案信息</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/collectTaskListJsp.jspx" target="main">采集任务列表</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -75,79 +75,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/infoTabJsp.jspx" target="main">基本信息</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/infoTabJsp.jspx?curr=customerAddress" target="main">客户地址</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/infoTabJsp.jspx?curr=contactInfo" target="main">联系信息</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/infoTabJsp.jspx?curr=bankInfo" target="main">银行账号</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/infoTabJsp.jspx?curr=bllAddress" target="main">业务地址</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/infoTabJsp.jspx?curr=vatInfo" target="main">增值税</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/infoTabJsp.jspx?curr=credentials" target="main">证件</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td height="23"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/waterCustomerListJsp.jspx" target="main">客户用水信息</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/waterCustomerTabJsp.jspx" target="main">用水用户</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/waterCustomerTabJsp.jspx?curr=waterPoints" target="main">供水点</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/collectTaskDetailJsp.jspx" target="main">采集任务详细</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -167,7 +95,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
             <td height="23" background="${baseUrl }images/main_47.gif" id="imgmenu2" class="menu_title" onmouseover="this.className='menu_title2';" onclick="showsubmenu(2)" onmouseout="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td width="18%">&nbsp;</td>
-                  <td width="82%" class="STYLE1">计量点档案</td>
+                  <td width="82%" class="STYLE1">集中器抄控</td>
                 </tr>
             </table></td>
           </tr>
@@ -175,65 +103,58 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
             <td background="${baseUrl }images/main_51.gif" id="submenu2"><div class="sec_menu" >
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-                          <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">IC卡预付费水表</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">红外卡预付费水表</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">无线智能水表</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                    </table></td>
-                  </tr>
-                  <tr>
-                    <td height="5"><img src="${baseUrl }images/main_52.gif" width="151" height="5" /></td>
-                  </tr>
-                </table>
-            </div></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td height="23" background="${baseUrl }images/main_47.gif" id="imgmenu3" class="menu_title" onmouseover="this.className='menu_title2';" onclick="showsubmenu(3)" onmouseout="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="18%">&nbsp;</td>
-                  <td width="82%" class="STYLE1">采集点管理</td>
-                </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td background="${baseUrl }images/main_51.gif" id="submenu3" style="DISPLAY: "><div class="sec_menu" >
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-                          <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">集中器</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                    </table></td>
+                    <td>
+	                <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+	                  <tr>
+	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
+	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/concentratorCopyListJsp.jspx" target="main">集中器抄控列表</a></span></td>
+	                        </tr>
+	                    </table></td>
+	                  </tr>
+	                  <tr>
+	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
+	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/concentratorOperationListJsp.jspx" target="main">功能操作</a></span></td>
+	                        </tr>
+	                    </table></td>
+	                  </tr>
+	                  <tr>
+	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
+	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/concentratorTestListJsp.jspx" target="main">抄参数页面信息</a></span></td>
+	                        </tr>
+	                    </table></td>
+	                  </tr>
+	                  <tr>
+	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
+	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/concentratorTestMeterJsp.jspx" target="main">表信息页面信息</a></span></td>
+	                        </tr>
+	                    </table></td>
+	                  </tr>
+	                  <tr>
+	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
+	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/dayCopyInfoJsp.jspx" target="main">抄日结信息</a></span></td>
+	                        </tr>
+	                    </table></td>
+	                  </tr>
+	                  <tr>
+	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
+	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/data/shizhaobiaomaJsp.jspx" target="main">实召表码</a></span></td>
+	                        </tr>
+	                    </table></td>
+	                  </tr>
+	                </table>
+                	</td>
                   </tr>
                   <tr>
                     <td height="5"><img src="${baseUrl }images/main_52.gif" width="151" height="5" /></td>

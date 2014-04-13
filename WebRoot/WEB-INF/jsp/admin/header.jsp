@@ -139,7 +139,7 @@ border-style: none;
             
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" class="<c:choose><c:when test="${module == 'freesettle2' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">费用结算</a></div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'settlement' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="${baseUrl }admin/index.jspx?module=settlement" target="_top">费用结算</a></div></td>
               </tr>
             </table></td>
             
@@ -147,7 +147,7 @@ border-style: none;
             
             <td width="63"><table width="78" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" class="<c:choose><c:when test="${module == 'searchAnalysis' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">查询与分析</a></div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'searchAnalysis' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="${baseUrl }admin/index.jspx?module=searchAnalysis" target="_top">查询与分析</a></div></td>
               </tr>
             </table></td>
             
@@ -155,7 +155,7 @@ border-style: none;
             
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" class="<c:choose><c:when test="${module == 'manager' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="#">系统管理</a></div></td>
+                <td height="20" class="<c:choose><c:when test="${module == 'manager' }">tdhover</c:when><c:otherwise>navTD</c:otherwise></c:choose>"><div align="center" class="STYLE3"><a href="${baseUrl }admin/index.jspx?module=manager" target="_top">系统管理</a></div></td>
               </tr>
             </table></td>
             <td>&nbsp;</td>

@@ -67,7 +67,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/manageDetailJsp.jspx" target="main">资料修改</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/personalInformationJsp.jspx" target="main">资料修改</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -103,7 +103,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">操作人员_添加修改</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/managerDetailJsp.jspx" target="main">操作人员_添加修改</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -111,7 +111,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">查询人员信息</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/managerListJsp.jspx" target="main">查询人员信息</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -119,7 +119,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">修改人员信息</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/modifyManagerJsp.jspx" target="main">修改人员信息</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -155,7 +155,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">参数修改</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/modifyParamJsp.jspx" target="main">参数修改</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -163,7 +163,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">参数查询</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/paramListJsp.jspx" target="main">参数查询</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -199,7 +199,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">部门列表</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/departmentListJsp.jspx" target="main">部门列表</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -207,7 +207,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">部门编辑</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/departmentDetailJsp.jspx" target="main">部门编辑</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -215,7 +215,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">收费单位列表</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/chargingUnitListJsp.jspx" target="main">收费单位列表</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -223,7 +223,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">收费单位编辑</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/chargingUnitDetailJsp.jspx" target="main">收费单位编辑</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -259,7 +259,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">价目列表</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/priceTemplateListJsp.jspx" target="main">价目列表</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
@@ -267,7 +267,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/*Jsp.jspx" target="main">价目修改</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/priceTemplateDetailJsp.jspx" target="main">价目修改</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>

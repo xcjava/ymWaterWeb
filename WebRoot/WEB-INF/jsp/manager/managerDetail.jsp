@@ -87,7 +87,7 @@
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /> <input type="button" value="返 回" />
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.history.go(-1);"value="返 回">
 			</div>
 		</form>
 	</div>

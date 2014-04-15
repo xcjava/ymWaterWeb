@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,6 +26,9 @@ $(function(){
 		}
 		flag = !flag;
 	});
+	$('#addManager').click(function(){
+		window.location = '${baseUrl }jsp/manager/managerDetailJsp.jspx';
+	});
 });
 </script>
 </head>
@@ -35,7 +40,8 @@ $(function(){
 	 			<td class="position">当前位置: 系统管理 -&gt;  管理员列表</td>
 	 		</tr>
 	 	</tbody>
-	</table>	
+	</table>
+	<form action="${baseUrl }manager/managerList.jspx"  method="post" id="searchForm">
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
@@ -48,16 +54,16 @@ $(function(){
 				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
 				        <td>账号：</td>
 				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				      	<td><input class="button" id="" type="button" value="新增" name=""></td>
+				      	<td><input class="button" id="addManager" type="button" value="新增" name=""></td>
 				      	<td><input class="button" id="" type="button" value="修改" name=""></td>
-				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
+				      	<td><input class="button" id="" type="submit" value="查询" name=""></td>
 				      </tr>
 			      </tbody>
 			    </table>	
 			</div>
 		</td></tr>
 	</table>
-
+	</form>
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
@@ -69,45 +75,26 @@ $(function(){
         <td width=""><div><span>启用状态</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
+      <c:forEach var="item" items="${list }">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>1</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
+        <td><div>${item.managerId }</div></td>
+        <td><div>${item.managerId }</div></td>
+        <td><div>${item.name }</div></td>
+        <td><div>${item.chargingUnitId }</div></td>
+        <td><div>${item.departmentId }</div></td>
+        <td>
+        	<c:if test="${item.status == -1 }">停用</c:if>
+        	<c:if test="${item.status == 1 }">启用</c:if>
+        	<c:if test="${item.status == 0 }">新建</c:if>
+        </td>
         <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
       </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>2</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>3</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      
+      </c:forEach>
 	 	<tr class="listFooterTr">
 		<td colSpan=8>
-		<table style="FONT-SIZE: 14px" border=0 cellSpacing=2 cellPadding=0 width="100%">
-		<tbody>
-		<tr>
-		<td height=25 align=center>[<span class=currentFont>1</span>][<a class=other_page href="#">2</a>][<a class=other_page href="">3</a>][<a class=other_page href="">4</a>][<a class=other_page href="">5</a>][<a class=other_page href="">6</a>][<a class=other_page href="">7</a>][<a class=other_page href="">8</a>]...[<a class=other_page href="">1806</a>]<a class=other_page href="">下一页</a> </td></tr>
-		<tr>
-		<td align=center heigyh="25">总共<font color=red>36101</font>条记录， 当前显示第1-20条记录。跳转到 <input style="WIDTH: 40px" id=pagerID_tbPager jQuery172011253913807769178="36">页 <input value=确定 type=button jQuery172011253913807769178="37"> </td></tr></tbody></table></td>
+	      <gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="/admin/m/mkConsultList.jspx&reply=${reply}&productId=${productId}&beginDate=${beginDate}&endDate=${endDate}" pageDynamicURLFormat="/admin/m/mkConsultList.jspx?pageIndex={0}&reply=${reply}&productId=${productId}&beginDate=${beginDate}&endDate=${endDate}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+		</td>
 		</tr>      
     </table>
 </body>

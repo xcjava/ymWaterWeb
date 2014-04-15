@@ -28,5 +28,5 @@
 	<!--导入各个模块文件--> 
 	<include file="struts_global.xml"></include>
 	<include file="struts_admin_global.xml"></include>
-	<!-- <include file="struts_archives.xml"></include> -->
+	<include file="struts_manager.xml"></include>
 </struts>

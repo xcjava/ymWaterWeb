@@ -17,63 +17,64 @@
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
-	 			<td class="position">当前位置: 系统管理 -&gt;  收费单位</td>
+	 			<td class="position">当前位置: 系统管理 -&gt;  收费单位编辑</td>
 	 		</tr>
 	 	</tbody>
 	</table>
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="">
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>收费单位编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="unitId" name="unitId" value="${chargingUnit.unitId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="name" name="name" value="${chargingUnit.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>上级收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>11111</option>
+							<select name="parentUnitId" disabled="disabled">
+								<option selected="" value="">--请选择--</option>
+								<c:forEach items="${parentUnitList }" var="parentUnitItem">
+									<option value="${parentUnitItem.unitId }" <c:if test="${chargingUnit.parentUnitId == parentUnitItem.unitId }">selected="selected"</c:if>>${parentUnitItem.name }</option>
+								</c:forEach>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>联系人<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="linkMan" name="linkMan" value="${chargingUnit.linkMan }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>联系电话<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="linkTel" name="linkTel" value="${chargingUnit.linkTel }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>联系地址<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="linkAddr" name="linkAddr" value="${chargingUnit.linkAddr }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>备注<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"></textarea>
-							<span class="Validform_checktip"></span>
+							<textarea style="float: left;" rows="3" cols="50" name="remark">${chargingUnit.remark }</textarea>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /> <input type="button" value="返 回" />
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manager/chargingUnitList.jspx';"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -83,7 +84,9 @@
 <script type="text/javascript">
 $(function(){
 	//$(".registerform").Validform();  //就这一行代码！;
-		
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 	$(".registerform").Validform({
 		tiptype:function(msg,o,cssctl){
 			//msg：提示信息;
@@ -95,6 +98,17 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if('${chargingUnit.unitId }' == ''){
+				$(".registerform").attr('action','${baseUrl }manager/saveChargingUnit.jspx');
+			}else{
+				$(".registerform").attr('action','${baseUrl }manager/updateChargingUnit.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
 });

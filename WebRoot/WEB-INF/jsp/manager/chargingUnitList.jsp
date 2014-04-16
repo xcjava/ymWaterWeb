@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,6 +12,9 @@
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script>
 $(function(){
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 	//全选
 	var flag = true;
 	$('#selectAllBtn').click(function(){
@@ -24,6 +29,15 @@ $(function(){
 		}
 		flag = !flag;
 	});
+	$('#addChargingUnit').click(function(){
+		window.location = '${baseUrl }manager/chargingUnitDetail.jspx';
+	});
+	$('a[id^="foreverDel-"]').click(function(){
+		var unitId = $(this).attr('id').substring(11,$(this).attr('id').length);
+		if(confirm('是否永久删除该收费单位？')){
+			window.location = '${baseUrl }manager/deleteChargingUnit.jspx?unitId='+unitId;
+		}
+	});
 });
 </script>
 </head>
@@ -32,7 +46,7 @@ $(function(){
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
-	 			<td class="position">当前位置: 系统管理 -&gt;  部门</td>
+	 			<td class="position">当前位置: 系统管理 -&gt;  收费单位列表</td>
 	 		</tr>
 	 	</tbody>
 	</table>	
@@ -52,8 +66,8 @@ $(function(){
 							</select>
 						</td>
 				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
-				      	<td><input class="button" id="" type="button" value="新增" name=""></td>
-				      	<td><input class="button" id="" type="button" value="修改" name=""></td>
+				      	<td><input class="button" id="addChargingUnit" type="button" value="新增" name=""></td>
+				      	<td><input class="button" id="" type="button" value="启用" name=""></td>
 				      	<td><input class="button" id="" type="button" value="删除" name=""></td>
 				      </tr>
 			      </tbody>
@@ -66,48 +80,37 @@ $(function(){
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
         <td width=""><div><span>序号</span></div></td>
-        <td width=""><div><span>部门名称</span></div></td>
+        <td width=""><div><span>收费单位编号</span></div></td>
+        <td width=""><div><span>上级收费单位</span></div></td>
+        <td width=""><div><span>收费单位名称</span></div></td>
         <td width=""><div><span>联系人</span></div></td>
         <td width=""><div><span>联系电话</span></div></td>
-        <td width=""><div><span>收费单位</span></div></td>
+        <td width=""><div><span>地址</span></div></td>
+       	<td width=""><div><span>状态</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
+      <c:forEach var="chargingUni" items="${list }">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>1</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
+        <td><div>${chargingUni.unitId }</div></td>
+        <td><div>${chargingUni.unitId }</div></td>
+        <td><div>${chargingUni.parentUnitId }</div></td>
+        <td><div>${chargingUni.name }</div></td>
+        <td><div>${chargingUni.linkMan }</div></td>
+        <td><div>${chargingUni.linkTel }</div></td>
+        <td><div>${chargingUni.linkAddr }</div></td>
+        <td><div>
+        	<c:if test="${chargingUni.status == 0 }">新建</c:if>
+        	<c:if test="${chargingUni.status == 1 }">启用</c:if>
+        	<c:if test="${chargingUni.status == -1 }">删除</c:if><div>
+        </td>
+        <td><div><a href="${baseUrl }manager/chargingUnitDetail.jspx?unitId=${chargingUni.unitId }">修改</a><c:if test="${chargingUni.status == 0 }"> | <a href="#" id="foreverDel-${chargingUni.unitId }">永久删除</a></c:if></div></td>
       </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>2</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>3</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      
+      </c:forEach>
 	 	<tr class="listFooterTr">
-		<td colSpan=7>
-		<table style="FONT-SIZE: 14px" border=0 cellSpacing=2 cellPadding=0 width="100%">
-		<tbody>
-		<tr>
-		<td height=25 align=center>[<span class=currentFont>1</span>][<a class=other_page href="#">2</a>][<a class=other_page href="">3</a>][<a class=other_page href="">4</a>][<a class=other_page href="">5</a>][<a class=other_page href="">6</a>][<a class=other_page href="">7</a>][<a class=other_page href="">8</a>]...[<a class=other_page href="">1806</a>]<a class=other_page href="">下一页</a> </td></tr>
-		<tr>
-		<td align=center heigyh="25">总共<font color=red>36101</font>条记录， 当前显示第1-20条记录。跳转到 <input style="WIDTH: 40px" id=pagerID_tbPager jQuery172011253913807769178="36">页 <input value=确定 type=button jQuery172011253913807769178="37"> </td></tr></tbody></table></td>
+		<td colSpan=10>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/chargingUnitList.jspx" pageDynamicURLFormat="${baseUrl }manager/chargingUnitList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+		</td>
 		</tr>      
     </table>
 </body>

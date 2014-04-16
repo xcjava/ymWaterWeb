@@ -5,9 +5,36 @@
 <struts>
 
 	<package name="manager" extends="admin-global" namespace="/manager">
-		
+		<!-- 管理员列表 -->
 		<action name="managerList" class="com.ymsino.water.view.web.manager.ManagerList">
 			<result>/WEB-INF/jsp/manager/managerList.jsp</result>
+		</action>
+		
+		<!-- 收费单位列表 -->
+		<action name="chargingUnitList" class="com.ymsino.water.view.web.manager.ChargingUnitList">
+			<result>/WEB-INF/jsp/manager/chargingUnitList.jsp</result>
+		</action>
+		
+		<!-- 收费单位添加、详细页 -->
+		<action name="chargingUnitDetail" class="com.ymsino.water.view.web.manager.ChargingUnitDetail">
+			<result>/WEB-INF/jsp/manager/chargingUnitDetail.jsp</result>
+		</action>
+		<!-- 添加收费单位 -->
+		<action name="saveChargingUnit" class="com.ymsino.water.view.web.manager.SaveChargingUnit">
+			<result name="success" type="redirect">/manager/chargingUnitDetail.jspx?unitId=${unitId}&amp;message=${message}</result>
+		</action>
+		<!-- 更新收费单位 -->
+		<action name="updateChargingUnit" class="com.ymsino.water.view.web.manager.UpdateChargingUnit">
+			<result name="success" type="redirect">/manager/chargingUnitDetail.jspx?unitId=${unitId}&amp;message=${message}</result>
+		</action>
+		<!-- 永久删除收费单位 -->
+		<action name="deleteChargingUnit" class="com.ymsino.water.view.web.manager.DeleteChargingUnit">
+			<result name="success" type="redirect">/manager/chargingUnitList.jspx?message=${message}</result>
+		</action>
+		
+		<!-- 部门列表 -->
+		<action name="departmentList" class="com.ymsino.water.view.web.manager.DepartmentList">
+			<result>/WEB-INF/jsp/manager/departmentList.jsp</result>
 		</action>
 	</package>
 </struts>

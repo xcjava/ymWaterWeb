@@ -13,28 +13,23 @@ import com.gmail.xcjava.base.hql.QueryCondition;
 import com.gmail.xcjava.base.hql.QueryParamWriter;
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ymsino.water.service.manager.manager.ManagerReturn;
-import com.ymsino.water.service.manager.manager.ManagerService;
-import com.ymsino.water.service.manager.manager.QueryParam;
+import com.ymsino.water.service.manager.priceTemplate.PriceTemplateReturn;
+import com.ymsino.water.service.manager.priceTemplate.PriceTemplateService;
+import com.ymsino.water.service.manager.priceTemplate.QueryParam;
 import com.ymsino.water.view.web.common.PageModel;
 
-public class ManagerList extends ActionSupport {
+public class PriceTemplateList extends ActionSupport {
 
 
 	private static final long serialVersionUID = 6970850564906342550L;
-	private ManagerService managerService;
-    private Short status = null;
-    private String userId = null;
-    private String chargingUnitId = null;
-    private String departmentId = null;
+	private PriceTemplateService priceTemplateService;
     private PageModel pageModel = new PageModel();
     private int pageIndex;
-	private int recordCount;
 	private int pageSize;
 	private String message = "";
-    private List<ManagerReturn> list = new ArrayList<ManagerReturn>();
+    private List<PriceTemplateReturn> list = new ArrayList<PriceTemplateReturn>();
 	public String execute() throws Exception, UnsupportedEncodingException{
-		
+
 		if (pageSize == 0)	pageSize = 20;
 		if (pageIndex == 0)	pageIndex = 1;
 		int recordCount=0;
@@ -46,50 +41,21 @@ public class ManagerList extends ActionSupport {
 		String chargingUnitId = (String)session.getAttribute("chargingUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
+		//根据当前管理员的收费单位查询
 		if(!StringUtil.isEmpty(chargingUnitId)){
 			qpw.addQueryParam("parentUnits", "%|"+chargingUnitId+"|%", QueryCondition.QC_LIKE);
-		}
-		if(!StringUtil.isEmpty(chargingUnitId)){
-			chargingUnitId = chargingUnitId.trim();
-			qpw.addQueryParam("chargingUnitId", chargingUnitId, QueryCondition.QC_EQ);
-		}
-		if(!StringUtil.isEmpty(departmentId)){
-			departmentId = departmentId.trim();
-			qpw.addQueryParam("departmentId", departmentId, QueryCondition.QC_EQ);
-		}
-		if(status != null){
-			qpw.addQueryParam("status", status, QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
 		qpm.setQueryLink(qpw.getQueryLink());
 		qpm.setQueryValue(qpw.getQueryValue());
-		list = managerService.getListpager(qpm, pageModel.getStartRow(), pageModel.getPageSize());
-		recordCount = managerService.getCount(qpm);
+		list = priceTemplateService.getListpager(qpm, pageModel.getStartRow(), pageModel.getPageSize());
+		recordCount = priceTemplateService.getCount(qpm);
 		pageModel.setRecordCount(recordCount);
 		
 		return SUCCESS;
 	}
 	
-
-	public Short getStatus() {
-		return status;
-	}
-
-
-	public void setStatus(Short status) {
-		this.status = status;
-	}
-
-
-	public String getUserId() {
-		return userId;
-	}
-
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public int getPageIndex() {
 		return pageIndex;
@@ -98,16 +64,6 @@ public class ManagerList extends ActionSupport {
 
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;
-	}
-
-
-	public int getRecordCount() {
-		return recordCount;
-	}
-
-
-	public void setRecordCount(int recordCount) {
-		this.recordCount = recordCount;
 	}
 
 
@@ -120,19 +76,13 @@ public class ManagerList extends ActionSupport {
 		this.pageSize = pageSize;
 	}
 	
-
-	public List<ManagerReturn> getList() {
+	public List<PriceTemplateReturn> getList() {
 		return list;
 	}
 
 
-	public void setList(List<ManagerReturn> list) {
-		this.list = list;
-	}
-
-
-	public void setManagerService(ManagerService managerService) {
-		this.managerService = managerService;
+	public void setPriceTemplateService(PriceTemplateService priceTemplateService) {
+		this.priceTemplateService = priceTemplateService;
 	}
 
 
@@ -143,26 +93,6 @@ public class ManagerList extends ActionSupport {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-
-	public String getChargingUnitId() {
-		return chargingUnitId;
-	}
-
-
-	public void setChargingUnitId(String chargingUnitId) {
-		this.chargingUnitId = chargingUnitId;
-	}
-
-
-	public String getDepartmentId() {
-		return departmentId;
-	}
-
-
-	public void setDepartmentId(String departmentId) {
-		this.departmentId = departmentId;
 	}
 
 

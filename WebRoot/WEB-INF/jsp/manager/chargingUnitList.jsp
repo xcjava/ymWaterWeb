@@ -149,7 +149,7 @@ $(function(){
       </c:forEach>
 	 	<tr class="listFooterTr">
 		<td colSpan=10>
-			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/chargingUnitList.jspx" pageDynamicURLFormat="${baseUrl }manager/chargingUnitList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/chargingUnitList.jspx?name=${urlName }&status=${status }" pageDynamicURLFormat="${baseUrl }manager/chargingUnitList.jspx?pageIndex={0}&name=${urlName }&status=${status }" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 		</tr>      
     </table>

@@ -31,6 +31,14 @@
 		<action name="deleteChargingUnit" class="com.ymsino.water.view.web.manager.DeleteChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitList.jspx?message=${message}</result>
 		</action>
+		<!-- 启用收费单位 -->
+		<action name="openChargingUnit" class="com.ymsino.water.view.web.manager.OpenChargingUnit">
+			<result name="success" type="redirect">/manager/chargingUnitList.jspx?message=${message}</result>
+		</action>
+		<!-- 禁用收费单位 -->
+		<action name="closeChargingUnit" class="com.ymsino.water.view.web.manager.CloseChargingUnit">
+			<result name="success" type="redirect">/manager/chargingUnitList.jspx?message=${message}</result>
+		</action>
 		
 		<!-- 部门列表 -->
 		<action name="departmentList" class="com.ymsino.water.view.web.manager.DepartmentList">

@@ -23,7 +23,7 @@
 		<action name="saveChargingUnit" class="com.ymsino.water.view.web.manager.SaveChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitDetail.jspx?unitId=${unitId}&amp;message=${message}</result>
 		</action>
-		<!-- 更新收费单位 -->
+		<!-- 修改收费单位 -->
 		<action name="updateChargingUnit" class="com.ymsino.water.view.web.manager.UpdateChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitDetail.jspx?unitId=${unitId}&amp;message=${message}</result>
 		</action>
@@ -43,6 +43,26 @@
 		<!-- 部门列表 -->
 		<action name="departmentList" class="com.ymsino.water.view.web.manager.DepartmentList">
 			<result>/WEB-INF/jsp/manager/departmentList.jsp</result>
+		</action>
+		<!-- 部门添加、详细页 -->
+		<action name="departmentDetail" class="com.ymsino.water.view.web.manager.DepartmentDetail">
+			<result>/WEB-INF/jsp/manager/departmentDetail.jsp</result>
+		</action>
+		<!-- 添加部门 -->
+		<action name="saveDepartment" class="com.ymsino.water.view.web.manager.SaveDepartment">
+			<result name="success" type="redirect">/manager/departmentDetail.jspx?deptId=${deptId}&amp;message=${message}</result>
+		</action>
+		<!-- 修改部门 -->
+		<action name="updateDepartment" class="com.ymsino.water.view.web.manager.UpdateDepartment">
+			<result name="success" type="redirect">/manager/departmentDetail.jspx?deptId=${deptId}&amp;message=${message}</result>
+		</action>
+		<!-- 启用部门 -->
+		<action name="openDepartment" class="com.ymsino.water.view.web.manager.OpenDepartment">
+			<result name="success" type="redirect">/manager/departmentList.jspx?message=${message}</result>
+		</action>
+		<!-- 禁用部门 -->
+		<action name="closeDepartment" class="com.ymsino.water.view.web.manager.CloseDepartment">
+			<result name="success" type="redirect">/manager/departmentList.jspx?message=${message}</result>
 		</action>
 	</package>
 </struts>

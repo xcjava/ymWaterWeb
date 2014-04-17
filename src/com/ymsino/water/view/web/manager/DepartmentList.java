@@ -25,9 +25,9 @@ public class DepartmentList extends ActionSupport {
 	private DepartmentService departmentService;
     private PageModel pageModel = new PageModel();
     private int pageIndex;
-	private int recordCount;
 	private int pageSize;
 	private String message = "";
+	private String status;
     private List<DepartmentReturn> list = new ArrayList<DepartmentReturn>();
 	public String execute() throws Exception, UnsupportedEncodingException{
 		//初始化
@@ -44,6 +44,9 @@ public class DepartmentList extends ActionSupport {
 		QueryParamWriter qpw = new QueryParamWriter();
 		if(!StringUtil.isEmpty(chargingUnitId)){
 			qpw.addQueryParam("parentUnits", "%|"+chargingUnitId+"|%", QueryCondition.QC_LIKE);
+		}
+		if(!StringUtil.isEmpty(status)){
+			qpw.addQueryParam("status", Short.valueOf(status), QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
@@ -65,17 +68,6 @@ public class DepartmentList extends ActionSupport {
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;
 	}
-
-
-	public int getRecordCount() {
-		return recordCount;
-	}
-
-
-	public void setRecordCount(int recordCount) {
-		this.recordCount = recordCount;
-	}
-
 
 	public int getPageSize() {
 		return pageSize;
@@ -113,6 +105,16 @@ public class DepartmentList extends ActionSupport {
 
 	public void setPageModel(PageModel pageModel) {
 		this.pageModel = pageModel;
+	}
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

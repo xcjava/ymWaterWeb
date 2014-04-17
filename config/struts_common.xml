@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+<struts>
+
+	<package name="common" extends="proscenium-global" namespace="/common">
+	
+		<!-- 获取收费单位列表ajax，主要用于下拉框选择 -->
+		<action name="getChargingUnitListAjax" class="com.ymsino.water.view.web.common.GetChargingUnitListAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+	</package>
+</struts>

@@ -62,6 +62,7 @@ public class Login extends ActionSupport {
 		DepartmentReturn department = departmentService.getByDeptId(manager.getDepartmentId());
 		request.getSession().setAttribute("department", JsonUtil.getJSONString(department, null));
 		request.getSession().setAttribute("manager", JsonUtil.getJSONString(manager, null));
+		request.getSession().setAttribute("chargingUnitId", manager.getChargingUnitId());
 		return SUCCESS;
 	}
 

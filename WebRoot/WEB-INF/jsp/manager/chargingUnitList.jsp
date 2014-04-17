@@ -16,7 +16,7 @@ $(function(){
 		alert('${param.message}');
 	}
 	//全选
-	var flag = true;
+	/*var flag = true;
 	$('#selectAllBtn').click(function(){
 		if(flag){
 			$.each($('.cb'), function(index){
@@ -28,7 +28,15 @@ $(function(){
 			});
 		}
 		flag = !flag;
-	});
+	});*/
+	//只能选中一个
+    $("input[type='checkbox']").click(function() {
+        if ($(this).attr("checked") == "checked") {
+            $("input[type='checkbox']").attr("checked", false);
+            $(this).attr("checked", "checked");
+            $("#dataId").val($(this).attr("name"));
+        }
+    });
 	$('#addChargingUnit').click(function(){
 		window.location = '${baseUrl }manager/chargingUnitDetail.jspx';
 	});
@@ -36,6 +44,30 @@ $(function(){
 		var unitId = $(this).attr('id').substring(11,$(this).attr('id').length);
 		if(confirm('是否永久删除该收费单位？')){
 			window.location = '${baseUrl }manager/deleteChargingUnit.jspx?unitId='+unitId;
+		}
+	});
+	$('#status').val(${status});
+	$('#searchBtn').click(function(){
+		$('#searchForm').submit();
+	});
+	$('#openStatusBtn').click(function(){
+		var unitId = $("#dataId").val();
+		if(unitId == ''){
+			alert("请选择一条数据！");
+			return false;
+		}
+		if(confirm('是否启用该收费单位？')){
+			window.location = '${baseUrl }manager/openChargingUnit.jspx?unitId='+unitId;
+		}
+	});
+	$('#closeStatusBtn').click(function(){
+		var unitId = $("#dataId").val();
+		if(unitId == ''){
+			alert("请选择一条数据！");
+			return false;
+		}
+		if(confirm('是否禁用该收费单位？')){
+			window.location = '${baseUrl }manager/closeChargingUnit.jspx?unitId='+unitId;
 		}
 	});
 });
@@ -49,7 +81,9 @@ $(function(){
 	 			<td class="position">当前位置: 系统管理 -&gt;  收费单位列表</td>
 	 		</tr>
 	 	</tbody>
-	</table>	
+	</table>
+	<form action="${baseUrl }manager/chargingUnitList.jspx" method="get" id="searchForm">
+	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
@@ -57,28 +91,34 @@ $(function(){
 			      <tbody>
 				      <tr>
 				        <td>收费单位：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
+				        <td><input class="textbox" id="name" name="name" style="width: 120px" value="${name }" /></td>
 				        <td>状态：</td>
 				        <td>
-							<select>
-								<option>正常</option>
-								<option>已删除</option>
+							<select id="status" name="status">
+								<option value="">--请选择--</option>
+								<option value="0">新建</option>
+								<option value="1">正常</option>
+								<option value="-1">停用</option>
 							</select>
 						</td>
-				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
+				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
 				      	<td><input class="button" id="addChargingUnit" type="button" value="新增" name=""></td>
-				      	<td><input class="button" id="" type="button" value="启用" name=""></td>
-				      	<td><input class="button" id="" type="button" value="删除" name=""></td>
+				      	<td></td>
+				      	<td></td>
+				      	<td></td>
+				      	<td><input class="button" type="button" value="启用" id="openStatusBtn"></td>
+				      	<td><input class="button" type="button" value="停用" id="closeStatusBtn"></td>
 				      </tr>
+				      
 			      </tbody>
 			    </table>	
 			</div>
 		</td></tr>
 	</table>
-
+	</form>
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
-        <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
+        <td width=""><div align="center"><input type="checkbox" name="" id="selectAllBtn" /></div></td>
         <td width=""><div><span>序号</span></div></td>
         <td width=""><div><span>收费单位编号</span></div></td>
         <td width=""><div><span>上级收费单位</span></div></td>
@@ -91,7 +131,7 @@ $(function(){
       </tr>
       <c:forEach var="chargingUni" items="${list }">
       <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
+        <td><div><input type="checkbox" name="${chargingUni.unitId }" class="cb" /></div></td>
         <td><div>${chargingUni.unitId }</div></td>
         <td><div>${chargingUni.unitId }</div></td>
         <td><div>${chargingUni.parentUnitId }</div></td>
@@ -102,7 +142,7 @@ $(function(){
         <td><div>
         	<c:if test="${chargingUni.status == 0 }">新建</c:if>
         	<c:if test="${chargingUni.status == 1 }">启用</c:if>
-        	<c:if test="${chargingUni.status == -1 }">删除</c:if><div>
+        	<c:if test="${chargingUni.status == -1 }">停用</c:if><div>
         </td>
         <td><div><a href="${baseUrl }manager/chargingUnitDetail.jspx?unitId=${chargingUni.unitId }">修改</a><c:if test="${chargingUni.status == 0 }"> | <a href="#" id="foreverDel-${chargingUni.unitId }">永久删除</a></c:if></div></td>
       </tr>

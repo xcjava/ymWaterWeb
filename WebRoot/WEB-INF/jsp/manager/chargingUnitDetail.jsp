@@ -40,8 +40,8 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>上级收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select name="parentUnitId" disabled="disabled">
-								<option selected="" value="">--请选择--</option>
+							<select name="parentUnitId" <c:if test="${not empty chargingUnit.unitId }">disabled="disabled"</c:if>>
+								<option selected="" value=""></option>
 								<c:forEach items="${parentUnitList }" var="parentUnitItem">
 									<option value="${parentUnitItem.unitId }" <c:if test="${chargingUnit.parentUnitId == parentUnitItem.unitId }">selected="selected"</c:if>>${parentUnitItem.name }</option>
 								</c:forEach>

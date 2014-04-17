@@ -29,7 +29,6 @@ public class DeleteChargingUnit extends ActionSupport {
 			}
 		} catch (Exception e) {
 			message = e.getMessage();
-			e.printStackTrace();
 		}
 		return SUCCESS;
 	}

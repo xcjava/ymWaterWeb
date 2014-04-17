@@ -45,7 +45,7 @@ public class SaveChargingUnit extends ActionSupport {
 			chargingUnitService.save(chargingUnit);
 			message = "添加成功！";
 		} catch (Exception e) {
-			e.printStackTrace();
+			message = e.getMessage();
 		}
 		return SUCCESS;
 	}

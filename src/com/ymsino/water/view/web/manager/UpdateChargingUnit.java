@@ -46,7 +46,7 @@ public class UpdateChargingUnit extends ActionSupport {
 			chargingUnitService.modify(chargingUnit);
 			message = "修改成功！";
 		} catch (Exception e) {
-			e.printStackTrace();
+			message = e.getMessage();
 		}
 		return SUCCESS;
 	}

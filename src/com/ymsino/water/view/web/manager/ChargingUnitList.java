@@ -1,6 +1,7 @@
 package com.ymsino.water.view.web.manager;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +28,13 @@ public class ChargingUnitList extends ActionSupport {
     private int pageIndex;
 	private int pageSize;
 	private String message = "";
+	private String name;
+	private String urlName;
+	private String status;
     private List<ChargingUnitReturn> list = new ArrayList<ChargingUnitReturn>();
 	public String execute() throws Exception, UnsupportedEncodingException{
 
-		if (pageSize == 0)	pageSize = 2;
+		if (pageSize == 0)	pageSize = 20;
 		if (pageIndex == 0)	pageIndex = 1;
 		int recordCount=0;
 		pageModel.setPageSize(pageSize);
@@ -44,6 +48,12 @@ public class ChargingUnitList extends ActionSupport {
 		//根据当前管理员的收费单位查询
 		if(!StringUtil.isEmpty(chargingUnitId)){
 			qpw.addQueryParam("parentUnits", "%|"+chargingUnitId+"|%", QueryCondition.QC_LIKE);
+		}
+		if(!StringUtil.isEmpty(name)){
+			qpw.addQueryParam("name", "%"+name.trim()+"%", QueryCondition.QC_LIKE);
+		}
+		if(!StringUtil.isEmpty(status)){
+			qpw.addQueryParam("status", Short.valueOf(status), QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
@@ -104,6 +114,43 @@ public class ChargingUnitList extends ActionSupport {
 
 	public void setPageModel(PageModel pageModel) {
 		this.pageModel = pageModel;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getUrlName() {
+		if(!StringUtil.isEmpty(name)){
+			try {
+				urlName = URLEncoder.encode(name, "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+				urlName = null;
+			}
+		}
+		return urlName;
+	}
+
+
+	public void setUrlName(String urlName) {
+		this.urlName = urlName;
+	}
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

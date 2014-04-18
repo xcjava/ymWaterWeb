@@ -121,7 +121,7 @@ $(function(){
         	<c:if test="${department.status == 1 }">启用</c:if>
         	<c:if test="${department.status == -1 }">停用</c:if><div>
         </td>
-        <td><div><a href="${baseUrl }manager/departmentDetail.jspx?deptId=${department.deptId }">修改</a></div></td>
+        <td><div><a href="${baseUrl }manager/departmentDetail.jspx?deptId=${department.deptId }">修改</a> | <a href="${baseUrl }manager/popedomList.jspx?deptId=${department.deptId }" target="_blank">权限</a></div></td>
       </tr>
       </c:forEach>
 	 	<tr class="listFooterTr">

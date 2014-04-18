@@ -64,5 +64,14 @@
 		<action name="closeDepartment" class="com.ymsino.water.view.web.manager.CloseDepartment">
 			<result name="success" type="redirect">/manager/departmentList.jspx?message=${message}</result>
 		</action>
+		<!-- 部门权限列表 -->
+		<action name="popedomList" class="com.ymsino.water.view.web.manager.PopedomList">
+			<param name="popedomFilePath">${popedomData.filePath}popedom.xml</param>
+			<result name="success">/WEB-INF/jsp/manager/popedomList.jsp</result>
+		</action>
+		<!-- 更新部门权限-->
+		<action name="updatePopedom" class="com.ymsino.water.view.web.manager.UpdatePopedom">
+			<result name="success" type="redirect">/manager/popedomList.jspx?deptId=${deptId}&amp;message=${message}</result>
+		</action>
 	</package>
 </struts>

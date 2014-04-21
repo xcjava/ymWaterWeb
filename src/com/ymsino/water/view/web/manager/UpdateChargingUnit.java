@@ -7,7 +7,6 @@ import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.manager.chargingUnit.ChargingUnitModifyParam;
 import com.ymsino.water.service.manager.chargingUnit.ChargingUnitReturn;
-import com.ymsino.water.service.manager.chargingUnit.ChargingUnitSaveParam;
 import com.ymsino.water.service.manager.chargingUnit.ChargingUnitService;
 
 public class UpdateChargingUnit extends ActionSupport {

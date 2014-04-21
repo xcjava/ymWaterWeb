@@ -9,6 +9,7 @@ import org.dom4j.Element;
 
 import net.sf.json.JSONObject;
 
+import com.gmail.xcjava.base.io.PropertyReader;
 import com.gmail.xcjava.base.str.Dom4jUtil;
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
@@ -57,11 +58,14 @@ public class PopedomList extends ActionSupport {
 		this.readPopedomXML();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public void readPopedomXML(){
 		try {
+			String rootPath = PropertyReader.getProperties("config.properties").getProperty("webRoot");
+			String xmlPath = PropertyReader.getProperties("config.properties").getProperty(popedomFilePath);
 			popedom_data = new ArrayList<Map<String,Object>>();
 			Dom4jUtil dom4j = new Dom4jUtil();
-			dom4j.read(popedomFilePath);
+			dom4j.read(rootPath+xmlPath);
 			
 			String nodePath = "//root/module";
 			List list = dom4j.getNodes(nodePath);

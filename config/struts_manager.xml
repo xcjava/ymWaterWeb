@@ -5,16 +5,11 @@
 <struts>
 
 	<package name="manager" extends="admin-global" namespace="/manager">
-		<!-- 管理员列表 -->
-		<action name="managerList" class="com.ymsino.water.view.web.manager.ManagerList">
-			<result>/WEB-INF/jsp/manager/managerList.jsp</result>
-		</action>
 		
 		<!-- 收费单位列表 -->
 		<action name="chargingUnitList" class="com.ymsino.water.view.web.manager.ChargingUnitList">
 			<result>/WEB-INF/jsp/manager/chargingUnitList.jsp</result>
 		</action>
-		
 		<!-- 收费单位添加、详细页 -->
 		<action name="chargingUnitDetail" class="com.ymsino.water.view.web.manager.ChargingUnitDetail">
 			<result>/WEB-INF/jsp/manager/chargingUnitDetail.jsp</result>
@@ -66,12 +61,54 @@
 		</action>
 		<!-- 部门权限列表 -->
 		<action name="popedomList" class="com.ymsino.water.view.web.manager.PopedomList">
-			<param name="popedomFilePath">${popedomData.filePath}popedom.xml</param>
+			<param name="popedomFilePath">popedomData.filePath</param>
 			<result name="success">/WEB-INF/jsp/manager/popedomList.jsp</result>
 		</action>
 		<!-- 更新部门权限-->
 		<action name="updatePopedom" class="com.ymsino.water.view.web.manager.UpdatePopedom">
 			<result name="success" type="redirect">/manager/popedomList.jspx?deptId=${deptId}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 管理员列表 -->
+		<action name="managerList" class="com.ymsino.water.view.web.manager.ManagerList">
+			<result>/WEB-INF/jsp/manager/managerList.jsp</result>
+		</action>
+		<!-- 部门添加、详细页 -->
+		<action name="managerDetail" class="com.ymsino.water.view.web.manager.ManagerDetail">
+			<result>/WEB-INF/jsp/manager/managerDetail.jsp</result>
+		</action>
+		<!-- 添加部门 -->
+		<action name="saveManager" class="com.ymsino.water.view.web.manager.SaveManager">
+			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
+		</action>
+		<!-- 修改部门 -->
+		<action name="updateManager" class="com.ymsino.water.view.web.manager.UpdateManager">
+			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
+		</action>
+		<!-- 启用部门 -->
+		<action name="openManager" class="com.ymsino.water.view.web.manager.OpenManager">
+			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
+		</action>
+		<!-- 禁用部门 -->
+		<action name="closeManager" class="com.ymsino.water.view.web.manager.CloseManager">
+			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
+		</action>
+		
+		<!-- 价目列表 -->
+		<action name="priceTemplateList" class="com.ymsino.water.view.web.manager.PriceTemplateList">
+			<result>/WEB-INF/jsp/manager/priceTemplateList.jsp</result>
+		</action>
+		<!-- 价目添加、详细页 -->
+		<action name="priceTemplateDetail" class="com.ymsino.water.view.web.manager.PriceTemplateDetail">
+			<result>/WEB-INF/jsp/manager/priceTemplateDetail.jsp</result>
+		</action>
+		<!-- 添加价目 -->
+		<action name="savePriceTemplate" class="com.ymsino.water.view.web.manager.SavePriceTemplate">
+			<result name="success" type="redirect">/manager/priceTemplateDetail.jspx?id=${id}&amp;message=${message}</result>
+		</action>
+		<!-- 修改价目 -->
+		<action name="updatePriceTemplate" class="com.ymsino.water.view.web.manager.UpdatePriceTemplate">
+			<result name="success" type="redirect">/manager/priceTemplateDetail.jspx?id=${id}&amp;message=${message}</result>
 		</action>
 	</package>
 </struts>

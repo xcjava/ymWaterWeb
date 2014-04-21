@@ -19,6 +19,7 @@ public class Logout extends AbstractAjaxAction {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().removeAttribute("department");
 		request.getSession().removeAttribute("manager");
+		request.getSession().removeAttribute("chargingUnitId");
 		return null;
 	}
 

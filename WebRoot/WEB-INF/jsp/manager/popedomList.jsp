@@ -1,52 +1,47 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>  
     <title>权限</title>
-	<link href="${resBaseUrl}/css/admin/admin.css" type="text/css" rel="stylesheet" />
+	<link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
+	<!-- <link href="http://res.gdcct.com/css/admin/admin.css" type="text/css" rel="stylesheet" /> -->
+	<style type="text/css">
+	td.editRightTd input{border: ;padding: 0;width: 10px;float: none;}
+	</style>
 	<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		dojo.addOnLoad(function(){
-			var inputNode = dojo.query('input');
-			dojo.forEach(inputNode,function(item,i){
-				if(item.type == 'checkbox'){
-					<c:if test="${not empty popedoms}">
-					var editReArr = new Array();
-					<c:forEach items="${popedoms}" var="popedom">
-					var povalue = '${popedom.value}';
-					var pokey = '${popedom.key}-';
-					editReArr = povalue.split(",");
-					for(var i=0;i<=editReArr.length-1;i++){
-						if(item.value == pokey+editReArr[i])
-						item.checked = true;
-					}
-					
-					</c:forEach>
-					</c:if>
+		$(function(){
+			$("input[type='checkbox']").each(function(i,item){
+				<c:if test="${not empty popedoms}">
+				var editReArr = new Array();
+				<c:forEach items="${popedoms}" var="popedom">
+				var povalue = '${popedom.value}';
+				var pokey = '${popedom.key}-';
+				editReArr = povalue.split(",");
+				for(var i=0;i<=editReArr.length-1;i++){
+					if(item.value == pokey+editReArr[i])
+					item.checked = true;
 				}
+				</c:forEach>
+				</c:if>					
 			});
-			var allchange = dojo.query("input[name='allchange']");
-			
-			dojo.forEach(allchange,function(item,i){
-				dojo.connect(dojo.byId(item),'onclick',function(){
-					dojo.forEach(inputNode,function(boxitem,j){
-						if(boxitem.type == 'checkbox' && item.value == boxitem.value.substring(0,4)){
-							if(!item.checked){
-								boxitem.checked = false;
-								item.checked = false;
-							}else{
-								item.checked = true;
-								boxitem.checked = true;
-							}
-							
+			$("input[name='allchange']").click(function(){
+				var clickitem = this;
+				$("input[type='checkbox']").each(function(i,item){
+					if(clickitem.value == item.value.substring(0,4)){
+						if(!clickitem.checked){
+							item.checked = false;
+							clickitem.checked = false;
+						}else{
+							clickitem.checked = true;
+							item.checked = true;
 						}
-					});
-				});
-				
+					}
+				});	
 			});
 			if('${message}' != ''){
 				alert('${message}');

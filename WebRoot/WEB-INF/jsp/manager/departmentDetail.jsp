@@ -28,7 +28,7 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>部门编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="unitId" name="deptId" value="${department.deptId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="deptId" name="deptId" value="${department.deptId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>部门名称<span style="color: red;">*</span>：</td>

@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,19 +12,25 @@
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script>
 $(function(){
-	//全选
-	var flag = true;
-	$('#selectAllBtn').click(function(){
-		if(flag){
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = true;
-			});
-		}else{
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = false;
-			});
-		}
-		flag = !flag;
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
+	//只能选中一个
+    $("input[type='checkbox']").click(function() {
+        if ($(this).attr("checked") == "checked") {
+            $("input[type='checkbox']").attr("checked", false);
+            $(this).attr("checked", "checked");
+            $("#dataId").val($(this).attr("name"));
+        }
+    });
+	
+    $('#addPriceTemplate').click(function(){
+		window.location = '${baseUrl }manager/priceTemplateDetail.jspx';
+	});
+    
+	$('#status').val(${status});
+	$('#searchBtn').click(function(){
+		$('#searchForm').submit();
 	});
 });
 </script>
@@ -35,7 +43,9 @@ $(function(){
 	 			<td class="position">当前位置: 系统管理 -&gt;  价目列表</td>
 	 		</tr>
 	 	</tbody>
-	</table>	
+	</table>
+	<form action="${baseUrl }manager/priceTemplateList.jspx" method="get" id="searchForm">
+	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
@@ -43,29 +53,27 @@ $(function(){
 			      <tbody>
 				      <tr>
 				        <td>价目代码：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
+				        <td><input class="textbox" id="id" name="id" style="width: 120px" value="${id }" /></td>
 				        <td>开始日期：</td>
 				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
-				      	<td><input class="button" id="" type="button" value="新增" name=""></td>
-				      	<td><input class="button" id="" type="button" value="修改" name=""></td>
-				      	<td><input class="button" id="" type="button" value="删除" name=""></td>
+				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
+				      	<td><input class="button" id="addPriceTemplate" type="button" value="新增" name=""></td>
 				      </tr>
 			      </tbody>
 			    </table>	
 			</div>
 		</td></tr>
 	</table>
-
+	</form>
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
-        <td width=""><div><span>序号</span></div></td>
+        <td width=""><div><span>价目id</span></div></td>
         <td width=""><div><span>项目名称</span></div></td>
-        <td width=""><div><span>价目代码</span></div></td>
+        <td width=""><div><span>价目类型</span></div></td>
         <td width=""><div><span>开始日期</span></div></td>
         <td width=""><div><span>结束日期</span></div></td>
-        <td width=""><div><span>周期</span></div></td>
+        <td width=""><div><span>结算周期</span></div></td>
         <td width=""><div><span>阶梯一水价</span></div></td>
         <td width=""><div><span>阶梯一最大值</span></div></td>
         <td width=""><div><span>阶梯二水价</span></div></td>
@@ -73,68 +81,33 @@ $(function(){
         <td width=""><div><span>阶梯三水价</span></div></td>
         <td width=""><div><span>阶梯三最大值</span></div></td>
         <td width=""><div><span>阶梯四水价</span></div></td>
+        <td width=""><div><span>阶梯四最大值</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
+      <c:forEach var="priceTemplate" items="${list }">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>1</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
+        <td><div>${priceTemplate.id }</div></td>
+        <td><div>${priceTemplate.name }</div></td>
+        <td><div>${priceTemplate.type }</div></td>
+        <td><div>${priceTemplate.startTimestamp }</div></td>
+        <td><div>${priceTemplate.endTimestamp }</div></td>
+        <td><div>${priceTemplate.billingPeriod }</div></td>
+        <td><div>${priceTemplate.level1Cost }</div></td>
+        <td><div>${priceTemplate.level1Num }</div></td>
+        <td><div>${priceTemplate.level2Cost }</div></td>
+        <td><div>${priceTemplate.level2Num }</div></td>
+        <td><div>${priceTemplate.level3Cost }</div></td>
+        <td><div>${priceTemplate.level3Num }</div></td>
+        <td><div>${priceTemplate.level4Cost }</div></td>
+        <td><div>${priceTemplate.level4Num }</div></td>
+        <td><div><a href="${baseUrl }manager/priceTemplateDetail.jspx?id=${priceTemplate.id }">修改</a></div></td>
       </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>2</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>3</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      
+      </c:forEach>
 	 	<tr class="listFooterTr">
-		<td colSpan=15>
-		<table style="FONT-SIZE: 14px" border=0 cellSpacing=2 cellPadding=0 width="100%">
-		<tbody>
-		<tr>
-		<td height=25 align=center>[<span class=currentFont>1</span>][<a class=other_page href="#">2</a>][<a class=other_page href="">3</a>][<a class=other_page href="">4</a>][<a class=other_page href="">5</a>][<a class=other_page href="">6</a>][<a class=other_page href="">7</a>][<a class=other_page href="">8</a>]...[<a class=other_page href="">1806</a>]<a class=other_page href="">下一页</a> </td></tr>
-		<tr>
-		<td align=center heigyh="25">总共<font color=red>36101</font>条记录， 当前显示第1-20条记录。跳转到 <input style="WIDTH: 40px" id=pagerID_tbPager jQuery172011253913807769178="36">页 <input value=确定 type=button jQuery172011253913807769178="37"> </td></tr></tbody></table></td>
+		<td colSpan="16">
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/priceTemplateList.jspx" pageDynamicURLFormat="${baseUrl }manager/priceTemplateList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+		</td>
 		</tr>      
     </table>
 </body>

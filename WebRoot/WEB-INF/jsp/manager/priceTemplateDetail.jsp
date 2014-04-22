@@ -22,70 +22,86 @@
 	 	</tbody>
 	</table>
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="">
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>价目代码<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>价目id<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="hidden" id="id" name="id" value="${priceTemplate.id }" />
+							<span>${priceTemplate.id }</span>
 						</td>
 						<td class="editLeftTd"><span></span>价目名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="name" name="name" value="${priceTemplate.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>价目类型<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="type" name="type" value="${priceTemplate.type }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>结算周期<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>一月</option>
+							<select datatype="*" name="billingPeriod" value="${priceTemplate.billingPeriod }" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option value="1月">一月</option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯一<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>阶梯一价格：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="level1Cost" name="level1Cost" value="${priceTemplate.level1Cost }" />
 						</td>
-						<td class="editLeftTd"><span></span>阶梯二<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>阶梯一最大值：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="level1Num" name="level1Num" value="${priceTemplate.level1Num }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯三<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>阶梯二价格：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="level2Cost" name="level2Cost" value="${priceTemplate.level2Cost }" />
 						</td>
-						<td class="editLeftTd"><span></span>阶梯四<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>阶梯二最大值：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="level2Num" name="level2Num" value="${priceTemplate.level2Num }" />
+						</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd"><span></span>阶梯三价格：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="level3Cost" name="level3Cost" value="${priceTemplate.level3Cost }" />
+						</td>
+						<td class="editLeftTd"><span></span>阶梯三最大值：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="level3Num" name="level3Num" value="${priceTemplate.level3Num }" />
+						</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd"><span></span>阶梯四价格：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="level4Cost" name="level4Cost" value="${priceTemplate.level4Cost }" />
+						</td>
+						<td class="editLeftTd"><span></span>阶梯四最大值：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="level4Num" name="level4Num" value="${priceTemplate.level4Num }" />
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>收费单位<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="chargingUnitId" name="chargingUnitId" value="${priceTemplate.chargingUnitId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /> <input type="button" value="返 回" />
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manager/priceTemplateList.jspx';"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -94,8 +110,9 @@
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
-		
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 	$(".registerform").Validform({
 		tiptype:function(msg,o,cssctl){
 			//msg：提示信息;
@@ -107,6 +124,17 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if('${priceTemplate.id }' == ''){
+				$(".registerform").attr('action','${baseUrl }manager/savePriceTemplate.jspx');
+			}else{
+				$(".registerform").attr('action','${baseUrl }manager/updatePriceTemplate.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
 });

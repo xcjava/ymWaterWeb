@@ -22,37 +22,38 @@
 	 	</tbody>
 	</table>
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="${baseUrl }manager/updateManagerInfo.jspx">
+			<input type="hidden" name="managerId" value="${manager.managerId }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>个人名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="name" name="name" value="${manager.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>原始密码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input id="oldPwd" type="password" name="oldPwd" value="" datatype="*" nullmsg="请输入密码！" errormsg="密码范围在6~16位之间！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>修改密码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input id="newPwd" type="password" name="newPwd" value="" datatype="*" nullmsg="请输入密码！" errormsg="密码范围在6~16位之间！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>密码确认<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input id="newPwd2" type="password" name="newPwd2" value="" datatype="*" recheck="newPwd" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>描      述<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"></textarea>
+							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">木有此字段</textarea>
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
@@ -68,8 +69,9 @@
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
-		
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}		
 	$(".registerform").Validform({
 		tiptype:function(msg,o,cssctl){
 			//msg：提示信息;
@@ -81,6 +83,12 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
 });

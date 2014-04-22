@@ -27,6 +27,8 @@ public class FrameworkContextLoaderListener extends ContextLoaderListener
 			managerSaveParam.setName("超级管理员");
 			managerSaveParam.setManagerId("administrator");
 			managerSaveParam.setPassword("123456");
+			managerSaveParam.setChargingUnitId("administrator");
+			managerSaveParam.setDepartmentId("administrator");
 			managerService.save(managerSaveParam);
 			managerService.openStatus("administrator");
 		}

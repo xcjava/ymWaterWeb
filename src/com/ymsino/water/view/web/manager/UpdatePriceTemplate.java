@@ -45,6 +45,7 @@ public class UpdatePriceTemplate extends ActionSupport {
 				return SUCCESS;
 			}
 			PriceTemplateModifyParam priceTemplateModifyParam = new PriceTemplateModifyParam();
+			priceTemplateModifyParam.setId(Long.valueOf(id));
 			priceTemplateModifyParam.setName(name);
 			priceTemplateModifyParam.setType(type);
 			priceTemplateModifyParam.setLevel1Num(level1Num);

@@ -107,7 +107,7 @@ border-style: none;
         <td width="177" height="28" background="${baseUrl }images/main_32.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="20%"  height="22">&nbsp;</td>
-            <td width="59%" valign="bottom"><div align="center" class="STYLE1">欢迎您：admin</div></td>
+            <td width="100%" valign="bottom"><div align="center" class="STYLE1">欢迎您：<span style="">${manager.managerId }</span></div></td>
             <td width="21%">&nbsp;</td>
           </tr>
         </table></td>

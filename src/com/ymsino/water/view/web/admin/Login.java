@@ -16,7 +16,7 @@ public class Login extends ActionSupport {
 
 	private static final long serialVersionUID = 8041815294864575998L;
 
-	private String mangerId;
+	private String managerId;
 	private String password;
 	private ManagerService managerService;
 	private DepartmentService departmentService;
@@ -30,11 +30,11 @@ public class Login extends ActionSupport {
 		this.message = message;
 	}
 	
-	public String getMangerId() {
-		return mangerId;
+	public String getManagerId() {
+		return managerId;
 	}
-	public void setMangerId(String mangerId) {
-		this.mangerId = mangerId;
+	public void setManagerId(String managerId) {
+		this.managerId = managerId;
 	}
 	public String getPassword() {
 		return password;
@@ -52,9 +52,9 @@ public class Login extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		if(StringUtil.isEmpty(mangerId) || StringUtil.isEmpty(password))
+		if(StringUtil.isEmpty(managerId) || StringUtil.isEmpty(password))
 			return ERROR;
-		ManagerReturn manager = managerService.login(mangerId.trim(), password.trim());
+		ManagerReturn manager = managerService.login(managerId.trim(), password.trim());
 		if(manager == null){
 			message = "登录失败！";
 			return ERROR;
@@ -62,7 +62,11 @@ public class Login extends ActionSupport {
 		DepartmentReturn department = departmentService.getByDeptId(manager.getDepartmentId());
 		request.getSession().setAttribute("department", JsonUtil.getJSONString(department, null));
 		request.getSession().setAttribute("manager", JsonUtil.getJSONString(manager, null));
-		request.getSession().setAttribute("chargingUnitId", manager.getChargingUnitId());
+		if("administrator".equals(managerId.trim()))
+			request.getSession().setAttribute("chargingUnitId", "");
+		else
+			request.getSession().setAttribute("chargingUnitId", manager.getChargingUnitId());
+			
 		return SUCCESS;
 	}
 

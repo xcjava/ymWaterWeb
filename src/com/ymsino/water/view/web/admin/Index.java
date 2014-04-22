@@ -1,5 +1,11 @@
 package com.ymsino.water.view.web.admin;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Index extends ActionSupport {
@@ -15,6 +21,13 @@ public class Index extends ActionSupport {
 	}
 	@Override
 	public String execute() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		
+		String managerStr = (String)session.getAttribute("manager");
+		if(StringUtil.isEmpty(managerStr)){
+			return "login";
+		}
 		return SUCCESS;
 	}
 

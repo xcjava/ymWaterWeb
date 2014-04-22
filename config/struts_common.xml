@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">  
 <struts>
 
-	<package name="common" extends="proscenium-global" namespace="/common">
+	<package name="common" extends="struts-default" namespace="/common">
 	
 		<!-- 获取收费单位列表ajax，主要用于下拉框选择 -->
 		<action name="getChargingUnitListAjax" class="com.ymsino.water.view.web.common.GetChargingUnitListAjax">

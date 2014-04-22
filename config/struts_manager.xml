@@ -37,11 +37,11 @@
 		
 		<!-- 部门列表 -->
 		<action name="departmentList" class="com.ymsino.water.view.web.manager.DepartmentList">
-			<result>/WEB-INF/jsp/manager/departmentList.jsp</result>
+			<result name="success">/WEB-INF/jsp/manager/departmentList.jsp</result>
 		</action>
 		<!-- 部门添加、详细页 -->
 		<action name="departmentDetail" class="com.ymsino.water.view.web.manager.DepartmentDetail">
-			<result>/WEB-INF/jsp/manager/departmentDetail.jsp</result>
+			<result name="success">/WEB-INF/jsp/manager/departmentDetail.jsp</result>
 		</action>
 		<!-- 添加部门 -->
 		<action name="saveDepartment" class="com.ymsino.water.view.web.manager.SaveDepartment">
@@ -69,29 +69,16 @@
 			<result name="success" type="redirect">/manager/popedomList.jspx?deptId=${deptId}&amp;message=${message}</result>
 		</action>
 		
-		<!-- 管理员列表 -->
+		<!-- 管理员个人资料修改 -->
+		<action name="managerInfo" class="com.ymsino.water.view.web.manager.ManagerInfo">
+			<result>/WEB-INF/jsp/manager/managerInfo.jsp</result>
+		</action>
+		<!-- 修改管理员个人资料修改 -->
+		<action name="updateManagerInfo" class="com.ymsino.water.view.web.manager.UpdateManagerInfo">
+			<result name="success" type="redirect">/manager/managerInfo.jspx?message=${message}</result>
+		</action>
 		<action name="managerList" class="com.ymsino.water.view.web.manager.ManagerList">
 			<result>/WEB-INF/jsp/manager/managerList.jsp</result>
-		</action>
-		<!-- 部门添加、详细页 -->
-		<action name="managerDetail" class="com.ymsino.water.view.web.manager.ManagerDetail">
-			<result>/WEB-INF/jsp/manager/managerDetail.jsp</result>
-		</action>
-		<!-- 添加部门 -->
-		<action name="saveManager" class="com.ymsino.water.view.web.manager.SaveManager">
-			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
-		</action>
-		<!-- 修改部门 -->
-		<action name="updateManager" class="com.ymsino.water.view.web.manager.UpdateManager">
-			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
-		</action>
-		<!-- 启用部门 -->
-		<action name="openManager" class="com.ymsino.water.view.web.manager.OpenManager">
-			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
-		</action>
-		<!-- 禁用部门 -->
-		<action name="closeManager" class="com.ymsino.water.view.web.manager.CloseManager">
-			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
 		</action>
 		
 		<!-- 价目列表 -->

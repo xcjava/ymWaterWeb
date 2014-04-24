@@ -98,26 +98,18 @@ body {
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/managerDetailJsp.jspx" target="main">操作人员_添加修改</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }manager/managerList.jspx" target="main">管理员列表</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }manager/managerList.jspx" target="main">查询人员信息</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
+	                  <!-- <tr>
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
 	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/manager/modifyManagerJsp.jspx" target="main">修改人员信息</a></span></td>
 	                        </tr>
 	                    </table></td>
-	                  </tr>
+	                  </tr> -->
 	                </table>
                 </td>
               </tr>
@@ -128,7 +120,7 @@ body {
           </tr>
         </table></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -171,7 +163,7 @@ body {
             </table></div></td>
           </tr>
         </table></td>
-      </tr>
+      </tr> -->
       <tr>
         <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">

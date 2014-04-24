@@ -10,6 +10,7 @@
 <title>价目列表</title>
 <link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
 <script>
 $(function(){
 	if('${param.message}' != ''){
@@ -32,6 +33,31 @@ $(function(){
 	$('#searchBtn').click(function(){
 		$('#searchForm').submit();
 	});
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${chargingUnitId }');
 });
 </script>
 </head>
@@ -52,10 +78,19 @@ $(function(){
 			    <table cellSpacing=0 cellPadding=2 border=0>
 			      <tbody>
 				      <tr>
+				      	<td>收费单位：</td>
+				        <td>
+				        	<select id="chargingUnitSel" name="chargingUnitId">
+								<option></option>
+							</select>
+				        </td>
 				        <td>价目代码：</td>
 				        <td><input class="textbox" id="id" name="id" style="width: 120px" value="${id }" /></td>
 				        <td>开始日期：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
+				        <td>
+				        	<input class="Wdate" type="text" onClick="WdatePicker()" name="startDate" id="startDate" value="${startDate}">&nbsp;至:
+  							<input class="Wdate" type="text" onClick="WdatePicker()" name="endDate" id="endDate" value="${endDate}">
+				        </td>
 				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
 				      	<td><input class="button" id="addPriceTemplate" type="button" value="新增" name=""></td>
 				      </tr>

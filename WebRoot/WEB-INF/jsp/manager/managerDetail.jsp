@@ -28,58 +28,56 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>管理员id<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<c:if test="${not empty managerReturn.managerId }">
+								${managerReturn.managerId }<input type="hidden" name="managerId" value="${managerReturn.managerId }" />
+							</c:if>
+							<c:if test="${empty managerReturn.managerId }">
+								<input type="text" id="managerId" name="managerId" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+								<span class="Validform_checktip"></span>
+							</c:if>
 						</td>
 						<td class="editLeftTd"><span></span>姓名<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="name" name="name" value="${managerReturn.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>密码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input id="password" type="password" name="password" value="" <c:if test="${not empty managerReturn.managerId }">ignore="ignore"</c:if> datatype="*" nullmsg="请输入密码！" errormsg="请输入密码！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>重复密码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>部门<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>Email<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input id="newPwd2" type="password" name="newPwd2" value="" <c:if test="${not empty managerReturn.managerId }">ignore="ignore"</c:if> datatype="*" recheck="password" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>电话<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" colspan="3" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+						<td class="editRightTd" width="250px">
+							<input type="text" id="tel" name="tel" value="${managerReturn.tel }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span>
+						</td>
+						<td class="editLeftTd"><span></span>Email<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="email" name="email" value="${managerReturn.email }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>收费单位<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>收费单位：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>定时任务</option>
+							<select id="chargingUnitSel" name="chargingUnitId" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>部门<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>定时任务</option>
+							<select id="departmentSel" name="departmentId" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
@@ -87,7 +85,7 @@
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.history.go(-1);"value="返 回">
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manager/managerList.jspx';"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -96,8 +94,6 @@
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
-		
 	$(".registerform").Validform({
 		tiptype:function(msg,o,cssctl){
 			//msg：提示信息;
@@ -109,7 +105,77 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if('${managerReturn.managerId }' == ''){
+				$(".registerform").attr('action','${baseUrl }manager/saveManager.jspx');
+			}else{
+				$(".registerform").attr('action','${baseUrl }manager/updateManager.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
+	});
+	
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
+	//加载收费单位
+	function loadChargingUnit(unitId,departmentId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+				loadDepartment(unitId,departmentId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	//加载部门
+	function loadDepartment(unitId,departmentId){
+		var _loadSelObj=$("#departmentSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getDepartmentListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{unitId:unitId},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].deptId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(departmentId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	
+	loadChargingUnit('${managerReturn.chargingUnitId }','${managerReturn.departmentId }');
+	//收费单位选择事件
+	$("#chargingUnitSel").change(function(){
+		loadDepartment($(this).val(),'');
 	});
 });
 </script>

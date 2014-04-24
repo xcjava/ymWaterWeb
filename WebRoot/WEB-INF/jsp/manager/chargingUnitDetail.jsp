@@ -123,7 +123,7 @@ $(function(){
 			data:{},
 			dataType:'json',
 			success:function(response){
-				var optStr="<option value='aaa'>-请选择-</option>";
+				var optStr="<option value=''>-请选择-</option>";
 				if(response.length>0){
 					for(var i=0;i<response.length;i++){
 						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";

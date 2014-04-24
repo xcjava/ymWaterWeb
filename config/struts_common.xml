@@ -12,5 +12,11 @@
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
 		</action>
 		
+		<!-- 获取某收费单位的部门列表ajax，主要用于下拉框选择，与收费单位下拉列表级联 -->
+		<action name="getDepartmentListAjax" class="com.ymsino.water.view.web.common.GetDepartmentListAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
 	</package>
 </struts>

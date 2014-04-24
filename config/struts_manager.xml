@@ -69,7 +69,7 @@
 			<result name="success" type="redirect">/manager/popedomList.jspx?deptId=${deptId}&amp;message=${message}</result>
 		</action>
 		
-		<!-- 管理员个人资料修改 -->
+		<!-- 管理员个人资料修改页面 -->
 		<action name="managerInfo" class="com.ymsino.water.view.web.manager.ManagerInfo">
 			<result>/WEB-INF/jsp/manager/managerInfo.jsp</result>
 		</action>
@@ -77,8 +77,29 @@
 		<action name="updateManagerInfo" class="com.ymsino.water.view.web.manager.UpdateManagerInfo">
 			<result name="success" type="redirect">/manager/managerInfo.jspx?message=${message}</result>
 		</action>
+		<!-- 管理员列表 -->
 		<action name="managerList" class="com.ymsino.water.view.web.manager.ManagerList">
 			<result>/WEB-INF/jsp/manager/managerList.jsp</result>
+		</action>
+		<!-- 管理员添加、修改页 -->
+		<action name="managerDetail" class="com.ymsino.water.view.web.manager.ManagerDetail">
+			<result name="success">/WEB-INF/jsp/manager/managerDetail.jsp</result>
+		</action>
+		<!-- 添加管理员 -->
+		<action name="saveManager" class="com.ymsino.water.view.web.manager.SaveManager">
+			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
+		</action>
+		<!-- 修改管理员 -->
+		<action name="updateManager" class="com.ymsino.water.view.web.manager.UpdateManager">
+			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
+		</action>
+		<!-- 启用管理员 -->
+		<action name="openManager" class="com.ymsino.water.view.web.manager.OpenManager">
+			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
+		</action>
+		<!-- 禁用管理员 -->
+		<action name="closeManager" class="com.ymsino.water.view.web.manager.CloseManager">
+			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
 		</action>
 		
 		<!-- 价目列表 -->

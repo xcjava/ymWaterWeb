@@ -27,6 +27,7 @@ public class DepartmentList extends ActionSupport {
     private int pageIndex;
 	private int pageSize;
 	private String message = "";
+	private String chargingUnitId;
 	private String status;
     private List<DepartmentReturn> list = new ArrayList<DepartmentReturn>();
 	public String execute() throws Exception, UnsupportedEncodingException{
@@ -39,14 +40,18 @@ public class DepartmentList extends ActionSupport {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String chargingUnitId = (String)session.getAttribute("chargingUnitId");
+		String managerUnitId = (String)session.getAttribute("chargingUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
-		if(!StringUtil.isEmpty(chargingUnitId)){
-			qpw.addQueryParam("parentUnits", "%|"+chargingUnitId+"|%", QueryCondition.QC_LIKE);
+		if(!StringUtil.isEmpty(managerUnitId)){
+			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
 		}
 		if(!StringUtil.isEmpty(status)){
 			qpw.addQueryParam("status", Short.valueOf(status), QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(chargingUnitId)){
+			chargingUnitId = chargingUnitId.trim();
+			qpw.addQueryParam("chargingUnitId", chargingUnitId, QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
@@ -115,6 +120,16 @@ public class DepartmentList extends ActionSupport {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+
+	public String getChargingUnitId() {
+		return chargingUnitId;
+	}
+
+
+	public void setChargingUnitId(String chargingUnitId) {
+		this.chargingUnitId = chargingUnitId;
 	}
 	
 }

@@ -28,6 +28,7 @@ public class ChargingUnitList extends ActionSupport {
     private int pageIndex;
 	private int pageSize;
 	private String message = "";
+	private String chargingUnitId;
 	private String name;
 	private String urlName;
 	private String status;
@@ -42,18 +43,22 @@ public class ChargingUnitList extends ActionSupport {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String chargingUnitId = (String)session.getAttribute("chargingUnitId");
+		String managerUnitId = (String)session.getAttribute("chargingUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
 		//根据当前管理员的收费单位查询
-		if(!StringUtil.isEmpty(chargingUnitId)){
-			qpw.addQueryParam("parentUnits", "%|"+chargingUnitId+"|%", QueryCondition.QC_LIKE);
+		if(!StringUtil.isEmpty(managerUnitId)){
+			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
 		}
 		if(!StringUtil.isEmpty(name)){
 			qpw.addQueryParam("name", "%"+name.trim()+"%", QueryCondition.QC_LIKE);
 		}
 		if(!StringUtil.isEmpty(status)){
 			qpw.addQueryParam("status", Short.valueOf(status), QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(chargingUnitId)){
+			chargingUnitId = chargingUnitId.trim();
+			qpw.addQueryParam("parentUnitId", chargingUnitId, QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
@@ -151,6 +156,16 @@ public class ChargingUnitList extends ActionSupport {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+
+	public String getChargingUnitId() {
+		return chargingUnitId;
+	}
+
+
+	public void setChargingUnitId(String chargingUnitId) {
+		this.chargingUnitId = chargingUnitId;
 	}
 	
 }

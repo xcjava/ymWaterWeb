@@ -9,7 +9,7 @@ public class ManagerDetail extends ActionSupport{
 
 	private static final long serialVersionUID = -7178675021248612349L;
 	private ManagerService managerService;
-	private ManagerReturn managerReturn;
+	private ManagerReturn managerReturn = new ManagerReturn();
 	private String managerId;
 	private String message;
 	

@@ -24,7 +24,7 @@ public class ManagerList extends ActionSupport {
 	private static final long serialVersionUID = 6970850564906342550L;
 	private ManagerService managerService;
     private Short status = null;
-    private String userId = null;
+    private String managerId = null;
     private String chargingUnitId = null;
     private String departmentId = null;
     private PageModel pageModel = new PageModel();
@@ -43,11 +43,14 @@ public class ManagerList extends ActionSupport {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String chargingUnitId = (String)session.getAttribute("chargingUnitId");
+		String managerUnitId = (String)session.getAttribute("chargingUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
-		if(!StringUtil.isEmpty(chargingUnitId)){
-			qpw.addQueryParam("parentUnits", "%|"+chargingUnitId+"|%", QueryCondition.QC_LIKE);
+		if(!StringUtil.isEmpty(managerUnitId)){
+			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
+		}
+		if(!StringUtil.isEmpty(managerId)){
+			qpw.addQueryParam("managerId", managerId, QueryCondition.QC_EQ);
 		}
 		if(!StringUtil.isEmpty(chargingUnitId)){
 			chargingUnitId = chargingUnitId.trim();
@@ -81,20 +84,19 @@ public class ManagerList extends ActionSupport {
 		this.status = status;
 	}
 
-
-	public String getUserId() {
-		return userId;
+	public String getManagerId() {
+		return managerId;
 	}
 
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setManagerId(String managerId) {
+		this.managerId = managerId;
 	}
+
 
 	public int getPageIndex() {
 		return pageIndex;
 	}
-
 
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;

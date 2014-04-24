@@ -9,7 +9,7 @@ public class DepartmentDetail extends ActionSupport{
 
 	private static final long serialVersionUID = -7178675021248612349L;
 	private DepartmentService departmentService;
-	private DepartmentReturn department;
+	private DepartmentReturn department = new DepartmentReturn();
 	private String deptId;
 	private String message;
 	

@@ -3,11 +3,6 @@ package com.ymsino.water.view.web.manager;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.manager.department.DepartmentSaveParam;
@@ -18,6 +13,7 @@ public class SaveDepartment extends ActionSupport {
 	private static final long serialVersionUID = 189016617485872535L;
 	
 	private String deptId;
+	private String chargingUnitId;
 	private String name;
 	private String parentDeptId;
 	private String linkMan;
@@ -29,9 +25,6 @@ public class SaveDepartment extends ActionSupport {
 	
 	@Override
 	public String execute() throws Exception {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
-		String chargingUnitId = (String)session.getAttribute("chargingUnitId");
 		try {
 			if(StringUtil.isEmpty(deptId)){
 				return SUCCESS;
@@ -42,12 +35,12 @@ public class SaveDepartment extends ActionSupport {
 			}
 			DepartmentSaveParam departmentSaveParam = new DepartmentSaveParam();
 			departmentSaveParam.setDeptId(deptId);
+			departmentSaveParam.setChargingUnitId(chargingUnitId);
 			departmentSaveParam.setLinkAddr(linkAddr);
 			departmentSaveParam.setLinkMan(linkMan);
 			departmentSaveParam.setLinkTel(linkTel);
 			departmentSaveParam.setName(name);
 			departmentSaveParam.setParentDeptId(parentDeptId);
-			departmentSaveParam.setChargingUnitId(chargingUnitId);//保存管理员所在收费单位编号
 			departmentSaveParam.setRemark(remark);
 			departmentService.save(departmentSaveParam);
 			message = "添加成功！";
@@ -141,6 +134,14 @@ public class SaveDepartment extends ActionSupport {
 
 	public void setDepartmentService(DepartmentService departmentService) {
 		this.departmentService = departmentService;
+	}
+
+	public String getChargingUnitId() {
+		return chargingUnitId;
+	}
+
+	public void setChargingUnitId(String chargingUnitId) {
+		this.chargingUnitId = chargingUnitId;
 	}
 	
 }

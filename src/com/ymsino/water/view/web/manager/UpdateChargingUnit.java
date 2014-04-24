@@ -15,7 +15,6 @@ public class UpdateChargingUnit extends ActionSupport {
 	
 	private String unitId;
 	private String name;
-	private String parentUnitId;
 	private String linkMan;
 	private String linkTel;
 	private String linkAddr;
@@ -69,17 +68,6 @@ public class UpdateChargingUnit extends ActionSupport {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	public String getParentUnitId() {
-		return parentUnitId;
-	}
-
-
-	public void setParentUnitId(String parentUnitId) {
-		this.parentUnitId = parentUnitId;
-	}
-
 
 	public String getLinkMan() {
 		return linkMan;

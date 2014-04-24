@@ -113,5 +113,17 @@ public class UpdateDepartment extends ActionSupport {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+	public String getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
+
+	public void setDepartmentService(DepartmentService departmentService) {
+		this.departmentService = departmentService;
+	}
 	
 }

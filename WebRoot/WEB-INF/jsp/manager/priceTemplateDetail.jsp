@@ -94,8 +94,9 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>收费单位<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<input type="text" id="chargingUnitId" name="chargingUnitId" value="${priceTemplate.chargingUnitId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<select id="chargingUnitSel" name="chargingUnitId">
+								<option></option>
+							</select>
 						</td>
 					</tr>
 				</tbody>
@@ -137,6 +138,31 @@ $(function(){
 			return false;
 		}
 	});
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value='aaa'>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${priceTemplate.chargingUnitId }');
 });
 </script>
 </body>

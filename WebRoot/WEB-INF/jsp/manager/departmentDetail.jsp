@@ -22,14 +22,19 @@
 	 	</tbody>
 	</table>
 	<div id="main">
-		<form class="registerform" method="post" action="">
+		<form class="registerform" id="registerform" method="post" action="">
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>部门编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="deptId" name="deptId" value="${department.deptId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<c:if test="${not empty department.deptId }">
+								${department.deptId }<input type="hidden" name="deptId" value="${department.deptId }" />
+							</c:if>
+							<c:if test="${empty department.deptId }">
+								<input type="text" id="deptId" name="deptId" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+								<span class="Validform_checktip"></span>
+							</c:if>
 						</td>
 						<td class="editLeftTd"><span></span>部门名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
@@ -38,19 +43,17 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>收费单位<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>收费单位：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>11111</option>
+							<select id="chargingUnitSel" name="chargingUnitId" <c:if test="${not empty department.deptId }">disabled="disabled"</c:if>>
+								<option></option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>上级部门<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>11111</option>
+							<select id="departmentSel" name="parentDeptId" <c:if test="${not empty department.deptId }">disabled="disabled"</c:if>>
+								<option></option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
@@ -118,6 +121,61 @@ $(function(){
 	if('${param.message}' != ''){
 		alert('${param.message}');
 	}
+	//加载收费单位
+	function loadChargingUnit(unitId,parentDeptId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value='aaa'>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+				loadDepartment(unitId,parentDeptId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	//加载部门
+	function loadDepartment(unitId,parentDeptId){
+		var _loadSelObj=$("#departmentSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getDepartmentListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{unitId:unitId},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].deptId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(parentDeptId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	
+	loadChargingUnit('${department.chargingUnitId }','${department.parentDeptId }');
+	//收费单位选择事件
+	$("#chargingUnitSel").change(function(){
+		loadDepartment($(this).val(),'');
+	});
 });
 </script>
 </body>

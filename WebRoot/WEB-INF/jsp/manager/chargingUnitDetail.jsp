@@ -28,8 +28,13 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>收费单位编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="unitId" name="unitId" value="${chargingUnit.unitId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<c:if test="${not empty chargingUnit.unitId }">
+								${chargingUnit.unitId }<input type="hidden" name="unitId" value="${chargingUnit.unitId }" />
+							</c:if>
+							<c:if test="${empty chargingUnit.unitId }">
+								<input type="text" id="unitId" name="unitId" value="${chargingUnit.unitId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+								<span class="Validform_checktip"></span>
+							</c:if>
 						</td>
 						<td class="editLeftTd"><span></span>收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
@@ -40,11 +45,8 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>上级收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select name="parentUnitId" <c:if test="${not empty chargingUnit.unitId }">disabled="disabled"</c:if>>
-								<option selected="" value=""></option>
-								<c:forEach items="${parentUnitList }" var="parentUnitItem">
-									<option value="${parentUnitItem.unitId }" <c:if test="${chargingUnit.parentUnitId == parentUnitItem.unitId }">selected="selected"</c:if>>${parentUnitItem.name }</option>
-								</c:forEach>
+							<select id="chargingUnitSel" name="parentUnitId" <c:if test="${not empty chargingUnit.unitId }">disabled="disabled"</c:if>>
+								<option></option>
 							</select>
 						</td>
 						<td class="editLeftTd"><span></span>联系人<span style="color: red;">*</span>：</td>
@@ -111,6 +113,31 @@ $(function(){
 			return false;
 		}
 	});
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value='aaa'>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${chargingUnit.parentUnitId }');
 });
 </script>
 </body>

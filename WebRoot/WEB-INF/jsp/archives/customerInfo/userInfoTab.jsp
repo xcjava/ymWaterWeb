@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -23,7 +24,7 @@
 	.tab_con {padding:12px;font-size: 14px; line-height:175%;}
 	</style>
 	<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-	<script src="${baseUrl }js/jquery/plugins/jquery.jqtab.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/jquery/plugins/jquery.jqtab.js?v=20140429" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		//调用tab插件
@@ -51,7 +52,7 @@
 	</table>
 	<div id="tabbox">
 	    <ul class="tabs" id="tabs">
-	       <li data-src="${baseUrl }jsp/archives/customerInfo/baseInfoJsp.jspx"><a href="#">基本信息</a></li>
+	       <li data-src="${baseUrl }archives/userDetail.jspx?id=${id}&curr=${curr}&message=${message}"><a href="#">基本信息</a></li>
 	       <li data-src="${baseUrl }jsp/archives/customerInfo/customerAddressJsp.jspx" <c:if test="${param.curr == 'customerAddress' }">class="curr"</c:if>><a href="#">客户地址</a></li>
 	       <li data-src="${baseUrl }jsp/archives/customerInfo/contactInfoJsp.jspx" <c:if test="${param.curr == 'contactInfo' }">class="curr"</c:if>><a href="#">联系信息</a></li>
 	       <li data-src="${baseUrl }jsp/archives/customerInfo/bankInfoJsp.jspx" <c:if test="${param.curr == 'bankInfo' }">class="curr"</c:if>><a href="#">银行账号</a></li>
@@ -63,27 +64,6 @@
 	        <li class="tab_con">
 	           <iframe name="mainframe" id="mainframe" allowTransparency scrolling="no" onload="this.height=300;" scrolling="no"  width="100%" border="0" frameborder="0" src="${baseUrl }jsp/archives/customerInfo/baseInfoJsp.jspx"></iframe>
 	        </li>
-	            
-	        <!-- <li class="tab_con">
-	        	<iframe name="iframe2" scrolling="no"  width="100%" height="435px" border="0" frameborder="0" src="${baseUrl }jsp/archives/customerAddressJsp.jspx"></iframe>
-	        </li>
-	    
-	        <li class="tab_con">
-	        	<iframe name="iframe3" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/contactInfoJsp.jspx"></iframe>
-	        </li>
-	    
-	        <li class="tab_con">
-	        	<iframe name="iframe4" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/bankInfoJsp.jspx"></iframe>
-	        </li>
-	        <li class="tab_con">
-	        	<iframe name="iframe5" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/bllAddressJsp.jspx"></iframe>
-	        </li>
-	        <li class="tab_con">
-	        	<iframe name="iframe6" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/vatInfoJsp.jspx"></iframe>
-	        </li>
-	        <li class="tab_con">
-	        	<iframe name="iframe7" scrolling="no"  width="100%" height="750px" border="0" frameborder="0" src="${baseUrl }jsp/archives/credentialsJsp.jspx"></iframe>
-	        </li> -->
 	    </ul>	
 	</div>
   </body>

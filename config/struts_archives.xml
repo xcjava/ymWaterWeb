@@ -5,9 +5,25 @@
 <struts>
 
 	<package name="archives" extends="admin-global" namespace="/archives">
-		
-		<action name="archivesList">
-			<result>/WEB-INF/jsp/archives/archivesList.jsp</result>
+		<!-- 客户信息列表 -->
+		<action name="userList" class="com.ymsino.water.view.web.archives.UserList">
+			<result>/WEB-INF/jsp/archives/customerInfo/userList.jsp</result>
+		</action>
+		<!-- 客户信息Tab -->
+		<action name="userInfoTab" class="com.ymsino.water.view.web.archives.UserInfoTab">
+			<result>/WEB-INF/jsp/archives/customerInfo/userInfoTab.jsp</result>
+		</action>
+		<!-- 客户基本信息详细页 -->
+		<action name="userDetail" class="com.ymsino.water.view.web.archives.UserDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/userDetail.jsp</result>
+		</action>
+		<!-- 客户基本信息添加 -->
+		<action name="saveUser" class="com.ymsino.water.view.web.archives.SaveUser">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 客户基本信息修改 -->
+		<action name="updateUser" class="com.ymsino.water.view.web.archives.UpdateUser">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
 	</package>
 </struts>

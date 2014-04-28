@@ -35,8 +35,8 @@
 		$(iframe).attr('src',$(tabtit).find(".curr").attr('data-src'));
 	}
 	$(tabtit).find("li").bind(shijian,function(){
-	  $(this).addClass("thistab").siblings("li").removeClass("thistab"); 
-		$(iframe).attr('src',$(this).attr('data-src'));
+	  $(this).addClass("thistab").siblings("li").removeClass("thistab");
+		$(iframe).attr('src',$(this).attr('data-src').replace("message=", ""));
 		return false;
 	});
 };

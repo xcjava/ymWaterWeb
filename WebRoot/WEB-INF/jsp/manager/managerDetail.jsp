@@ -22,7 +22,7 @@
 	 	</tbody>
 	</table>
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="">
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">

@@ -29,6 +29,7 @@
 	<include file="struts_global.xml"></include>
 	<include file="struts_admin_global.xml"></include>
 	<include file="struts_manager.xml"></include>
+	<include file="struts_archives.xml"></include>
 	<include file="struts_common.xml"></include>
 	<include file="struts_searchAnalysis.xml"></include>
 </struts>

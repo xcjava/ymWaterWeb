@@ -25,5 +25,22 @@
 		<action name="updateUser" class="com.ymsino.water.view.web.archives.UpdateUser">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
+		
+		<!-- 银行帐号列表 -->
+		<action name="bankList" class="com.ymsino.water.view.web.archives.BankList">
+			<result>/WEB-INF/jsp/archives/customerInfo/bankList.jsp</result>
+		</action>
+		<!-- 银行帐号详细页 -->
+		<action name="bankDetail" class="com.ymsino.water.view.web.archives.BankDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/bankDetail.jsp</result>
+		</action>
+		<!-- 银行帐号添加 -->
+		<action name="saveBank" class="com.ymsino.water.view.web.archives.SaveBank">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 银行帐号修改 -->
+		<action name="updateBank" class="com.ymsino.water.view.web.archives.UpdateBank">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
 	</package>
 </struts>

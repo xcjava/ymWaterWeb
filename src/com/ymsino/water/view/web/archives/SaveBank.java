@@ -1,0 +1,85 @@
+package com.ymsino.water.view.web.archives;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import com.opensymphony.oscache.util.StringUtil;
+import com.opensymphony.xwork2.ActionSupport;
+import com.ymsino.water.service.archives.bank.BankSaveParam;
+import com.ymsino.water.service.archives.bank.BankService;
+
+public class SaveBank extends ActionSupport {
+	
+	private static final long serialVersionUID = 189016617485872535L;
+	private Long id;
+	private String userId;
+	private String message;
+	private BankService bankService;
+	private BankSaveParam bank;
+	private String curr;
+	
+	@Override
+	public String execute() throws Exception {
+		try {
+			if(StringUtil.isEmpty(userId)){
+				message = "客户id不能为空！";
+				return SUCCESS;
+			}
+			
+			id = bankService.save(bank);
+			message = "添加成功！";
+		} catch (Exception e) {
+			message = e.getMessage();
+		}
+		return SUCCESS;
+	}
+
+	public String getMessage() {
+		if(!StringUtil.isEmpty(message)){
+			try {
+				message = URLEncoder.encode(message, "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+				message = "";
+			}
+		}
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getCurr() {
+		return curr;
+	}
+
+	public void setCurr(String curr) {
+		this.curr = curr;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public BankSaveParam getBank() {
+		return bank;
+	}
+
+	public void setBank(BankSaveParam bank) {
+		this.bank = bank;
+	}
+
+	public void setBankService(BankService bankService) {
+		this.bankService = bankService;
+	}
+
+}

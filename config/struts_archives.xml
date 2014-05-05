@@ -42,5 +42,91 @@
 		<action name="updateBank" class="com.ymsino.water.view.web.archives.UpdateBank">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
+		
+		
+		<!-- 业务地址 -->
+		<action name="busiAddressList" class="com.ymsino.water.view.web.archives.BusiAddressList">
+			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressList.jsp</result>
+		</action>
+		<!-- 业务地址详细页 -->
+		<action name="busiAddressDetail" class="com.ymsino.water.view.web.archives.BusiAddressDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressDetail.jsp</result>
+		</action>
+		<!-- 业务地址添加 -->
+		<action name="saveBusiAddress" class="com.ymsino.water.view.web.archives.SaveBusiAddress">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 业务地址修改 -->
+		<action name="updateBusiAddress" class="com.ymsino.water.view.web.archives.UpdateBusiAddress">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 联系信息 -->
+		<action name="contactList" class="com.ymsino.water.view.web.archives.ContactList">
+			<result>/WEB-INF/jsp/archives/customerInfo/contactList.jsp</result>
+		</action>
+		<!-- 联系信息详细页 -->
+		<action name="contactDetail" class="com.ymsino.water.view.web.archives.ContactDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/contactDetail.jsp</result>
+		</action>
+		<!-- 联系信息添加 -->
+		<action name="saveContact" class="com.ymsino.water.view.web.archives.SaveContact">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 联系信息修改 -->
+		<action name="updateContact" class="com.ymsino.water.view.web.archives.UpdateBusiAddress">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 增值税 -->
+		<action name="vatList" class="com.ymsino.water.view.web.archives.VatList">
+			<result>/WEB-INF/jsp/archives/customerInfo/vatList.jsp</result>
+		</action>
+		<!-- 增值税详细页 -->
+		<action name="vatDetail" class="com.ymsino.water.view.web.archives.VatDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/vatDetail.jsp</result>
+		</action>
+		<!-- 增值税添加 -->
+		<action name="saveVat" class="com.ymsino.water.view.web.archives.SaveVat">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 增值税修改 -->
+		<action name="updateVat" class="com.ymsino.water.view.web.archives.UpdateVat">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 用水用户 -->
+		<action name="waterCustomerList" class="com.ymsino.water.view.web.archives.WaterCustomerList">
+			<result>/WEB-INF/jsp/archives/customerInfo/waterCustomerList.jsp</result>
+		</action>
+		<!-- 用水用户详细页 -->
+		<action name="waterCustomerDetail" class="com.ymsino.water.view.web.archives.WaterCustomerDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/waterCustomerDetail.jsp</result>
+		</action>
+		<!-- 用水用户添加 -->
+		<action name="saveWaterCustomer" class="com.ymsino.water.view.web.archives.SaveWaterCustomer">
+			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 用水用户修改 -->
+		<action name="updateWaterCustomer" class="com.ymsino.water.view.web.archives.UpdateWaterCustomer">
+			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 水表列表 -->
+		<action name="waterMeterList" class="com.ymsino.water.view.web.archives.WaterMeterList">
+			<result>/WEB-INF/jsp/archives/measurePoint/waterMeterList.jsp</result>
+		</action>
+		<!-- 水表详细页 -->
+		<action name="waterMeterDetail" class="com.ymsino.water.view.web.archives.WaterMeterDetail">
+			<result>/WEB-INF/jsp/archives/measurePoint/waterMeterDetail.jsp</result>
+		</action>
+		<!-- 水表添加 -->
+		<action name="saveWaterMeter" class="com.ymsino.water.view.web.archives.SaveWaterCustomer">
+			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 水表修改 -->
+		<action name="updateWaterMeter" class="com.ymsino.water.view.web.archives.UpdateWaterCustomer">
+			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
 	</package>
 </struts>

@@ -32,4 +32,5 @@
 	<include file="struts_archives.xml"></include>
 	<include file="struts_common.xml"></include>
 	<include file="struts_searchAnalysis.xml"></include>
+	<include file="struts_data.xml"></include>
 </struts>

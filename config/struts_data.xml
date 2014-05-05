@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+<struts>
+
+	<package name="data" extends="admin-global" namespace="/data">
+		
+		<!-- 采集任务列表 -->
+		<action name="collectTaskList" class="com.ymsino.water.view.web.data.CollectTaskList">
+			<result>/WEB-INF/jsp/data/collectTaskList.jsp</result>
+		</action>
+		<!-- 采集任务详细页 -->
+		<action name="collectTaskDetail" class="com.ymsino.water.view.web.data.CollectTaskDetail">
+			<result>/WEB-INF/jsp/data/collectTaskDetail.jsp</result>
+		</action>
+		<!-- 采集任务添加 -->
+		<action name="saveCollectTask" class="com.ymsino.water.view.web.data.SaveCollectTask">
+			<result name="success" type="redirect">/data/collectTaskList.jspx?message=${message}</result>
+		</action>
+		<!-- 采集任务修改 -->
+		<action name="updateCollectTask" class="com.ymsino.water.view.web.data.UpdateCollectTask">
+			<result name="success" type="redirect">/data/collectTaskList.jspx?message=${message}</result>
+		</action>
+		
+		<!-- 读集中器时钟 -->
+		<action name="readClockAjax" class="com.ymsino.water.view.web.data.ReadClockAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 设置集中器时钟 -->
+		<action name="setupClockAjax" class="com.ymsino.water.view.web.data.SetupClockAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 集中器调试 -->
+		<action name="conDebugAjax" class="com.ymsino.water.view.web.data.ConDebugAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 删除集中器历史数据 -->
+		<action name="deleteDataAjax" class="com.ymsino.water.view.web.data.DeleteDataAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+	</package>
+</struts>

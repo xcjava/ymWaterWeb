@@ -52,13 +52,13 @@
 	</table>
 	<div id="tabbox">
 	    <ul class="tabs" id="tabs">
-	       <li data-src="${baseUrl }archives/userDetail.jspx?id=${id}&curr=${curr}&message=${message}"><a href="#">基本信息</a></li>
-	       <li data-src="${baseUrl }jsp/archives/customerInfo/customerAddressJsp.jspx" <c:if test="${param.curr == 'customerAddress' }">class="curr"</c:if>><a href="#">客户地址</a></li>
-	       <li data-src="${baseUrl }jsp/archives/customerInfo/contactInfoJsp.jspx" <c:if test="${param.curr == 'contactInfo' }">class="curr"</c:if>><a href="#">联系信息</a></li>
+	       <li data-src="${baseUrl }archives/userDetail.jspx?id=${id}&message=${message}&tab=baseInfo"><a href="#">基本信息</a></li>
+	       <li data-src="${baseUrl }archives/userDetail.jspx?id=${id}&curr=customerAddress&message=${message}&tab=custAddress" <c:if test="${param.curr == 'customerAddress' }">class="curr"</c:if>><a href="#">客户地址</a></li>
+	       <li data-src="${baseUrl }archives/contactDetail.jspx?id=${id}&curr=contactInfo&message=${message}" <c:if test="${param.curr == 'contactInfo' }">class="curr"</c:if>><a href="#">联系信息</a></li>
 	       <li data-src="${baseUrl }jsp/archives/customerInfo/bankInfoJsp.jspx" <c:if test="${param.curr == 'bankInfo' }">class="curr"</c:if>><a href="#">银行账号</a></li>
 	       <li data-src="${baseUrl }jsp/archives/customerInfo/bllAddressJsp.jspx" <c:if test="${param.curr == 'bllAddress' }">class="curr"</c:if>><a href="#">业务地址</a></li>
 	       <li data-src="${baseUrl }jsp/archives/customerInfo/vatInfoJsp.jspx" <c:if test="${param.curr == 'vatInfo' }">class="curr"</c:if>><a href="#">增值税</a></li>
-	       <li data-src="${baseUrl }jsp/archives/customerInfo/credentialsJsp.jspx" <c:if test="${param.curr == 'credentials' }">class="curr"</c:if>><a href="#">证件</a></li>
+	       <li data-src="${baseUrl }archives/userDetail.jspx?id=${id}&curr=credentials&message=${message}&tab=credentials" <c:if test="${param.curr == 'credentials' }">class="curr"</c:if>><a href="#">证件</a></li>
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">

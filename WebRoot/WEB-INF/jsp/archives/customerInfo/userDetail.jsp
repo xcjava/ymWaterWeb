@@ -17,6 +17,7 @@
 	<div id="main">
 		<form class="registerform" method="post" action="" target="main">
 			<input type="hidden" name="id" value="${id }" />
+			<input type="hidden" name="curr" value="${curr }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">

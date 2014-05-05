@@ -15,23 +15,25 @@
   </head>
 <body style="padding: 3px;">
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="" target="main">
+		<input type="hidden" name="id" value="${id }" />
+		<input type="hidden" name="curr" value="${curr }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>省码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>00 湖南</option>
-								<option>01 广东</option>
+							<select datatype="*"  id="province" name="user.province" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option value="湖南">湖南</option>
+								<option value="广东">广东</option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>市码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>00 长沙</option>
-								<option>01 常德</option>
+							<select datatype="*" id="city" name="user.city" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option value="长沙">长沙</option>
+								<option value="常德">常德</option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
@@ -39,93 +41,85 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>区县码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option>01 广东</option>
+							<select datatype="*" id="district" name="user.district" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option value="萝岗区">萝岗区</option>
+								<option value="天河区">天河区</option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>街道码（乡镇）<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option>01 常德</option>
+							<select id="street" name="user.street">
+								<option value="街道1">街道1</option>
+								<option value="街道2">街道2</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>居委会码（村）<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
+							<select id="village" name="user.village">
+								<option value="1">1</option>
+								<option value="2">2</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>道路码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
+							<select id="road" name="user.road">
+								<option value="1">1</option>
+								<option value="2">2</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>小区码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
+							<select id="residential" name="user.residential">
+								<option value="1">1</option>
+								<option value="2">2</option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>楼栋码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
+							<select id="storiedBuilding" name="user.storiedBuilding">
+								<option value="1">1</option>
+								<option value="2">2</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>单元码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
+							<select id="unit" name="user.unit">
+								<option value="1">1</option>
+								<option value="2">2</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>楼层码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option></option>
-								<option></option>
+							<select id="floor" name="user.floor">
+								<option value="1">1</option>
+								<option value="2">2</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>门牌号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="roomNo" name="user.roomNo" value="${user.roomNo }" />
 						</td>
 						<td class="editLeftTd"><span></span>邮编<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="postcode" name="user.postcode" value="${user.postcode }" />
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>地址类型<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>注册地址</option>
-								<option>法律地址</option>
+							<select id="addressType" name="user.addressType" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option value="注册地址">注册地址</option>
+								<option value="法律地址">法律地址</option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
@@ -134,14 +128,14 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>客户地址<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"></textarea>
+							<textarea style="float: left;" rows="3" cols="50" id="address" name="user.address" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">${user.address }</textarea>
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="提 交" /> <input type="reset" value="重 置" />
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/userList.jspx','main');"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -150,8 +144,6 @@
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
-		
 	$(".registerform").Validform({
 		tiptype:function(msg,o,cssctl){
 			//msg：提示信息;
@@ -163,8 +155,37 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if('${user.id }' == ''){
+				alert('请先完善基本信息！');
+				window.open('${baseUrl}archives/userInfoTab.jspx','main');
+				return false;
+			}else{
+				$(".registerform").attr('action','${baseUrl }archives/updateUser.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
+	
+	$("#province").val('${user.province}');
+	$("#city").val('${user.city}');
+	$("#district").val('${user.district}');
+	$("#street").val('${user.street}');
+	$("#village").val('${user.village}');
+	$("#road").val('${user.road}');
+	$("#residential").val('${user.residential}');
+	$("#storiedBuilding").val('${user.storiedBuilding}');
+	$("#unit").val('${user.unit}');
+	$("#floor").val('${user.floor}');
+	$("#addressType").val('${user.addressType}');
+	
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 });
 </script>
 </body>

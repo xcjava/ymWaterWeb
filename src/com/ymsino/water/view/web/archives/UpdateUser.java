@@ -3,6 +3,7 @@ package com.ymsino.water.view.web.archives;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import com.gmail.xcjava.base.date.DateUtil;
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.user.UserModifyParam;
@@ -17,6 +18,8 @@ public class UpdateUser extends ActionSupport {
 	private UserModifyParam user;
 	private String id;
 	private String message = "";
+	private String credValidDate;
+	private String credInvalidDate;
 	private String curr;
 	
 	@Override
@@ -30,6 +33,14 @@ public class UpdateUser extends ActionSupport {
 			if(userReturn == null){
 				message = "客户信息不存在！";
 				return SUCCESS;
+			}
+			if(!StringUtil.isEmpty(credValidDate)){
+				Long credValidTimestamp = DateUtil.parseDate(credValidDate, "yyyy-MM-dd").getTime();
+				user.setCredValidTimestamp(credValidTimestamp);
+			}
+			if(!StringUtil.isEmpty(credInvalidDate)){
+				Long credInvalidTimestamp = DateUtil.parseDate(credInvalidDate, "yyyy-MM-dd").getTime();
+				user.setCredInvalidTimestamp(credInvalidTimestamp);
 			}
 			user.setId(Long.valueOf(id));
 			userService.modify(user);
@@ -83,4 +94,21 @@ public class UpdateUser extends ActionSupport {
 	public void setCurr(String curr) {
 		this.curr = curr;
 	}
+
+	public String getCredValidDate() {
+		return credValidDate;
+	}
+
+	public void setCredValidDate(String credValidDate) {
+		this.credValidDate = credValidDate;
+	}
+
+	public String getCredInvalidDate() {
+		return credInvalidDate;
+	}
+
+	public void setCredInvalidDate(String credInvalidDate) {
+		this.credInvalidDate = credInvalidDate;
+	}
+	
 }

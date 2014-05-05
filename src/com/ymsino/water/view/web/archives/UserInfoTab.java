@@ -1,9 +1,5 @@
 package com.ymsino.water.view.web.archives;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
-import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserInfoTab extends ActionSupport {
@@ -23,14 +19,6 @@ public class UserInfoTab extends ActionSupport {
 	}
 
 	public String getMessage() {
-		if(!StringUtil.isEmpty(message)){
-			try {
-				message = URLEncoder.encode(message, "utf-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-				message = "";
-			}
-		}
 		return message;
 	}
 

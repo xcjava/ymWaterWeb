@@ -11,15 +11,26 @@ public class UserDetail extends ActionSupport{
 	private UserService userService;
 	private UserReturn user;
 	private String id;
+	private String tab;
 	private String message;
+	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
+		String result = "baseInfo";
+		if(!StringUtil.isEmpty(tab)){
+			if("custAddress".equals(tab)){
+				result = "custAddress";
+			}
+			if("credentials".equals(tab)){
+				result = "credentials";
+			}
+		}
 		if(StringUtil.isEmpty(id)){
-			return SUCCESS;
+			return result;
 		}
 		user = userService.getById(Long.valueOf(id));
-		return SUCCESS;
+		return result;
 	}
 
 	public String getMessage() {
@@ -48,6 +59,22 @@ public class UserDetail extends ActionSupport{
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+
+	public String getTab() {
+		return tab;
+	}
+
+	public void setTab(String tab) {
+		this.tab = tab;
+	}
+
+	public String getCurr() {
+		return curr;
+	}
+
+	public void setCurr(String curr) {
+		this.curr = curr;
 	}
 
 }

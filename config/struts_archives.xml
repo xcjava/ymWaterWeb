@@ -15,7 +15,9 @@
 		</action>
 		<!-- 客户基本信息详细页 -->
 		<action name="userDetail" class="com.ymsino.water.view.web.archives.UserDetail">
-			<result>/WEB-INF/jsp/archives/customerInfo/userDetail.jsp</result>
+			<result  name="baseInfo">/WEB-INF/jsp/archives/customerInfo/userDetail.jsp</result>
+			<result  name="custAddress">/WEB-INF/jsp/archives/customerInfo/customerAddress.jsp</result>
+			<result  name="credentials">/WEB-INF/jsp/archives/customerInfo/credentials.jsp</result>
 		</action>
 		<!-- 客户基本信息添加 -->
 		<action name="saveUser" class="com.ymsino.water.view.web.archives.SaveUser">

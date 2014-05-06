@@ -15,23 +15,24 @@ public class UpdateContact extends ActionSupport {
 	
 	private ContactService contactService;
 	private ContactModifyParam contact;
-	private String id;
+	private String id;//客户uid
+	private String contactId;
 	private String message = "";
 	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
 		try {
-			if(StringUtil.isEmpty(id)){
-				message = "银行信息id不能为空！";
+			if(StringUtil.isEmpty(contactId)){
+				message = "联系信息id不能为空！";
 				return SUCCESS;
 			}
-			ContactReturn contactReturn = contactService.getById(Long.valueOf(id));
+			ContactReturn contactReturn = contactService.getById(Long.valueOf(contactId));
 			if(contactReturn == null){
-				message = "业务地址信息不存在！";
+				message = "联系信息不存在！";
 				return SUCCESS;
 			}
-			contact.setId(Long.valueOf(id));
+			contact.setId(Long.valueOf(contactId));
 			contactService.modify(contact);
 			message = "修改成功！";
 		} catch (Exception e) {
@@ -82,6 +83,14 @@ public class UpdateContact extends ActionSupport {
 
 	public void setContactService(ContactService contactService) {
 		this.contactService = contactService;
+	}
+
+	public String getContactId() {
+		return contactId;
+	}
+
+	public void setContactId(String contactId) {
+		this.contactId = contactId;
 	}
 
 }

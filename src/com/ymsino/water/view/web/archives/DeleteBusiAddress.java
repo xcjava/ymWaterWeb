@@ -5,34 +5,32 @@ import java.net.URLEncoder;
 
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ymsino.water.service.archives.vat.VatModifyParam;
-import com.ymsino.water.service.archives.vat.VatReturn;
-import com.ymsino.water.service.archives.vat.VatService;
+import com.ymsino.water.service.archives.busiAddress.BusiAddressReturn;
+import com.ymsino.water.service.archives.busiAddress.BusiAddressService;
 
-public class UpdateVat extends ActionSupport {
+public class DeleteBusiAddress extends ActionSupport {
 	
 	private static final long serialVersionUID = 189016617485872535L;
 	
-	private VatService vatService;
-	private VatModifyParam vat;
+	private BusiAddressService busiAddressService;
 	private String id;
+	private String busiAddressId;
 	private String message = "";
 	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
 		try {
-			if(StringUtil.isEmpty(id)){
-				message = "银行信息id不能为空！";
+			if(StringUtil.isEmpty(busiAddressId)){
+				message = "业务地址id不能为空！";
 				return SUCCESS;
 			}
-			VatReturn vatReturn = vatService.getById(Long.valueOf(id));
-			if(vatReturn == null){
+			BusiAddressReturn busiAddressReturn = busiAddressService.getById(Long.valueOf(busiAddressId));
+			if(busiAddressReturn == null){
 				message = "业务地址信息不存在！";
 				return SUCCESS;
 			}
-			vat.setId(Long.valueOf(id));
-			vatService.modify(vat);
+			busiAddressService.delete(Long.valueOf(busiAddressId));
 			message = "修改成功！";
 		} catch (Exception e) {
 			message = e.getMessage();
@@ -72,16 +70,16 @@ public class UpdateVat extends ActionSupport {
 		this.curr = curr;
 	}
 
-	public VatModifyParam getVat() {
-		return vat;
+	public void setBusiAddressService(BusiAddressService busiAddressService) {
+		this.busiAddressService = busiAddressService;
 	}
 
-	public void setVat(VatModifyParam vat) {
-		this.vat = vat;
+	public String getBusiAddressId() {
+		return busiAddressId;
 	}
 
-	public void setVatService(VatService vatService) {
-		this.vatService = vatService;
+	public void setBusiAddressId(String busiAddressId) {
+		this.busiAddressId = busiAddressId;
 	}
 
 }

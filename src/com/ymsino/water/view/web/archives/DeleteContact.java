@@ -5,35 +5,33 @@ import java.net.URLEncoder;
 
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ymsino.water.service.archives.vat.VatModifyParam;
-import com.ymsino.water.service.archives.vat.VatReturn;
-import com.ymsino.water.service.archives.vat.VatService;
+import com.ymsino.water.service.archives.contact.ContactReturn;
+import com.ymsino.water.service.archives.contact.ContactService;
 
-public class UpdateVat extends ActionSupport {
+public class DeleteContact extends ActionSupport {
 	
 	private static final long serialVersionUID = 189016617485872535L;
 	
-	private VatService vatService;
-	private VatModifyParam vat;
-	private String id;
+	private ContactService contactService;
+	private String id;//客户uid
+	private String contactId;
 	private String message = "";
 	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
 		try {
-			if(StringUtil.isEmpty(id)){
-				message = "银行信息id不能为空！";
+			if(StringUtil.isEmpty(contactId)){
+				message = "联系信息id不能为空！";
 				return SUCCESS;
 			}
-			VatReturn vatReturn = vatService.getById(Long.valueOf(id));
-			if(vatReturn == null){
-				message = "业务地址信息不存在！";
+			ContactReturn contactReturn = contactService.getById(Long.valueOf(contactId));
+			if(contactReturn == null){
+				message = "联系信息不存在！";
 				return SUCCESS;
 			}
-			vat.setId(Long.valueOf(id));
-			vatService.modify(vat);
-			message = "修改成功！";
+			contactService.delete(Long.valueOf(contactId));
+			message = "删除成功！";
 		} catch (Exception e) {
 			message = e.getMessage();
 		}
@@ -72,16 +70,16 @@ public class UpdateVat extends ActionSupport {
 		this.curr = curr;
 	}
 
-	public VatModifyParam getVat() {
-		return vat;
+	public void setContactService(ContactService contactService) {
+		this.contactService = contactService;
 	}
 
-	public void setVat(VatModifyParam vat) {
-		this.vat = vat;
+	public String getContactId() {
+		return contactId;
 	}
 
-	public void setVatService(VatService vatService) {
-		this.vatService = vatService;
+	public void setContactId(String contactId) {
+		this.contactId = contactId;
 	}
 
 }

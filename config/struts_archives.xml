@@ -28,45 +28,6 @@
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
 		
-		<!-- 银行帐号列表 -->
-		<action name="bankList" class="com.ymsino.water.view.web.archives.BankList">
-			<result>/WEB-INF/jsp/archives/customerInfo/bankList.jsp</result>
-		</action>
-		<!-- 银行帐号详细页 -->
-		<action name="bankDetail" class="com.ymsino.water.view.web.archives.BankDetail">
-			<result>/WEB-INF/jsp/archives/customerInfo/bankDetail.jsp</result>
-		</action>
-		<!-- 银行帐号添加 -->
-		<action name="saveBank" class="com.ymsino.water.view.web.archives.SaveBank">
-			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
-		</action>
-		<!-- 银行帐号修改 -->
-		<action name="updateBank" class="com.ymsino.water.view.web.archives.UpdateBank">
-			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
-		</action>
-		
-		
-		<!-- 业务地址 -->
-		<action name="busiAddressList" class="com.ymsino.water.view.web.archives.BusiAddressList">
-			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressList.jsp</result>
-		</action>
-		<!-- 业务地址详细页 -->
-		<action name="busiAddressDetail" class="com.ymsino.water.view.web.archives.BusiAddressDetail">
-			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressDetail.jsp</result>
-		</action>
-		<!-- 业务地址添加 -->
-		<action name="saveBusiAddress" class="com.ymsino.water.view.web.archives.SaveBusiAddress">
-			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
-		</action>
-		<!-- 业务地址修改 -->
-		<action name="updateBusiAddress" class="com.ymsino.water.view.web.archives.UpdateBusiAddress">
-			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
-		</action>
-		<!-- 业务地址删除 -->
-		<action name="deleteBusiAddress" class="com.ymsino.water.view.web.archives.DeleteBusiAddress">
-			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
-		</action>
-		
 		<!-- 联系信息 -->
 		<action name="contactList" class="com.ymsino.water.view.web.archives.ContactList">
 			<result>/WEB-INF/jsp/archives/customerInfo/contactList.jsp</result>
@@ -85,6 +46,49 @@
 		</action>
 		<!-- 联系信息删除 -->
 		<action name="deleteContact" class="com.ymsino.water.view.web.archives.DeleteContact">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		
+		
+		<!-- 银行帐号列表 -->
+		<action name="bankList" class="com.ymsino.water.view.web.archives.BankList">
+			<result>/WEB-INF/jsp/archives/customerInfo/bankList.jsp</result>
+		</action>
+		<!-- 银行帐号详细页 -->
+		<action name="bankDetail" class="com.ymsino.water.view.web.archives.BankDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/bankDetail.jsp</result>
+		</action>
+		<!-- 银行帐号添加 -->
+		<action name="saveBank" class="com.ymsino.water.view.web.archives.SaveBank">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 银行帐号修改 -->
+		<action name="updateBank" class="com.ymsino.water.view.web.archives.UpdateBank">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 银行帐号删除 -->
+		<action name="deleteBank" class="com.ymsino.water.view.web.archives.DeleteBank">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+				
+		<!-- 业务地址 -->
+		<action name="busiAddressList" class="com.ymsino.water.view.web.archives.BusiAddressList">
+			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressList.jsp</result>
+		</action>
+		<!-- 业务地址详细页 -->
+		<action name="busiAddressDetail" class="com.ymsino.water.view.web.archives.BusiAddressDetail">
+			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressDetail.jsp</result>
+		</action>
+		<!-- 业务地址添加 -->
+		<action name="saveBusiAddress" class="com.ymsino.water.view.web.archives.SaveBusiAddress">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 业务地址修改 -->
+		<action name="updateBusiAddress" class="com.ymsino.water.view.web.archives.UpdateBusiAddress">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 业务地址删除 -->
+		<action name="deleteBusiAddress" class="com.ymsino.water.view.web.archives.DeleteBusiAddress">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
 		

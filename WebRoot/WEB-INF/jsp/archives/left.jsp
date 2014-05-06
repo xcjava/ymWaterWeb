@@ -72,62 +72,6 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    </table></td>
 	                  </tr>
 	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/customerInfo/infoTabJsp.jspx" target="main">基本信息</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/customerInfo/infoTabJsp.jspx?curr=customerAddress" target="main">客户地址</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/customerInfo/infoTabJsp.jspx?curr=contactInfo" target="main">联系信息</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/customerInfo/infoTabJsp.jspx?curr=bankInfo" target="main">银行账号</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/customerInfo/infoTabJsp.jspx?curr=bllAddress" target="main">业务地址</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/customerInfo/infoTabJsp.jspx?curr=vatInfo" target="main">增值税</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/customerInfo/infoTabJsp.jspx?curr=credentials" target="main">证件</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
 	                    <td height="23"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>

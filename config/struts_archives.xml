@@ -62,6 +62,10 @@
 		<action name="updateBusiAddress" class="com.ymsino.water.view.web.archives.UpdateBusiAddress">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
+		<!-- 业务地址删除 -->
+		<action name="deleteBusiAddress" class="com.ymsino.water.view.web.archives.DeleteBusiAddress">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
 		
 		<!-- 联系信息 -->
 		<action name="contactList" class="com.ymsino.water.view.web.archives.ContactList">
@@ -76,7 +80,11 @@
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
 		<!-- 联系信息修改 -->
-		<action name="updateContact" class="com.ymsino.water.view.web.archives.UpdateBusiAddress">
+		<action name="updateContact" class="com.ymsino.water.view.web.archives.UpdateContact">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 联系信息删除 -->
+		<action name="deleteContact" class="com.ymsino.water.view.web.archives.DeleteContact">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
 		
@@ -94,6 +102,10 @@
 		</action>
 		<!-- 增值税修改 -->
 		<action name="updateVat" class="com.ymsino.water.view.web.archives.UpdateVat">
+			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		</action>
+		<!-- 增值税删除 -->
+		<action name="deleteVat" class="com.ymsino.water.view.web.archives.DeleteVat">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
 		

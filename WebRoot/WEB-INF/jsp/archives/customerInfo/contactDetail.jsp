@@ -116,6 +116,7 @@
 			</div>
 		</form>
 		<div class="block10"></div>
+		<c:if test="${not empty id }">
 		<table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
 	      <tr class="listTableHead">
 	      	<td><div><span>序号</span></div></td>
@@ -155,6 +156,7 @@
 			</td>
 		  </tr>		       
 	    </table>
+	    </c:if>
 	</div>
 	
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
@@ -176,16 +178,15 @@ $(function(){
 			}
 		},
 		callback:function(form){
-			if('${id }' == ''){
-				alert('请先完善基本信息！');
-				window.open('${baseUrl}archives/userInfoTab.jspx','main');
-				return false;
-			}else{
-				if($("#contactId").val() == ''){
+			if($("#contactId").val() == ''){
+				if('${id }' != ''){
 					$(".registerform").attr('action','${baseUrl }archives/saveContact.jspx');
 				}else{
-					$(".registerform").attr('action','${baseUrl }archives/updateContact.jspx');
+					alert('请先完善基本信息！');
+					window.open('${baseUrl}archives/userInfoTab.jspx','main');
 				}
+			}else{
+				$(".registerform").attr('action','${baseUrl }archives/updateContact.jspx');
 			}
 			if(confirm("您确定要提交表单吗？")){
 				return true;

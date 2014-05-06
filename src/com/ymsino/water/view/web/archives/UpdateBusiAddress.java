@@ -15,23 +15,24 @@ public class UpdateBusiAddress extends ActionSupport {
 	
 	private BusiAddressService busiAddressService;
 	private BusiAddressModifyParam busiAddress;
-	private String id;
+	private String id;//客户uid
+	private String busiAddressId;
 	private String message = "";
 	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
 		try {
-			if(StringUtil.isEmpty(id)){
-				message = "银行信息id不能为空！";
+			if(StringUtil.isEmpty(busiAddressId)){
+				message = "业务地址id不能为空！";
 				return SUCCESS;
 			}
-			BusiAddressReturn busiAddressReturn = busiAddressService.getById(Long.valueOf(id));
+			BusiAddressReturn busiAddressReturn = busiAddressService.getById(Long.valueOf(busiAddressId));
 			if(busiAddressReturn == null){
 				message = "业务地址信息不存在！";
 				return SUCCESS;
 			}
-			busiAddress.setId(Long.valueOf(id));
+			busiAddress.setId(Long.valueOf(busiAddressId));
 			busiAddressService.modify(busiAddress);
 			message = "修改成功！";
 		} catch (Exception e) {
@@ -82,6 +83,14 @@ public class UpdateBusiAddress extends ActionSupport {
 
 	public void setBusiAddressService(BusiAddressService busiAddressService) {
 		this.busiAddressService = busiAddressService;
+	}
+
+	public String getBusiAddressId() {
+		return busiAddressId;
+	}
+
+	public void setBusiAddressId(String busiAddressId) {
+		this.busiAddressId = busiAddressId;
 	}
 
 }

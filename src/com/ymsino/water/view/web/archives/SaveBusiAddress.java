@@ -7,26 +7,33 @@ import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.busiAddress.BusiAddressSaveParam;
 import com.ymsino.water.service.archives.busiAddress.BusiAddressService;
+import com.ymsino.water.service.archives.user.UserReturn;
+import com.ymsino.water.service.archives.user.UserService;
 
 public class SaveBusiAddress extends ActionSupport {
 	
 	private static final long serialVersionUID = 189016617485872535L;
-	private Long id;
-	private String userId;
+	private String id;//客户uid
 	private String message;
 	private BusiAddressService busiAddressService;
+	private UserService userService;
 	private BusiAddressSaveParam busiAddress;
 	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
 		try {
-			if(StringUtil.isEmpty(userId)){
+			if(StringUtil.isEmpty(id)){
 				message = "客户id不能为空！";
 				return SUCCESS;
 			}
-			
-			id = busiAddressService.save(busiAddress);
+			UserReturn userReturn = userService.getById(Long.valueOf(id));
+			if(userReturn == null){
+				message = "客户不存在！";
+				return SUCCESS;
+			}
+			busiAddress.setUid(Long.valueOf(id));
+			busiAddressService.save(busiAddress);
 			message = "添加成功！";
 		} catch (Exception e) {
 			message = e.getMessage();
@@ -50,24 +57,12 @@ public class SaveBusiAddress extends ActionSupport {
 		this.message = message;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 	public String getCurr() {
 		return curr;
 	}
 
 	public void setCurr(String curr) {
 		this.curr = curr;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public BusiAddressSaveParam getBusiAddress() {
@@ -78,12 +73,20 @@ public class SaveBusiAddress extends ActionSupport {
 		this.busiAddress = busiAddress;
 	}
 
-	public void setId(Long id) {
+	public void setBusiAddressService(BusiAddressService busiAddressService) {
+		this.busiAddressService = busiAddressService;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public void setBusiAddressService(BusiAddressService busiAddressService) {
-		this.busiAddressService = busiAddressService;
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 
 }

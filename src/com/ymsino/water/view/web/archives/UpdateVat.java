@@ -15,23 +15,24 @@ public class UpdateVat extends ActionSupport {
 	
 	private VatService vatService;
 	private VatModifyParam vat;
-	private String id;
+	private String id;//客户uid
+	private String vatId;
 	private String message = "";
 	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
 		try {
-			if(StringUtil.isEmpty(id)){
-				message = "银行信息id不能为空！";
+			if(StringUtil.isEmpty(vatId)){
+				message = "增值税id不能为空！";
 				return SUCCESS;
 			}
-			VatReturn vatReturn = vatService.getById(Long.valueOf(id));
+			VatReturn vatReturn = vatService.getById(Long.valueOf(vatId));
 			if(vatReturn == null){
-				message = "业务地址信息不存在！";
+				message = "增值税信息不存在！";
 				return SUCCESS;
 			}
-			vat.setId(Long.valueOf(id));
+			vat.setId(Long.valueOf(vatId));
 			vatService.modify(vat);
 			message = "修改成功！";
 		} catch (Exception e) {
@@ -82,6 +83,14 @@ public class UpdateVat extends ActionSupport {
 
 	public void setVatService(VatService vatService) {
 		this.vatService = vatService;
+	}
+
+	public String getVatId() {
+		return vatId;
+	}
+
+	public void setVatId(String vatId) {
+		this.vatId = vatId;
 	}
 
 }

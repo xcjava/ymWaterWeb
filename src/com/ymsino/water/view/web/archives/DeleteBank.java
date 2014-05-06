@@ -5,17 +5,15 @@ import java.net.URLEncoder;
 
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ymsino.water.service.archives.bank.BankModifyParam;
 import com.ymsino.water.service.archives.bank.BankReturn;
 import com.ymsino.water.service.archives.bank.BankService;
 
-public class UpdateBank extends ActionSupport {
+public class DeleteBank extends ActionSupport {
 	
 	private static final long serialVersionUID = 189016617485872535L;
 	
 	private BankService bankService;
-	private BankModifyParam bank;
-	private String id;//客户uid
+	private String id;
 	private String bankId;
 	private String message = "";
 	private String curr;
@@ -32,8 +30,7 @@ public class UpdateBank extends ActionSupport {
 				message = "银行信息不存在！";
 				return SUCCESS;
 			}
-			bank.setId(Long.valueOf(bankId));
-			bankService.modify(bank);
+			bankService.delete(Long.valueOf(bankId));
 			message = "修改成功！";
 		} catch (Exception e) {
 			message = e.getMessage();
@@ -73,18 +70,6 @@ public class UpdateBank extends ActionSupport {
 		this.curr = curr;
 	}
 
-	public BankModifyParam getBank() {
-		return bank;
-	}
-
-	public void setBank(BankModifyParam bank) {
-		this.bank = bank;
-	}
-
-	public void setBankService(BankService bankService) {
-		this.bankService = bankService;
-	}
-
 	public String getBankId() {
 		return bankId;
 	}
@@ -92,5 +77,9 @@ public class UpdateBank extends ActionSupport {
 	public void setBankId(String bankId) {
 		this.bankId = bankId;
 	}
-	
+
+	public void setBankService(BankService bankService) {
+		this.bankService = bankService;
+	}
+
 }

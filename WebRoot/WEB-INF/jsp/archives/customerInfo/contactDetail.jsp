@@ -61,9 +61,9 @@
 								<option value="2">女</option>
 							</select>
 						</td>
-						<td class="editLeftTd"><span></span>部门编号：</td>
+						<td class="editLeftTd"><span></span>部门编号(客户部门有疑惑?)：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="departmentId" readonly="readonly" name="departmentId" value="" />
+							<input type="text" id="departmentId" name="contact.departmentId" value="" />
 						</td>
 					</tr>
 					<tr class="editTr">
@@ -112,7 +112,7 @@
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" id="subBtn" value="新 增" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/userList.jspx','main');"value="返 回">
+				<input type="submit" id="subBtn" value="新 增" /> <input type="reset" id="resetBtn" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/userList.jspx','main');"value="返 回">
 			</div>
 		</form>
 		<div class="block10"></div>
@@ -143,7 +143,10 @@
 				<c:if test="${contact.priority == '2'}">优先级低</c:if>
 	        </div></td>
 	        <td><div>${contact.linkMan }</div></td>
-	        <td><div><a href="javascript:void(0);" class="btnEdit" title="${contact.id }" >修改</a> | <a href="javascript:void(0);" class="btnDelete" title="${contact.id }">删除</a></div></td>
+	        <td><div>
+	        	<a href="javascript:void(0);" class="btnEdit" title="${contact.id }" contactData='{"id":"${contact.id}","type":"${contact.type}","source":"${contact.source}","priority":"${contact.priority}","linkMan":"${contact.linkMan}","sex":"${contact.sex}","departmentId":"${contact.departmentId}","position":"${contact.position}","officePhone":"${contact.officePhone}","mobile":"${contact.mobile}","fax":"${contact.fax}","postcode":"${contact.postcode}","email":"${contact.email}","remark":"${contact.remark}","address":"${contact.address}"}' >修改</a>
+	         | <a href="javascript:void(0);" class="btnDelete" title="${contact.id }">删除</a>
+	        </div></td>
 	      </tr>
 	      </c:forEach>
 		  <tr class="listFooterTr">
@@ -192,7 +195,37 @@ $(function(){
 	});
 	
 	$(".btnEdit").click(function(){
-		
+		$('#subBtn').val('修 改');
+		var data = $(this).attr('contactData');
+		//data= eval("("+data+")");
+		var data = $.parseJSON(data);
+		$('#contactId').val(data.id);
+		$('#type').val(data.type);
+		$('#source').val(data.source);
+		$('#priority').val(data.priority);
+		$('#linkMan').val(data.linkMan);
+		$('#sex').val(data.sex);
+		$('#departmentId').val(data.departmentId);
+		$('#position').val(data.position);
+		$('#officePhone').val(data.officePhone);
+		$('#mobile').val(data.mobile);
+		$('#fax').val(data.fax);
+		$('#postcode').val(data.postcode);
+		$('#email').val(data.email);
+		$('#remark').val(data.remark);
+		$('#address').val(data.address);
+	});
+	$(".btnDelete").click(function(){
+		var contactId = $(this).attr('title');
+		var confirm = window.confirm('请确认是否删除该联系信息?');
+		if(confirm){
+			window.open('${baseUrl}archives/deleteContact.jspx?id=${id}&contactId='+contactId+'&curr=${curr}','main');
+		}
+	});
+	
+	$('#resetBtn').click(function(){
+		$('#subBtn').val('新 增');
+		$('#contactId').val('');
 	});
 	
 	if('${param.message}' != ''){

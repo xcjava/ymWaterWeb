@@ -123,7 +123,6 @@
 		</action>
 		<!-- 用水用户详细页 -->
 		<action name="waterCustomerDetail" class="com.ymsino.water.view.web.archives.WaterCustomerDetail">
-			<result>/WEB-INF/jsp/archives/customerInfo/waterCustomerDetail.jsp</result>
 			<result name="waterCustomer">/WEB-INF/jsp/archives/customerInfo/waterCustomerDetail.jsp</result>
 			<result name="waterPoints">/WEB-INF/jsp/archives/customerInfo/waterPoints.jsp</result>
 		</action>

@@ -51,8 +51,8 @@
 	</table>
 	<div id="tabbox">
 	    <ul class="tabs" id="tabs">
-	       <li data-src="${baseUrl }jsp/archives/customerInfo/waterCustomerInfoJsp.jspx"><a href="#">用水用户</a></li>
-	       <li data-src="${baseUrl }jsp/archives/customerInfo/waterPointsJsp.jspx" <c:if test="${param.curr == 'waterPoints' }">class="curr"</c:if>><a href="#">供水点</a></li>
+			<li data-src="${baseUrl }archives/waterCustomerDetail.jspx?customerId=${customerId}&message=${message}&tab=waterCustomer"><a href="#">用水用户</a></li>	    		
+	       	<li data-src="${baseUrl }archives/waterCustomerDetail.jspx?customerId=${customerId}&message=${message}&tab=waterPoints" <c:if test="${param.curr == 'waterPoints' }">class="curr"</c:if>><a href="#">供水点</a></li>
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">

@@ -18,5 +18,16 @@
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
 		</action>
 		
+		<!-- 获取某收费单位的价目列表ajax，主要用于下拉框选择 -->
+		<action name="getPriceTemplateListAjax" class="com.ymsino.water.view.web.common.GetPriceTemplateListAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 根据价目模板id获取价目模板 -->
+		<action name="getPriceTemplateAjax" class="com.ymsino.water.view.web.common.GetPriceTemplateAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
 	</package>
 </struts>

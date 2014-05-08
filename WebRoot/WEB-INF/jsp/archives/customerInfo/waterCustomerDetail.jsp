@@ -23,9 +23,9 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>客户编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
-							<input type="hidden" id="uid" name="waterCustomer.uid" value="${waterCustomer.uid }" />
-							<input type="text" id="userId" name="waterCustomer.userId" value="${waterCustomer.userId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="uid" name="waterCustomer.uid" value="${waterCustomer.uid }" />
+							<!-- <input type="text" id="userId" name="waterCustomer.userId" value="${waterCustomer.userId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span> -->
 						</td>
 						<td class="editLeftTd"><span></span>客户名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
@@ -43,7 +43,7 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>用水用户编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="customerId" name="waterCustomer.customerId" value="${waterCustomer.customerId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="customerId" name="customerId" value="${waterCustomer.customerId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>用水用户名称<span style="color: red;">*</span>：</td>

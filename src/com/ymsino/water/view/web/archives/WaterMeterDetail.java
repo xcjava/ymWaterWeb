@@ -11,6 +11,7 @@ public class WaterMeterDetail extends ActionSupport{
 	private WaterMeterService waterMeterService;
 	private WaterMeterReturn waterMeter;
 	private String hardwareId;//水表编号
+	private Short type;//水表类型，1：IC卡，2：红外卡，3：无线智能
 	private String message;
 	
 	@Override

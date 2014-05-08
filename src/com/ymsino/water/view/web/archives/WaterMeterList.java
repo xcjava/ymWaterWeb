@@ -1,6 +1,7 @@
 package com.ymsino.water.view.web.archives;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.gmail.xcjava.base.date.DateUtil;
 import com.gmail.xcjava.base.hql.QueryCondition;
+import com.gmail.xcjava.base.hql.QueryLink;
 import com.gmail.xcjava.base.hql.QueryParamWriter;
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
@@ -28,6 +31,15 @@ public class WaterMeterList extends ActionSupport {
 	private int pageSize;
 	private String message = "";
     private List<WaterMeterReturn> list = new ArrayList<WaterMeterReturn>();
+    private Short type;//水表类型，1：IC卡，2：红外卡，3：无线智能
+    private String chargingUnitId;
+    private String userId;//客户编号
+    private String userName;//客户名称
+    private String startDate;//创建时间范围开始
+	private String endDate;//创建时间范围结束
+	private String hardwareId;//水表编号
+	private String dataType;//数据类别，1脉冲、2直读
+    
 	public String execute() throws Exception{
 		
 		if (pageSize == 0)	pageSize = 20;
@@ -43,6 +55,36 @@ public class WaterMeterList extends ActionSupport {
 		QueryParamWriter qpw = new QueryParamWriter();
 		if(!StringUtil.isEmpty(managerUnitId)){
 			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
+		}
+		if(type != null){
+			qpw.addQueryParam("type", type, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(chargingUnitId)){
+			qpw.addQueryParam("chargingUnitId", chargingUnitId, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(userId)){
+			qpw.addQueryParam("userId", userId, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(userName)){
+			qpw.addQueryParam("userName", userName, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(hardwareId)){
+			qpw.addQueryParam("hardwareId", hardwareId, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(dataType)){
+			qpw.addQueryParam("dataType", dataType, QueryCondition.QC_EQ);
+		}
+		
+		if(!StringUtil.isEmpty(startDate) && !StringUtil.isEmpty(endDate)){
+			if(DateUtil.parseDate(startDate, "yyyy-MM-dd").getTime() > DateUtil.parseDate(endDate , "yyyy-MM-dd").getTime()){
+				Date date1 = DateUtil.parseDate(startDate + " 23:59:59","yyyy-MM-dd HH:mm:ss");
+				Date date2 = DateUtil.parseDate(endDate + " 00:00:00","yyyy-MM-dd HH:mm:ss");
+				qpw.addQueryParams(new String[]{"createTimestamp","createTimestamp"},  new Object[]{date2.getTime(),date1.getTime()} , new QueryCondition[]{QueryCondition.QC_GE,QueryCondition.QC_LE},new QueryLink[]{QueryLink.QL_AND});
+			}else{
+				Date date1 = DateUtil.parseDate(startDate + " 00:00:00","yyyy-MM-dd HH:mm:ss");
+				Date date2 = DateUtil.parseDate(endDate + " 23:59:59","yyyy-MM-dd HH:mm:ss");
+				qpw.addQueryParams(new String[]{"createTimestamp","createTimestamp"},  new Object[]{date1.getTime(),date2.getTime()} , new QueryCondition[]{QueryCondition.QC_GE,QueryCondition.QC_LE},new QueryLink[]{QueryLink.QL_AND});
+			}
 		}
 		
 		QueryParam qpm = new QueryParam();

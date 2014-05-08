@@ -27,7 +27,7 @@ public class WaterCustomerDetail extends ActionSupport{
 			return result;
 		}
 		waterCustomer = waterCustomerService.getById(customerId);
-		return SUCCESS;
+		return result;
 	}
 
 	public String getMessage() {

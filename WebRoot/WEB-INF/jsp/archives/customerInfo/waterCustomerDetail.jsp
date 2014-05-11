@@ -16,7 +16,6 @@
 <body style="padding: 3px;">
 	<div id="main">
 		<form class="registerform" method="post" action="" target="main">
-			<input type="hidden" name="customerId" value="${customerId }" />
 			<input type="hidden" name="curr" value="${curr }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="5" width="100%" align="center">
 				<tbody>
@@ -209,7 +208,7 @@ $(function(){
 			if('${waterCustomer.customerId }' == ''){
 				$(".registerform").attr('action','${baseUrl }archives/saveWaterCustomer.jspx');
 			}else{
-				$(".registerform").attr('action','${baseUrl }archives/updateWaterCustomer.jspx');
+				$(".registerform").attr('action','${baseUrl }archives/updateWaterCustomer.jspx?curr=${curr}');
 			}
 			if(confirm("您确定要提交表单吗？")){
 				return true;

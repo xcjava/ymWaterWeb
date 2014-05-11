@@ -13,6 +13,7 @@ public class WaterMeterDetail extends ActionSupport{
 	private String hardwareId;//水表编号
 	private Short type;//水表类型，1：IC卡，2：红外卡，3：无线智能
 	private String message;
+	private String curr;
 	
 	@Override
 	public String execute() throws Exception {
@@ -49,6 +50,22 @@ public class WaterMeterDetail extends ActionSupport{
 
 	public void setWaterMeterService(WaterMeterService waterMeterService) {
 		this.waterMeterService = waterMeterService;
+	}
+
+	public Short getType() {
+		return type;
+	}
+
+	public void setType(Short type) {
+		this.type = type;
+	}
+
+	public String getCurr() {
+		return curr;
+	}
+
+	public void setCurr(String curr) {
+		this.curr = curr;
 	}
 
 }

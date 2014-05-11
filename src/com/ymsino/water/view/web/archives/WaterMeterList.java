@@ -31,7 +31,7 @@ public class WaterMeterList extends ActionSupport {
 	private int pageSize;
 	private String message = "";
     private List<WaterMeterReturn> list = new ArrayList<WaterMeterReturn>();
-    private Short type;//水表类型，1：IC卡，2：红外卡，3：无线智能
+    private Short type = 3;//水表类型，1：IC卡，2：红外卡，3：无线智能
     private String chargingUnitId;
     private String userId;//客户编号
     private String userName;//客户名称
@@ -151,6 +151,62 @@ public class WaterMeterList extends ActionSupport {
 
 	public void setWaterMeterService(WaterMeterService waterMeterService) {
 		this.waterMeterService = waterMeterService;
+	}
+
+	public Short getType() {
+		return type;
+	}
+
+	public void setType(Short type) {
+		this.type = type;
+	}
+
+	public String getChargingUnitId() {
+		return chargingUnitId;
+	}
+
+	public void setChargingUnitId(String chargingUnitId) {
+		this.chargingUnitId = chargingUnitId;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getDataType() {
+		return dataType;
+	}
+
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
 	}
 
 }

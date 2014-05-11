@@ -16,6 +16,7 @@ public class SaveWaterMeter extends ActionSupport {
 	private WaterMeterService waterMeterService;
 	private WaterMeterSaveParam waterMeter;
 	private String curr;
+	private String type;
 	
 	@Override
 	public String execute() throws Exception {
@@ -75,6 +76,14 @@ public class SaveWaterMeter extends ActionSupport {
 
 	public void setWaterMeterService(WaterMeterService waterMeterService) {
 		this.waterMeterService = waterMeterService;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

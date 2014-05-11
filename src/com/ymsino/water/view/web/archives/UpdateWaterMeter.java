@@ -18,6 +18,7 @@ public class UpdateWaterMeter extends ActionSupport {
 	private String hardwareId;
 	private String message = "";
 	private String curr;
+	private String type;
 	
 	@Override
 	public String execute() throws Exception {
@@ -82,6 +83,14 @@ public class UpdateWaterMeter extends ActionSupport {
 
 	public void setWaterMeterService(WaterMeterService waterMeterService) {
 		this.waterMeterService = waterMeterService;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

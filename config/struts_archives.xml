@@ -144,12 +144,13 @@
 			<result name="success">/WEB-INF/jsp/archives/measurePoint/waterMeterDetail.jsp</result>
 		</action>
 		<!-- 水表添加 -->
-		<action name="saveWaterMeter" class="com.ymsino.water.view.web.archives.SaveWaterCustomer">
-			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		<action name="saveWaterMeter" class="com.ymsino.water.view.web.archives.SaveWaterMeter">
+			<result name="success" type="redirect">/archives/waterMeterDetail.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;type=${type}&amp;message=${message}</result>
+			<result name="input">/WEB-INF/jsp/archives/measurePoint/waterMeterDetail.jsp</result>
 		</action>
 		<!-- 水表修改 -->
-		<action name="updateWaterMeter" class="com.ymsino.water.view.web.archives.UpdateWaterCustomer">
-			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+		<action name="updateWaterMeter" class="com.ymsino.water.view.web.archives.UpdateWaterMeter">
+			<result name="success" type="redirect">/archives/waterMeterDetail.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;type=${type}&amp;message=${message}</result>
 		</action>
 	</package>
 </struts>

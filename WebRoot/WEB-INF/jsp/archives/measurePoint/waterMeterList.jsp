@@ -66,7 +66,7 @@ $(function(){
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
-	 			<td class="position">当前位置: 计量点档案 -&gt;  <c:if test="${type == '1' }">IC卡预付费</c:if><c:if test="${type == '1' }">红外卡预付费</c:if><c:if test="${type == '1' }">无线智能</c:if>水表</td>
+	 			<td class="position">当前位置: 计量点档案 -&gt;  <c:if test="${type == '1' }">IC卡预付费</c:if><c:if test="${type == '2' }">红外卡预付费</c:if><c:if test="${type == '3' }">无线智能</c:if>水表</td>
 	 		</tr>
 	 	</tbody>
 	</table>	
@@ -88,15 +88,15 @@ $(function(){
 				        <td><input class="textbox" id="userId" style="width: 120px" name="userId" value="${userId }" /></td>
 				        <td>客户姓名：</td>
 				       	<td><input class="textbox" id="userName" style="width: 120px" name="userName" value="${userName }" /></td>
-				      </tr>
-				      <tr>
-				        <td>创建时间</td>
+				      	<td>创建时间</td>
 				        <td>
 				        	<input class="Wdate" type="text" onClick="WdatePicker()" name="startDate" id="startDate" value="${startDate}">&nbsp;至:
 				        </td>
 				        <td>
   							<input class="Wdate" type="text" onClick="WdatePicker()" name="endDate" id="endDate" value="${endDate}">
 				        </td>
+				      </tr>
+				      <tr>
 				        <td>水表编号</td>
 				        <td><input class="textbox" id="hardwareId" style="width: 120px" name="hardwareId" value="${hardwareId }" /></td>
 				        <td>数据类别</td>
@@ -105,10 +105,14 @@ $(function(){
 				        		<option value="0">全部状态</option>
 				        		<option value="1" <c:if test="${dataType == '1' }">selected="selected"</c:if>>脉冲</option>
 				        		<option value="2" <c:if test="${dataType == '2' }">selected="selected"</c:if>>直读</option>
+				        	</select>
 				        </td>
-				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
-				      	<td><input class="button" id="addWaterMeter" type="button" value="新增" name=""></td>
+				      	<td></td>
+				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
+				      		<input class="button" id="" type="button" value="导出" name="">
+				      		<input class="button" id="addWaterMeter" type="button" value="新增" name="">
+				      	</td>
+				      	<td></td>
 				      </tr>
 				      <tr>
 				      </tr>

@@ -121,26 +121,10 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                           </table></td>
                         </tr>
                         <tr>
-                          <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-                          <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/measurePoint/ICcardDetailJsp.jspx" target="main">IC卡预付费水表详细页</a></span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
                           <td height="23"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
                           <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
                                 <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }archives/waterMeterList.jspx?type=2" target="main">红外卡预付费水表</a></span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/archives/measurePoint/IRcardDetailJsp.jspx" target="main">红外卡预付费水表详细页</a></span></td>
                               </tr>
                           </table></td>
                         </tr>

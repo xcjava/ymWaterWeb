@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+<struts>
+
+	<package name="freesettle" extends="admin-global" namespace="/freesettle">
+		
+		<!-- 水表日费用列表 -->
+		<action name="waterDayCostList" class="com.ymsino.water.view.web.freesettle.WaterDayCostList">
+			<result name="success">/WEB-INF/jsp/costing/waterDayCostList.jsp</result>
+		</action>
+		
+		<!-- 水表月费用列表 -->
+		<action name="waterMonthCostList" class="com.ymsino.water.view.web.freesettle.WaterMonthCostList">
+			<result name="success">/WEB-INF/jsp/costing/waterMonthCostList.jsp</result>
+		</action>
+	</package>
+</struts>

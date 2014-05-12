@@ -33,4 +33,5 @@
 	<include file="struts_common.xml"></include>
 	<include file="struts_searchAnalysis.xml"></include>
 	<include file="struts_data.xml"></include>
+	<include file="struts_freesettle.xml"></include>
 </struts>

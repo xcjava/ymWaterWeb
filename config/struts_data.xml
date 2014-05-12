@@ -8,11 +8,11 @@
 		
 		<!-- 采集任务列表 -->
 		<action name="collectTaskList" class="com.ymsino.water.view.web.data.CollectTaskList">
-			<result>/WEB-INF/jsp/data/collectTaskList.jsp</result>
+			<result name="success">/WEB-INF/jsp/data/collectTaskList.jsp</result>
 		</action>
 		<!-- 采集任务详细页 -->
 		<action name="collectTaskDetail" class="com.ymsino.water.view.web.data.CollectTaskDetail">
-			<result>/WEB-INF/jsp/data/collectTaskDetail.jsp</result>
+			<result name="success">/WEB-INF/jsp/data/collectTaskDetail.jsp</result>
 		</action>
 		<!-- 采集任务添加 -->
 		<action name="saveCollectTask" class="com.ymsino.water.view.web.data.SaveCollectTask">

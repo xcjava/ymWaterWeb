@@ -109,7 +109,8 @@ $(function(){
 				        	</select>
 				        </td>
 				      	<td></td>
-				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
+				      	<td>
+				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
 				      		<input class="button" id="" type="button" value="导出" name="">
 				      		<input class="button" id="addWaterMeter" type="button" value="新增" name="">
 				      	</td>

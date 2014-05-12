@@ -24,7 +24,8 @@
 	</table>
 	<div id="main">
 		<form class="registerform" method="post" action="" target="main">
-			<input type="hidden" name="waterMeter.type" value="${type }" />
+			<input type="hidden" name="waterMeter.type" value="${waterMeter.type }" />
+			<input type="hidden" name="type" value="${type }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
@@ -71,42 +72,74 @@
 							<input type="text" id="hardwareId" name="hardwareId" value="${waterMeter.hardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd">集中器<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<input type="text" id="concHardwareId" name="waterMeter.concHardwareId" value="${waterMeter.concHardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
+						<c:choose>
+							<c:when test="${type == 3 }">
+							<td class="editLeftTd">集中器<span style="color: red;">*</span>：</td>
+							<td class="editRightTd" width="250px">
+								<input type="text" id="concHardwareId" name="waterMeter.concHardwareId" value="${waterMeter.concHardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+								<span class="Validform_checktip"></span>
+							</td>
+							</c:when>
+							<c:otherwise>
+							<td class="editLeftTd">子表号：</td>
+							<td class="editRightTd" width="250px">
+								<input type="text" id="childHardwareId" name="waterMeter.childHardwareId" value="${waterMeter.childHardwareId }" />
+							</td>
+							</c:otherwise>
+						</c:choose>
 					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd">数据类别：</td>
-						<td class="editRightTd" width="250px">
-							<select id="dataType" name="waterMeter.dataType">
-				        		<option value="1" <c:if test="${waterMeter.dataType == '1' }">selected="selected"</c:if>>脉冲</option>
-				        		<option value="2" <c:if test="${waterMeter.dataType == '2' }">selected="selected"</c:if>>直读</option>
-				        	</select>
-						</td>
-						<td class="editLeftTd">脉冲常数：</td>
-						<td class="editRightTd" width="250px">
-							<select id="constant" name="waterMeter.constant">
-								<option value="10">10</option>
-							</select>
-						</td>
-					</tr>
+					<c:choose>
+						<c:when test="${type == 3 }">
+							<tr class="editTr">
+								<td class="editLeftTd">数据类别：</td>
+								<td class="editRightTd" width="250px">
+									<select id="dataType" name="waterMeter.dataType">
+						        		<option value="1" <c:if test="${waterMeter.dataType == '1' }">selected="selected"</c:if>>脉冲</option>
+						        		<option value="2" <c:if test="${waterMeter.dataType == '2' }">selected="selected"</c:if>>直读</option>
+						        	</select>
+								</td>
+								<td class="editLeftTd">脉冲常数：</td>
+								<td class="editRightTd" width="250px">
+									<select id="constant" name="waterMeter.constant">
+										<option value="10">10</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="editTr">
+								<td class="editLeftTd">无线频率：</td>
+								<td class="editRightTd" width="250px">
+									<input type="text" id="radioFrequency" name="waterMeter.radioFrequency" value="${waterMeter.radioFrequency }" />
+								</td>
+								<td class="editLeftTd">告警量：</td>
+								<td class="editRightTd" width="250px">
+									<input type="text" id="alarmVolume" name="waterMeter.alarmVolume" value="${waterMeter.alarmVolume }aaaaaaa<s:fielderror ></s:fielderror>" />
+								</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<tr class="editTr">
+								<td class="editLeftTd">限购量：</td>
+								<td class="editRightTd" width="250px">
+									<input type="text" id="purcAmount" name="waterMeter.purcAmount" value="${waterMeter.purcAmount }" />
+								</td>
+								<td class="editLeftTd">显示告警：</td>
+								<td class="editRightTd" width="250px">
+									<input type="text" id="showWarn" name="waterMeter.showWarn" value="${waterMeter.showWarn }" />
+								</td>
+							</tr>
+							<tr class="editTr">
+								<td class="editLeftTd">关阀告警：</td>
+								<td class="editRightTd" width="250px" colspan="3">
+									<input type="text" id="closeWarn" name="waterMeter.closeWarn" value="${waterMeter.closeWarn }" />
+								</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
 					<tr class="editTr">
 						<td class="editLeftTd">初始表码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
+						<td class="editRightTd" width="250px"  colspan="3">
 							<input type="text" id="initialYards" name="waterMeter.initialYards" value="${waterMeter.initialYards }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd">告警量：</td>
-						<td class="editRightTd" width="250px">
-							<input type="text" id="alarmVolume" name="waterMeter.alarmVolume" value="${waterMeter.alarmVolume }aaaaaaa<s:fielderror ></s:fielderror>" />
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd">无线频率：</td>
-						<td class="editRightTd" width="250px" colspan="3">
-							<input type="text" id="radioFrequency" name="waterMeter.radioFrequency" value="${waterMeter.radioFrequency }" />
 						</td>
 					</tr>
 					<tr class="editTr">
@@ -118,7 +151,7 @@
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/waterMeterList.jspx','main');"value="返 回">
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/waterMeterList.jspx?type=${type }','main');"value="返 回">
 			</div>
 		</form>
 	</div>

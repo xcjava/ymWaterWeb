@@ -72,6 +72,7 @@ $(function(){
 	</table>	
 	<form action="${baseUrl }archives/waterMeterList.jspx" method="get" id="searchForm">
 	<input type="hidden" id="dataId" value="" />
+	<input type="hidden" id="type" value="${type }" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
@@ -102,7 +103,7 @@ $(function(){
 				        <td>数据类别</td>
 				        <td>
 				        	<select id="dataType" name="dataType">
-				        		<option value="0">全部状态</option>
+				        		<option value="">全部状态</option>
 				        		<option value="1" <c:if test="${dataType == '1' }">selected="selected"</c:if>>脉冲</option>
 				        		<option value="2" <c:if test="${dataType == '2' }">selected="selected"</c:if>>直读</option>
 				        	</select>
@@ -142,7 +143,7 @@ $(function(){
         <td><div>${waterMeter.userName }</div></td>
         <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${waterMeter.createTimestamp }"></gdcct:fld></div></td>
         <td><div>${waterMeter.chargingUnitId }</div></td>
-        <td><div><a target="main" href="${baseUrl }archives/waterMeterDetail.jspx?hardwareId=${waterMeter.hardwareId }&type=${waterMeter.type}">修改</a></div></td>
+        <td><div><a target="main" href="${baseUrl }archives/waterMeterDetail.jspx?hardwareId=${waterMeter.hardwareId }&type=${type}">修改</a></div></td>
       </tr>
       </c:forEach>
       <tr class="listFooterTr">

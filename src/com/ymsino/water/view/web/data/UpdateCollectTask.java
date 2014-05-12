@@ -3,6 +3,7 @@ package com.ymsino.water.view.web.data;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import com.gmail.xcjava.base.date.DateUtil;
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.data.collectTask.CollectTaskModifyParam;
@@ -17,6 +18,8 @@ public class UpdateCollectTask extends ActionSupport {
 	private CollectTaskModifyParam collectTask;
 	private String id;
 	private String message = "";
+	private String startDate;
+	private String endDate;
 	private String curr;
 	
 	@Override
@@ -30,6 +33,14 @@ public class UpdateCollectTask extends ActionSupport {
 			if(collectTaskReturn == null){
 				message = "采集任务编号不存在！";
 				return SUCCESS;
+			}
+			if(!StringUtil.isEmpty(startDate)){
+				Long startTimestamp = DateUtil.parseDate(startDate, "yyyy-MM-dd").getTime();
+				collectTask.setStartTimestamp(startTimestamp);
+			}
+			if(!StringUtil.isEmpty(endDate)){
+				Long endTimestamp = DateUtil.parseDate(endDate, "yyyy-MM-dd").getTime();
+				collectTask.setEndTimestamp(endTimestamp);
 			}
 			collectTask.setId(Long.valueOf(id));
 			collectTaskService.modify(collectTask);
@@ -82,6 +93,22 @@ public class UpdateCollectTask extends ActionSupport {
 
 	public void setCollectTaskService(CollectTaskService collectTaskService) {
 		this.collectTaskService = collectTaskService;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 }

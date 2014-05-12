@@ -209,4 +209,12 @@ public class WaterMeterList extends ActionSupport {
 		this.dataType = dataType;
 	}
 
+	public String getHardwareId() {
+		return hardwareId;
+	}
+
+	public void setHardwareId(String hardwareId) {
+		this.hardwareId = hardwareId;
+	}
+
 }

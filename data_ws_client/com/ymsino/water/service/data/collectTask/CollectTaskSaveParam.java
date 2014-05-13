@@ -21,12 +21,14 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="concHardwareIds" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="endHour" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="endMinute" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="endTimestamp" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="executeTag" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="priority" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="source" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="startHour" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="startMinute" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="startTimestamp" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="suppCount" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -38,7 +40,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "collectTaskSaveParam", propOrder = { "chargingUnitId", "collectType", "concHardwareIds", "endHour", "endMinute", "executeTag", "name", "priority", "source", "startHour", "startMinute", "suppCount", "type" })
+@XmlType(name = "collectTaskSaveParam", propOrder = { "chargingUnitId", "collectType", "concHardwareIds", "endHour", "endMinute", "endTimestamp", "executeTag", "name", "priority", "source", "startHour", "startMinute", "startTimestamp", "suppCount", "type" })
 public class CollectTaskSaveParam {
 
 	protected String chargingUnitId;
@@ -46,12 +48,14 @@ public class CollectTaskSaveParam {
 	protected String concHardwareIds;
 	protected Integer endHour;
 	protected Integer endMinute;
+	protected Long endTimestamp;
 	protected String executeTag;
 	protected String name;
 	protected String priority;
 	protected String source;
 	protected Integer startHour;
 	protected Integer startMinute;
+	protected Long startTimestamp;
 	protected Integer suppCount;
 	protected String type;
 
@@ -158,6 +162,27 @@ public class CollectTaskSaveParam {
 	 */
 	public void setEndMinute(Integer value) {
 		this.endMinute = value;
+	}
+
+	/**
+	 * Gets the value of the endTimestamp property.
+	 * 
+	 * @return possible object is {@link Long }
+	 * 
+	 */
+	public Long getEndTimestamp() {
+		return endTimestamp;
+	}
+
+	/**
+	 * Sets the value of the endTimestamp property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Long }
+	 * 
+	 */
+	public void setEndTimestamp(Long value) {
+		this.endTimestamp = value;
 	}
 
 	/**
@@ -284,6 +309,27 @@ public class CollectTaskSaveParam {
 	 */
 	public void setStartMinute(Integer value) {
 		this.startMinute = value;
+	}
+
+	/**
+	 * Gets the value of the startTimestamp property.
+	 * 
+	 * @return possible object is {@link Long }
+	 * 
+	 */
+	public Long getStartTimestamp() {
+		return startTimestamp;
+	}
+
+	/**
+	 * Sets the value of the startTimestamp property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Long }
+	 * 
+	 */
+	public void setStartTimestamp(Long value) {
+		this.startTimestamp = value;
 	}
 
 	/**

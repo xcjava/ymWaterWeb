@@ -33,102 +33,6 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetById }
-	 * 
-	 */
-	public GetById createGetById() {
-		return new GetById();
-	}
-
-	/**
-	 * Create an instance of {@link QueryParam }
-	 * 
-	 */
-	public QueryParam createQueryParam() {
-		return new QueryParam();
-	}
-
-	/**
-	 * Create an instance of {@link ModifyResponse }
-	 * 
-	 */
-	public ModifyResponse createModifyResponse() {
-		return new ModifyResponse();
-	}
-
-	/**
-	 * Create an instance of {@link Save }
-	 * 
-	 */
-	public Save createSave() {
-		return new Save();
-	}
-
-	/**
-	 * Create an instance of {@link GetListpager }
-	 * 
-	 */
-	public GetListpager createGetListpager() {
-		return new GetListpager();
-	}
-
-	/**
-	 * Create an instance of {@link CollectTaskModifyParam }
-	 * 
-	 */
-	public CollectTaskModifyParam createCollectTaskModifyParam() {
-		return new CollectTaskModifyParam();
-	}
-
-	/**
-	 * Create an instance of {@link GetCount }
-	 * 
-	 */
-	public GetCount createGetCount() {
-		return new GetCount();
-	}
-
-	/**
-	 * Create an instance of {@link CollectTaskReturn }
-	 * 
-	 */
-	public CollectTaskReturn createCollectTaskReturn() {
-		return new CollectTaskReturn();
-	}
-
-	/**
-	 * Create an instance of {@link GetCountResponse }
-	 * 
-	 */
-	public GetCountResponse createGetCountResponse() {
-		return new GetCountResponse();
-	}
-
-	/**
-	 * Create an instance of {@link CollectTaskSaveParam }
-	 * 
-	 */
-	public CollectTaskSaveParam createCollectTaskSaveParam() {
-		return new CollectTaskSaveParam();
-	}
-
-	/**
-	 * Create an instance of {@link SaveResponse }
-	 * 
-	 */
-	public SaveResponse createSaveResponse() {
-		return new SaveResponse();
-	}
-
-	/**
-	 * Create an instance of {@link GetListpagerResponse }
-	 * 
-	 */
-	public GetListpagerResponse createGetListpagerResponse() {
-		return new GetListpagerResponse();
-	}
-
-	/**
 	 * Create an instance of {@link Modify }
 	 * 
 	 */
@@ -142,6 +46,102 @@ public class ObjectFactory {
 	 */
 	public GetByIdResponse createGetByIdResponse() {
 		return new GetByIdResponse();
+	}
+
+	/**
+	 * Create an instance of {@link GetCountResponse }
+	 * 
+	 */
+	public GetCountResponse createGetCountResponse() {
+		return new GetCountResponse();
+	}
+
+	/**
+	 * Create an instance of {@link CollectTaskModifyParam }
+	 * 
+	 */
+	public CollectTaskModifyParam createCollectTaskModifyParam() {
+		return new CollectTaskModifyParam();
+	}
+
+	/**
+	 * Create an instance of {@link GetById }
+	 * 
+	 */
+	public GetById createGetById() {
+		return new GetById();
+	}
+
+	/**
+	 * Create an instance of {@link CollectTaskReturn }
+	 * 
+	 */
+	public CollectTaskReturn createCollectTaskReturn() {
+		return new CollectTaskReturn();
+	}
+
+	/**
+	 * Create an instance of {@link ModifyResponse }
+	 * 
+	 */
+	public ModifyResponse createModifyResponse() {
+		return new ModifyResponse();
+	}
+
+	/**
+	 * Create an instance of {@link GetCount }
+	 * 
+	 */
+	public GetCount createGetCount() {
+		return new GetCount();
+	}
+
+	/**
+	 * Create an instance of {@link CollectTaskSaveParam }
+	 * 
+	 */
+	public CollectTaskSaveParam createCollectTaskSaveParam() {
+		return new CollectTaskSaveParam();
+	}
+
+	/**
+	 * Create an instance of {@link GetListpager }
+	 * 
+	 */
+	public GetListpager createGetListpager() {
+		return new GetListpager();
+	}
+
+	/**
+	 * Create an instance of {@link QueryParam }
+	 * 
+	 */
+	public QueryParam createQueryParam() {
+		return new QueryParam();
+	}
+
+	/**
+	 * Create an instance of {@link Save }
+	 * 
+	 */
+	public Save createSave() {
+		return new Save();
+	}
+
+	/**
+	 * Create an instance of {@link GetListpagerResponse }
+	 * 
+	 */
+	public GetListpagerResponse createGetListpagerResponse() {
+		return new GetListpagerResponse();
+	}
+
+	/**
+	 * Create an instance of {@link SaveResponse }
+	 * 
+	 */
+	public SaveResponse createSaveResponse() {
+		return new SaveResponse();
 	}
 
 	/**

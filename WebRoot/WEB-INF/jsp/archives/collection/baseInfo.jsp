@@ -21,24 +21,24 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="concentrator.chargingUnitId" value="${concentrator.chargingUnitId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>集中器ID<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="concentrator.hardwareId" value="${concentrator.hardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>集中器名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="concentrator.name" value="${concentrator.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>集中器密码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="concentrator.password" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
@@ -77,31 +77,31 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>省<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>市<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>区县<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>街道<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>小区<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px" colspan="3">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

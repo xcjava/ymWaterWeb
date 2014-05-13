@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,22 +10,46 @@
 <title>集中器列表</title>
 <link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
 <script>
 $(function(){
-	//全选
-	var flag = true;
-	$('#selectAllBtn').click(function(){
-		if(flag){
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = true;
-			});
-		}else{
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = false;
-			});
-		}
-		flag = !flag;
+	//只能选中一个
+    $("input[type='checkbox']").click(function() {
+        if ($(this).attr("checked") == "checked") {
+            $("input[type='checkbox']").attr("checked", false);
+            $(this).attr("checked", "checked");
+            $("#dataId").val($(this).attr("name"));
+        }
+    });
+	$('#btnSubmit').click(function(){
+		$('#searchForm').submit();
 	});
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+		
+	}
+	loadChargingUnit('${chargingUnitId }');
 });
 </script>
 </head>
@@ -39,31 +65,41 @@ $(function(){
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
+			<form id="searchForm" action="${baseUrl }archives/concentratorList.jspx" method="post">
 			    <table cellSpacing=0 cellPadding=2 border=0>
 			      <tbody>
 				      <tr>
 				        <td>收费单位：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				        <td>开始时间：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
+				        <td>
+				        	<select id="chargingUnitSel" name="chargingUnitId">
+								<option></option>
+							</select>
+				        </td>
+				        
 				        <td>集中器ID：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
+				        <td><input class="textbox" id="" style="width: 120px" name="hardwareId" value="${hardwareId}"/></td>
 				        
 				      </tr>
 				      <tr>
 				        <td>集中器名称</td>
-				        <td><input class=textbox id=sStart2 style="WIDTH: 120px" name=sStart2></td>
+				        <td><input class=textbox id=sStart2 style="WIDTH: 120px" name="name" value="${name}"></td>
+				      	<td>起始日期</td>
+				        <td>
+				        	<input class="Wdate" type="text" onClick="WdatePicker()" name="startDate" id="startDate" value="${startDate}">&nbsp;至:
+				        </td>
+				        <td>
+  							<input class="Wdate" type="text" onClick="WdatePicker()" name="endDate" id="endDate" value="${endDate}">
+				        </td>
 				      	<td><input class="button" id="" type="button" value="新增" name=""></td>
-				      	<td><input class="button" id="" type="button" value="修改" name=""></td>
 				      	<td><input class="button" id="" type="button" value="充值" name=""></td>
 				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
 				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
-				      	<td><input class="button" id="" type="button" value="高级查询" name=""></td>
 				      </tr>
 				      <tr>
 				      </tr>
 			      </tbody>
-			    </table>	
+			    </table>
+			    </form>	
 			</div>
 		</td></tr>
 	</table>
@@ -84,74 +120,30 @@ $(function(){
         <td width=""><div><span>端口号</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
+      <c:if test="${not empty list}">
+      <c:forEach var="item"  items="${list }" varStatus="vs">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div><span class="STYLE19">1</span></div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
+        <td><div><span class="STYLE19">${vs.count}</span></div></td>
+        <td><div>${item.hardwareId}</div></td>
+        <td><div>${item.tel}</div></td>
+        <td><div>${item.province}</div></td>
+        <td><div>${item.city}</div></td>
+        <td><div>${item.district}</div></td>
+        <td><div>${item.street}</div></td>
+        <td><div>${item.address}</div></td>
+        <td><div>${item.chargingUnitId}</div></td>
+        <td><div>${item.collectionAddress}</div></td>
+        <td><div>${item.terminalPost}</div></td>
+        <td><div><a target="main" href="${baseUrl }archives/collectionTab.jspx?hardwareId=${item.hardwareId}">修改</a></div></td>
       </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div><span class="STYLE19">1</span></div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div><span class="STYLE19">1</span></div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div><span class="STYLE19">1</span></div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
+      </c:forEach>
+      </c:if>
+     
 	 	<tr class="listFooterTr">
 		<td colSpan=13>
-		<table style="FONT-SIZE: 14px" border=0 cellSpacing=2 cellPadding=0 width="100%">
-		<tbody>
-		<tr>
-		<td height=25 align=center>[<span class=currentFont>1</span>][<a class=other_page href="#">2</a>][<a class=other_page href="">3</a>][<a class=other_page href="">4</a>][<a class=other_page href="">5</a>][<a class=other_page href="">6</a>][<a class=other_page href="">7</a>][<a class=other_page href="">8</a>]...[<a class=other_page href="">1806</a>]<a class=other_page href="">下一页</a> </td></tr>
-		<tr>
-		<td align=center heigyh="25">总共<font color=red>36101</font>条记录， 当前显示第1-20条记录。跳转到 <input style="WIDTH: 40px" id=pagerID_tbPager jQuery172011253913807769178="36">页 <input value=确定 type=button jQuery172011253913807769178="37"> </td></tr></tbody></table></td>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }archives/concentratorList.jspx" pageDynamicURLFormat="${baseUrl }archives/concentratorList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+		</td>
 		</tr>      
     </table>
 </body>

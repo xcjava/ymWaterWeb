@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -23,7 +24,7 @@
 	.tab_con {padding:12px;font-size: 14px; line-height:175%;}
 	</style>
 	<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-	<script src="${baseUrl }js/jquery/plugins/jquery.jqtab.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/jquery/plugins/jquery.jqtab.js?v=20140429" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		//调用tab插件
@@ -51,18 +52,18 @@
 	</table>
 	<div id="tabbox">
 	    <ul class="tabs" id="tabs">
-	       <li data-src="${baseUrl }jsp/archives/collection/baseInfoJsp.jspx"><a href="#">基本信息</a></li>
-	       <li data-src="${baseUrl }jsp/archives/collection/simInfoJsp.jspx" <c:if test="${param.curr == 'simInfo' }">class="curr"</c:if>><a href="#">SIM卡费用信息</a></li>
-	       <li data-src="${baseUrl }jsp/archives/collection/collectionInfoJsp.jspx" <c:if test="${param.curr == 'collectionInfo' }">class="curr"</c:if>><a href="#">采集点</a></li>
-	       <li data-src="${baseUrl }jsp/archives/collection/collectionChannelJsp.jspx" <c:if test="${param.curr == 'collectionChannel' }">class="curr"</c:if>><a href="#">采集点通信参数</a></li>
-	       <li data-src="${baseUrl }jsp/archives/collection/collectionObjectJsp.jspx" <c:if test="${param.curr == 'collectionObject' }">class="curr"</c:if>><a href="#">采集对象</a></li>
-	       <li data-src="${baseUrl }jsp/archives/collection/collectionMeasureJsp.jspx" <c:if test="${param.curr == 'collectionMeasure' }">class="curr"</c:if>><a href="#">采集计量关系</a></li>
-	       <li data-src="${baseUrl }jsp/archives/collection/collectionUserJsp.jspx" <c:if test="${param.curr == 'collectionUser' }">class="curr"</c:if>><a href="#">采集用户关系</a></li>
-	       <li data-src="${baseUrl }jsp/archives/collection/runningTerminalJsp.jspx" <c:if test="${param.curr == 'runningTerminal' }">class="curr"</c:if>><a href="#">运行终端</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&tab=baseInfo"><a href="#">基本信息</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&curr=simInfo&tab=simInfo" <c:if test="${param.curr == 'simInfo' }">class="curr"</c:if>><a href="#">SIM卡费用信息</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&curr=collectionInfo&tab=collectionInfo" <c:if test="${param.curr == 'collectionInfo' }">class="curr"</c:if>><a href="#">采集点</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&curr=collectionChannel&tab=collectionChannel" <c:if test="${param.curr == 'collectionChannel' }">class="curr"</c:if>><a href="#">采集点通信参数</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&curr=collectionObject&tab=collectionObject" <c:if test="${param.curr == 'collectionObject' }">class="curr"</c:if>><a href="#">采集对象</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&curr=collectionMeasure&tab=collectionMeasure" <c:if test="${param.curr == 'collectionMeasure' }">class="curr"</c:if>><a href="#">采集计量关系</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&curr=collectionUser&tab=collectionUser" <c:if test="${param.curr == 'collectionUser' }">class="curr"</c:if>><a href="#">采集用户关系</a></li>
+	       <li data-src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&curr=runningTerminal&tab=runningTerminal" <c:if test="${param.curr == 'runningTerminal' }">class="curr"</c:if>><a href="#">运行终端</a></li>
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
-	           <iframe name="mainframe" id="mainframe" allowTransparency scrolling="no" onload="this.height=300;" scrolling="no"  width="100%" border="0" frameborder="0" src=""></iframe>
+	           <iframe name="mainframe" id="mainframe" allowTransparency scrolling="no" onload="this.height=300;" scrolling="no"  width="100%" border="0" frameborder="0" src="${baseUrl }archives/concentratorDetail.jspx?hardwareId=${hardwareId}&message=${message}&tab=baseInfo"></iframe>
 	        </li>
 	    </ul>	
 	</div>

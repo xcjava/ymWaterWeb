@@ -152,5 +152,26 @@
 		<action name="updateWaterMeter" class="com.ymsino.water.view.web.archives.UpdateWaterMeter">
 			<result name="success" type="redirect">/archives/waterMeterDetail.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;type=${type}&amp;message=${message}</result>
 		</action>
+		
+		<!-- 集中器列表 -->
+		<action name="concentratorList" class="com.ymsino.water.view.web.archives.ConcentratorList">
+			<result>/WEB-INF/jsp/archives/collection/concentratorList.jsp</result>
+		</action>
+		<!-- 集中器Tab -->
+		<action name="collectionTab" class="com.ymsino.water.view.web.archives.CollectionTab">
+			<result>/WEB-INF/jsp/archives/collection/collectionTab.jsp</result>
+		</action>
+		
+		<!-- 集中器信息详细页 -->
+		<action name="concentratorDetail" class="com.ymsino.water.view.web.archives.ConcentratorDetail">
+			<result  name="baseInfo">/WEB-INF/jsp/archives/collection/baseInfo.jsp</result>
+			<result  name="simInfo">/WEB-INF/jsp/archives/collection/simInfo.jsp</result>
+			<result  name="collectionInfo">/WEB-INF/jsp/archives/collection/collectionInfo.jsp</result>
+			<result  name="collectionChannel">/WEB-INF/jsp/archives/collection/collectionChannel.jsp</result>
+			<result  name="collectionObject">/WEB-INF/jsp/archives/collection/collectionObject.jsp</result>
+			<result  name="collectionMeasure">/WEB-INF/jsp/archives/collection/collectionMeasure.jsp</result>
+			<result  name="collectionUser">/WEB-INF/jsp/archives/collection/collectionUser.jsp</result>
+			<result  name="runningTerminal">/WEB-INF/jsp/archives/collection/runningTerminal.jsp</result>
+		</action>
 	</package>
 </struts>

@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,6 +27,19 @@ $(function(){
 		}
 		flag = !flag;
 	});
+	$.getJSON("${baseUrl }common/getChargingUnitListAjax.jspx", function(data){
+		  	var options = $('#unitId')[0].options;
+			options.length = 0;
+			options.add(new Option("-请选择-",""));
+			$.each(data,function(item,i){
+				var itemOption = new Option(item.name,item.unitId);
+				options.add(itemOption);
+			});
+			$('#unitId').value = '${unitId}';
+	});
+	$('#btnSubmit').click(function(){
+		$('#searchForm').submit();
+	});
 });
 </script>
 </head>
@@ -40,30 +55,27 @@ $(function(){
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
+			    <form id="searchForm" action="${baseUrl }searchAnalysis/testMeterCodeDataList.jspx" method="post">
 			    <table cellSpacing=0 cellPadding=2 border=0>
 			      <tbody>
 				      <tr>
 				        <td>收费单位：</td>
-				        <td><input class="textbox" id="" style="width: 90px" name="" /></td>
-				        <td>表计类型：</td>
 				        <td>
-							<select>
-								<option>数据类型</option>
+				        	<select id="unitId" name="unitId">
 							</select>
 						</td>
-				        <td>集中器号：</td>
-				        <td><input class="textbox" id="" style="width: 90px" name="" /></td>
-				        <td>表计编号：</td>
-				        <td><input class="textbox" id="" style="width: 90px" name="" /></td>
-				        <td>客户名称：</td>
-				        <td><input class="textbox" id="" style="width: 90px" name="" /></td>
-				        <td>月份：</td>
-				        <td><input class="textbox" id="" style="width: 90px" name="" /></td>
-				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
+				        <td>集中器编号：</td>
+				        <td><input class="textbox" id="concHardwareId" style="width: 90px" name="concHardwareId" value="${concHardwareId }"/></td>
+				        <td>客户编号：</td>
+				        <td><input class="textbox" id="userId" style="width: 90px" name="userId" value="${userId }"/></td>
+				        <td>表号：</td>
+				        <td><input class="textbox" id="meterHardwareId" style="width: 90px" name="meterHardwareId"  value="${meterHardwareId }"/></td>
+				      	<td><input class="button" id="btnSubmit" type="button" value="查询" name="btnSubmit"></td>
+				      	<td><input class="button" id="btnExport" type="button" value="导出" name="btnExport"></td>
 				      </tr>
 			      </tbody>
-			    </table>	
+			    </table>
+			    </form>	
 			</div>
 		</td></tr>
 	</table>
@@ -73,12 +85,9 @@ $(function(){
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
         <td width=""><div><span>序号</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
-        <td width=""><div><span>客户名称</span></div></td>
         <td width=""><div><span>集中器编号</span></div></td>
         <td width=""><div><span>表计编号</span></div></td>
-        <td width=""><div><span>表计类型</span></div></td>
-        <td width=""><div><span>日冻结表码</span></div></td>
-        <td width=""><div><span>日冻结日期</span></div></td>
+        <td width=""><div><span>实招表码</span></div></td>
         <td width=""><div><span>电池电压</span></div></td>
         <td width=""><div><span>模块类型</span></div></td>
         <td width=""><div><span>磁攻击</span></div></td>
@@ -88,72 +97,47 @@ $(function(){
         <td width=""><div><span>集中器抄表时间</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
+      <c:if test="${not empty list}">
+      <c:forEach var="item"  items="${list }" varStatus="vs">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>1</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
+        <td><div>${vs.count}</div></td>
+        <td><div>${item.userId}</div></td>
+        <td><div>${item.concHardwareId}</div></td>
+        <td><div>${item.meterHardwareId}</div></td>
+        <td><div>${item.meterReading}</div></td>
+        <td><div>${item.batteryVoltage}</div></td>
+        <td><div>
+        <c:if test="${item.dataType==0}">光电</c:if>
+        <c:if test="${item.dataType==1}">脉冲</c:if>
+        </div></td>
+        <td><div>
+        <c:if test="${item.magneticAttack==0}">无磁攻击</c:if>
+        <c:if test="${item.magneticAttack==1}">有磁攻击</c:if>
+        </div></td>
+        <td><div>
+        <c:if test="${item.errorStatus==0}">正确</c:if>
+        <c:if test="${item.errorStatus==1}">错误</c:if>
+        </div></td>
+        <td><div>
+        <c:if test="${item.replyStatus==0}">有应答</c:if>
+        <c:if test="${item.replyStatus==1}">无应答</c:if>
+        </div></td>
+        <td><div>
+        <c:if test="${item.valveStatus==01}">半阀</c:if>
+        <c:if test="${item.valveStatus==10}">开阀</c:if>
+        <c:if test="${item.valveStatus==11}">关阀</c:if>
+        <c:if test="${item.valveStatus==00}">未知</c:if>
+        </div></td>
+        <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${item.createTimestamp}"></gdcct:fld></div></td>
         <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
       </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>2</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>3</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      
+      </c:forEach>
+      </c:if>
 	 	<tr class="listFooterTr">
-		<td colSpan=17>
-		<table style="FONT-SIZE: 14px" border=0 cellSpacing=2 cellPadding=0 width="100%">
-		<tbody>
-		<tr>
-		<td height=25 align=center>[<span class=currentFont>1</span>][<a class=other_page href="#">2</a>][<a class=other_page href="">3</a>][<a class=other_page href="">4</a>][<a class=other_page href="">5</a>][<a class=other_page href="">6</a>][<a class=other_page href="">7</a>][<a class=other_page href="">8</a>]...[<a class=other_page href="">1806</a>]<a class=other_page href="">下一页</a> </td></tr>
-		<tr>
-		<td align=center heigyh="25">总共<font color=red>36101</font>条记录， 当前显示第1-20条记录。跳转到 <input style="WIDTH: 40px" id=pagerID_tbPager jQuery172011253913807769178="36">页 <input value=确定 type=button jQuery172011253913807769178="37"> </td></tr></tbody></table></td>
+		<td colSpan=20>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }searchAnalysis/testMeterCodeDataList.jspx" pageDynamicURLFormat="${baseUrl }searchAnalysis/testMeterCodeDataList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+		</td>
 		</tr>      
     </table>
 </body>

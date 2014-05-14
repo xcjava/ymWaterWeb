@@ -118,7 +118,7 @@ $(function(){
 	 		</tr>
 	 	</tbody>
 	</table>
-	<form action="${baseUrl }manager/managerList.jspx"  method="post" id="searchForm">
+	<form action="${baseUrl }manager/managerList.jspx"  method="get" id="searchForm">
 	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>

@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,27 +10,59 @@
 <title>日用水费查询</title>
 <link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
 <script>
 $(function(){
-	//全选
-	var flag = true;
-	$('#selectAllBtn').click(function(){
-		if(flag){
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = true;
-			});
-		}else{
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = false;
-			});
-		}
-		flag = !flag;
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
+	//只能选中一个
+    $("input[type='checkbox']").click(function() {
+        if ($(this).attr("checked") == "checked") {
+            $("input[type='checkbox']").attr("checked", false);
+            $(this).attr("checked", "checked");
+            $("#dataId").val($(this).attr("name"));
+        }
+    });
+	
+    $('#searchBtn').click(function(){
+		$('#searchForm').submit();
 	});
+    
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${chargingUnitId }');
+	
+	$('#payStatus').val('${payStatus}');
+	$('#checkPayStatus').val('${checkPayStatus}');
+	
 });
 </script>
 </head>
 
-<body style="min-width: 1100px;">
+<body style="min-width: 1500px;">
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
@@ -36,6 +70,8 @@ $(function(){
 	 		</tr>
 	 	</tbody>
 	</table>	
+	<form action="${baseUrl }freesettle/waterDayCostList.jspx" method="get" id="searchForm">
+	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
@@ -43,20 +79,41 @@ $(function(){
 			      <tbody>
 				      <tr>
 				        <td>收费单位：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				        <td>资产编号：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				        <td>客户名称：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				        
+				        <td>
+				        	<select id="chargingUnitSel" name="chargingUnitId">
+								<option></option>
+							</select>
+				        </td>
+				        <td>客户编号：</td>
+				        <td><input class="textbox" id="userId" style="width: 120px" name="userId" value="${userId }" /></td>
+				      	<td>用水用户编号：</td>
+				        <td><input class="textbox" id="waterCustomerId" style="width: 120px" name="waterCustomerId" value="${waterCustomerId }" /></td>
+				      	<td>支付状态</td>
+				        <td>
+					        <select id="payStatus" name="payStatus">
+						        <option value="" selected>--全部--</option>
+						        <option value="-1">未支付</option>
+						        <option value="1">已支付</option>
+					        </select>
+				        </td>
+				        <td>扣费检查状态</td>
+				        <td>
+					        <select id="checkPayStatus" name="checkPayStatus">
+						        <option value="" selected>--全部--</option>
+						        <option value="-1">未检查</option>
+						        <option value="1">已检查</option>
+					        </select>
+				        </td>
 				      </tr>
 				      <tr>
-				        <td>时间</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				        <td>表号</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
+				        <td>水表ID</td>
+				        <td><input class="textbox" id="meterHardwareId" value="${meterHardwareId }" style="width: 120px" name="meterHardwareId" /></td>
+				      	<td>集中器ID</td>
+				        <td><input class="textbox" id="concHardwareId" value="${concHardwareId }" style="width: 120px" name="concHardwareId" /></td>
+				      	<td>
+				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
+				      		<input class="button" id="" type="button" value="导出" name="">
+				      	</td>
 				      </tr>
 				      <tr>
 				      </tr>
@@ -65,23 +122,22 @@ $(function(){
 			</div>
 		</td></tr>
 	</table>
-
+	</form>
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
         <td width=""><div><span>序号</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
-        <td width=""><div><span>客户姓名</span></div></td>
         <td width=""><div><span>集中器编号</span></div></td>
-        <td width=""><div><span>表号</span></div></td>
-        <td width=""><div><span>表计类型</span></div></td>
+        <td width=""><div><span>水表编号</span></div></td>
+        <td width=""><div><span>支付状态</span></div></td>
+        <td width=""><div><span>扣费检查状态</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
         <td width=""><div><span>1日用水费</span></div></td>
         <td width=""><div><span>2日用水费</span></div></td>
         <td width=""><div><span>3日用水费</span></div></td>
         <td width=""><div><span>4日用水费</span></div></td>
         <td width=""><div><span>5日用水费</span></div></td>
-        <td width=""><div><span>6日用水费</span></div></td>
         <td width=""><div><span>6日用水费</span></div></td>
         <td width=""><div><span>7日用水费</span></div></td>
         <td width=""><div><span>8日用水费</span></div></td>
@@ -108,58 +164,69 @@ $(function(){
         <td width=""><div><span>29日用水费</span></div></td>
         <td width=""><div><span>30日用水费</span></div></td>
         <td width=""><div><span>31日用水费</span></div></td>
+        <td width=""><div><span>月合计费用</span></div></td>
+        <td width=""><div><span>冻结时间(年)</span></div></td>
+        <td width=""><div><span>冻结时间(月)</span></div></td>
+        <td width=""><div><span>创建时间</span></div></td>
       </tr>
+      <c:forEach var="waterDayCost" items="${list }">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>1</div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
-        <td><div></div></td>
+        <td><div>${waterDayCost.id }</div></td>
+        <td><div>${waterDayCost.userId }</div></td>
+        <td><div>${waterDayCost.concHardwareId }</div></td>
+        <td><div>${waterDayCost.meterHardwareId }</div></td>
+        <td><div>
+        	<c:if test="${waterDayCost.payStatus == 1}">已支付</c:if>
+        	<c:if test="${waterDayCost.payStatus == -1}">未支付</c:if>
+        </div></td>
+        <td><div>
+        	<c:if test="${waterDayCost.checkPayStatus == 1}">已检查</c:if>
+        	<c:if test="${waterDayCost.checkPayStatus == -1}">未检查</c:if>
+        </div></td>
+        <td><div>${waterDayCost.chargingUnitId }</div></td>
+        <td><div>${waterDayCost.cost1 }</div></td>
+        <td><div>${waterDayCost.cost2 }</div></td>
+        <td><div>${waterDayCost.cost3 }</div></td>
+        <td><div>${waterDayCost.cost4 }</div></td>
+        <td><div>${waterDayCost.cost5 }</div></td>
+        <td><div>${waterDayCost.cost6 }</div></td>
+        <td><div>${waterDayCost.cost7 }</div></td>
+        <td><div>${waterDayCost.cost8 }</div></td>
+        <td><div>${waterDayCost.cost9 }</div></td>
+        <td><div>${waterDayCost.cost10 }</div></td>
+        <td><div>${waterDayCost.cost11 }</div></td>
+        <td><div>${waterDayCost.cost12 }</div></td>
+        <td><div>${waterDayCost.cost13 }</div></td>
+        <td><div>${waterDayCost.cost14 }</div></td>
+        <td><div>${waterDayCost.cost15 }</div></td>
+        <td><div>${waterDayCost.cost16 }</div></td>
+        <td><div>${waterDayCost.cost17 }</div></td>
+        <td><div>${waterDayCost.cost18 }</div></td>
+        <td><div>${waterDayCost.cost19 }</div></td>
+        <td><div>${waterDayCost.cost20 }</div></td>
+        <td><div>${waterDayCost.cost21 }</div></td>
+        <td><div>${waterDayCost.cost22 }</div></td>
+        <td><div>${waterDayCost.cost23 }</div></td>
+        <td><div>${waterDayCost.cost24 }</div></td>
+        <td><div>${waterDayCost.cost25 }</div></td>
+        <td><div>${waterDayCost.cost26 }</div></td>
+        <td><div>${waterDayCost.cost27 }</div></td>
+        <td><div>${waterDayCost.cost28 }</div></td>
+        <td><div>${waterDayCost.cost29 }</div></td>
+        <td><div>${waterDayCost.cost30 }</div></td>
+        <td><div>${waterDayCost.cost31 }</div></td>
+        <td><div>${waterDayCost.totalCost }</div></td>
+        <td><div>${waterDayCost.freezeYear }</div></td>
+        <td><div>${waterDayCost.freezeMonth }</div></td>
+        <td><div><gdcct:fld pattren="yyyy-MM-dd" longTime="${waterDayCost.createTimestamp }"></gdcct:fld></div></td>
       </tr>
-	 	<tr class="listFooterTr">
-		<td colSpan=40>
-		<table style="FONT-SIZE: 14px" border=0 cellSpacing=2 cellPadding=0 width="100%">
-		<tbody>
-		<tr>
-		<td height=25 align=center>[<span class=currentFont>1</span>][<a class=other_page href="#">2</a>][<a class=other_page href="">3</a>][<a class=other_page href="">4</a>][<a class=other_page href="">5</a>][<a class=other_page href="">6</a>][<a class=other_page href="">7</a>][<a class=other_page href="">8</a>]...[<a class=other_page href="">1806</a>]<a class=other_page href="">下一页</a> </td></tr>
-		<tr>
-		<td align=center heigyh="25">总共<font color=red>36101</font>条记录， 当前显示第1-20条记录。跳转到 <input style="WIDTH: 40px" id=pagerID_tbPager jQuery172011253913807769178="36">页 <input value=确定 type=button jQuery172011253913807769178="37"> </td></tr></tbody></table></td>
-		</tr>      
+      </c:forEach>
+      <tr class="listFooterTr">
+	  	<td colSpan="43">
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }freesettle/waterDayCostList.jspx" pageDynamicURLFormat="${baseUrl }freesettle/waterDayCostList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+		</td>
+	  </tr>
     </table>
 </body>
 </html>

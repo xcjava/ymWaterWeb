@@ -31,8 +31,6 @@ public class WaterMonthCostList extends ActionSupport {
     private String chargingUnitId;
     private String userId;
     private String waterCustomerId;
-    private String payStatus;//支付状态-1:未支付;1已支付
-    private String checkPayStatus;//扣费检查状态-1:未检查;1已检查
     private String meterHardwareId;//无线智能水表ID
     private String concHardwareId;//集中器逻辑地址
     
@@ -72,13 +70,6 @@ public class WaterMonthCostList extends ActionSupport {
 			concHardwareId = concHardwareId.trim();
 			qpw.addQueryParam("concHardwareId", concHardwareId, QueryCondition.QC_EQ);
 		}
-		if(!StringUtil.isEmpty(payStatus)){
-			qpw.addQueryParam("payStatus", Short.valueOf(payStatus), QueryCondition.QC_EQ);
-		}
-		if(!StringUtil.isEmpty(checkPayStatus)){
-			qpw.addQueryParam("checkPayStatus", Short.valueOf(checkPayStatus), QueryCondition.QC_EQ);
-		}
-		
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
 		qpm.setQueryLink(qpw.getQueryLink());
@@ -159,22 +150,6 @@ public class WaterMonthCostList extends ActionSupport {
 
 	public void setWaterCustomerId(String waterCustomerId) {
 		this.waterCustomerId = waterCustomerId;
-	}
-
-	public String getPayStatus() {
-		return payStatus;
-	}
-
-	public void setPayStatus(String payStatus) {
-		this.payStatus = payStatus;
-	}
-
-	public String getCheckPayStatus() {
-		return checkPayStatus;
-	}
-
-	public void setCheckPayStatus(String checkPayStatus) {
-		this.checkPayStatus = checkPayStatus;
 	}
 
 	public String getMeterHardwareId() {

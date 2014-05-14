@@ -15,5 +15,25 @@
 		<action name="waterMonthCostList" class="com.ymsino.water.view.web.freesettle.WaterMonthCostList">
 			<result name="success">/WEB-INF/jsp/costing/waterMonthCostList.jsp</result>
 		</action>
+		
+		<!-- 客户充值列表 -->
+		<action name="costPayList" class="com.ymsino.water.view.web.archives.UserList">
+			<result name="success">/WEB-INF/jsp/settlement/costPayList.jsp</result>
+		</action>
+		
+		<!-- 客户充值详细页 -->
+		<action name="costPayDetail" class="com.ymsino.water.view.web.freesettle.CostPayDetail">
+			<result name="recharge">/WEB-INF/jsp/settlement/recharge.jsp</result>
+			<result name="reduction">/WEB-INF/jsp/settlement/reduction.jsp</result>
+		</action>
+		
+		<!-- 客户充值 -->
+		<action name="recharge" class="com.ymsino.water.view.web.freesettle.Recharge">
+			<result name="success" type="redirect">/freesettle/costPayList.jspx?message=${message}</result>
+		</action>
+		<!-- 客户扣费 -->
+		<action name="reduction" class="com.ymsino.water.view.web.freesettle.Reduction">
+			<result name="success" type="redirect">/freesettle/costPayList.jspx?message=${message}</result>
+		</action>
 	</package>
 </struts>

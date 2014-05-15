@@ -22,41 +22,39 @@
 	 	</tbody>
 	</table>
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="" target="main">
+			<input type="hidden" id="uid" name="id" value="${id }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>客户编号<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">客户编号：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" readonly="readonly" value="${user.userId }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>客户名称<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">客户名称：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" readonly="readonly" value="${user.name }" />
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>充值金额<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="price" name="price" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>备注<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">备注：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="sysRemark" name="sysRemark" value="" />
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="确 定" /> <input type="reset" value="重 置" /> <input type="button" value="返 回" />
+				<input type="submit" id="subBtn" value="充 值" /> <input type="reset" id="resetBtn" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}freesettle/costPayList.jspx','main');"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -78,6 +76,18 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if($("#uid").val() == ''){
+				alert('uid为空，非法操作！');
+				window.open('${baseUrl}freesettle/costPayList.jspx','main');
+			}else{
+				$(".registerform").attr('action','${baseUrl }freesettle/recharge.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
 });

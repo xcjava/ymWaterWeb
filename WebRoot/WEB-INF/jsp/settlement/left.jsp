@@ -67,59 +67,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/settlement/costPayListJsp.jspx" target="main">费用缴纳</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/settlement/rechargeJsp.jspx" target="main">充值页面</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/settlement/reductionJsp.jspx" target="main">减费</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                </table>
-                </td>
-              </tr>
-              <tr>
-                <td height="5"><img src="${baseUrl }images/main_52.gif" width="151" height="5" /></td>
-              </tr>
-            </table></div></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td height="23" background="${baseUrl }images/main_47.gif" id="imgmenu1" class="menu_title" onMouseOver="this.className='menu_title2';" onClick="showsubmenu(1)" onMouseOut="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td width="18%">&nbsp;</td>
-                <td width="82%" class="STYLE1">预付费充值</td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td background="${baseUrl }images/main_51.gif" id="submenu1">
-			 <div class="sec_menu" >  
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td>
-	                <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="#" target="main">预付费充值</a></span></td>
+	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }freesettle/costPayList.jspx" target="main">费用缴纳</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>

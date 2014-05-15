@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,20 +12,55 @@
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script>
 $(function(){
-	//全选
-	var flag = true;
-	$('#selectAllBtn').click(function(){
-		if(flag){
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = true;
-			});
-		}else{
-			$.each($('.cb'), function(index){
-				$(this)[0].checked = false;
-			});
-		}
-		flag = !flag;
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
+	//只能选中一个
+    $("input[type='checkbox']").click(function() {
+        if ($(this).attr("checked") == "checked") {
+            $("input[type='checkbox']").attr("checked", false);
+            $(this).attr("checked", "checked");
+            $("#dataId").val($(this).attr("name"));
+        }
+    });
+	
+    $('#searchBtn').click(function(){
+		$('#searchForm').submit();
 	});
+    
+	$('#recharge').click(function(){
+		var uid = $("#dataId").val();
+		if(uid == ''){
+			alert("请选择一条数据！");
+			return false;
+		}
+		window.location = '${baseUrl }freesettle/costPayDetail.jspx?id='+uid+'&type=recharge';
+	});
+	$('#deduction').click(function(){
+		var uid = $("#dataId").val();
+		if(uid == ''){
+			alert("请选择一条数据！");
+			return false;
+		}
+		window.location = '${baseUrl }freesettle/costPayDetail.jspx?id='+uid+'&type=reduction';
+	});
+	//查询余额
+	$('a[id^="searchBlance"]').click(function(){
+		var uid = this.id.substring('12',this.id.length);
+		$.ajax({
+			url:'${baseUrl}freesettle/getUserBlanceAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{uid:uid},
+			dataType:'json',
+			success:function(response){
+				alert('用户id'+uid+'余额：' + response.blance);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	});
+	
 });
 </script>
 </head>
@@ -35,7 +72,9 @@ $(function(){
 	 			<td class="position">当前位置: 费用结算 -&gt;  费用缴纳</td>
 	 		</tr>
 	 	</tbody>
-	</table>	
+	</table>
+	<form action="${baseUrl }freesettle/costPayList.jspx"  method="get" id="searchForm">
+	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
@@ -43,90 +82,48 @@ $(function(){
 			      <tbody>
 				      <tr>
 				        <td>客户编号：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="" /></td>
-				      </tr>
-				      <tr>
-				      	<td><input class="button" id="" type="button" value="充值" name=""></td>
-				      	<td><input class="button" id="" type="button" value="减费" name=""></td>
-				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
-				      	<td><input class="button" id="" type="button" value="高级查询" name=""></td>
-				      </tr>
-				      <tr>
+				        <td>
+				        	<input class="textbox" id="userId" style="width: 120px" name="userId" value="${userId }" />
+				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
+				      		<input class="button" id="" type="button" value="导出" name="">
+				      		<input class="button" id="recharge" type="button" value="充值" >
+				      		<input class="button" id="deduction" type="button" value="减费" >
+				        </td>
 				      </tr>
 			      </tbody>
 			    </table>	
 			</div>
 		</td></tr>
 	</table>
-
+	</form>
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
-        <td width=""><div><span>序号</span></div></td>
-        <td width=""><div><span>收费单位</span></div></td>
+        <td width=""><div><span>客户ID</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
         <td width=""><div><span>客户姓名</span></div></td>
-        <td width=""><div><span>操作类型</span></div></td>
-        <td width=""><div><span>操作金额</span></div></td>
-        <td width=""><div><span>表号</span></div></td>
-        <td width=""><div><span>剩余金额</span></div></td>
-        <td width=""><div><span>操作时间</span></div></td>
-        <td width=""><div><span>备注</span></div></td>
-        <td width=""><div><span>操作</span></div></td>
+        <td width=""><div><span>产业分类</span></div></td>
+        <td width=""><div><span>经济类型</span></div></td>
+        <td width=""><div><span>余额</span></div></td>
+        <td width=""><div><span>收费单位</span></div></td>
       </tr>
+      <c:forEach var="user" items="${list }">
       <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>1</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
+      	<td><div><input type="checkbox" name="${user.id }" class="cb" /></div></td>
+        <td><div>${user.id }</div></td>
+        <td><div>${user.userId }</div></td>
+        <td><div>${user.name }</div></td>
+        <td><div>${user.industrial }</div></td>
+        <td><div>${user.economicType }</div></td>
+        <td><div><a href="javascript:void(0);" id="searchBlance${user.id }">查询余额</a></div></td>
+        <td><div>${user.chargingUnitId }</div></td>
       </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>2</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div>3</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div>系统管理员</div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
-      </tr>
-      
-	 	<tr class="listFooterTr">
-		<td colSpan=12>
-		<table style="FONT-SIZE: 14px" border=0 cellSpacing=2 cellPadding=0 width="100%">
-		<tbody>
-		<tr>
-		<td height=25 align=center>[<span class=currentFont>1</span>][<a class=other_page href="#">2</a>][<a class=other_page href="">3</a>][<a class=other_page href="">4</a>][<a class=other_page href="">5</a>][<a class=other_page href="">6</a>][<a class=other_page href="">7</a>][<a class=other_page href="">8</a>]...[<a class=other_page href="">1806</a>]<a class=other_page href="">下一页</a> </td></tr>
-		<tr>
-		<td align=center heigyh="25">总共<font color=red>36101</font>条记录， 当前显示第1-20条记录。跳转到 <input style="WIDTH: 40px" id=pagerID_tbPager jQuery172011253913807769178="36">页 <input value=确定 type=button jQuery172011253913807769178="37"> </td></tr></tbody></table></td>
-		</tr>      
+      </c:forEach>
+	  <tr class="listFooterTr">
+	  	<td colSpan="9">
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }freesettle/costPayList.jspx" pageDynamicURLFormat="${baseUrl }freesettle/costPayList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+		</td>
+	  </tr>
     </table>
 </body>
 </html>

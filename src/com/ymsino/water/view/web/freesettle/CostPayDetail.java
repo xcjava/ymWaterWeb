@@ -11,6 +11,7 @@ public class CostPayDetail extends ActionSupport{
 	private UserService userService;
 	private UserReturn user;
 	private String id;
+	private String type;
 	
 	@Override
 	public String execute() throws Exception {
@@ -18,8 +19,11 @@ public class CostPayDetail extends ActionSupport{
 		if(StringUtil.isEmpty(id)){
 			return ERROR;
 		}
+		if(StringUtil.isEmpty(type)){
+			return ERROR;
+		}
 		user = userService.getById(Long.valueOf(id));
-		return SUCCESS;
+		return type;
 	}
 
 	public String getId() {
@@ -40,6 +44,14 @@ public class CostPayDetail extends ActionSupport{
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

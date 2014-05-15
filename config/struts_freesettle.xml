@@ -35,5 +35,11 @@
 		<action name="reduction" class="com.ymsino.water.view.web.freesettle.Reduction">
 			<result name="success" type="redirect">/freesettle/costPayList.jspx?message=${message}</result>
 		</action>
+		
+		<!-- 查询用余额 -->
+		<action name="getUserBlanceAjax" class="com.ymsino.water.view.web.freesettle.GetUserBlanceAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
 	</package>
 </struts>

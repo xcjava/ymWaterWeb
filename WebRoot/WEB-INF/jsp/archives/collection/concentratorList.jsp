@@ -13,6 +13,9 @@
 <script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
 <script>
 $(function(){
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 	//只能选中一个
     $("input[type='checkbox']").click(function() {
         if ($(this).attr("checked") == "checked") {
@@ -21,9 +24,15 @@ $(function(){
             $("#dataId").val($(this).attr("name"));
         }
     });
+	
+    $('#addConcentrator').click(function(){
+		window.location = '${baseUrl }archives/concentratorTab.jspx';
+	});
+	
 	$('#btnSubmit').click(function(){
 		$('#searchForm').submit();
 	});
+    
 	//加载收费单位
 	function loadChargingUnit(unitId){
 		var _loadSelObj=$("#chargingUnitSel");
@@ -47,7 +56,6 @@ $(function(){
 				alert("服务忙，请重试。");
 			}
 		});
-		
 	}
 	loadChargingUnit('${chargingUnitId }');
 });
@@ -61,11 +69,12 @@ $(function(){
 	 			<td class="position">当前位置: 采集点管理 -&gt;  集中器列表</td>
 	 		</tr>
 	 	</tbody>
-	</table>	
+	</table>
+	<form action="${baseUrl }archives/concentratorList.jspx" method="get" id="searchForm">
+	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
 			<div class="srhtab">
-			<form id="searchForm" action="${baseUrl }archives/concentratorList.jspx" method="post">
 			    <table cellSpacing=0 cellPadding=2 border=0>
 			      <tbody>
 				      <tr>
@@ -75,76 +84,68 @@ $(function(){
 								<option></option>
 							</select>
 				        </td>
-				        
 				        <td>集中器ID：</td>
-				        <td><input class="textbox" id="" style="width: 120px" name="hardwareId" value="${hardwareId}"/></td>
-				        
-				      </tr>
-				      <tr>
+				        <td><input class="textbox" id="hardwareId" name="hardwareId" value="${hardwareId}"/></td>
 				        <td>集中器名称</td>
-				        <td><input class=textbox id=sStart2 style="WIDTH: 120px" name="name" value="${name}"></td>
-				      	<td>起始日期</td>
+				        <td><input class=textbox id="name" name="name" value="${name}"></td>
 				        <td>
-				        	<input class="Wdate" type="text" onClick="WdatePicker()" name="startDate" id="startDate" value="${startDate}">&nbsp;至:
+				        	<input class="button" id="btnSubmit" type="button" value="查询">
+				        	<input class="button" id="" type="button" value="导出" name="">
+				        	<input class="button" id="addConcentrator" type="button" value="新增" name="">
 				        </td>
-				        <td>
-  							<input class="Wdate" type="text" onClick="WdatePicker()" name="endDate" id="endDate" value="${endDate}">
-				        </td>
-				      	<td><input class="button" id="" type="button" value="新增" name=""></td>
-				      	<td><input class="button" id="" type="button" value="充值" name=""></td>
-				      	<td><input class="button" id="" type="button" value="查询" name=""></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
-				      </tr>
-				      <tr>
 				      </tr>
 			      </tbody>
 			    </table>
-			    </form>	
 			</div>
 		</td></tr>
 	</table>
-
+	</form>
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
         <td width=""><div><span>序号</span></div></td>
         <td width=""><div><span>集中器编号</span></div></td>
+        <td width=""><div><span>集中器名称</span></div></td>
         <td width=""><div><span>电话号码</span></div></td>
         <td width=""><div><span>省</span></div></td>
         <td width=""><div><span>市</span></div></td>
         <td width=""><div><span>区县</span></div></td>
         <td width=""><div><span>街道</span></div></td>
-        <td width=""><div><span>小区</span></div></td>
+        <td width=""><div><span>通讯地址</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
         <td width=""><div><span>安装地址</span></div></td>
-        <td width=""><div><span>端口号</span></div></td>
+        <td width=""><div><span>终端端口号</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
       <c:if test="${not empty list}">
       <c:forEach var="item"  items="${list }" varStatus="vs">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
-        <td><div><span class="STYLE19">${vs.count}</span></div></td>
+        <td><div>${vs.index+1}</div></td>
         <td><div>${item.hardwareId}</div></td>
+        <td><div>${item.name}</div></td>
         <td><div>${item.tel}</div></td>
         <td><div>${item.province}</div></td>
         <td><div>${item.city}</div></td>
         <td><div>${item.district}</div></td>
         <td><div>${item.street}</div></td>
         <td><div>${item.address}</div></td>
-        <td><div>${item.chargingUnitId}</div></td>
+        <td><div>
+        	<c:forEach items="${mapList }" var="map">
+        		<c:if test="${map.chargingUnit.unitId == item.chargingUnitId }">${map.chargingUnit.name }</c:if>
+        	</c:forEach>
+        </div></td>
         <td><div>${item.collectionAddress}</div></td>
         <td><div>${item.terminalPost}</div></td>
-        <td><div><a target="main" href="${baseUrl }archives/collectionTab.jspx?hardwareId=${item.hardwareId}">修改</a></div></td>
+        <td><div><a target="main" href="${baseUrl }archives/concentratorTab.jspx?hardwareId=${item.hardwareId}">修改</a></div></td>
       </tr>
       </c:forEach>
       </c:if>
-     
-	 	<tr class="listFooterTr">
-		<td colSpan=13>
+      <tr class="listFooterTr">
+	  	<td colSpan="14">
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }archives/concentratorList.jspx" pageDynamicURLFormat="${baseUrl }archives/concentratorList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
-		</tr>      
+	  </tr>
     </table>
 </body>
 </html>

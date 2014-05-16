@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -15,221 +16,190 @@
   </head>
 <body style="padding: 3px;">
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="" target="main">
+			<input type="hidden" name="hardwareId" value="${hardwareId }" />
+			<input type="hidden" name="curr" value="${curr }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="5" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>采集点编号<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">采集点编号：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="从采集点页面自动读取" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" value="${concentrator.collectionId }" disabled="disabled" />
 						</td>
-						<td class="editLeftTd"><span></span>信道编号<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">信道编号：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="channelId" name="concentrator.channelId" value="${concentrator.channelId }" />
 						</td>
-						<td class="editLeftTd"><span></span>RTS开<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">RTS开：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="rtsOpen" name="concentrator.rtsOpen" value="${concentrator.rtsOpen }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>规约类型<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">规约类型：</td>
 						<td class="editRightTd" width="200px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>04版约规</option>
-								<option>96版约规</option>
+							<select id="statuteType" name="concentrator.statuteType">
+								<option value="1">04版约规</option>
+								<option value="2">96版约规</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>中继类型<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">中继类型：</td>
 						<td class="editRightTd" width="200px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option value="01-无中继" selected="">01-无中继</option>
-								<option value="02-无线中继">02-无线中继</option>
-								<option value="03-终端中继">03-终端中继</option>
-								<option value="04-智能中继">04-智能中继</option>
+							<select id="relayType" name="concentrator.relayType">
+								<option value="1">01-无中继</option>
+								<option value="2">02-无线中继</option>
+								<option value="3">03-终端中继</option>
+								<option value="4">04-智能中继</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>电话号码<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">电话号码：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="tel" name="concentrator.tel" value="${concentrator.tel }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>RTS关<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">RTS关：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="rtsClose" name="concentrator.rtsClose" value="${concentrator.rtsClose }" />
 						</td>
-						<td class="editLeftTd"><span></span>传输延时<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">传输延时：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="transmissionDelay" name="concentrator.transmissionDelay" value="${concentrator.transmissionDelay }" />
 						</td>
-						<td class="editLeftTd"><span></span>响应超时<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">响应超时：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="responseTimeout" name="concentrator.responseTimeout" value="${concentrator.responseTimeout }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>主用IP地址<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">主用IP地址：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="primaryIp" name="concentrator.primaryIp" value="${concentrator.primaryIp }" />
 						</td>
-						<td class="editLeftTd"><span></span>备用IP地址<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">备用IP地址：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="reserveIp" name="concentrator.reserveIp" value="${concentrator.reserveIp }" />
 						</td>
-						<td class="editLeftTd"><span></span>网关IP地址<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">网关IP地址：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="gatewayIp" name="concentrator.gatewayIp" value="${concentrator.gatewayIp }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>代理IP地址<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">代理IP地址：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="proXyIp" name="concentrator.proXyIp" value="${concentrator.proXyIp }" />
 						</td>
-						<td class="editLeftTd"><span></span>主用端口<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">主用端口：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="primaryPort" name="concentrator.primaryPort" value="${concentrator.primaryPort }" />
 						</td>
-						<td class="editLeftTd"><span></span>备用端口<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">备用端口：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="reservePort" name="concentrator.reservePort" value="${concentrator.reservePort }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>网关端口<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">网关端口：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="gatewayPort" name="concentrator.gatewayPort" value="${concentrator.gatewayPort }" />
 						</td>
-						<td class="editLeftTd"><span></span>代理端口<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">代理端口：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="proXyPort" name="concentrator.proXyPort" value="${concentrator.proXyPort }" />
 						</td>
-						<td class="editLeftTd"><span></span>GPRS号码<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">GPRS号码：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="gprsNum" name="concentrator.gprsNum" value="${concentrator.gprsNum }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>短信号码<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">短信号码：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="smsNum" name="concentrator.smsNum" value="${concentrator.smsNum }" />
 						</td>
-						<td class="editLeftTd"><span></span>心跳周期<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">心跳周期：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="heartbeatCycle" name="concentrator.heartbeatCycle" value="${concentrator.heartbeatCycle }" />
 						</td>
-						<td class="editLeftTd"><span></span>启用日期<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">启用日期：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input class="Wdate" type="text" onClick="WdatePicker()" name="channelStartDate" id="channelStartDate" value="<gdcct:fld pattren="yyyy-MM-dd" longTime="${concentrator.startTimestamp }"></gdcct:fld>">
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>算法编号<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">算法编号：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="algorithmNum" name="concentrator.algorithmNum" value="${concentrator.algorithmNum }" />
 						</td>
-						<td class="editLeftTd"><span></span>算法密钥<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">算法密钥：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="algorithmKey" name="concentrator.algorithmKey" value="${concentrator.algorithmKey }" />
 						</td>
-						<td class="editLeftTd"><span></span>终端无回答超时<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">终端无回答超时：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="terminalNoRespTimeout" name="concentrator.terminalNoRespTimeout" value="${concentrator.terminalNoRespTimeout }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>经由转发的终端<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">经由转发的终端：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="forwardTerminal" name="concentrator.forwardTerminal" value="${concentrator.forwardTerminal }" />
 						</td>
-						<td class="editLeftTd"><span></span>RTS延时<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">RTS延时：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="rtsTimeout" name="concentrator.rtsTimeout" value="${concentrator.rtsTimeout }" />
 						</td>
-						<td class="editLeftTd"><span></span>启动延迟时间<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">启动延迟时间：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="startTimeout" name="concentrator.startTimeout" value="${concentrator.startTimeout }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>终端区位码<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">终端区位码：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="terminalLocationCode" name="concentrator.terminalLocationCode" value="${concentrator.terminalLocationCode }" />
 						</td>
-						<td class="editLeftTd"><span></span>终端通信密码<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">终端通信密码：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="terminalCommPassword" name="concentrator.terminalCommPassword" value="${concentrator.terminalCommPassword }" />
 						</td>
-						<td class="editLeftTd"><span></span>终端IP<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">终端IP：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="terminalIp" name="concentrator.terminalIp" value="${concentrator.terminalIp }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>超时重发次数<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">超时重发次数：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="resendTime" name="concentrator.resendTime" value="${concentrator.resendTime }" />
 						</td>
-						<td class="editLeftTd"><span></span>终端端口<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">终端端口：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="terminalPost" name="concentrator.terminalPost" value="${concentrator.terminalPost }" />
 						</td>
-						<td class="editLeftTd"><span></span>终端地址码<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">终端地址码：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="terminalNum" name="concentrator.terminalNum" value="${concentrator.terminalNum }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>主站通信密码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" colspan="5" width="200px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+						<td class="editLeftTd">主站通信密码：</td>
+						<td class="editRightTd" width="200px" colspan="5">
+							<input type="text" id="primaryCommPassword" name="concentrator.primaryCommPassword" value="${concentrator.primaryCommPassword }" />
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /> <input type="button" value="返 回" />
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/concentratorList.jspx','main');"value="返 回">
 			</div>
 		</form>
 	</div>
 	
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
+<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
 	//$(".registerform").Validform();  //就这一行代码！;
@@ -245,8 +215,27 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if('${concentrator.hardwareId }' == ''){
+				alert('请先完善基本信息！');
+				window.open('${baseUrl}archives/concentratorTab.jspx','main');
+				return false;
+			}else{
+				$(".registerform").attr('action','${baseUrl }archives/updateConcentrator.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
+	
+	$("#statuteType").val('${concentrator.statuteType}');
+	$("#relayType").val('${concentrator.relayType}');
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 });
 </script>
 </body>

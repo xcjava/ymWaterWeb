@@ -15,62 +15,59 @@
   </head>
 <body style="padding: 3px;">
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="" target="main">
+			<input type="hidden" name="hardwareId" value="${hardwareId }" />
+			<input type="hidden" name="curr" value="${curr }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>采集点编号<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">采集点编号：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="collectionId" name="concentrator.collectionId" value="${concentrator.collectionId }" />
 						</td>
-						<td class="editLeftTd"><span></span>采集点名称<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">采集点名称：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="collectionName" name="concentrator.collectionName" value="${concentrator.collectionName }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>采集点类型<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">采集点类型：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>口采集点</option>
-								<option>用户采集点</option>
+							<select id="collectionType" name="concentrator.collectionType">
+								<option value="1">口采集点</option>
+								<option value="2">用户采集点</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>采集点状态<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">采集点状态：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>口采集点</option>
-								<option>用户采集点</option>
+							<select id="collectionStatus" name="concentrator.collectionStatus">
+								<option value="1">初定方案</option>
+								<option value="2">制定方案</option>
+								<option value="3">已勘察</option>
+								<option value="4">已确定终端安装方案</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>GPS经度<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">GPS经度：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="gpsLongitude" name="concentrator.gpsLongitude" value="${concentrator.gpsLongitude }" />
 						</td>
-						<td class="editLeftTd"><span></span>GPS纬度<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">GPS纬度：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="gpsLatitude" name="concentrator.gpsLatitude" value="${concentrator.gpsLatitude }" />
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>采集点地址<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" colspan="3" >
-							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"></textarea>
-							<span class="Validform_checktip"></span>
+						<td class="editLeftTd">采集点地址：</td>
+						<td class="editRightTd" width="250px" colspan="3">
+							<textarea style="float: left;" rows="3" cols="50" id="collectionAddress" name="concentrator.collectionAddress">${concentrator.collectionAddress }</textarea>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /> <input type="button" value="返 回" />
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/concentratorList.jspx','main');"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -92,8 +89,26 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if('${concentrator.hardwareId }' == ''){
+				alert('请先完善基本信息！');
+				window.open('${baseUrl}archives/concentratorTab.jspx','main');
+				return false;
+			}else{
+				$(".registerform").attr('action','${baseUrl }archives/updateConcentrator.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
+	$("#collectionType").val('${concentrator.collectionType}');
+	$("#collectionStatus").val('${concentrator.collectionStatus}');
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 });
 </script>
 </body>

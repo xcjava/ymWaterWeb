@@ -15,157 +15,130 @@
   </head>
 <body style="padding: 3px;">
 	<div id="main">
-		<form class="registerform" method="post" enctype="multipart/form-data" action="">
+		<form class="registerform" method="post" action="" target="main">
+			<input type="hidden" name="hardwareId" value="${hardwareId }" />
+			<input type="hidden" name="curr" value="${curr }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>收费单位名称<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="concentrator.chargingUnitId" value="${concentrator.chargingUnitId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>集中器ID<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="concentrator.hardwareId" value="${concentrator.hardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>集中器名称<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="concentrator.name" value="${concentrator.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
-						<td class="editLeftTd"><span></span>集中器密码<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="concentrator.password" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>表类别<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>水表</option>
+							<select id="chargingUnitSel" name="concentrator.chargingUnitId" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
+								<option></option>
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>上行通讯方式<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">集中器ID<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>拨号</option>
+							<input style="width: 70px;" type="text" id="areaCode" name="concentrator.areaCode" value="${concentrator.areaCode }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span>&nbsp;+ </span>
+							<input style="width: 70px; float: none;" type="text" id="logicCode" name="concentrator.logicCode" value="${concentrator.logicCode }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+						</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd">集中器名称<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="name" name="concentrator.name" value="${concentrator.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span>
+						</td>
+						<td class="editLeftTd">集中器密码<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="password" name="concentrator.password" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<span class="Validform_checktip"></span>
+						</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd">表类别：</td>
+						<td class="editRightTd" width="250px">
+							<select id="meterType" name="concentrator.meterType">
+								<option value="水表">水表</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>工作串口<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">上行通讯方式：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>COM1</option>
+							<select id="communication" name="concentrator.communication">
+								<option value="拨号">拨号</option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>中继方式<span style="color: red;">*</span>：</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd">工作串口：</td>
 						<td class="editRightTd" width="250px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>自动中继</option>
+							<select id="serial" name="concentrator.serial">
+								<option value="COM1">COM1</option>
 							</select>
-							<span class="Validform_checktip"></span>
+						</td>
+						<td class="editLeftTd">中继方式：</td>
+						<td class="editRightTd" width="250px">
+							<select id="relaySystem" name="concentrator.relaySystem">
+								<option value="自动中继">自动中继</option>
+							</select>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>省<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">省：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="province" name="concentrator.province" value="${concentrator.province }"/>
 						</td>
-						<td class="editLeftTd"><span></span>市<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">市：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="city" name="concentrator.city" value="${concentrator.city }"/>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>区县<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">区县：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="district" name="concentrator.district" value="${concentrator.district }"/>
 						</td>
-						<td class="editLeftTd"><span></span>街道<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">街道：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="street" name="concentrator.street" value="${concentrator.street }"/>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>小区<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" width="250px" colspan="3">
-							<input type="text" id="" name="" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>通讯地址<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">通讯地址：</td>
 						<td class="editRightTd" colspan="3" >
-							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"></textarea>
-							<span class="Validform_checktip"></span>
+							<textarea id="address" name="concentrator.address" style="float: left;" rows="3" cols="50" >${concentrator.address }</textarea>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>月冻结起始时日<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">月冻结起始时日：</td>
 						<td class="editRightTd" width="270px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
+							<select id="monthFreezeStartDate" name="concentrator.monthFreezeStartDate">
+								<c:forEach begin="1" end="31" var="day">
+									<option value="${day }">${day }</option>
+								</c:forEach>
 							</select>&nbsp;日
-							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editRightTd" width="270px" colspan="2">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
+							<select id="monthFreezeStartHour" name="concentrator.monthFreezeStartHour">
+								<c:forEach begin="0" end="23" var="hour">
+									<option value="${hour }">${hour }</option>
+								</c:forEach>
 							</select>&nbsp;时
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>日冻结起始时日<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">日冻结起始时日：</td>
 						<td class="editRightTd" width="270px">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
+							<select id="dayFreezeStartHour" name="concentrator.dayFreezeStartHour">
+								<c:forEach begin="0" end="23" var="hour">
+									<option value="${hour }">${hour }</option>
+								</c:forEach>
 							</select>&nbsp;时
-							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editRightTd" width="270px" colspan="2">
-							<select datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
+							<select id="dayFreezeStartMinute" name="concentrator.dayFreezeStartMinute">
+								<c:forEach begin="0" end="59" var="min">
+									<option value="${min }">${min }</option>
+								</c:forEach>
 							</select>&nbsp;分
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="修 改" /> <input type="reset" value="重 置" /> <input type="button" value="返 回" />
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.open('${baseUrl}archives/concentratorList.jspx','main');"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -174,7 +147,6 @@
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
 		
 	$(".registerform").Validform({
 		tiptype:function(msg,o,cssctl){
@@ -187,8 +159,58 @@ $(function(){
 				cssctl(objtip,o.type);
 				objtip.text(msg);
 			}
+		},
+		callback:function(form){
+			if('${concentrator.hardwareId }' == ''){
+				$(".registerform").attr('action','${baseUrl }archives/saveConcentrator.jspx');
+			}else{
+				$(".registerform").attr('action','${baseUrl }archives/updateConcentrator.jspx');
+			}
+			if(confirm("您确定要提交表单吗？")){
+				return true;
+			}
+			return false;
 		}
 	});
+	
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${concentrator.chargingUnitId }');
+	
+	$("#meterType").val('${concentrator.meterType}');
+	$("#communication").val('${concentrator.communication}');
+	$("#serial").val('${concentrator.serial}');
+	$("#relaySystem").val('${concentrator.relaySystem}');
+	$("#monthFreezeStartDate").val('${concentrator.monthFreezeStartDate}');
+	$("#monthFreezeStartHour").val('${concentrator.monthFreezeStartHour}');
+	$("#dayFreezeStartHour").val('${concentrator.dayFreezeStartHour}');
+	$("#dayFreezeStartMinute").val('${concentrator.dayFreezeStartMinute}');
+	
+	if('${param.message}' != ''){
+		alert('${param.message}');
+	}
 });
 </script>
 </body>

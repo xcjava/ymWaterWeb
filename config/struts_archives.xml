@@ -158,20 +158,28 @@
 			<result>/WEB-INF/jsp/archives/collection/concentratorList.jsp</result>
 		</action>
 		<!-- 集中器Tab -->
-		<action name="collectionTab" class="com.ymsino.water.view.web.archives.CollectionTab">
-			<result>/WEB-INF/jsp/archives/collection/collectionTab.jsp</result>
+		<action name="concentratorTab" class="com.ymsino.water.view.web.archives.ConcentratorTab">
+			<result>/WEB-INF/jsp/archives/collection/concentratorTab.jsp</result>
 		</action>
 		
 		<!-- 集中器信息详细页 -->
 		<action name="concentratorDetail" class="com.ymsino.water.view.web.archives.ConcentratorDetail">
-			<result  name="baseInfo">/WEB-INF/jsp/archives/collection/baseInfo.jsp</result>
-			<result  name="simInfo">/WEB-INF/jsp/archives/collection/simInfo.jsp</result>
-			<result  name="collectionInfo">/WEB-INF/jsp/archives/collection/collectionInfo.jsp</result>
-			<result  name="collectionChannel">/WEB-INF/jsp/archives/collection/collectionChannel.jsp</result>
-			<result  name="collectionObject">/WEB-INF/jsp/archives/collection/collectionObject.jsp</result>
-			<result  name="collectionMeasure">/WEB-INF/jsp/archives/collection/collectionMeasure.jsp</result>
-			<result  name="collectionUser">/WEB-INF/jsp/archives/collection/collectionUser.jsp</result>
-			<result  name="runningTerminal">/WEB-INF/jsp/archives/collection/runningTerminal.jsp</result>
+			<result name="baseInfo">/WEB-INF/jsp/archives/collection/baseInfo.jsp</result>
+			<result name="simInfo">/WEB-INF/jsp/archives/collection/simInfo.jsp</result>
+			<result name="collectionInfo">/WEB-INF/jsp/archives/collection/collectionInfo.jsp</result>
+			<result name="collectionChannel">/WEB-INF/jsp/archives/collection/collectionChannel.jsp</result>
+			<result name="collectionObject">/WEB-INF/jsp/archives/collection/collectionObject.jsp</result>
+			<result name="runningTerminal">/WEB-INF/jsp/archives/collection/runningTerminal.jsp</result>
+		</action>
+		
+		<!-- 集中器信息添加 -->
+		<action name="saveConcentrator" class="com.ymsino.water.view.web.archives.SaveConcentrator">
+			<result name="editError" type="redirect">/archives/concentratorTab.jspx?curr=${curr}&amp;message=${message}</result>
+			<result name="success" type="redirect">/archives/concentratorList.jspx?message=${message}</result>
+		</action>
+		<!-- 集中器信息修改 -->
+		<action name="updateConcentrator" class="com.ymsino.water.view.web.archives.UpdateConcentrator">
+			<result name="success" type="redirect">/archives/concentratorTab.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
 	</package>
 </struts>

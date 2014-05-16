@@ -1,7 +1,5 @@
 package com.ymsino.water.view.web.searchAnalysis;
 
-import java.net.URLEncoder;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.data.checkingFreezeData.CheckingFreezeDataModifyParam;
 import com.ymsino.water.service.data.checkingFreezeData.CheckingFreezeDataService;

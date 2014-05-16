@@ -5,9 +5,6 @@ import java.net.URLEncoder;
 
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ymsino.water.service.manager.department.DepartmentModifyParam;
-import com.ymsino.water.service.manager.department.DepartmentReturn;
-import com.ymsino.water.service.manager.department.DepartmentService;
 import com.ymsino.water.service.manager.manager.ManagerModifyParam;
 import com.ymsino.water.service.manager.manager.ManagerReturn;
 import com.ymsino.water.service.manager.manager.ManagerService;

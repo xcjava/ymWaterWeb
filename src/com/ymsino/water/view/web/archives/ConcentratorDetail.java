@@ -7,17 +7,13 @@ import com.ymsino.water.service.archives.concentrator.ConcentratorService;
 
 public class ConcentratorDetail extends ActionSupport {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
+	private ConcentratorService concentratorService;
+	private ConcentratorReturn concentrator;
 	private String hardwareId;
 	private String tab;
 	private String message;
 	private String curr;
-	private ConcentratorService concentratorService;
-	private ConcentratorReturn concentratorReturn;
 
 	@Override
 	public String execute() throws Exception {
@@ -35,12 +31,6 @@ public class ConcentratorDetail extends ActionSupport {
 			if("collectionObject".equals(tab)){
 				result = "collectionObject";
 			}
-			if("collectionMeasure".equals(tab)){
-				result = "collectionMeasure";
-			}
-			if("collectionUser".equals(tab)){
-				result = "collectionUser";
-			}
 			if("runningTerminal".equals(tab)){
 				result = "runningTerminal";
 			}
@@ -48,7 +38,7 @@ public class ConcentratorDetail extends ActionSupport {
 		if(StringUtil.isEmpty(hardwareId)){
 			return result;
 		}
-		concentratorReturn = concentratorService.getById(hardwareId);
+		concentrator = concentratorService.getById(hardwareId);
 		return result;
 	}
 
@@ -84,8 +74,8 @@ public class ConcentratorDetail extends ActionSupport {
 		this.message = message;
 	}
 
-	public ConcentratorReturn getConcentratorReturn() {
-		return concentratorReturn;
+	public ConcentratorReturn getConcentrator() {
+		return concentrator;
 	}
 
 	public void setConcentratorService(ConcentratorService concentratorService) {

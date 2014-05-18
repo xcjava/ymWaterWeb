@@ -33,9 +33,10 @@ public class ReadClockAjax extends AbstractAjaxAction {
 			
 		try {
 			json.put("isFail", true);
-			
-			if(StringUtil.isEmpty(concHardwareId))
+			if(StringUtil.isEmpty(concHardwareId)){
+				json.put("errorMsg","集中器逻辑地址为空");
 				return json.toString();
+			}
 			json.put("isFail", false);
 			String dateStr =conClockService.readClock(concHardwareId);
 			json.put("date", dateStr);

@@ -23,6 +23,11 @@
 			<result name="success" type="redirect">/data/collectTaskList.jspx?message=${message}</result>
 		</action>
 		
+		<!-- 集中器操控列表 -->
+		<action name="concentratorList" class="com.ymsino.water.view.web.archives.ConcentratorList">
+			<result>/WEB-INF/jsp/data/concentratorCopyList.jsp</result>
+		</action>
+		
 		<!-- 读集中器时钟 -->
 		<action name="readClockAjax" class="com.ymsino.water.view.web.data.ReadClockAjax">
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>

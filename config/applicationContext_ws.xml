@@ -17,145 +17,201 @@
 							http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core-5.7.0.xsd">
     
     <!-- 系统管理 -->
-    <bean id="managerService" class="com.ymsino.water.service.manager.manager.ManagerService" factory-bean="managerFactory" factory-method="create"/>
-    <bean id="managerFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="managerService" class="com.ymsino.water.service.manager.manager.ManagerService" factory-bean="managerServiceFactory" factory-method="create"/>
+    <bean id="managerServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.manager.manager.ManagerService"/>
       <property name="address" value="${ws.host}/ws/managerService"/>
     </bean>
     
-    <bean id="chargingUnitService" class="com.ymsino.water.service.manager.chargingUnit.ChargingUnitService" factory-bean="chargingUnitFactory" factory-method="create"/>
-    <bean id="chargingUnitFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="chargingUnitService" class="com.ymsino.water.service.manager.chargingUnit.ChargingUnitService" factory-bean="chargingUnitServiceFactory" factory-method="create"/>
+    <bean id="chargingUnitServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.manager.chargingUnit.ChargingUnitService"/>
       <property name="address" value="${ws.host}/ws/chargingUnitService"/>
     </bean>
     
-    <bean id="departmentService" class="com.ymsino.water.service.manager.department.DepartmentService" factory-bean="departmentFactory" factory-method="create"/>
-    <bean id="departmentFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="departmentService" class="com.ymsino.water.service.manager.department.DepartmentService" factory-bean="departmentServiceFactory" factory-method="create"/>
+    <bean id="departmentServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.manager.department.DepartmentService"/>
       <property name="address" value="${ws.host}/ws/departmentService"/>
     </bean>
     
-    <bean id="priceTemplateService" class="com.ymsino.water.service.manager.priceTemplate.PriceTemplateService" factory-bean="priceTemplateFactory" factory-method="create"/>
-    <bean id="priceTemplateFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="priceTemplateService" class="com.ymsino.water.service.manager.priceTemplate.PriceTemplateService" factory-bean="priceTemplateServiceFactory" factory-method="create"/>
+    <bean id="priceTemplateServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.manager.priceTemplate.PriceTemplateService"/>
       <property name="address" value="${ws.host}/ws/priceTemplateService"/>
     </bean>
     <!-- 系统管理 -->
     <!-- 档案管理 -->
-    <bean id="userService" class="com.ymsino.water.service.archives.user.UserService" factory-bean="userFactory" factory-method="create"/>
-    <bean id="userFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="userService" class="com.ymsino.water.service.archives.user.UserService" factory-bean="userServiceFactory" factory-method="create"/>
+    <bean id="userServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.user.UserService"/>
       <property name="address" value="${ws.host}/ws/userService"/>
     </bean>
     
-    <bean id="contactService" class="com.ymsino.water.service.archives.contact.ContactService" factory-bean="contactFactory" factory-method="create"/>
-    <bean id="contactFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="contactService" class="com.ymsino.water.service.archives.contact.ContactService" factory-bean="contactServiceFactory" factory-method="create"/>
+    <bean id="contactServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.contact.ContactService"/>
       <property name="address" value="${ws.host}/ws/contactService"/>
     </bean>
     
-    <bean id="bankService" class="com.ymsino.water.service.archives.bank.BankService" factory-bean="bankFactory" factory-method="create"/>
-    <bean id="bankFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="bankService" class="com.ymsino.water.service.archives.bank.BankService" factory-bean="bankServiceFactory" factory-method="create"/>
+    <bean id="bankServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.bank.BankService"/>
       <property name="address" value="${ws.host}/ws/bankService"/>
     </bean>
     
-    <bean id="busiAddressService" class="com.ymsino.water.service.archives.busiAddress.BusiAddressService" factory-bean="busiAddressFactory" factory-method="create"/>
-    <bean id="busiAddressFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="busiAddressService" class="com.ymsino.water.service.archives.busiAddress.BusiAddressService" factory-bean="busiAddressServiceFactory" factory-method="create"/>
+    <bean id="busiAddressServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.busiAddress.BusiAddressService"/>
       <property name="address" value="${ws.host}/ws/busiAddressService"/>
     </bean>
     
-    <bean id="vatService" class="com.ymsino.water.service.archives.vat.VatService" factory-bean="vatFactory" factory-method="create"/>
-    <bean id="vatFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="vatService" class="com.ymsino.water.service.archives.vat.VatService" factory-bean="vatServiceFactory" factory-method="create"/>
+    <bean id="vatServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.vat.VatService"/>
       <property name="address" value="${ws.host}/ws/vatService"/>
     </bean>
     
-    <bean id="waterMeterService" class="com.ymsino.water.service.archives.waterMeter.WaterMeterService" factory-bean="waterMeterFactory" factory-method="create"/>
-    <bean id="waterMeterFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="waterMeterService" class="com.ymsino.water.service.archives.waterMeter.WaterMeterService" factory-bean="waterMeterServiceFactory" factory-method="create"/>
+    <bean id="waterMeterServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.waterMeter.WaterMeterService"/>
       <property name="address" value="${ws.host}/ws/waterMeterService"/>
     </bean>
     
-    <bean id="concentratorService" class="com.ymsino.water.service.archives.concentrator.ConcentratorService" factory-bean="concentratorFactory" factory-method="create"/>
-    <bean id="concentratorFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="concentratorService" class="com.ymsino.water.service.archives.concentrator.ConcentratorService" factory-bean="concentratorServiceFactory" factory-method="create"/>
+    <bean id="concentratorServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.concentrator.ConcentratorService"/>
       <property name="address" value="${ws.host}/ws/concentratorService"/>
     </bean>
     
-    <bean id="waterCustomerService" class="com.ymsino.water.service.archives.waterCustomer.WaterCustomerService" factory-bean="waterCustomerFactory" factory-method="create"/>
-    <bean id="waterCustomerFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="waterCustomerService" class="com.ymsino.water.service.archives.waterCustomer.WaterCustomerService" factory-bean="waterCustomerServiceFactory" factory-method="create"/>
+    <bean id="waterCustomerServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.archives.waterCustomer.WaterCustomerService"/>
       <property name="address" value="${ws.host}/ws/waterCustomerService"/>
     </bean>
     <!-- 档案管理 -->
     <!-- 费用结算 -->
-    <bean id="userWalletLogService" class="com.ymsino.water.service.freesettle.userWalletLog.UserWalletLogService" factory-bean="userWalletLogFactory" factory-method="create"/>
-    <bean id="userWalletLogFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="userWalletLogService" class="com.ymsino.water.service.freesettle.userWalletLog.UserWalletLogService" factory-bean="userWalletLogServiceFactory" factory-method="create"/>
+    <bean id="userWalletLogServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.freesettle.userWalletLog.UserWalletLogService"/>
       <property name="address" value="${ws.host}/ws/userWalletLogService"/>
     </bean>
     
-    <bean id="userWalletService" class="com.ymsino.water.service.freesettle.userWallet.UserWalletService" factory-bean="userWalletFactory" factory-method="create"/>
-    <bean id="userWalletFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="userWalletService" class="com.ymsino.water.service.freesettle.userWallet.UserWalletService" factory-bean="userWalletServiceFactory" factory-method="create"/>
+    <bean id="userWalletServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.freesettle.userWallet.UserWalletService"/>
       <property name="address" value="${ws.host}/ws/userWalletService"/>
     </bean>
     
-    <bean id="waterDayCostService" class="com.ymsino.water.service.freesettle.waterDayCost.WaterDayCostService" factory-bean="waterDayCostFactory" factory-method="create"/>
-    <bean id="waterDayCostFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="waterDayCostService" class="com.ymsino.water.service.freesettle.waterDayCost.WaterDayCostService" factory-bean="waterDayCostServiceFactory" factory-method="create"/>
+    <bean id="waterDayCostServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.freesettle.waterDayCost.WaterDayCostService"/>
       <property name="address" value="${ws.host}/ws/waterDayCostService"/>
     </bean>
     
-    <bean id="waterMonthCostService" class="com.ymsino.water.service.freesettle.waterMonthCost.WaterMonthCostService" factory-bean="waterMonthCostFactory" factory-method="create"/>
-    <bean id="waterMonthCostFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="waterMonthCostService" class="com.ymsino.water.service.freesettle.waterMonthCost.WaterMonthCostService" factory-bean="waterMonthCostServiceFactory" factory-method="create"/>
+    <bean id="waterMonthCostServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.freesettle.waterMonthCost.WaterMonthCostService"/>
       <property name="address" value="${ws.host}/ws/waterMonthCostService"/>
     </bean>
     <!-- 费用结算 -->
     <!-- 数据 -->
-    <bean id="checkingFreezeDataService" class="com.ymsino.water.service.data.checkingFreezeData.CheckingFreezeDataService" factory-bean="checkingFreezeDataFactory" factory-method="create"/>
-    <bean id="checkingFreezeDataFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="checkingFreezeDataService" class="com.ymsino.water.service.data.checkingFreezeData.CheckingFreezeDataService" factory-bean="checkingFreezeDataServiceFactory" factory-method="create"/>
+    <bean id="checkingFreezeDataServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.data.checkingFreezeData.CheckingFreezeDataService"/>
       <property name="address" value="${ws.host}/ws/checkingFreezeDataService"/>
     </bean>
     
-    <bean id="collectTaskService" class="com.ymsino.water.service.data.collectTask.CollectTaskService" factory-bean="collectTaskFactory" factory-method="create"/>
-    <bean id="collectTaskFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="collectTaskService" class="com.ymsino.water.service.data.collectTask.CollectTaskService" factory-bean="collectTaskServiceFactory" factory-method="create"/>
+    <bean id="collectTaskServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.data.collectTask.CollectTaskService"/>
       <property name="address" value="${ws.host}/ws/collectTaskService"/>
     </bean>
     
-    <bean id="freezeDataService" class="com.ymsino.water.service.data.freezeData.FreezeDataService" factory-bean="freezeDataFactory" factory-method="create"/>
-    <bean id="freezeDataFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="freezeDataService" class="com.ymsino.water.service.data.freezeData.FreezeDataService" factory-bean="freezeDataServiceFactory" factory-method="create"/>
+    <bean id="freezeDataServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.data.freezeData.FreezeDataService"/>
       <property name="address" value="${ws.host}/ws/freezeDataService"/>
     </bean>
     
-    <bean id="testDynamicDataService" class="com.ymsino.water.service.data.testDynamicData.TestDynamicDataService" factory-bean="testDynamicDataFactory" factory-method="create"/>
-    <bean id="testDynamicDataFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="testDynamicDataService" class="com.ymsino.water.service.data.testDynamicData.TestDynamicDataService" factory-bean="testDynamicDataServiceFactory" factory-method="create"/>
+    <bean id="testDynamicDataServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.data.testDynamicData.TestDynamicDataService"/>
       <property name="address" value="${ws.host}/ws/testDynamicDataService"/>
     </bean>
     
-    <bean id="testMeterCodeDataService" class="com.ymsino.water.service.data.testMeterCodeData.TestMeterCodeDataService" factory-bean="testMeterCodeDataFactory" factory-method="create"/>
-    <bean id="testMeterCodeDataFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="testMeterCodeDataService" class="com.ymsino.water.service.data.testMeterCodeData.TestMeterCodeDataService" factory-bean="testMeterCodeDataServiceFactory" factory-method="create"/>
+    <bean id="testMeterCodeDataServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.data.testMeterCodeData.TestMeterCodeDataService"/>
       <property name="address" value="${ws.host}/ws/testMeterCodeDataService"/>
     </bean>
     
-    <bean id="waterDayUsageAmountService" class="com.ymsino.water.service.data.waterDayUsageAmount.WaterDayUsageAmountService" factory-bean="waterDayUsageAmountFactory" factory-method="create"/>
-    <bean id="waterDayUsageAmountFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="waterDayUsageAmountService" class="com.ymsino.water.service.data.waterDayUsageAmount.WaterDayUsageAmountService" factory-bean="waterDayUsageAmountServiceFactory" factory-method="create"/>
+    <bean id="waterDayUsageAmountServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.data.waterDayUsageAmount.WaterDayUsageAmountService"/>
       <property name="address" value="${ws.host}/ws/waterDayUsageAmountService"/>
     </bean>
     
-    <bean id="waterMonthUsageAmountService" class="com.ymsino.water.service.data.waterMonthUsageAmount.WaterMonthUsageAmountService" factory-bean="waterMonthUsageAmountFactory" factory-method="create"/>
-    <bean id="waterMonthUsageAmountFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <bean id="waterMonthUsageAmountService" class="com.ymsino.water.service.data.waterMonthUsageAmount.WaterMonthUsageAmountService" factory-bean="waterMonthUsageAmountServiceFactory" factory-method="create"/>
+    <bean id="waterMonthUsageAmountServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
       <property name="serviceClass" value="com.ymsino.water.service.data.waterMonthUsageAmount.WaterMonthUsageAmountService"/>
       <property name="address" value="${ws.host}/ws/waterMonthUsageAmountService"/>
     </bean>
     <!-- 数据 -->
+    
+    <!-- 集中器操控 -->
+    <bean id="conClockService" class="com.ymsino.water.service.comm.conClock.ConClockService" factory-bean="conClockServiceFactory" factory-method="create"/>
+    <bean id="conClockServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.conClock.ConClockService"/>
+      <property name="address" value="${ws.host}/ws/conClockService"/>
+    </bean>
+    
+    <bean id="conDebugService" class="com.ymsino.water.service.comm.conDebug.ConDebugService" factory-bean="conDebugServiceFactory" factory-method="create"/>
+    <bean id="conDebugServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.conDebug.ConDebugService"/>
+      <property name="address" value="${ws.host}/ws/conDebugService"/>
+    </bean>
+    
+    <bean id="deleteDataService" class="com.ymsino.water.service.comm.deleteData.DeleteDataService" factory-bean="deleteDataServiceFactory" factory-method="create"/>
+    <bean id="deleteDataServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.deleteData.DeleteDataService"/>
+      <property name="address" value="${ws.host}/ws/deleteDataService"/>
+    </bean>
+    
+    <bean id="deleteSettingsService" class="com.ymsino.water.service.comm.deleteSettings.DeleteSettingsService" factory-bean="deleteSettingsServiceFactory" factory-method="create"/>
+    <bean id="deleteSettingsServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.deleteSettings.DeleteSettingsService"/>
+      <property name="address" value="${ws.host}/ws/deleteSettingsService"/>
+    </bean>
+    
+    <bean id="loadWmService" class="com.ymsino.water.service.comm.loadWm.LoadWmService" factory-bean="loadWmServiceFactory" factory-method="create"/>
+    <bean id="loadWmServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.loadWm.LoadWmService"/>
+      <property name="address" value="${ws.host}/ws/loadWmService"/>
+    </bean>
+    
+    <bean id="readDataService" class="com.ymsino.water.service.comm.readData.ReadDataService" factory-bean="readDataServiceFactory" factory-method="create"/>
+    <bean id="readDataServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.readData.ReadDataService"/>
+      <property name="address" value="${ws.host}/ws/readDataService"/>
+    </bean>
+    
+    <bean id="restoreSettingService" class="com.ymsino.water.service.comm.restoreSetting.RestoreSettingService" factory-bean="restoreSettingServiceFactory" factory-method="create"/>
+    <bean id="restoreSettingServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.restoreSetting.RestoreSettingService"/>
+      <property name="address" value="${ws.host}/ws/restoreSettingService"/>
+    </bean>
+    
+    <bean id="testDataService" class="com.ymsino.water.service.comm.testData.TestDataService" factory-bean="testDataServiceFactory" factory-method="create"/>
+    <bean id="testDataServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.testData.TestDataService"/>
+      <property name="address" value="${ws.host}/ws/testDataService"/>
+    </bean>
+    
+    <bean id="testMeterCodeService" class="com.ymsino.water.service.comm.testMeterCode.TestMeterCodeService" factory-bean="testMeterCodeServiceFactory" factory-method="create"/>
+    <bean id="testMeterCodeServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+      <property name="serviceClass" value="com.ymsino.water.service.comm.testMeterCode.TestMeterCodeService"/>
+      <property name="address" value="${ws.host}/ws/testMeterCodeService"/>
+    </bean>
+    <!-- 集中器操控 -->
 </beans>

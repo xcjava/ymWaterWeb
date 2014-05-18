@@ -29,6 +29,11 @@ public class ConcentratorList extends ActionSupport{
 	private String chargingUnitId;	//收费单位id
 	private String name; 			//集中器名称
 	private String hardwareId;		//集中器ID
+	private String status;
+	private String tel;
+	private String province;
+	private String city;
+	private String district;
 	private PageModel pageModel = new PageModel();
     private int pageIndex;
 	private int pageSize;
@@ -59,6 +64,22 @@ public class ConcentratorList extends ActionSupport{
 		}
 		if(!StringUtil.isEmpty(hardwareId)){
 			qpw.addQueryParam("hardwareId", hardwareId, QueryCondition.QC_EQ);
+		}
+		
+		if(!StringUtil.isEmpty(status)){
+			qpw.addQueryParam("status", Short.valueOf(status), QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(tel)){
+			qpw.addQueryParam("tel", tel, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(province)){
+			qpw.addQueryParam("province", province, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(city)){
+			qpw.addQueryParam("city", city, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(district)){
+			qpw.addQueryParam("district", district, QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
@@ -147,6 +168,46 @@ public class ConcentratorList extends ActionSupport{
 
 	public void setChargingUnitService(ChargingUnitService chargingUnitService) {
 		this.chargingUnitService = chargingUnitService;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 
 }

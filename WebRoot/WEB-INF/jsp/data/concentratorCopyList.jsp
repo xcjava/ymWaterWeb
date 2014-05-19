@@ -3,7 +3,7 @@
 <%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,8 +11,30 @@
 <link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="${baseUrl }js/jquery/plugins/asyncbox/asyncbox.v1.5.beta.min.js" type="text/javascript"></script>
 <script>
 $(function(){
+	
+	function newopen(){
+		asyncbox.open({
+			id : 'cccc',
+			url : 'http://www.baidu.com',
+			title : '内容页 1 里跳出来的窗口 - 有遮罩层',
+			width   : 400,
+			height  : 300,
+			modal : true,
+			tipsbar : {
+				title : '哎哟，不错哦',
+				content : '哎哟，就是没话讲的时候哎哟哎哟？'
+			},
+			btnsbar : asyncbox.btn.OKCANCEL}
+		);
+	}
+	
+	$('#setupClock').click(function(){
+		newopen();
+	});
+	
 	if('${param.message}' != ''){
 		alert('${param.message}');
 	}
@@ -146,7 +168,7 @@ $(function(){
 				      	<td><input class="button" id="readClock" type="button" value="读时钟"></td>
 				      	<td><input class="button" id="" type="button" value="读水表参数" name=""></td>
 				      	<td><input class="button" id="" type="button" value="抄日冻结" name=""></td>
-				      	<td><input class="button" id="" type="button" value="校时钟" name=""></td>
+				      	<td><input class="button" id="setupClock" type="button" value="校时钟" name=""></td>
 				      	<td><input class="button" id="" type="button" value="加载水表参数" name=""></td>
 				      	<td><input class="button" id="" type="button" value="集中器调试" name=""></td>
 				      	<td><input class="button" id="" type="button" value="集中器复位" name=""></td>

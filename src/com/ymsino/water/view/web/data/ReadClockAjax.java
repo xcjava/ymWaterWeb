@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import com.opensymphony.oscache.util.StringUtil;
 import com.ymsino.water.service.comm.conClock.ConClockService;
 import com.ymsino.water.view.web.common.AbstractAjaxAction;
+import com.ymsino.water.view.web.common.DateUtil;
 
 public class ReadClockAjax extends AbstractAjaxAction {
 
@@ -39,7 +40,7 @@ public class ReadClockAjax extends AbstractAjaxAction {
 			}
 			json.put("isFail", false);
 			String dateStr =conClockService.readClock(concHardwareId);
-			json.put("date", dateStr);
+			json.put("date", DateUtil.format(DateUtil.parseDate(dateStr, "yyMMddHHmmss"), "yyyy-MM-dd HH:mm:ss"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			try {

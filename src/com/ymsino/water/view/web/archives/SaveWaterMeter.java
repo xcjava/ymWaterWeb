@@ -26,6 +26,7 @@ public class SaveWaterMeter extends ActionSupport {
 				return SUCCESS;
 			}
 			waterMeter.setHardwareId(hardwareId);
+			waterMeter.setType(Short.valueOf(type));
 			waterMeterService.save(waterMeter);
 			message = "添加成功！";
 		} catch (Exception e) {

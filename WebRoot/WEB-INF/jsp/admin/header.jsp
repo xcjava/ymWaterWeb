@@ -47,6 +47,11 @@ border-style: none;
 			}, function() {
 				$(this).removeClass("tdhover");
 		});
+		$('#logout').click(function(){
+			$.get("${baseUrl }admin/logout.jspx", function(data){
+				 parent.location.reload();
+				});
+		});
 	});
 </script>
 </head>
@@ -76,9 +81,10 @@ border-style: none;
                     <td width="50"><div align="center"><img src="${baseUrl }images/main_14.gif" width="48" height="19"></div></td>
                     <td width="50"><div align="center"><img src="${baseUrl }images/main_16.gif" width="48" height="19"></div></td>
                     <td width="50"><div align="center"><img src="${baseUrl }images/main_18.gif" width="48" height="19"></div></td>
-                    <td width="50"><div align="center"><img src="${baseUrl }images/main_20.gif" width="48" height="19"></div></td>
+                    <td width="50"><div align="center"><img id="logout" src="${baseUrl }images/main_20.gif" width="48" height="19"></div></td>
                     <td width="26"><div align="center"><img src="${baseUrl }images/main_21.gif" width="26" height="19"></div></td>
                     <td width="100"><div align="center"><img src="${baseUrl }images/main_22.gif" width="98" height="19"></div></td>
+                    <td width="100%" valign="bottom"><div align="center" class="STYLE1">欢迎您：<span style="">${manager.managerId }</span></div></td>
                     <td>&nbsp;</td>
                   </tr>
                 </table></td>
@@ -107,7 +113,6 @@ border-style: none;
         <td width="177" height="28" background="${baseUrl }images/main_32.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="20%"  height="22">&nbsp;</td>
-            <td width="100%" valign="bottom"><div align="center" class="STYLE1">欢迎您：<span style="">${manager.managerId }</span></div></td>
             <td width="21%">&nbsp;</td>
           </tr>
         </table></td>

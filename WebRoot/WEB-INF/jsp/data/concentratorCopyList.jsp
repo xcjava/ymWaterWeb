@@ -83,21 +83,15 @@ $(function(){
 			alert("请选择一条数据！");
 			return false;
 		}
-		$.ajax({
-			url:'${baseUrl}data/readClockAjax.jspx?rand=' + Math.random(),
-			type:'get',
-			data:{concHardwareId:dataId},
-			dataType:'json',
-			success:function(response){
-				if(!response.isFail){
-					alert("集中器时钟："+response.date);
-				}else{
-					alert(response.errorMsg);
-				}
-			},
-			error:function(response){
-				alert("服务忙，请重试。");
-			}
+		asyncbox.open({
+			id : 'readclock',
+			title : '集中器',
+			url : '${baseUrl}/jsp/data/readClockJsp.jspx',
+			data : { concHardwareId : dataId},
+			width   : 200,
+			height  : 52,
+			modal : true,
+			btnsbar : asyncbox.btn.OKCANCEL
 		});
 	});
 });
@@ -200,7 +194,7 @@ $(function(){
       <c:if test="${not empty list}">
       <c:forEach var="item"  items="${list }" varStatus="vs">
       <tr class="listTableTr">
-        <td><div><input type="checkbox" name="${item.logicCode}" class="cb" /></div></td>
+        <td><div><input type="checkbox" name="${item.hardwareId}" class="cb" /></div></td>
         <td><div>${vs.index+1}</div></td>
         <td><div>${item.hardwareId}</div></td>
         <td><div>${item.name}</div></td>

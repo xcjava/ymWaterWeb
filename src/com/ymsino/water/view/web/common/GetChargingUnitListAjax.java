@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.gmail.xcjava.base.hql.QueryCondition;
+import com.gmail.xcjava.base.hql.QueryLink;
 import com.gmail.xcjava.base.hql.QueryParamWriter;
 import com.opensymphony.oscache.util.StringUtil;
 import com.ymsino.water.service.manager.chargingUnit.ChargingUnitReturn;
@@ -42,7 +43,7 @@ public class GetChargingUnitListAjax extends AbstractAjaxAction {
 		QueryParamWriter qpw = new QueryParamWriter();
 		qpw.addQueryParam("status", Short.valueOf("1"), QueryCondition.QC_EQ);
 		if(!StringUtil.isEmpty(chargingUnitId)){
-			qpw.addQueryParam("parentUnits", "%|"+chargingUnitId+"|%", QueryCondition.QC_LIKE);
+			qpw.addQueryParams(new String[]{"unitId","parentUnits"}, new String[]{chargingUnitId,"%|"+chargingUnitId+"|%"}, new QueryCondition[]{QueryCondition.QC_EQ,QueryCondition.QC_LIKE},new QueryLink[]{QueryLink.QL_OR});
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());

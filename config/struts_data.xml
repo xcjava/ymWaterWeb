@@ -40,16 +40,44 @@
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
 		</action>
 		
+		<!-- 删除集中器历史数据 -->
+		<action name="deleteDataAjax" class="com.ymsino.water.view.web.data.DeleteDataAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 删除集中器配置信息 -->
+		<action name="deleteSettingsAjax" class="com.ymsino.water.view.web.data.DeleteSettingsAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 集中器复位 -->
+		<action name="restoreSettingsAjax" class="com.ymsino.water.view.web.data.RestoreSettingsAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 加载集中器水表参数 -->
+		<action name="loadWm" class="com.ymsino.water.view.web.data.LoadWm">
+			<result name="success" type="redirect">/data/concentratorList.jspx?message=${message}</result>
+		</action>
+		
 		<!-- 集中器调试 -->
 		<action name="conDebugAjax" class="com.ymsino.water.view.web.data.ConDebugAjax">
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
 		</action>
 		
-		<!-- 删除集中器历史数据 -->
-		<action name="deleteDataAjax" class="com.ymsino.water.view.web.data.DeleteDataAjax">
-			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
-			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		<!-- 读水表参数 -->
+		<action name="readWaterMeter" class="com.ymsino.water.view.web.data.ReadWaterMeter">
+			<result name="success" >/WEB-INF/jsp/data/readWaterMeter.jspx</result>
+			<result name="check" type="redirect">/data/concentratorList.jspx?message=${message}</result>
+		</action>
+		
+		<!-- 集中器水表功能操作 -->
+		<action name="waterMeterList" class="com.ymsino.water.view.web.data.WaterMeterList">
+			<result name="success" >/WEB-INF/jsp/data/waterMeterList.jsp</result>
 		</action>
 	</package>
 </struts>

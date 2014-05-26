@@ -14,27 +14,7 @@
 <script src="${baseUrl }js/jquery/plugins/asyncbox/asyncbox.v1.5.beta.min.js" type="text/javascript"></script>
 <script>
 $(function(){
-	
-	function newopen(){
-		asyncbox.open({
-			id : 'cccc',
-			url : 'http://www.baidu.com',
-			title : '内容页 1 里跳出来的窗口 - 有遮罩层',
-			width   : 400,
-			height  : 300,
-			modal : true,
-			tipsbar : {
-				title : '哎哟，不错哦',
-				content : '哎哟，就是没话讲的时候哎哟哎哟？'
-			},
-			btnsbar : asyncbox.btn.OKCANCEL}
-		);
-	}
-	
-	$('#setupClock').click(function(){
-		newopen();
-	});
-	
+
 	if('${param.message}' != ''){
 		alert('${param.message}');
 	}
@@ -44,6 +24,8 @@ $(function(){
             $("input[type='checkbox']").attr("checked", false);
             $(this).attr("checked", "checked");
             $("#dataId").val($(this).attr("name"));
+        }else{
+        	$("#dataId").val('');
         }
     });
 	
@@ -76,11 +58,11 @@ $(function(){
 		});
 	}
 	loadChargingUnit('${chargingUnitId }');
-	
+	/*读时钟*/
 	$('#readClock').click(function(){
 		var dataId = $("#dataId").val();
 		if(dataId == ''){
-			alert("请选择一条数据！");
+			asyncbox.alert('请选择一条数据！','提示');
 			return false;
 		}
 		asyncbox.open({
@@ -94,6 +76,229 @@ $(function(){
 			btnsbar : asyncbox.btn.OKCANCEL
 		});
 	});
+	/*校时钟*/
+	$('#setupClock').click(function(){
+		var dataId = $("#dataId").val();
+		if(dataId == ''){
+			asyncbox.alert('请选择一条数据！','提示');
+			return false;
+		}
+		asyncbox.open({
+			id : 'setupclock',
+			title : '设置集中器时间',
+		　　 url : '${baseUrl}/jsp/data/setupClockJsp.jspx',
+		 	data : { concHardwareId : dataId},
+		 	modal : true,
+		 	reset : true,
+		 	scroll : false,
+		　　 width : 400,
+		　　 height : 200,
+		　　 buttons : asyncbox.btn.OKCANCEL,
+		   	callback : function(buttonResult,contentWindow,returnValue){
+		   			var t = this;
+			   		if(buttonResult == 'ok'){
+						var setupDate = contentWindow.$('#setupDate').val();
+						var hour = contentWindow.$('#hour').val();
+						var minute = contentWindow.$('#minute').val();
+						var second = contentWindow.$('#second').val();
+						if(setupDate == ''){
+							asyncbox.alert('请选择日期！','提示');
+							return false;
+						}
+						$.ajax({
+							url:'${baseUrl}data/setupClockAjax.jspx?rand=' + Math.random(),
+							type:'get',
+							timeout : 5000, //超时时间设置，单位毫秒
+							data:{concHardwareId:dataId,setupDate:setupDate,hour:hour,minute:minute,second:second},
+							dataType:'json',
+							success:function(response){
+								if(!response.isFail){
+									asyncbox.alert('设置成功！','提示');
+									asyncbox.close(t.id); 
+								}else{
+									alert('设置失败，错误信息：'+response.errorMsg,'提示');
+									asyncbox.close(t.id); 
+								}
+							},
+						　　complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+						　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+									alert('操作超时！');
+									return false;
+						　　　　}
+						　　},
+							error:function(response){
+								alert('服务忙，请重试。');
+								return false;
+							}
+						});
+						return false;
+					}
+   			   }
+		　});
+	});
+	/*删除集中器历史数据*/
+	$('#deleteData').click(function(){
+		var dataId = $("#dataId").val();
+		if(dataId == ''){
+			asyncbox.alert('请选择一条数据！','提示');
+			return false;
+		}
+		$('#deleteData').attr('disabled',true);
+		$.ajax({
+			url:'${baseUrl}data/deleteDataAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			timeout : 5000, //超时时间设置，单位毫秒
+			data:{concHardwareId : dataId},
+			dataType:'json',
+			success:function(response){
+				if(!response.isFail){
+					asyncbox.alert('操作成功！','提示');
+					$('#deleteData').attr('disabled',false);
+				}else{
+					asyncbox.alert('操作失败！','提示');
+					$('#deleteData').attr('disabled',false);
+				}
+			},
+			complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+		　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+				   $('#result').text("超时，请重试。");
+		　　　　}
+		　　},
+			error:function(response){
+				asyncbox.alert('服务忙，请重试。','提示');
+				$('#deleteData').attr('disabled',false);
+			}
+		});
+	});
+	
+	/*删除集中器配置信息*/
+	$('#deleteSettings').click(function(){
+		var dataId = $("#dataId").val();
+		if(dataId == ''){
+			asyncbox.alert('请选择一条数据！','提示');
+			return false;
+		}
+		$('#deleteSettings').attr('disabled',true);
+		$.ajax({
+			url:'${baseUrl}data/deleteSettingsAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			timeout : 5000, //超时时间设置，单位毫秒
+			data:{concHardwareId : dataId},
+			dataType:'json',
+			success:function(response){
+				if(!response.isFail){
+					asyncbox.alert('操作成功！','提示');
+					$('#deleteSettings').attr('disabled',false);
+				}else{
+					asyncbox.alert('操作失败！','提示');
+					$('#deleteSettings').attr('disabled',false);
+				}
+			},
+			complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+		　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+				   $('#result').text("超时，请重试。");
+		　　　　}
+		　　 },
+			error:function(response){
+				asyncbox.alert('服务忙，请重试。','提示');
+				$('#deleteSettings').attr('disabled',false);
+			}
+		});
+	});
+	
+	/*集中器复位*/
+	$('#restoreSettings').click(function(){
+		var dataId = $("#dataId").val();
+		if(dataId == ''){
+			asyncbox.alert('请选择一条数据！','提示');
+			return false;
+		}
+		$('#restoreSettings').attr('disabled',true);
+		$.ajax({
+			url:'${baseUrl}data/restoreSettingsAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			timeout : 5000, //超时时间设置，单位毫秒
+			data:{concHardwareId : dataId},
+			dataType:'json',
+			success:function(response){
+				if(!response.isFail){
+					asyncbox.alert('操作成功！','提示');
+					$('#restoreSettings').attr('disabled',false);
+				}else{
+					asyncbox.alert('操作失败！','提示');
+					$('#restoreSettings').attr('disabled',false);
+				}
+			},
+			complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+		　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+				   $('#result').text("超时，请重试。");
+		　　　　}
+		　　 },
+			error:function(response){
+				asyncbox.alert('服务忙，请重试。','提示');
+				$('#restoreSettings').attr('disabled',false);
+			}
+		});
+	});
+	
+	/*加载集中器水表参数*/
+	$('#loadWm').click(function(){
+		var dataId = $("#dataId").val();
+		if(dataId == ''){
+			asyncbox.alert('请选择一条数据！','提示');
+			return false;
+		}
+		$('#loadWm').attr('disabled',true);
+		window.location = "${baseUrl}data/loadWm.jspx?concHardwareId="+dataId;
+	});
+	
+	
+	/*读水表参数*/
+	$('#readWaterMeterSn').click(function(){
+		var dataId = $("#dataId").val();
+		if(dataId == ''){
+			asyncbox.alert('请选择一条数据！','提示');
+			return false;
+		}
+		asyncbox.open({
+			id : 'readWaterMeter',
+			title : '读取水表参数',
+		　　 url : '${baseUrl}/jsp/data/readWaterMeterSnJsp.jspx',
+		 	data : { concHardwareId : dataId},
+		 	modal : true,
+		 	scroll : false,
+		　　 width : 400,
+		　　 height : 200,
+		　　 buttons : asyncbox.btn.OKCANCEL,
+		   	callback : function(buttonResult,contentWindow,returnValue){
+			   		if(buttonResult == 'ok'){
+						var wmSn = contentWindow.$('#wmSn').val();
+						var count = contentWindow.$('#count').val();
+						if(wmSn == ''){
+							asyncbox.alert('请输入开始水表编号！','提示');
+							return false;
+						}
+						if(count == ''){
+							asyncbox.alert('请输入连续数量！','提示');
+							return false;
+						}
+						if(!isUnsignedInteger(wmSn) || !isUnsignedInteger(count)){
+							return false;
+						}
+						window.location = "${baseUrl}data/readWaterMeter.jspx?concHardwareId="+dataId+"&wmSn="+wmSn+"&count="+count;
+					}
+   			   }
+		　});
+	});
+	//检查是否为正整数
+	function isUnsignedInteger(a){
+		if(!(/^(\+|-)?\d+$/.test(a))){
+		    asyncbox.alert('数量必须是正整数！','提示');
+			return false;
+		}else{
+			return true;
+		}
+	}
 });
 </script>
 </head>
@@ -160,14 +365,14 @@ $(function(){
 			      <tbody>
 				      <tr>
 				      	<td><input class="button" id="readClock" type="button" value="读时钟"></td>
-				      	<td><input class="button" id="" type="button" value="读水表参数" name=""></td>
+				      	<td><input class="button" id="setupClock" type="button" value="校时钟"></td>
+				      	<td><input class="button" id="deleteData" type="button" value="删除历史数据"></td>
+				      	<td><input class="button" id="deleteSettings" type="button" value="删除配置信息"></td>
+				      	<td><input class="button" id="restoreSettings" type="button" value="集中器复位"></td>
+				      	<td><input class="button" id="loadWm" type="button" value="加载水表参数"></td>
+				      	<td><input class="button" id="readWaterMeterSn" type="button" value="读水表参数"></td>
 				      	<td><input class="button" id="" type="button" value="抄日冻结" name=""></td>
-				      	<td><input class="button" id="setupClock" type="button" value="校时钟" name=""></td>
-				      	<td><input class="button" id="" type="button" value="加载水表参数" name=""></td>
 				      	<td><input class="button" id="" type="button" value="集中器调试" name=""></td>
-				      	<td><input class="button" id="" type="button" value="集中器复位" name=""></td>
-				      	<td><input class="button" id="" type="button" value="删除历史数据" name=""></td>
-				      	<td><input class="button" id="" type="button" value="删除配置信息" name=""></td>
 				      </tr>
 			      </tbody>
 			    </table>	
@@ -188,6 +393,7 @@ $(function(){
         <td width=""><div><span>街道</span></div></td>
         <td width=""><div><span>通讯地址</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
+        <td width=""><div><span>已加载表</span></div></td>
         <td width=""><div><span>安装地址</span></div></td>
         <td width=""><div><span>终端端口号</span></div></td>
       </tr>
@@ -213,13 +419,14 @@ $(function(){
         		<c:if test="${map.chargingUnit.unitId == item.chargingUnitId }">${map.chargingUnit.name }</c:if>
         	</c:forEach>
         </div></td>
+        <td><div><a target="main" href="${baseUrl }data/waterMeterList.jspx?concHardwareId=${item.hardwareId}">功能操作</a></div></td>
         <td><div>${item.collectionAddress}</div></td>
         <td><div>${item.terminalPost}</div></td>
       </tr>
       </c:forEach>
       </c:if>
       <tr class="listFooterTr">
-	  	<td colSpan="14">
+	  	<td colSpan="15">
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }data/concentratorList.jspx" pageDynamicURLFormat="${baseUrl }data/concentratorList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 	  </tr>

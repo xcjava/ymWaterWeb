@@ -371,8 +371,6 @@ $(function(){
 				      	<td><input class="button" id="restoreSettings" type="button" value="集中器复位"></td>
 				      	<td><input class="button" id="loadWm" type="button" value="加载水表参数"></td>
 				      	<td><input class="button" id="readWaterMeterSn" type="button" value="读水表参数"></td>
-				      	<td><input class="button" id="" type="button" value="抄日冻结" name=""></td>
-				      	<td><input class="button" id="" type="button" value="集中器调试" name=""></td>
 				      </tr>
 			      </tbody>
 			    </table>	
@@ -400,7 +398,7 @@ $(function(){
       <c:if test="${not empty list}">
       <c:forEach var="item"  items="${list }" varStatus="vs">
       <tr class="listTableTr">
-        <td><div><input type="checkbox" name="${item.hardwareId}" class="cb" /></div></td>
+        <td><div><input <c:if test="${item.status == -1}">disabled="disabled"</c:if> type="checkbox" name="${item.hardwareId}" class="cb" /></div></td>
         <td><div>${vs.index+1}</div></td>
         <td><div>${item.hardwareId}</div></td>
         <td><div>${item.name}</div></td>
@@ -419,7 +417,16 @@ $(function(){
         		<c:if test="${map.chargingUnit.unitId == item.chargingUnitId }">${map.chargingUnit.name }</c:if>
         	</c:forEach>
         </div></td>
-        <td><div><a target="main" href="${baseUrl }data/waterMeterList.jspx?concHardwareId=${item.hardwareId}">功能操作</a></div></td>
+        <td>
+        <div>
+        	<c:if test="${item.status == 1}">
+        	<a target="main" href="${baseUrl }data/waterMeterList.jspx?concHardwareId=${item.hardwareId}">功能操作</a>
+        	</c:if>
+        	<c:if test="${item.status == -1}">
+        		功能操作
+        	</c:if>
+        </div>
+        </td>
         <td><div>${item.collectionAddress}</div></td>
         <td><div>${item.terminalPost}</div></td>
       </tr>

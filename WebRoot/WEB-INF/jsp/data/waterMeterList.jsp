@@ -24,6 +24,9 @@ $(function(){
             $(this).attr("checked", "checked");
             $("#dataId").val($(this).attr("name"));
             $("#wmSn").val($(this).attr("title"));
+        }else{
+        	$("#dataId").val('');
+        	$("#wmSn").val('');
         }
     });
 	
@@ -253,7 +256,7 @@ $(function(){
       </tr>
       <c:forEach var="waterMeter" items="${list }">
       <tr class="listTableTr">
-        <td><div><input type="checkbox" name="${waterMeter.hardwareId }" title="${waterMeter.wmSn }" id="" class="cb" /></div></td>
+        <td><div><input type="checkbox" <c:if test="${waterMeter.wmSn == ''}">disabled="disabled"</c:if> name="${waterMeter.hardwareId }" title="${waterMeter.wmSn }" id="" class="cb" /></div></td>
         <td><div>${waterMeter.hardwareId }</div></td>
         <td><div>${waterMeter.nature }</div></td>
         <td><div>${waterMeter.userId }</div></td>

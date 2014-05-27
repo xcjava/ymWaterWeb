@@ -22,6 +22,8 @@ $(function(){
             $("input[type='checkbox']").attr("checked", false);
             $(this).attr("checked", "checked");
             $("#dataId").val($(this).attr("name"));
+        }else{
+        	$("#dataId").val('');
         }
     });
 	

@@ -1,8 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>用水用户</title>
     
@@ -12,6 +13,9 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
+	<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/jquery/plugins/asyncbox/asyncbox.v1.5.beta.min.js" type="text/javascript"></script>
   </head>
 <body style="padding: 3px;">
 	<div id="main">
@@ -22,43 +26,43 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>客户编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="uid" name="waterCustomer.uid" value="${waterCustomer.uid }" />
-							<!-- <input type="text" id="userId" name="waterCustomer.userId" value="${waterCustomer.userId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span> -->
+							<input type="text" id="userId" readonly="readonly" name="waterCustomer.userId" value="${waterCustomer.userId }"/>
+							<input type="hidden" id="uid" name="waterCustomer.uid" value="${waterCustomer.uid }">
+							<c:if test="${empty waterCustomer.customerId}"><button type="button" id="selectUid">选择</button></c:if>
 						</td>
 						<td class="editLeftTd"><span></span>客户名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="userName" name="waterCustomer.userName" value="${waterCustomer.userName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="userName" readonly="readonly" name="waterCustomer.userName" value="${waterCustomer.userName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
-							<select id="chargingUnitSel" name="waterCustomer.chargingUnitId" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
+							<input type="hidden" id="chargingUnitId" name="waterCustomer.chargingUnitId" value="${waterCustomer.chargingUnitId }">
+							<select id="chargingUnitSel" disabled="disabled" name="">
 								<option></option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>用水用户编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="customerId" name="customerId" value="${waterCustomer.customerId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="customerId" name="customerId" readonly="readonly" value="${waterCustomer.customerId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>用水用户名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="customerName" name="waterCustomer.customerName" value="${waterCustomer.customerName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="customerName" name="waterCustomer.customerName" readonly="readonly" value="${waterCustomer.customerName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd">自定义查询号：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="customNum" name="waterCustomer.customNum" value="${waterCustomer.customNum }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="customNum" name="waterCustomer.customNum" value="${waterCustomer.customNum }" />
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd">原用户编号：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="oldUserId" name="waterCustomer.oldUserId" value="${waterCustomer.oldUserId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="oldUserId" name="waterCustomer.oldUserId" value="${waterCustomer.oldUserId }"/>
 						</td>
 						<td class="editLeftTd">用户分类：</td>
 						<td class="editRightTd" width="200px">
@@ -109,17 +113,17 @@
 						</td>
 						<td class="editLeftTd"><span></span>开户日期：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="openDate" name="openDate" value="" />
+							<input class="Wdate" type="text" onClick="WdatePicker()" name="openDate" id="openDate" value="<gdcct:fld pattren="yyyy-MM-dd" longTime="${waterCustomer.openTimestamp }"></gdcct:fld>">
 						</td>
 						<td class="editLeftTd">销户日期：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="closeDate" name="closeDate" value="" />
+							<input class="Wdate" type="text" onClick="WdatePicker()" name="closeDate" id="closeDate" value="<gdcct:fld pattren="yyyy-MM-dd" longTime="${waterCustomer.closeTimestamp }"></gdcct:fld>">
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd">到期日期：</td>
 						<td class="editRightTd" width="200px">
-							<input type="text" id="maturityDate" name="maturityDate" value="" />
+							<input class="Wdate" type="text" onClick="WdatePicker()" name="maturityDate" id="maturityDate" value="<gdcct:fld pattren="yyyy-MM-dd" longTime="${waterCustomer.maturityTimestamp }"></gdcct:fld>">
 						</td>
 						<td class="editLeftTd">水费通知方式：</td>
 						<td class="editRightTd" width="200px">
@@ -257,6 +261,52 @@ $(function(){
 	if('${param.message}' != ''){
 		alert('${param.message}');
 	}
+	
+	$('#selectUid').click(function(){
+		asyncbox.open({
+			id : 'selectuser',
+			title : '选择用户',
+		　　 url : '${baseUrl}archives/selectUserList.jspx',
+		 	data : { },
+		 	modal : true,
+		 	reset : true,
+		 	scroll : true,
+		　　 width : 810,
+		　　 height : 350,
+		　　 buttons : asyncbox.btn.OKCANCEL,
+		   	callback : function(buttonResult,contentWindow,returnValue){
+			   		if(buttonResult == 'ok'){
+			   			var uid = contentWindow.$('#dataId').val();
+			   			if(uid == ''){
+							asyncbox.alert('请选择用户！','提示');
+							return false;
+						}
+			   			$('#uid').val(uid);
+			   			$.ajax({
+							url:'${baseUrl}archives/getUserAjax.jspx?rand=' + Math.random(),
+							type:'get',
+							data:{userId:uid},
+							dataType:'json',
+							success:function(response){
+								if(response != ''){
+									$('#userId').val(response.userId);
+									$('#userName').val(response.userName);
+									$('#customerName').val(response.userName);
+									$('#customerId').val(response.waterCustomerId);
+									$('#chargingUnitId').val(response.chargingUnitId);
+									loadChargingUnit(response.chargingUnitId);
+								}
+								return true;
+							},
+							error:function(response){
+								alert('服务忙，请重试。');
+								return false;
+							}
+						});
+					}
+   			}
+		});
+	});
 });
 </script>
 </body>

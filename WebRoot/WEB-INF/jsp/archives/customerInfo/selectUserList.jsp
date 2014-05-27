@@ -26,10 +26,6 @@ $(function(){
         	$("#dataId").val('');
         }
     });
-	
-    $('#addUser').click(function(){
-		window.location = '${baseUrl }archives/userInfoTab.jspx';
-	});
     
     $('#searchBtn').click(function(){
 		$('#searchForm').submit();
@@ -64,15 +60,10 @@ $(function(){
 </script>
 </head>
 
-<body style="min-width: 1100px;">
-	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
-		<tbody>
-			<tr class="position">
-	 			<td class="position">当前位置: 客户档案 -&gt; 客户档案信息</td>
-	 		</tr>
-	 	</tbody>
-	</table>	
-	<form action="${baseUrl }archives/userList.jspx" method="get" id="searchForm">
+<body style="min-width: 800px;">
+	<form action="${baseUrl }archives/selectUserList.jspx" method="get" id="searchForm">
+	
+	<input type="hidden" name="pageSize" value="10" />
 	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
@@ -90,39 +81,7 @@ $(function(){
 				        <td><input class="textbox" id="userId" style="width: 120px" name="userId" value="${userId }" /></td>
 				        <td>客户姓名：</td>
 				        <td><input class="textbox" id="name" style="width: 120px" name="name" value="${name }" /></td>
-				      </tr>
-				      <tr>
-				        <td>经济类型</td>
-				        <td>
-					        <select id="economicType" name="economicType">
-						        <option value="" selected>--全部--</option>
-						        <option value="全民所有制经济">全民所有制经济</option>
-						        <option value="集体所有制经济">集体所有制经济</option>
-						        <option value="私人所有制经济">私人所有制经济</option>
-						        <option value="混合所有制经济">混合所有制经济</option>
-						        <option value="其他所有制经济">其他所有制经济</option>
-					        </select>
-				        </td>
-				        <td>产业分类</td>
-				        <td>
-					        <select id="industrial" name="industrial">
-						        <option value="" selected>--全部--</option>
-						        <option value="第一产业">第一产业</option>
-						        <option value="第二产业">第二产业</option>
-						        <option value="第三产业">第三产业</option>
-					        </select>
-				        </td>
-				        <td>起始日期</td>
-				        <td>
-				        	<input class="Wdate" type="text" onClick="WdatePicker()" name="startDate" id="startDate" value="${startDate}">&nbsp;至:
-				        </td>
-				        <td>
-  							<input class="Wdate" type="text" onClick="WdatePicker()" name="endDate" id="endDate" value="${endDate}">
-				        </td>
 				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
-				      	<td><input class="button" id="addUser" type="button" value="新增" name=""></td>
-				      	<td><input class="button" id="" type="button" value="充值" name=""></td>
 				      </tr>
 			      </tbody>
 			    </table>	
@@ -138,26 +97,22 @@ $(function(){
         <td width=""><div><span>客户姓名</span></div></td>
         <td width=""><div><span>产业分类</span></div></td>
         <td width=""><div><span>经济类型</span></div></td>
-        <td width=""><div><span>余额</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
-        <td width=""><div><span>操作</span></div></td>
       </tr>
       <c:forEach var="user" items="${list }">
       <tr class="listTableTr">
-        <td><div><input type="checkbox" name="" id="" class="cb" /></div></td>
+        <td><div><input type="checkbox" name="${user.id }" id="" class="cb" /></div></td>
         <td><div>${user.id }</div></td>
         <td><div>${user.userId }</div></td>
         <td><div>${user.name }</div></td>
         <td><div>${user.industrial }</div></td>
         <td><div>${user.economicType }</div></td>
-        <td><div>$100</div></td>
         <td><div>${user.chargingUnitId }</div></td>
-        <td><div><a target="main" href="${baseUrl }archives/userInfoTab.jspx?id=${user.id }">修改</a></div></td>
       </tr>
       </c:forEach>
 	  <tr class="listFooterTr">
 	  	<td colSpan="9">
-			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }archives/userList.jspx" pageDynamicURLFormat="${baseUrl }archives/userList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }archives/selectUserList.jspx?pageSize=10" pageDynamicURLFormat="${baseUrl }archives/selectUserList.jspx?pageIndex={0}&pageSize=10" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 	  </tr>      
     </table>

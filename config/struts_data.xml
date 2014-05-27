@@ -79,5 +79,28 @@
 		<action name="waterMeterList" class="com.ymsino.water.view.web.data.WaterMeterList">
 			<result name="success" >/WEB-INF/jsp/data/waterMeterList.jsp</result>
 		</action>
+		
+		<!-- 读日冻结 -->
+		<action name="readDataByDate" class="com.ymsino.water.view.web.data.ReadDataByDate">
+			<result name="success" >/WEB-INF/jsp/data/readDataByDate.jsp</result>
+			<result name="check" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 集中器水表调试 -->
+		<action name="debug" class="com.ymsino.water.view.web.data.Debug">
+			<result name="success" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 集中器召测本机动态数据 -->
+		<action name="testData" class="com.ymsino.water.view.web.data.TestData">
+			<result name="success">/WEB-INF/jsp/data/testData.jsp</result>
+			<result name="check" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+		</action>
+		
+		<!-- 集中器实时召测表码 -->
+		<action name="testMeterCode" class="com.ymsino.water.view.web.data.TestMeterCode">
+			<result name="success">/WEB-INF/jsp/data/testMeterCode.jsp</result>
+			<result name="check" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+		</action>
 	</package>
 </struts>

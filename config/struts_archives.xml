@@ -181,5 +181,16 @@
 		<action name="updateConcentrator" class="com.ymsino.water.view.web.archives.UpdateConcentrator">
 			<result name="success" type="redirect">/archives/concentratorTab.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;message=${message}</result>
 		</action>
+		
+		<!-- 选择客户信息列表弹出窗 -->
+		<action name="selectUserList" class="com.ymsino.water.view.web.archives.UserList">
+			<result>/WEB-INF/jsp/archives/customerInfo/selectUserList.jsp</result>
+		</action>
+		
+		<!-- 获取用户信息ajax -->
+		<action name="getUserAjax" class="com.ymsino.water.view.web.archives.GetUserAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
 	</package>
 </struts>

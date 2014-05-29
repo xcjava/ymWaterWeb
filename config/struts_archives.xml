@@ -192,5 +192,21 @@
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
 		</action>
+		
+		<!-- 选择用水用户信息列表弹出窗 -->
+		<action name="selectWaterCustomerList" class="com.ymsino.water.view.web.archives.WaterCustomerList">
+			<result>/WEB-INF/jsp/archives/measurePoint/selectWaterCustomerList.jsp</result>
+		</action>
+		
+		<!-- 获取用水用户信息ajax -->
+		<action name="getWaterCustomerAjax" class="com.ymsino.water.view.web.archives.GetWaterCustomerAjax">
+			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
+			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		</action>
+		
+		<!-- 选择集中器列表弹出窗 -->
+		<action name="selectConcentratorList" class="com.ymsino.water.view.web.archives.ConcentratorList">
+			<result>/WEB-INF/jsp/archives/measurePoint/selectConcentratorList.jsp</result>
+		</action>
 	</package>
 </struts>

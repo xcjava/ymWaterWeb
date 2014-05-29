@@ -57,7 +57,7 @@ public class WaterMeterList extends ActionSupport {
 			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
 		}
 		if(type != null){
-			qpw.addQueryParam("type", type, QueryCondition.QC_EQ);
+			qpw.addQueryParam("type", Short.valueOf(type), QueryCondition.QC_EQ);
 		}
 		if(!StringUtil.isEmpty(chargingUnitId)){
 			qpw.addQueryParam("chargingUnitId", chargingUnitId, QueryCondition.QC_EQ);

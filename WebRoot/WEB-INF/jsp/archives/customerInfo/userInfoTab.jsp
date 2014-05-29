@@ -62,7 +62,7 @@
 	    </ul>
 	    <ul class="tab_conbox" id="tab_conbox">
 	        <li class="tab_con">
-	           <iframe name="mainframe" id="mainframe" allowTransparency scrolling="no" onload="this.height=300;" scrolling="no"  width="100%" border="0" frameborder="0" src="${baseUrl }jsp/archives/customerInfo/baseInfoJsp.jspx"></iframe>
+	           <iframe name="mainframe" id="mainframe" allowTransparency scrolling="no" onload="this.height=300;" scrolling="no"  width="100%" border="0" frameborder="0" src=""></iframe>
 	        </li>
 	    </ul>	
 	</div>

@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>无线智能水表详细页</title>
     
@@ -13,6 +14,9 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
+	<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/jquery/plugins/asyncbox/asyncbox.v1.5.beta.min.js" type="text/javascript"></script>
   </head>
 <body style="min-width: 1100px;">
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
@@ -31,35 +35,35 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>客户用水编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="waterCustomerId" name="waterMeter.waterCustomerId" value="${waterMeter.waterCustomerId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
-							<span class="Validform_checktip"></span>
+							<input type="text" id="waterCustomerId" readonly="readonly" name="waterMeter.waterCustomerId" value="${waterMeter.waterCustomerId }"/>
+							<c:if test="${empty waterMeter.hardwareId }"><button type="button" id="selectWCid">选择</button></c:if>
 						</td>
 						<td class="editLeftTd"><span></span>客户用水名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="userName" name="waterMeter.userName" value="${waterMeter.userName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="wcUserName" readonly="readonly" name="waterMeter.userName" value="${waterMeter.userName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>客户编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="uid" name="waterMeter.uid" value="${waterMeter.uid }" />
-							<input type="text" id="userId" name="waterMeter.userId" value="${waterMeter.userId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="hidden" id="uid" name="waterMeter.uid" value="${waterMeter.uid }">
+							<input type="text" id="userId" readonly="readonly" name="waterMeter.userId" value="${waterMeter.userId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"/>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>客户名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="userName" name="" value="${waterMeter.userName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="userName" readonly="readonly" name="" value="${waterMeter.userName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>收费单位名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<select id="chargingUnitSel" name="waterMeter.chargingUnitId" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">
+							<input type="hidden" id="chargingUnitId" name="waterMeter.chargingUnitId" value="${waterMeter.chargingUnitId }">
+							<select id="chargingUnitSel" disabled="disabled" name="">
 								<option></option>
 							</select>
-							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd">用水性质：</td>
 						<td class="editRightTd" width="250px">
@@ -69,14 +73,16 @@
 					<tr class="editTr">
 						<td class="editLeftTd">水表编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="hardwareId" name="hardwareId" value="${waterMeter.hardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="hardwareId" name="hardwareId" value="${waterMeter.hardwareId }" datatype="n12-12" nullmsg="请输入信息！" errormsg="请12位纯数字！" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<c:choose>
 							<c:when test="${type == 3 }">
 							<td class="editLeftTd">集中器<span style="color: red;">*</span>：</td>
 							<td class="editRightTd" width="250px">
-								<input type="text" id="concHardwareId" name="waterMeter.concHardwareId" value="${waterMeter.concHardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+								<input type="hidden" id="concHardwareId" name="waterMeter.concHardwareId" value="${waterMeter.concHardwareId }" />
+								<input type="text" id="concName" readonly="readonly" value="${waterMeter.concHardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"/>
+								<button type="button" id="selectConcHardwareId">选择</button>
 								<span class="Validform_checktip"></span>
 							</td>
 							</c:when>
@@ -138,14 +144,15 @@
 					<tr class="editTr">
 						<td class="editLeftTd">初始表码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px"  colspan="3">
-							<input type="text" id="initialYards" name="waterMeter.initialYards" value="${waterMeter.initialYards }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="initialYards" name="waterMeter.initialYards" value="${waterMeter.initialYards }" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" nullmsg="请输入信息！" errormsg="请输入正数！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>当前水价<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<input type="text" id="price" name="waterMeter.price" value="${waterMeter.price }" />
+							<input type="text" id="price" name="waterMeter.price" value="${waterMeter.price }" ignore="ignore" datatype="/^\d{0,8}\.{0,1}(\d*)?$/"  errormsg="请输入正数！" />
+							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 				</tbody>
@@ -156,7 +163,6 @@
 		</form>
 	</div>
 	
-<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -216,6 +222,82 @@ $(function(){
 	if('${param.message}' != ''){
 		alert('${param.message}');
 	}
+	//选择用水用户弹窗
+	$('#selectWCid').click(function(){
+		asyncbox.open({
+			id : 'selectuser',
+			title : '选择用水用户',
+		　　 url : '${baseUrl}archives/selectWaterCustomerList.jspx',
+		 	data : { },
+		 	modal : true,
+		 	reset : true,
+		 	scroll : true,
+		　　 width : 810,
+		　　 height : 350,
+		　　 buttons : asyncbox.btn.OKCANCEL,
+		   	callback : function(buttonResult,contentWindow,returnValue){
+			   		if(buttonResult == 'ok'){
+			   			var waterCustomerId = contentWindow.$('#dataId').val();
+			   			if(waterCustomerId == ''){
+							asyncbox.alert('选择用水用户！','提示');
+							return false;
+						}
+			   			$('#waterCustomerId').val(waterCustomerId);
+			   			$.ajax({
+							url:'${baseUrl}archives/getWaterCustomerAjax.jspx?rand=' + Math.random(),
+							type:'get',
+							data:{waterCustomerId:waterCustomerId},
+							dataType:'json',
+							success:function(response){
+								if(response != ''){
+									$('#uid').val(response.uid);
+									$('#userId').val(response.userId);
+									$('#userName').val(response.userName);
+									$('#wcUserName').val(response.userName);
+									$('#nature').val(response.nature);
+									$('#chargingUnitId').val(response.chargingUnitId);
+									loadChargingUnit(response.chargingUnitId);
+								}
+								return true;
+							},
+							error:function(response){
+								alert('服务忙，请重试。');
+								return false;
+							}
+						});
+					}
+   			}
+		});
+	});
+	
+	//选择集中器弹窗
+	$('#selectConcHardwareId').click(function(){
+		asyncbox.open({
+			id : 'selectuser',
+			title : '选择集中器',
+		　　 url : '${baseUrl}archives/selectConcentratorList.jspx',
+		 	data : { },
+		 	modal : true,
+		 	reset : true,
+		 	scroll : true,
+		　　 width : 810,
+		　　 height : 350,
+		　　 buttons : asyncbox.btn.OKCANCEL,
+		   	callback : function(buttonResult,contentWindow,returnValue){
+			   		if(buttonResult == 'ok'){
+			   			var concHardwareId = contentWindow.$('#dataId').val();
+			   			var concName = contentWindow.$('#concName').val();
+			   			if(concHardwareId == ''){
+							asyncbox.alert('请选择集中器！','提示');
+							return false;
+						}
+			   			$('#concHardwareId').val(concHardwareId);
+			   			$('#concName').val(concName);
+					}
+   			}
+		});
+	});
+	
 });
 </script>
 </body>

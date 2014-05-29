@@ -30,9 +30,10 @@
 						</td>
 						<td class="editLeftTd">集中器ID<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input style="width: 70px;" type="text" id="areaCode" name="concentrator.areaCode" value="${concentrator.areaCode }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input style="width: 70px;" type="text" id="areaCode" name="concentrator.areaCode" value="${concentrator.areaCode }" datatype="n4-4" nullmsg="请输入信息！" errormsg="请输入4位数字！" />
 							<span>&nbsp;+ </span>
-							<input style="width: 70px; float: none;" type="text" id="logicCode" name="concentrator.logicCode" value="${concentrator.logicCode }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input style="width: 70px; float: none;" type="text" id="logicCode" name="concentrator.logicCode" value="${concentrator.logicCode }" datatype="n4-4" nullmsg="请输入信息！" errormsg="请输入4位数字！" />
+							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
@@ -43,7 +44,7 @@
 						</td>
 						<td class="editLeftTd">集中器密码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="password" name="concentrator.password" value="${concentrator.password }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="password" name="concentrator.password" value="${concentrator.password }" datatype="n6-6" nullmsg="请输入信息！" errormsg="集中器密码为6位纯数字！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

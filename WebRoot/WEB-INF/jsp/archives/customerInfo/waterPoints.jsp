@@ -71,13 +71,13 @@
 						<td class="editLeftTd">用水性质：</td>
 						<td class="editRightTd" width="250px">
 							<select id="waterNature" name="waterCustomer.waterNature">
-								<option value="1">居民生活用水</option>
-								<option value="2">非经营性用水</option>
-								<option value="3">经营性用水</option>
-								<option value="4">商业服务企业</option>
-								<option value="5">一般工业企业</option>
-								<option value="6">高污染工业企业</option>
-								<option value="7">特种行业用水（甲类、乙类）</option>
+								<option value="居民生活用水">居民生活用水</option>
+								<option value="非经营性用水">非经营性用水</option>
+								<option value="经营性用水">经营性用水</option>
+								<option value="商业服务企业">商业服务企业</option>
+								<option value="一般工业企业">一般工业企业</option>
+								<option value="高污染工业企业">高污染工业企业</option>
+								<option value="特种行业用水（甲类、乙类）">特种行业用水（甲类、乙类）</option>
 							</select>
 						</td>
 						<td class="editLeftTd">是否执行阶梯标志：</td>

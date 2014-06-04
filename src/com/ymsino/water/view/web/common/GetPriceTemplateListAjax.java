@@ -31,7 +31,7 @@ public class GetPriceTemplateListAjax extends AbstractAjaxAction {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String chargingUnitId = (String)session.getAttribute("chargingUnitId");
+		String chargingUnitId = (String)session.getAttribute("sessionUnitId");
 		
 		JSONArray jsonArray = new JSONArray();
 		List<PriceTemplateReturn> priceTemplateList = null;

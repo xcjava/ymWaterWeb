@@ -36,7 +36,7 @@ public class GetChargingUnitListAjax extends AbstractAjaxAction {
 	protected String setResult() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String chargingUnitId = (String)session.getAttribute("chargingUnitId");
+		String chargingUnitId = (String)session.getAttribute("sessionUnitId");
 		
 		JSONArray jsonArray = new JSONArray();
 		List<ChargingUnitReturn> chargingUnitList = null;

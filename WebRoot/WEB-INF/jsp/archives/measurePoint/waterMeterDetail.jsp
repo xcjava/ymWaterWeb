@@ -149,12 +149,48 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>当前水价<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>水价<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
 							<input type="text" id="price" name="waterMeter.price" value="${waterMeter.price }" ignore="ignore" datatype="/^\d{0,8}\.{0,1}(\d*)?$/"  errormsg="请输入正数！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
+					
+					<tr class="editTr">
+						<td class="editLeftTd"><span></span>价目模版：<span style="color: red;">*</span>：</td>
+						<td class="editRightTd" width="250px"  colspan="3" >
+							<table class="editTable" border="0" cellspacing="1" cellpadding="1" width="100%" align="center">
+								<tbody>
+									<tr class="listHeaderTr">
+										<td>序号<span id="ptId"></span></td>
+										<td>阶梯值</td>
+										<td>阶梯单价</td>
+									</tr>
+									<tr class="listTr">
+										<td>1</td>
+										<td id="level1Num"></td>
+										<td id="level1Cost"></td>
+									</tr>
+									<tr class="listTr">
+										<td>2</td>
+										<td id="level2Num"></td>
+										<td id="level2Cost"></td>
+									</tr>
+									<tr class="listTr">
+										<td>3</td>
+										<td id="level3Num"></td>
+										<td id="level3Cost"></td>
+									</tr>
+									<tr class="listTr">
+										<td>4</td>
+										<td id="level4Num"></td>
+										<td id="level4Cost"></td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
@@ -163,7 +199,7 @@
 		</form>
 	</div>
 	
-<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
 	//$(".registerform").Validform();  //就这一行代码！;
@@ -219,6 +255,31 @@ $(function(){
 	}
 	loadChargingUnit('${waterMeter.chargingUnitId }');
 	
+	//加载价目模板当前水价
+	function loadPriceTemplate(priceTemplateId){
+		$.ajax({
+			url:'${baseUrl}common/getPriceTemplateAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{id:priceTemplateId},
+			dataType:'json',
+			success:function(response){
+				$('#ptId').text(response.ptId);
+				$('#level1Num').text(response.level1Num);
+				$('#level2Num').text(response.level2Num);
+				$('#level3Num').text(response.level3Num);
+				$('#level4Num').text(response.level4Num);
+				$('#level1Cost').text(response.level1Cost);
+				$('#level2Cost').text(response.level2Cost);
+				$('#level3Cost').text(response.level3Cost);
+				$('#level4Cost').text(response.level4Cost);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadPriceTemplate('${priceTemplateId }');
+	
 	if('${param.message}' != ''){
 		alert('${param.message}');
 	}
@@ -257,6 +318,7 @@ $(function(){
 									$('#nature').val(response.nature);
 									$('#chargingUnitId').val(response.chargingUnitId);
 									loadChargingUnit(response.chargingUnitId);
+									loadPriceTemplate(response.priceTemplateId);
 								}
 								return true;
 							},

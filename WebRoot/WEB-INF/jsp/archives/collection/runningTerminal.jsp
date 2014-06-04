@@ -146,7 +146,7 @@
 	</div>
 	
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
 	//$(".registerform").Validform();  //就这一行代码！;

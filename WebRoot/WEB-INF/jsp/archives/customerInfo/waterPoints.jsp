@@ -143,7 +143,7 @@
 	</div>
 	
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$(".registerform").Validform({
@@ -165,6 +165,10 @@ $(function(){
 				return false;
 			}else{
 				$(".registerform").attr('action','${baseUrl }archives/updateWaterCustomer.jspx');
+			}
+			if($('#priceTemplateSel').val() == ''){
+				alert('请选择水价价目模板！');
+				return false;
 			}
 			if(confirm("您确定要提交表单吗？")){
 				return true;

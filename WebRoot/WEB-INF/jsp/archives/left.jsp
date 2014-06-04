@@ -29,10 +29,6 @@ body {
 }
 
 </style>
-<script>
-var he=document.body.clientHeight-105
-document.write("<div id=tt style=height:"+he+";overflow:hidden>")
-</script>
 
 <table width="165" height="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>

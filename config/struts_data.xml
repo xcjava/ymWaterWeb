@@ -23,6 +23,11 @@
 			<result name="success" type="redirect">/data/collectTaskList.jspx?message=${message}</result>
 		</action>
 		
+		<!-- 采集任务选择集中器列表弹出窗 -->
+		<action name="selectConcentratorPop" class="com.ymsino.water.view.web.archives.ConcentratorList">
+			<result>/WEB-INF/jsp/data/selectConcentratorPop.jsp</result>
+		</action>
+		
 		<!-- 集中器操控列表 -->
 		<action name="concentratorList" class="com.ymsino.water.view.web.archives.ConcentratorList">
 			<result>/WEB-INF/jsp/data/concentratorCopyList.jsp</result>

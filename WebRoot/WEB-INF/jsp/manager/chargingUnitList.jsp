@@ -118,7 +118,7 @@ $(function(){
 			    <table cellSpacing=0 cellPadding=2 border=0>
 			      <tbody>
 				      <tr>
-				        <td>收费单位：</td>
+				        <td>上级收费单位：</td>
 				        <td>
 				        	<select id="chargingUnitSel" name="chargingUnitId">
 								<option></option>
@@ -161,10 +161,10 @@ $(function(){
        	<td width=""><div><span>状态</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
-      <c:forEach var="chargingUni" items="${list }">
+      <c:forEach var="chargingUni" items="${list }" varStatus="vs">
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="${chargingUni.unitId }" class="cb" /></div></td>
-        <td><div>${chargingUni.unitId }</div></td>
+        <td><div>${vs.index+1 }</div></td>
         <td><div>${chargingUni.unitId }</div></td>
         <td><div>${chargingUni.parentUnitId }</div></td>
         <td><div>${chargingUni.name }</div></td>

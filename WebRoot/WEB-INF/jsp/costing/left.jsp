@@ -29,11 +29,6 @@ body {
 }
 
 </style>
-<script>
-var he=document.body.clientHeight-105
-document.write("<div id=tt style=height:"+he+";overflow:hidden>")
-</script>
-
 <table width="165" height="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td height="28" background="${baseUrl }images/main_40.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -79,14 +74,14 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                        </tr>
 	                    </table></td>
 	                  </tr>
-	                  <tr>
+	                  <!-- <tr>
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
 	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/costing/oweCustomerListJsp.jspx" target="main">欠费用户查询</a></span></td>
 	                        </tr>
 	                    </table></td>
-	                  </tr>
+	                  </tr> -->
 	                </table>
                 </td>
               </tr>

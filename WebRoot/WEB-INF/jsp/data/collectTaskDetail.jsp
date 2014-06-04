@@ -1,11 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>采集任务详细信息</title>
+    <title>无线智能水表详细页</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -13,6 +14,9 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link href="${baseUrl }css/admin.css" type="text/css" rel="stylesheet" />
+	<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
+	<script src="${baseUrl }js/jquery/plugins/asyncbox/asyncbox.v1.5.beta.min.js" type="text/javascript"></script>
   </head>
 <body style="min-width: 1100px;">
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
@@ -98,7 +102,7 @@
 						<td class="editLeftTd"><span></span>采集周期<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
 							小时：
-							<select id="startHour" name="collectTask.startHour" style="width: 50;float: none;">
+							<select id="startHour" name="collectTask.startHour" style="width: 50px;float: none;">
 								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -125,7 +129,7 @@
 								<option value="23">23</option>
 							</select>
 							分钟：
-							<select id="startMinute" name="collectTask.startMinute" style="width: 50;float: none;">
+							<select id="startMinute" name="collectTask.startMinute" style="width: 50px;float: none;">
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -188,7 +192,7 @@
 								<option value="60">60</option>
 							</select>&nbsp;&nbsp;&nbsp;至：&nbsp;&nbsp;&nbsp;
 							小时：
-							<select id="endHour" name="collectTask.endHour" style="width: 50;float: none;">
+							<select id="endHour" name="collectTask.endHour" style="width: 50px;float: none;">
 								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -215,7 +219,7 @@
 								<option value="23">23</option>
 							</select>
 							分钟：
-							<select id="endMinute" name="collectTask.endMinute" style="width: 50;float: none;">
+							<select id="endMinute" name="collectTask.endMinute" style="width: 50px;float: none;">
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -297,7 +301,10 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>集中器名称<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<input type="text" id="concHardwareIds" name="collectTask.concHardwareIds" value="${collectTask.concHardwareIds }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="hidden" id="concHardwareIds" name="collectTask.concHardwareIds" value="${collectTask.concHardwareIds }" />
+							<input type="text" id="concHardwareNames" readonly="readonly" value="${collectTask.concHardwareIds }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"/>
+							&nbsp;<button type="button" id="selectConcentrator">选择</button>
+							<button type="button" id="cancelConcentrator">删除</button>
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
@@ -346,9 +353,7 @@
 		</form>
 	</div>
 	
-<script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
-<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
 	//$(".registerform").Validform();  //就这一行代码！;
@@ -416,6 +421,42 @@ $(function(){
 	if('${param.message}' != ''){
 		alert('${param.message}');
 	}
+	//取消选择集中器
+	$('#cancelConcentrator').click(function(){
+		$('#concHardwareIds').val('');
+		$('#concHardwareNames').val('');
+	});
+	//选择集中器弹窗
+	$('#selectConcentrator').click(function(){
+		asyncbox.open({
+			id : 'selectuser',
+			title : '选择集中器',
+		　　 url : '${baseUrl}data/selectConcentratorPop.jspx',
+		 	data : { },
+		 	modal : true,
+		 	reset : true,
+		 	scroll : true,
+		　　 width : 810,
+		　　 height : 350,
+		　　 buttons : asyncbox.btn.OKCANCEL,
+		   	callback : function(buttonResult,contentWindow,returnValue){
+			   		if(buttonResult == 'ok'){
+			   		    var dataIds = "";
+			   		    var dataNames = "";
+			   		 	contentWindow.$("input[name='checkbox'][checked]").each(function(){
+			   		 		dataIds += contentWindow.$(this).val()+",";
+			   		 		dataNames += contentWindow.$(this).attr("title")+",";
+			   		    });
+			   		 	if(dataIds == ''){
+							asyncbox.alert('请选择集中器！','提示');
+							return false;
+						}
+			   		 	$('#concHardwareIds').val(dataIds);
+			   		 	$('#concHardwareNames').val(dataNames);
+					}
+   			}
+		});
+	});
 });
 </script>
 </body>

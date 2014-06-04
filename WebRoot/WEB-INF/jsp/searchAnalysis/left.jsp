@@ -29,10 +29,6 @@ body {
 }
 
 </style>
-<script>
-var he=document.body.clientHeight-105
-document.write("<div id=tt style=height:"+he+";overflow:hidden>")
-</script>
 
 <table width="165" height="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -71,14 +67,14 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                        </tr>
 	                    </table></td>
 	                  </tr>
-	                  <tr>
+	                  <!-- <tr>
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
 	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/searchAnalysis/*Jsp.jspx" target="main">月冻结数据查询</a></span></td>
 	                        </tr>
 	                    </table></td>
-	                  </tr>
+	                  </tr> -->
 	                  <tr>
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
@@ -124,14 +120,6 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
 	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }searchAnalysis/checkingFreezeDataDetail.jspx" target="main">审核数据修正</a></span></td>
-	                        </tr>
-	                    </table></td>
-	                  </tr>
-	                  <tr>
-	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
-	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-	                        <tr>
-	                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${baseUrl }jsp/searchAnalysis/*Jsp.jspx" target="main">高级查询条件</a></span></td>
 	                        </tr>
 	                    </table></td>
 	                  </tr>

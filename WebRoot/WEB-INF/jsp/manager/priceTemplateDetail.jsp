@@ -94,7 +94,7 @@
 					<tr class="editTr">
 						<td class="editLeftTd"><span></span>收费单位<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<select id="chargingUnitSel" name="chargingUnitId">
+							<select id="chargingUnitSel" name="chargingUnitId" disabled="disabled">
 								<option></option>
 							</select>
 						</td>
@@ -108,7 +108,7 @@
 	</div>
 	
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript">
 $(function(){
 	if('${param.message}' != ''){
@@ -162,7 +162,12 @@ $(function(){
 			}
 		});
 	}
-	loadChargingUnit('${priceTemplate.chargingUnitId }');
+	if('${priceTemplate.id }' == ''){
+		loadChargingUnit('${sessionUnitId }');
+	}else{
+		loadChargingUnit('${priceTemplate.chargingUnitId }');
+	}
+	
 });
 </script>
 </body>

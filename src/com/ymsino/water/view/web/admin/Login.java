@@ -63,9 +63,9 @@ public class Login extends ActionSupport {
 		request.getSession().setAttribute("department", JsonUtil.getJSONString(department, null));
 		request.getSession().setAttribute("manager", JsonUtil.getJSONString(manager, null));
 		if("administrator".equals(managerId.trim()))
-			request.getSession().setAttribute("chargingUnitId", "");
+			request.getSession().setAttribute("sessionUnitId", "");
 		else
-			request.getSession().setAttribute("chargingUnitId", manager.getChargingUnitId());
+			request.getSession().setAttribute("sessionUnitId", manager.getChargingUnitId());
 			
 		return SUCCESS;
 	}

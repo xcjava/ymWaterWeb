@@ -2,6 +2,8 @@ package com.ymsino.water.view.web.archives;
 
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
+import com.ymsino.water.service.archives.waterCustomer.WaterCustomerReturn;
+import com.ymsino.water.service.archives.waterCustomer.WaterCustomerService;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterReturn;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterService;
 
@@ -9,11 +11,13 @@ public class WaterMeterDetail extends ActionSupport{
 
 	private static final long serialVersionUID = -7178675021248612349L;
 	private WaterMeterService waterMeterService;
+	private WaterCustomerService waterCustomerService;
 	private WaterMeterReturn waterMeter;
 	private String hardwareId;//水表编号
 	private String type;//水表类型，1：IC卡，2：红外卡，3：无线智能
 	private String message;
 	private String curr;
+	private Long priceTemplateId;
 	
 	@Override
 	public String execute() throws Exception {
@@ -21,6 +25,9 @@ public class WaterMeterDetail extends ActionSupport{
 			return SUCCESS;
 		}
 		waterMeter = waterMeterService.getById(hardwareId);
+		WaterCustomerReturn waterCustomer = waterCustomerService.getById(waterMeter.getWaterCustomerId());
+		if(waterCustomer != null)
+			priceTemplateId = waterCustomer.getPriceTemplateId();
 		return SUCCESS;
 	}
 
@@ -66,6 +73,14 @@ public class WaterMeterDetail extends ActionSupport{
 
 	public void setCurr(String curr) {
 		this.curr = curr;
+	}
+
+	public Long getPriceTemplateId() {
+		return priceTemplateId;
+	}
+
+	public void setWaterCustomerService(WaterCustomerService waterCustomerService) {
+		this.waterCustomerService = waterCustomerService;
 	}
 
 }

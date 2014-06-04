@@ -33,7 +33,7 @@ public class GetWaterCustomerAjax extends AbstractAjaxAction {
 				json.put("userName", waterCustomer.getUserName());
 				json.put("nature", waterCustomer.getWaterNature());
 				json.put("chargingUnitId", waterCustomer.getChargingUnitId());
-				
+				json.put("priceTemplateId", waterCustomer.getPriceTemplateId()!=null?waterCustomer.getPriceTemplateId().toString():"");
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

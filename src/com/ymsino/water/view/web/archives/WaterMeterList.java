@@ -50,7 +50,7 @@ public class WaterMeterList extends ActionSupport {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String managerUnitId = (String)session.getAttribute("chargingUnitId");
+		String managerUnitId = (String)session.getAttribute("sessionUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
 		if(!StringUtil.isEmpty(managerUnitId)){

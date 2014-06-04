@@ -63,7 +63,7 @@ public class UpdatePriceTemplate extends ActionSupport {
 			if(!StringUtil.isEmpty(endDate)){
 				priceTemplateModifyParam.setEndTimestamp(DateUtil.parseDate(endDate, "yyyy-MM-dd").getTime());
 			}
-			priceTemplateModifyParam.setChargingUnitId(chargingUnitId);
+//			priceTemplateModifyParam.setChargingUnitId(chargingUnitId);//价目模板的收费单位不允许修改
 			priceTemplateService.modify(priceTemplateModifyParam);
 			message = "修改成功！";
 		} catch (Exception e) {

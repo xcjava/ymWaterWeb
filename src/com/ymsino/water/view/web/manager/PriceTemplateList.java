@@ -44,7 +44,7 @@ public class PriceTemplateList extends ActionSupport {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String managerUnitId = (String)session.getAttribute("chargingUnitId");
+		String managerUnitId = (String)session.getAttribute("sessionUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
 		//根据当前管理员的收费单位查询

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import com.gmail.xcjava.base.hql.QueryCondition;
+import com.gmail.xcjava.base.hql.QueryLink;
 import com.gmail.xcjava.base.hql.QueryParamWriter;
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
@@ -43,12 +44,12 @@ public class ChargingUnitList extends ActionSupport {
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String managerUnitId = (String)session.getAttribute("chargingUnitId");
+		String managerUnitId = (String)session.getAttribute("sessionUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
 		//根据当前管理员的收费单位查询
 		if(!StringUtil.isEmpty(managerUnitId)){
-			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
+			qpw.addQueryParams(new String[]{"unitId","parentUnits"}, new String[]{managerUnitId,"%|"+managerUnitId+"|%"}, new QueryCondition[]{QueryCondition.QC_EQ,QueryCondition.QC_LIKE},new QueryLink[]{QueryLink.QL_OR});
 		}
 		if(!StringUtil.isEmpty(name)){
 			qpw.addQueryParam("name", "%"+name.trim()+"%", QueryCondition.QC_LIKE);

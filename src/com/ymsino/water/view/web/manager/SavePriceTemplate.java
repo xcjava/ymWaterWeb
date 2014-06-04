@@ -36,12 +36,11 @@ public class SavePriceTemplate extends ActionSupport {
 	private PriceTemplateService priceTemplateService;
 	private String message;
 	
-	@SuppressWarnings("unused")
 	@Override
 	public String execute() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String currentChargingUnitId = (String)session.getAttribute("chargingUnitId");
+		String currentChargingUnitId = (String)session.getAttribute("sessionUnitId");
 		try {
 			PriceTemplateSaveParam priceTemplateSaveParam = new PriceTemplateSaveParam();
 			priceTemplateSaveParam.setName(name);
@@ -61,7 +60,7 @@ public class SavePriceTemplate extends ActionSupport {
 			if(!StringUtil.isEmpty(endDate)){
 				priceTemplateSaveParam.setEndTimestamp(DateUtil.parseDate(endDate, "yyyy-MM-dd").getTime());
 			}
-			priceTemplateSaveParam.setChargingUnitId(chargingUnitId);//保存管理员所在收费单位编号
+			priceTemplateSaveParam.setChargingUnitId(currentChargingUnitId);//保存管理员所在收费单位编号
 			priceTemplateSaveParam.setRemark(remark);
 			id = priceTemplateService.save(priceTemplateSaveParam);
 			message = "添加成功！";

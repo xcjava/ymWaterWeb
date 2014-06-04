@@ -3,6 +3,11 @@ package com.ymsino.water.view.web.searchAnalysis;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.gmail.xcjava.base.hql.QueryCondition;
 import com.gmail.xcjava.base.hql.QueryParamWriter;
 import com.opensymphony.oscache.util.StringUtil;
@@ -35,12 +40,20 @@ public class FreezeDataList extends ActionSupport {
 	public String execute(){
 		if (pageSize == 0)	pageSize = 20;
 		if (pageIndex == 0)	pageIndex = 1;
-		int recordCount=10;
+		int recordCount=0;
 		pageModel.setPageSize(pageSize);
 		pageModel.setPageIndex(pageIndex);
 		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		String managerUnitId = (String)session.getAttribute("sessionUnitId");
+		
 		QueryParamWriter qpw = new QueryParamWriter();
+		
 		//根据当前管理员的收费单位查询
+		if(!StringUtil.isEmpty(managerUnitId)){
+			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
+		}
 		if(!StringUtil.isEmpty(unitId)){
 			qpw.addQueryParam("chargingUnitId", unitId, QueryCondition.QC_EQ);
 		}

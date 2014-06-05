@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<module id="1">
-		<name>首页</name>
+		<name>档案管理</name>
 		<columns>
 			<column id="1">
-				<columnName>首页数据统计</columnName>
+				<columnName>客户档案信息</columnName>
 				<columnCode>0001</columnCode>
 				<popedoms>
 					<popedom>
 						<instruction>查看</instruction>
 						<operaCode>0001</operaCode>
 					</popedom>
+					<popedom>
+						<instruction>添加</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改</instruction>
+						<operaCode>0003</operaCode>
+					</popedom>
 				</popedoms>
 			</column>
-		</columns>
-	</module>
-	<module id="2">
-		<name>商城管理</name>
-		<columns>
-			<column id="1">
-				<columnName>商城订单管理</columnName>
+			<column id="2">
+				<columnName>联系信息</columnName>
 				<columnCode>0002</columnCode>
 				<popedoms>
 					<popedom>
@@ -27,103 +30,43 @@
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>查看物流</instruction>
+						<instruction>添加</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>结算</instruction>
+						<instruction>修改</instruction>
 						<operaCode>0003</operaCode>
 					</popedom>
-					<popedom>
-						<instruction>导出表格</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>发货</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>申请退换货</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>受理换货</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>解决换货</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>受理退款</instruction>
-						<operaCode>0009</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>解决退款</instruction>
-						<operaCode>0010</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>确认收货</instruction>
-						<operaCode>0011</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>取消订单</instruction>
-						<operaCode>0012</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加备注</instruction>
-						<operaCode>0013</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>打印出货单</instruction>
-						<operaCode>0014</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>受理结款</instruction>
-						<operaCode>0015</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>作废订单</instruction>
-						<operaCode>0016</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>退卡券</instruction>
-						<operaCode>0017</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>异常操作</instruction>
-						<operaCode>0018</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>同意结款</instruction>
-						<operaCode>0019</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>检查佣金比例</instruction>
-						<operaCode>0020</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="2">
-				<columnName>购买咨询管理</columnName>
-				<columnCode>0003</columnCode>
-				<popedoms>
 					<popedom>
 						<instruction>删除</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>回复</instruction>
-						<operaCode>0003</operaCode>
+						<operaCode>0004</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 			<column id="3">
-				<columnName>产品评论管理</columnName>
+				<columnName>银行帐号</columnName>
+				<columnCode>0003</columnCode>
+				<popedoms>
+					<popedom>
+						<instruction>查看</instruction>
+						<operaCode>0001</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>添加</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改</instruction>
+						<operaCode>0003</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>删除</instruction>
+						<operaCode>0004</operaCode>
+					</popedom>
+				</popedoms>
+			</column>
+			<column id="4">
+				<columnName>业务地址</columnName>
 				<columnCode>0004</columnCode>
 				<popedoms>
 					<popedom>
@@ -131,131 +74,102 @@
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
 						<instruction>添加</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="4">
-				<columnName>商家店铺管理</columnName>
-				<columnCode>0006</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>查看网店</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核网店</instruction>
 						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>编辑网店</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>结算账号</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看结算信息</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>增加结算信息</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改结算信息</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>生成乐活店首页</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>					
-					<popedom>
-						<instruction>导出店铺</instruction>
-						<operaCode>0009</operaCode>
-					</popedom>					
-				</popedoms>
-			</column>
-			<column id="5">
-				<columnName>商家公告管理</columnName>
-				<columnCode>0007</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
 						<instruction>修改</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
 						<operaCode>0003</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>审核</instruction>
+						<instruction>删除</instruction>
 						<operaCode>0004</operaCode>
 					</popedom>
+				</popedoms>
+			</column>
+			<column id="5">
+				<columnName>增值税</columnName>
+				<columnCode>0005</columnCode>
+				<popedoms>
 					<popedom>
-						<instruction>查看预览</instruction>
-						<operaCode>0005</operaCode>
+						<instruction>查看</instruction>
+						<operaCode>0001</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>添加</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改</instruction>
+						<operaCode>0003</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>删除</instruction>
+						<operaCode>0004</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 			<column id="6">
-				<columnName>商城产品管理</columnName>
-				<columnCode>0008</columnCode>
+				<columnName>用水用户</columnName>
+				<columnCode>0006</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>添加</instruction>
+						<instruction>查看</instruction>
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>删除</instruction>
+						<instruction>添加</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 					<popedom>
 						<instruction>修改</instruction>
 						<operaCode>0003</operaCode>
 					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>导出表格</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改简介、关键字</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>产品审核不通过备注</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>产品审核通过备注</instruction>
-						<operaCode>0009</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>移动产品分类</instruction>
-						<operaCode>0010</operaCode>
-					</popedom>
 				</popedoms>
 			</column>
 			<column id="7">
-				<columnName>商城产品分类管理</columnName>
+				<columnName>水表</columnName>
+				<columnCode>0007</columnCode>
+				<popedoms>
+					<popedom>
+						<instruction>查看</instruction>
+						<operaCode>0001</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>添加</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改</instruction>
+						<operaCode>0003</operaCode>
+					</popedom>
+				</popedoms>
+			</column>
+			<column id="8">
+				<columnName>集中器</columnName>
+				<columnCode>0008</columnCode>
+				<popedoms>
+					<popedom>
+						<instruction>查看</instruction>
+						<operaCode>0001</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>添加</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改</instruction>
+						<operaCode>0003</operaCode>
+					</popedom>
+				</popedoms>
+			</column>
+		</columns>
+	</module>
+	<module id="2">
+		<name>数据采集</name>
+		<columns>
+			<column id="1">
+				<columnName>采集任务</columnName>
 				<columnCode>0009</columnCode>
 				<popedoms>
 					<popedom>
@@ -263,22 +177,17 @@
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>修改</instruction>
+						<instruction>添加</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>审核</instruction>
+						<instruction>修改</instruction>
 						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0004</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
-			<!-- 
-			<column id="8">
-				<columnName>商城邀请注册管理</columnName>
+			<column id="2">
+				<columnName>集中器操控</columnName>
 				<columnCode>0010</columnCode>
 				<popedoms>
 					<popedom>
@@ -286,78 +195,115 @@
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>审核</instruction>
+						<instruction>读集中器时钟</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>设置集中器时钟</instruction>
+						<operaCode>0003</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>删除集中器历史数据</instruction>
+						<operaCode>0004</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>删除集中器配置信息</instruction>
+						<operaCode>0005</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>集中器复位</instruction>
+						<operaCode>0006</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>加载水表参数</instruction>
+						<operaCode>0007</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>集中器调试</instruction>
+						<operaCode>0008</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>读水表参数</instruction>
+						<operaCode>0009</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>功能操作</instruction>
+						<operaCode>0010</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>读日冻结</instruction>
+						<operaCode>0011</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>召测本机动态数据 </instruction>
+						<operaCode>0012</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>实时召测表码 </instruction>
+						<operaCode>0013</operaCode>
+					</popedom>
+				</popedoms>
+			</column>
+		</columns>
+	</module>
+	<module id="3">
+		<name>费用计算</name>
+		<columns>
+			<column id="1">
+				<columnName>日用水费</columnName>
+				<columnCode>0011</columnCode>
+				<popedoms>
+					<popedom>
+						<instruction>查看</instruction>
+						<operaCode>0001</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>导出</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
-			 -->
-		</columns>
-	</module>
-	<module id="3">
-		<name>团购管理</name>
-		<columns>
-			<column id="1">
-				<columnName>团购管理</columnName>
+			<column id="2">
+				<columnName>月用水费</columnName>
 				<columnCode>0012</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>添加</instruction>
+						<instruction>查看</instruction>
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>删除</instruction>
+						<instruction>导出</instruction>
 						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>发布前修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>发布后修改</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>团购订单报表</instruction>
-						<operaCode>0007</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 		</columns>
 	</module>
 	<module id="4">
-		<name>限时抢购管理</name>
+		<name>费用结算</name>
 		<columns>
 			<column id="1">
-				<columnName>限时抢购商品管理</columnName>
-				<columnCode>0019</columnCode>
+				<columnName>费用交纳</columnName>
+				<columnCode>0013</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>产品添加</instruction>
+						<instruction>查看</instruction>
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>产品删除</instruction>
+						<instruction>客户充值详细页</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>产品修改</instruction>
+						<instruction>充值</instruction>
 						<operaCode>0003</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>产品查看</instruction>
+						<instruction>扣费</instruction>
 						<operaCode>0004</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>产品审核</instruction>
+						<instruction>查询余额</instruction>
 						<operaCode>0005</operaCode>
 					</popedom>
 				</popedoms>
@@ -365,1072 +311,163 @@
 		</columns>
 	</module>
 	<module id="5">
-		<name>活动管理</name>
+		<name>查询与分析</name>
 		<columns>
 			<column id="1">
-				<columnName>活动管理</columnName>
-				<columnCode>0020</columnCode>
+				<columnName>数据查询</columnName>
+				<columnCode>0014</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>广告语查看</instruction>
+						<instruction>日用水量查询</instruction>
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>注册赠送优惠劵</instruction>
+						<instruction>月用水量查询</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>领取优惠券活动</instruction>
+						<instruction>实招数据查询</instruction>
 						<operaCode>0003</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>2013年抽奖活动</instruction>
+						<instruction>本机数据查询</instruction>
 						<operaCode>0004</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>日冻结数据查询</instruction>
+						<operaCode>0005</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>数据审核</instruction>
+						<operaCode>0006</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>审核数据详细</instruction>
+						<operaCode>0007</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>审核数据更新 </instruction>
+						<operaCode>0008</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 		</columns>
 	</module>
 	<module id="6">
-		<name>虚拟货币管理（卡是指消费卡，即为乐活卡和商家提货卡统称，劵指的是现金券）</name>
+		<name>系统管理</name>
 		<columns>
 			<column id="1">
-				<columnName>消费卡管理</columnName>
-				<columnCode>0021</columnCode>
+				<columnName>收费单位</columnName>
+				<columnCode>0015</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>消费卡查看</instruction>
+						<instruction>查看</instruction>
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>建卡</instruction>
+						<instruction>添加</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>获取卡号标识</instruction>
+						<instruction>修改</instruction>
 						<operaCode>0003</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>获取密码标识</instruction>
-						<operaCode>0015</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载卡号</instruction>
-						<operaCode>0010</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载密码</instruction>
-						<operaCode>0009</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>激活</instruction>
+						<instruction>删除</instruction>
 						<operaCode>0004</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>加锁</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>解锁</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改有效期</instruction>
-						<operaCode>0011</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看备注</instruction>
+						<instruction>启用</instruction>
 						<operaCode>0005</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>绑定店铺</instruction>
-						<operaCode>0012</operaCode>
+						<instruction>禁用</instruction>
+						<operaCode>0006</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 			<column id="2">
-				<columnName>消费卡任务列表管理</columnName>
-				<columnCode>0060</columnCode>
+				<columnName>部门</columnName>
+				<columnCode>0016</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>消费卡任务查询日志</instruction>
+						<instruction>查看</instruction>
+						<operaCode>0001</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>添加</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改</instruction>
 						<operaCode>0003</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>消费卡任务解锁</instruction>
+						<instruction>启用</instruction>
 						<operaCode>0005</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>禁用</instruction>
+						<operaCode>0006</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>权限列表</instruction>
+						<operaCode>0007</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改权限</instruction>
+						<operaCode>0008</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 			<column id="3">
-				<columnName>消费卡日志管理</columnName>
-				<columnCode>0022</columnCode>
+				<columnName>管理员信息</columnName>
+				<columnCode>0017</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>消费卡使用日志</instruction>
+						<instruction>查看</instruction>
+						<operaCode>0001</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>添加</instruction>
+						<operaCode>0002</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>修改</instruction>
 						<operaCode>0003</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>个人资料修改</instruction>
+						<operaCode>0004</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>启用</instruction>
+						<operaCode>0005</operaCode>
+					</popedom>
+					<popedom>
+						<instruction>禁用</instruction>
+						<operaCode>0006</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 			<column id="4">
-				<columnName>现金劵管理</columnName>
-				<columnCode>0023</columnCode>
+				<columnName>价目列表</columnName>
+				<columnCode>0018</columnCode>
 				<popedoms>
 					<popedom>
-						<instruction>现金劵查看</instruction>
+						<instruction>查看</instruction>
 						<operaCode>0001</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>创建现金劵</instruction>
+						<instruction>添加</instruction>
 						<operaCode>0002</operaCode>
 					</popedom>
 					<popedom>
-						<instruction>派发</instruction>
+						<instruction>修改</instruction>
 						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>导出密码</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>加锁</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>解锁</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>批量赠送</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载模板</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>导出现金券列表</instruction>
-						<operaCode>0009</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改有效期</instruction>
-						<operaCode>0010</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="5">
-				<columnName>现金劵任务列表管理</columnName>
-				<columnCode>0024</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>现金劵任务查询日志</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>现金劵任务解锁</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="6">
-				<columnName>电子钱包管理</columnName>
-				<columnCode>0062</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>电子钱包查询</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>电子钱包扣款</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="7">
-				<columnName>电子钱包日志管理</columnName>
-				<columnCode>0063</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>电子钱包日志列表查询</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>电子钱包日志列表导出</instruction>
-						<operaCode>0002</operaCode>
 					</popedom>
 				</popedoms>
 			</column>
 		</columns>
 	</module>
-	<module id="7">
-		<name>食尚资讯管理</name>
-		<columns>
-			<column id="1">
-				<columnName>食尚资讯列表管理</columnName>
-				<columnCode>0025</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>复制文章</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>移动文章</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>推荐</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="2">
-				<columnName>食尚资讯栏目分类管理</columnName>
-				<columnCode>0026</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="3">
-				<columnName>食尚资讯关键字管理</columnName>
-				<columnCode>0027</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>导出关键字列表</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="4">
-				<columnName>食尚资讯XML管理</columnName>
-				<columnCode>0028</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>上传</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>生成食尚资讯静态首页</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>生成帮助中心静态首页</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>备份</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>还原</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-		</columns>
-	</module>
-	<module id="8">
-		<name>分城管理</name>
-		<columns>
-			<column id="1">
-				<columnName>分城管理</columnName>
-				<columnCode>0029</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>查看列表</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看详情</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>初始化</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>绑定分城店铺</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="2">
-				<columnName>分城广告管理</columnName>
-				<columnCode>0030</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看列表</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="3">
-				<columnName>分城首页推荐产品</columnName>
-				<columnCode>0031</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>推荐列表查看</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>平台产品列表查看</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>初始化</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>生成平台静态首页</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="4">
-				<columnName>分城热词管理</columnName>
-				<columnCode>0032</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="5">
-				<columnName>图库管理</columnName>
-				<columnCode>0033</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>上传</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="6">
-				<columnName>编辑推荐管理</columnName>
-				<columnCode>0034</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>上传-添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>备份</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>还原</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="7">
-				<columnName>专题数据管理</columnName>
-				<columnCode>0053</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>上传</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>备份</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>还原</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="8">
-				<columnName>乐活联盟推荐产品数据管理</columnName>
-				<columnCode>0057</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>上传</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>备份</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>还原</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="9">
-				<columnName>频道管理</columnName>
-				<columnCode>0064</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>查看频道</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改频道状态</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>设置分城状态</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查询推荐商品</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>设置商品推荐状态</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="10">
-				<columnName>分城楼层管理</columnName>
-				<columnCode>0065</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>分城楼层列表</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加楼层</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>默认属性列表</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加默认属性</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改默认属性</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除默认属性</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改楼层名称</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除楼层</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>复制楼层属性</instruction>
-						<operaCode>0009</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加楼层产品</instruction>
-						<operaCode>0010</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改楼层产品</instruction>
-						<operaCode>0011</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除楼层产品</instruction>
-						<operaCode>0012</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>楼层属性列表</instruction>
-						<operaCode>0013</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加楼层默认属性</instruction>
-						<operaCode>0014</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加楼层自定义属性</instruction>
-						<operaCode>0015</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改楼层属性</instruction>
-						<operaCode>0016</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除楼层属性</instruction>
-						<operaCode>0017</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-		</columns>
-	</module>
-	<module id="9">
-		<name>前台用户管理</name>
-		<columns>
-			<column id="1">
-				<columnName>前台用户管理</columnName>
-				<columnCode>0035</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>万能密码</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>用户验证</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>创建网店</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看订阅</instruction>
-						<operaCode>0009</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载文件</instruction>
-						<operaCode>0010</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>导出用户列表</instruction>
-						<operaCode>0011</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看乐活卡消费统计</instruction>
-						<operaCode>0012</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除乐活卡消费统计</instruction>
-						<operaCode>0013</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>邮件发送</instruction>
-						<operaCode>0014</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-		</columns>
-	</module>
-	<module id="10">
-		<name>后台管理员管理</name>
-		<columns>
-			<column id="1">
-				<columnName>后台管理员管理</columnName>
-				<columnCode>0036</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-		</columns>
-	</module>
-	<module id="11">
-		<name>其他设置管理</name>
-		<columns>
-			<column id="1">
-				<columnName>日志管理</columnName>
-				<columnCode>0046</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>广告联盟订单日志</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>广告联盟登入日志</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>邮件任务日志</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="2">
-				<columnName>运费板块设置</columnName>
-				<columnCode>0047</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="3">
-				<columnName>物流公司设置</columnName>
-				<columnCode>0049</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="4">
-				<columnName>友情链接管理</columnName>
-				<columnCode>0050</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>上传</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>备份</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>还原</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0008</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="5">
-				<columnName>SEO数据管理</columnName>
-				<columnCode>0051</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>上传</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>备份</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>下载</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>还原</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="6">
-				<columnName>其他管理</columnName>
-				<columnCode>0052</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="7">
-				<columnName>地区信息列表</columnName>
-				<columnCode>0058</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>刷新</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="8">
-				<columnName>地区组信息列表</columnName>
-				<columnCode>0059</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>状态修改</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="9">
-				<columnName>页面缓存信息列表</columnName>
-				<columnCode>0061</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-		</columns>
-	</module>
-	<module id="12">
-		<name>合作方管理</name>
-		<columns>
-			<column id="1">
-				<columnName>合作方列表</columnName>
-				<columnCode>0054</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>合作方列表查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="2">
-				<columnName>合作方佣金列表</columnName>
-				<columnCode>0055</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>合作方店铺列表查看</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>合作方佣金列表查看</instruction>
-						<operaCode>0006</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>合作方店铺佣金列表查看</instruction>
-						<operaCode>0007</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-			<column id="3">
-				<columnName>合作方角色列表</columnName>
-				<columnCode>0056</columnCode>
-				<popedoms>
-					<popedom>
-						<instruction>添加</instruction>
-						<operaCode>0001</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>删除</instruction>
-						<operaCode>0002</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>修改</instruction>
-						<operaCode>0003</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>查看</instruction>
-						<operaCode>0004</operaCode>
-					</popedom>
-					<popedom>
-						<instruction>审核</instruction>
-						<operaCode>0005</operaCode>
-					</popedom>
-				</popedoms>
-			</column>
-		</columns>
-	</module>
-	<!-- 已加到0065 -->
 </root>

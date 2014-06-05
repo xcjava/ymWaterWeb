@@ -65,7 +65,7 @@
     					<td class="editLeftTd" rowspan="${fn:length(popedom_datas.columns)}">${popedom_datas.name}</td>
     					<td class="editRightTd">
     						${popedom_datas.columns[0].columnName}
-    						<div style="float: right"><font style="font-weight: bold">全选1	</font>	<input type="checkbox" value="${popedom_datas.columns[0].columnCode}" name="allchange" />&nbsp;&nbsp;</div>
+    						<div style="float: right"><font style="font-weight: bold">全选</font>	<input type="checkbox" value="${popedom_datas.columns[0].columnCode}" name="allchange" />&nbsp;&nbsp;</div>
     					</td>
     					<td class="editRightTd">
     						<c:forEach items="${popedom_datas.columns[0].popedoms}" var="popedom">
@@ -80,7 +80,7 @@
 		    					
 		    					<td class="editRightTd" width="20%">
 		    						${columns.columnName}
-		    						<div style="float: right"><font style="font-weight: bold">全选2	</font><input type="checkbox" value="${columns.columnCode}" name="allchange"/>&nbsp;&nbsp;</div>
+		    						<div style="float: right"><font style="font-weight: bold">全选</font>	<input type="checkbox" value="${columns.columnCode}" name="allchange"/>&nbsp;&nbsp;</div>
 		    					</td>
 		    					<td class="editRightTd">
 		    						

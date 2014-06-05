@@ -45,6 +45,7 @@
 		</action>
 		<!-- 后台首页 -->
 		<action name="admin/index" class="com.ymsino.water.view.web.admin.Index">
+			<interceptor-ref name="adminInterceptor"></interceptor-ref>
 			<result name="success">/WEB-INF/jsp/admin/index.jsp</result>
 		</action>
 		<!-- 后台头部 -->

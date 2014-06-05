@@ -9,103 +9,170 @@
 		<!-- 采集任务列表 -->
 		<action name="collectTaskList" class="com.ymsino.water.view.web.data.CollectTaskList">
 			<result name="success">/WEB-INF/jsp/data/collectTaskList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0009</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 采集任务详细页 -->
 		<action name="collectTaskDetail" class="com.ymsino.water.view.web.data.CollectTaskDetail">
 			<result name="success">/WEB-INF/jsp/data/collectTaskDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0009</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 采集任务添加 -->
 		<action name="saveCollectTask" class="com.ymsino.water.view.web.data.SaveCollectTask">
 			<result name="success" type="redirect">/data/collectTaskList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0009</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 采集任务修改 -->
 		<action name="updateCollectTask" class="com.ymsino.water.view.web.data.UpdateCollectTask">
 			<result name="success" type="redirect">/data/collectTaskList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0009</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 采集任务选择集中器列表弹出窗 -->
 		<action name="selectConcentratorPop" class="com.ymsino.water.view.web.archives.ConcentratorList">
 			<result>/WEB-INF/jsp/data/selectConcentratorPop.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0009</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 集中器操控列表 -->
 		<action name="concentratorList" class="com.ymsino.water.view.web.archives.ConcentratorList">
 			<result>/WEB-INF/jsp/data/concentratorCopyList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 读集中器时钟 -->
 		<action name="readClockAjax" class="com.ymsino.water.view.web.data.ReadClockAjax">
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 设置集中器时钟 -->
 		<action name="setupClockAjax" class="com.ymsino.water.view.web.data.SetupClockAjax">
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 删除集中器历史数据 -->
 		<action name="deleteDataAjax" class="com.ymsino.water.view.web.data.DeleteDataAjax">
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 删除集中器配置信息 -->
 		<action name="deleteSettingsAjax" class="com.ymsino.water.view.web.data.DeleteSettingsAjax">
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0005</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 集中器复位 -->
 		<action name="restoreSettingsAjax" class="com.ymsino.water.view.web.data.RestoreSettingsAjax">
 			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
 			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0006</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 加载集中器水表参数 -->
 		<action name="loadWm" class="com.ymsino.water.view.web.data.LoadWm">
 			<result name="success" type="redirect">/data/concentratorList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0007</param>
+			</interceptor-ref>
 		</action>
 		
-		<!-- 集中器调试 -->
-		<action name="conDebugAjax" class="com.ymsino.water.view.web.data.ConDebugAjax">
-			<result name="json">/WEB-INF/jsp/ajax/json.jsp</result>
-			<result name="callback">/WEB-INF/jsp/ajax/callback.jsp</result>
+		<!-- 集中器水表调试 -->
+		<action name="debug" class="com.ymsino.water.view.web.data.Debug">
+			<result name="success" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0008</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 读水表参数 -->
 		<action name="readWaterMeter" class="com.ymsino.water.view.web.data.ReadWaterMeter">
 			<result name="success" >/WEB-INF/jsp/data/readWaterMeter.jspx</result>
 			<result name="check" type="redirect">/data/concentratorList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0009</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 集中器水表功能操作 -->
 		<action name="waterMeterList" class="com.ymsino.water.view.web.data.WaterMeterList">
 			<result name="success" >/WEB-INF/jsp/data/waterMeterList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0010</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 读日冻结 -->
 		<action name="readDataByDate" class="com.ymsino.water.view.web.data.ReadDataByDate">
 			<result name="success" >/WEB-INF/jsp/data/readDataByDate.jsp</result>
 			<result name="check" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0011</param>
+			</interceptor-ref>
 		</action>
 		
-		<!-- 集中器水表调试 -->
-		<action name="debug" class="com.ymsino.water.view.web.data.Debug">
-			<result name="success" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
-		</action>
 		
 		<!-- 集中器召测本机动态数据 -->
 		<action name="testData" class="com.ymsino.water.view.web.data.TestData">
 			<result name="success">/WEB-INF/jsp/data/testData.jsp</result>
 			<result name="check" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0012</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 集中器实时召测表码 -->
 		<action name="testMeterCode" class="com.ymsino.water.view.web.data.TestMeterCode">
 			<result name="success">/WEB-INF/jsp/data/testMeterCode.jsp</result>
 			<result name="check" type="redirect">/data/waterMeterList.jspx?concHardwareId=${concHardwareId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0010</param>
+				<param name="adminDefaultInterceptor.operaCode">0013</param>
+			</interceptor-ref>
 		</action>
 	</package>
 </struts>

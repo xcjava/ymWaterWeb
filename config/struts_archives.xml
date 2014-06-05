@@ -8,158 +8,301 @@
 		<!-- 客户信息列表 -->
 		<action name="userList" class="com.ymsino.water.view.web.archives.UserList">
 			<result>/WEB-INF/jsp/archives/customerInfo/userList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0001</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 客户信息Tab -->
 		<action name="userInfoTab" class="com.ymsino.water.view.web.archives.UserInfoTab">
 			<result>/WEB-INF/jsp/archives/customerInfo/userInfoTab.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0001</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 客户基本信息详细页 -->
 		<action name="userDetail" class="com.ymsino.water.view.web.archives.UserDetail">
 			<result name="baseInfo">/WEB-INF/jsp/archives/customerInfo/userDetail.jsp</result>
 			<result name="custAddress">/WEB-INF/jsp/archives/customerInfo/customerAddress.jsp</result>
 			<result name="credentials">/WEB-INF/jsp/archives/customerInfo/credentials.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0001</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 客户基本信息添加 -->
 		<action name="saveUser" class="com.ymsino.water.view.web.archives.SaveUser">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0001</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 客户基本信息修改 -->
 		<action name="updateUser" class="com.ymsino.water.view.web.archives.UpdateUser">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0001</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 联系信息 -->
 		<action name="contactList" class="com.ymsino.water.view.web.archives.ContactList">
 			<result>/WEB-INF/jsp/archives/customerInfo/contactList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0002</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 联系信息详细页 -->
 		<action name="contactDetail" class="com.ymsino.water.view.web.archives.ContactDetail">
 			<result>/WEB-INF/jsp/archives/customerInfo/contactDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0002</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 联系信息添加 -->
 		<action name="saveContact" class="com.ymsino.water.view.web.archives.SaveContact">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0002</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 联系信息修改 -->
 		<action name="updateContact" class="com.ymsino.water.view.web.archives.UpdateContact">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0002</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		<!-- 联系信息删除 -->
 		<action name="deleteContact" class="com.ymsino.water.view.web.archives.DeleteContact">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0002</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
-		
 		
 		<!-- 银行帐号列表 -->
 		<action name="bankList" class="com.ymsino.water.view.web.archives.BankList">
 			<result>/WEB-INF/jsp/archives/customerInfo/bankList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0003</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 银行帐号详细页 -->
 		<action name="bankDetail" class="com.ymsino.water.view.web.archives.BankDetail">
 			<result>/WEB-INF/jsp/archives/customerInfo/bankDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0003</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 银行帐号添加 -->
 		<action name="saveBank" class="com.ymsino.water.view.web.archives.SaveBank">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0003</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 银行帐号修改 -->
 		<action name="updateBank" class="com.ymsino.water.view.web.archives.UpdateBank">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0003</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		<!-- 银行帐号删除 -->
 		<action name="deleteBank" class="com.ymsino.water.view.web.archives.DeleteBank">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0003</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
 				
 		<!-- 业务地址 -->
 		<action name="busiAddressList" class="com.ymsino.water.view.web.archives.BusiAddressList">
 			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0004</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 业务地址详细页 -->
 		<action name="busiAddressDetail" class="com.ymsino.water.view.web.archives.BusiAddressDetail">
 			<result>/WEB-INF/jsp/archives/customerInfo/busiAddressDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0004</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 业务地址添加 -->
 		<action name="saveBusiAddress" class="com.ymsino.water.view.web.archives.SaveBusiAddress">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0004</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 业务地址修改 -->
 		<action name="updateBusiAddress" class="com.ymsino.water.view.web.archives.UpdateBusiAddress">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0004</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		<!-- 业务地址删除 -->
 		<action name="deleteBusiAddress" class="com.ymsino.water.view.web.archives.DeleteBusiAddress">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0004</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 增值税 -->
 		<action name="vatList" class="com.ymsino.water.view.web.archives.VatList">
 			<result>/WEB-INF/jsp/archives/customerInfo/vatList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0005</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 增值税详细页 -->
 		<action name="vatDetail" class="com.ymsino.water.view.web.archives.VatDetail">
 			<result>/WEB-INF/jsp/archives/customerInfo/vatDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0005</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 增值税添加 -->
 		<action name="saveVat" class="com.ymsino.water.view.web.archives.SaveVat">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0005</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 增值税修改 -->
 		<action name="updateVat" class="com.ymsino.water.view.web.archives.UpdateVat">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0005</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		<!-- 增值税删除 -->
 		<action name="deleteVat" class="com.ymsino.water.view.web.archives.DeleteVat">
 			<result name="success" type="redirect">/archives/userInfoTab.jspx?id=${id}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0005</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 用水用户 -->
 		<action name="waterCustomerList" class="com.ymsino.water.view.web.archives.WaterCustomerList">
 			<result>/WEB-INF/jsp/archives/customerInfo/waterCustomerList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0006</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 用水用户Tab -->
 		<action name="waterCustomerTab" class="com.ymsino.water.view.web.archives.WaterCustomerTab">
 			<result>/WEB-INF/jsp/archives/customerInfo/waterCustomerTab.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0006</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 用水用户详细页 -->
 		<action name="waterCustomerDetail" class="com.ymsino.water.view.web.archives.WaterCustomerDetail">
 			<result name="waterCustomer">/WEB-INF/jsp/archives/customerInfo/waterCustomerDetail.jsp</result>
 			<result name="waterPoints">/WEB-INF/jsp/archives/customerInfo/waterPoints.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0006</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 用水用户添加 -->
 		<action name="saveWaterCustomer" class="com.ymsino.water.view.web.archives.SaveWaterCustomer">
 			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?customerId=${customerId}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0006</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 用水用户修改 -->
 		<action name="updateWaterCustomer" class="com.ymsino.water.view.web.archives.UpdateWaterCustomer">
 			<result name="success" type="redirect">/archives/waterCustomerTab.jspx?customerId=${customerId}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0006</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 水表列表(智能、IC卡、红外卡) -->
 		<action name="waterMeterList" class="com.ymsino.water.view.web.archives.WaterMeterList">
 			<result name="success">/WEB-INF/jsp/archives/measurePoint/waterMeterList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0007</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 水表详细页 -->
 		<action name="waterMeterDetail" class="com.ymsino.water.view.web.archives.WaterMeterDetail">
 			<result name="success">/WEB-INF/jsp/archives/measurePoint/waterMeterDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0007</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 水表添加 -->
 		<action name="saveWaterMeter" class="com.ymsino.water.view.web.archives.SaveWaterMeter">
 			<result name="success" type="redirect">/archives/waterMeterDetail.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;type=${type}&amp;message=${message}</result>
 			<result name="input">/WEB-INF/jsp/archives/measurePoint/waterMeterDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0007</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 水表修改 -->
 		<action name="updateWaterMeter" class="com.ymsino.water.view.web.archives.UpdateWaterMeter">
 			<result name="success" type="redirect">/archives/waterMeterDetail.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;type=${type}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0007</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 集中器列表 -->
 		<action name="concentratorList" class="com.ymsino.water.view.web.archives.ConcentratorList">
 			<result>/WEB-INF/jsp/archives/collection/concentratorList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0008</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 集中器Tab -->
 		<action name="concentratorTab" class="com.ymsino.water.view.web.archives.ConcentratorTab">
 			<result>/WEB-INF/jsp/archives/collection/concentratorTab.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0008</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 集中器信息详细页 -->
@@ -170,21 +313,37 @@
 			<result name="collectionChannel">/WEB-INF/jsp/archives/collection/collectionChannel.jsp</result>
 			<result name="collectionObject">/WEB-INF/jsp/archives/collection/collectionObject.jsp</result>
 			<result name="runningTerminal">/WEB-INF/jsp/archives/collection/runningTerminal.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0008</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 集中器信息添加 -->
 		<action name="saveConcentrator" class="com.ymsino.water.view.web.archives.SaveConcentrator">
 			<result name="editError" type="redirect">/archives/concentratorTab.jspx?curr=${curr}&amp;message=${message}</result>
 			<result name="success" type="redirect">/archives/concentratorList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0008</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 集中器信息修改 -->
 		<action name="updateConcentrator" class="com.ymsino.water.view.web.archives.UpdateConcentrator">
 			<result name="success" type="redirect">/archives/concentratorTab.jspx?hardwareId=${hardwareId}&amp;curr=${curr}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0008</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 选择客户信息列表弹出窗 -->
 		<action name="selectUserList" class="com.ymsino.water.view.web.archives.UserList">
 			<result>/WEB-INF/jsp/archives/customerInfo/selectUserList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0006</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 获取用户信息ajax -->
@@ -196,6 +355,10 @@
 		<!-- 选择用水用户信息列表弹出窗 -->
 		<action name="selectWaterCustomerList" class="com.ymsino.water.view.web.archives.WaterCustomerList">
 			<result>/WEB-INF/jsp/archives/measurePoint/selectWaterCustomerList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0007</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 获取用水用户信息ajax -->
@@ -207,6 +370,10 @@
 		<!-- 选择集中器列表弹出窗 -->
 		<action name="selectConcentratorList" class="com.ymsino.water.view.web.archives.ConcentratorList">
 			<result>/WEB-INF/jsp/archives/measurePoint/selectConcentratorList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0007</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 	</package>
 </struts>

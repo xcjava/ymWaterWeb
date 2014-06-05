@@ -9,114 +9,222 @@
 		<!-- 收费单位列表 -->
 		<action name="chargingUnitList" class="com.ymsino.water.view.web.manager.ChargingUnitList">
 			<result>/WEB-INF/jsp/manager/chargingUnitList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0015</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 收费单位添加、详细页 -->
 		<action name="chargingUnitDetail" class="com.ymsino.water.view.web.manager.ChargingUnitDetail">
 			<result>/WEB-INF/jsp/manager/chargingUnitDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0015</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 添加收费单位 -->
 		<action name="saveChargingUnit" class="com.ymsino.water.view.web.manager.SaveChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitDetail.jspx?unitId=${unitId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0015</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 修改收费单位 -->
 		<action name="updateChargingUnit" class="com.ymsino.water.view.web.manager.UpdateChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitDetail.jspx?unitId=${unitId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0015</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		<!-- 永久删除收费单位 -->
 		<action name="deleteChargingUnit" class="com.ymsino.water.view.web.manager.DeleteChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0015</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
 		<!-- 启用收费单位 -->
 		<action name="openChargingUnit" class="com.ymsino.water.view.web.manager.OpenChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0015</param>
+				<param name="adminDefaultInterceptor.operaCode">0005</param>
+			</interceptor-ref>
 		</action>
 		<!-- 禁用收费单位 -->
 		<action name="closeChargingUnit" class="com.ymsino.water.view.web.manager.CloseChargingUnit">
 			<result name="success" type="redirect">/manager/chargingUnitList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0015</param>
+				<param name="adminDefaultInterceptor.operaCode">0006</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 部门列表 -->
 		<action name="departmentList" class="com.ymsino.water.view.web.manager.DepartmentList">
 			<result name="success">/WEB-INF/jsp/manager/departmentList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 部门添加、详细页 -->
 		<action name="departmentDetail" class="com.ymsino.water.view.web.manager.DepartmentDetail">
 			<result name="success">/WEB-INF/jsp/manager/departmentDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 添加部门 -->
 		<action name="saveDepartment" class="com.ymsino.water.view.web.manager.SaveDepartment">
 			<result name="success" type="redirect">/manager/departmentDetail.jspx?deptId=${deptId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 修改部门 -->
 		<action name="updateDepartment" class="com.ymsino.water.view.web.manager.UpdateDepartment">
 			<result name="success" type="redirect">/manager/departmentDetail.jspx?deptId=${deptId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		<!-- 启用部门 -->
 		<action name="openDepartment" class="com.ymsino.water.view.web.manager.OpenDepartment">
 			<result name="success" type="redirect">/manager/departmentList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0005</param>
+			</interceptor-ref>
 		</action>
 		<!-- 禁用部门 -->
 		<action name="closeDepartment" class="com.ymsino.water.view.web.manager.CloseDepartment">
 			<result name="success" type="redirect">/manager/departmentList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0006</param>
+			</interceptor-ref>
 		</action>
 		<!-- 部门权限列表 -->
 		<action name="popedomList" class="com.ymsino.water.view.web.manager.PopedomList">
 			<param name="popedomFilePath">popedomData.filePath</param>
 			<result name="success">/WEB-INF/jsp/manager/popedomList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0007</param>
+			</interceptor-ref>
 		</action>
 		<!-- 更新部门权限-->
 		<action name="updatePopedom" class="com.ymsino.water.view.web.manager.UpdatePopedom">
 			<result name="success" type="redirect">/manager/popedomList.jspx?deptId=${deptId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0016</param>
+				<param name="adminDefaultInterceptor.operaCode">0008</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 管理员个人资料修改页面 -->
 		<action name="managerInfo" class="com.ymsino.water.view.web.manager.ManagerInfo">
 			<result>/WEB-INF/jsp/manager/managerInfo.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
 		<!-- 修改管理员个人资料修改 -->
 		<action name="updateManagerInfo" class="com.ymsino.water.view.web.manager.UpdateManagerInfo">
 			<result name="success" type="redirect">/manager/managerInfo.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
 		</action>
 		<!-- 管理员列表 -->
 		<action name="managerList" class="com.ymsino.water.view.web.manager.ManagerList">
 			<result>/WEB-INF/jsp/manager/managerList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 管理员添加、修改页 -->
 		<action name="managerDetail" class="com.ymsino.water.view.web.manager.ManagerDetail">
 			<result name="success">/WEB-INF/jsp/manager/managerDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 添加管理员 -->
 		<action name="saveManager" class="com.ymsino.water.view.web.manager.SaveManager">
 			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 修改管理员 -->
 		<action name="updateManager" class="com.ymsino.water.view.web.manager.UpdateManager">
 			<result name="success" type="redirect">/manager/managerDetail.jspx?managerId=${managerId}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 		<!-- 启用管理员 -->
 		<action name="openManager" class="com.ymsino.water.view.web.manager.OpenManager">
 			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0005</param>
+			</interceptor-ref>
 		</action>
 		<!-- 禁用管理员 -->
 		<action name="closeManager" class="com.ymsino.water.view.web.manager.CloseManager">
 			<result name="success" type="redirect">/manager/managerList.jspx?message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0017</param>
+				<param name="adminDefaultInterceptor.operaCode">0006</param>
+			</interceptor-ref>
 		</action>
 		
 		<!-- 价目列表 -->
 		<action name="priceTemplateList" class="com.ymsino.water.view.web.manager.PriceTemplateList">
 			<result>/WEB-INF/jsp/manager/priceTemplateList.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0018</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 价目添加、详细页 -->
 		<action name="priceTemplateDetail" class="com.ymsino.water.view.web.manager.PriceTemplateDetail">
 			<result>/WEB-INF/jsp/manager/priceTemplateDetail.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0018</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
 		</action>
 		<!-- 添加价目 -->
 		<action name="savePriceTemplate" class="com.ymsino.water.view.web.manager.SavePriceTemplate">
 			<result name="success" type="redirect">/manager/priceTemplateDetail.jspx?id=${id}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0018</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
 		</action>
 		<!-- 修改价目 -->
 		<action name="updatePriceTemplate" class="com.ymsino.water.view.web.manager.UpdatePriceTemplate">
 			<result name="success" type="redirect">/manager/priceTemplateDetail.jspx?id=${id}&amp;message=${message}</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0018</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
 		</action>
 	</package>
 </struts>

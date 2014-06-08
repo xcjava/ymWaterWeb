@@ -61,9 +61,9 @@
 				<param name="adminDefaultInterceptor.operaCode">0007</param>
 			</interceptor-ref>
 		</action>
-		<!-- 审核数据更新 -->
+		<!-- 审核数据修正 -->
 		<action name="checkingFreezeDataModify" class="com.ymsino.water.view.web.searchAnalysis.CheckingFreezeDataModify">
-			<result name="success">/WEB-INF/jsp/searchAnalysis/checkingFreezeDataDetail.jsp</result>
+			<result name="success" type="redirect">/searchAnalysis/checkingFreezeDataList.jspx?message=${message}</result>
 			<interceptor-ref name="adminInterceptor">
 				<param name="adminDefaultInterceptor.moduleCode">0014</param>
 				<param name="adminDefaultInterceptor.operaCode">0008</param>

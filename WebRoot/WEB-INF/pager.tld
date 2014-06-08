@@ -85,4 +85,21 @@
 	    </attribute>
   	</tag>
   	
+	<tag>
+  		<name>price</name>
+	    <tag-class>com.ymsino.water.view.web.common.PriceTag</tag-class>
+	    <body-content></body-content>
+	
+	    <attribute>
+	        <name>longPrice</name>
+	         <required>true</required>
+	         <rtexprvalue>true</rtexprvalue>
+	    </attribute>
+	    <attribute>
+	        <name>scale</name>
+	         <required>false</required>
+	         <rtexprvalue>true</rtexprvalue>
+	    </attribute>
+  	</tag>
+  	
 </taglib>

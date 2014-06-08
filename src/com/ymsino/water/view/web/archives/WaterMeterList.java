@@ -2,7 +2,9 @@ package com.ymsino.water.view.web.archives;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +20,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.waterMeter.QueryParam;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterReturn;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterService;
+import com.ymsino.water.service.manager.chargingUnit.ChargingUnitReturn;
+import com.ymsino.water.service.manager.chargingUnit.ChargingUnitService;
 import com.ymsino.water.view.web.common.PageModel;
 
 public class WaterMeterList extends ActionSupport {
@@ -25,12 +29,14 @@ public class WaterMeterList extends ActionSupport {
 
 	private static final long serialVersionUID = 6970850564906342550L;
 	private WaterMeterService waterMeterService;
+	private ChargingUnitService chargingUnitService;
     private PageModel pageModel = new PageModel();
     private int pageIndex;
 	private int recordCount;
 	private int pageSize;
 	private String message = "";
     private List<WaterMeterReturn> list = new ArrayList<WaterMeterReturn>();
+    private List<Map<String, Object>> mapList=new ArrayList<Map<String, Object>>();
     private Short type = 3;//水表类型，1：IC卡，2：红外卡，3：无线智能
     private String chargingUnitId;
     private String userId;//客户编号
@@ -94,6 +100,21 @@ public class WaterMeterList extends ActionSupport {
 		list = waterMeterService.getListpager(qpm, pageModel.getStartRow(), pageModel.getPageSize());
 		recordCount = waterMeterService.getCount(qpm);
 		pageModel.setRecordCount(recordCount);
+		
+		if(list != null && list.size()>0){
+			for(WaterMeterReturn waterMeterReturn : list){
+				Map<String, Object> map=new HashMap<String, Object>();
+				
+				ChargingUnitReturn chargingUnit = chargingUnitService.getByUnitId(waterMeterReturn.getChargingUnitId());
+				map.put("hardwareId", waterMeterReturn.getHardwareId());
+				if (chargingUnit == null) {
+					map.put("chargingUnit", null);
+				}else{
+					map.put("chargingUnit", chargingUnit.getName());
+				}
+				mapList.add(map);
+			}
+		}
 		
 		return SUCCESS;
 	}
@@ -215,6 +236,14 @@ public class WaterMeterList extends ActionSupport {
 
 	public void setHardwareId(String hardwareId) {
 		this.hardwareId = hardwareId;
+	}
+
+	public List<Map<String, Object>> getMapList() {
+		return mapList;
+	}
+
+	public void setChargingUnitService(ChargingUnitService chargingUnitService) {
+		this.chargingUnitService = chargingUnitService;
 	}
 
 }

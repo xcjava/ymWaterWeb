@@ -3,7 +3,9 @@ package com.ymsino.water.view.web.archives;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,6 +21,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.user.QueryParam;
 import com.ymsino.water.service.archives.user.UserReturn;
 import com.ymsino.water.service.archives.user.UserService;
+import com.ymsino.water.service.manager.chargingUnit.ChargingUnitReturn;
+import com.ymsino.water.service.manager.chargingUnit.ChargingUnitService;
 import com.ymsino.water.view.web.common.PageModel;
 
 public class UserList extends ActionSupport {
@@ -26,6 +30,7 @@ public class UserList extends ActionSupport {
 
 	private static final long serialVersionUID = 6970850564906342550L;
 	private UserService userService;
+	private ChargingUnitService chargingUnitService;
     private String userId = null;
     private String name;
     private String economicType;//经济类型
@@ -39,6 +44,7 @@ public class UserList extends ActionSupport {
 	private int pageSize;
 	private String message = "";
     private List<UserReturn> list = new ArrayList<UserReturn>();
+    private List<Map<String, Object>> mapList=new ArrayList<Map<String, Object>>();
 	public String execute() throws Exception, UnsupportedEncodingException{
 		
 		if (pageSize == 0)	pageSize = 20;
@@ -93,6 +99,21 @@ public class UserList extends ActionSupport {
 		list = userService.getListpager(qpm, pageModel.getStartRow(), pageModel.getPageSize());
 		recordCount = userService.getCount(qpm);
 		pageModel.setRecordCount(recordCount);
+		
+		if(list != null && list.size()>0){
+			for(UserReturn userReturn : list){
+				Map<String, Object> map=new HashMap<String, Object>();
+				
+				ChargingUnitReturn chargingUnit = chargingUnitService.getByUnitId(userReturn.getChargingUnitId());
+				map.put("userId", userReturn.getId().toString());
+				if (chargingUnit == null) {
+					map.put("chargingUnit", null);
+				}else{
+					map.put("chargingUnit", chargingUnit.getName());
+				}
+				mapList.add(map);
+			}
+		}
 		
 		return SUCCESS;
 	}
@@ -212,6 +233,14 @@ public class UserList extends ActionSupport {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+
+	public List<Map<String, Object>> getMapList() {
+		return mapList;
+	}
+
+	public void setChargingUnitService(ChargingUnitService chargingUnitService) {
+		this.chargingUnitService = chargingUnitService;
 	}
 	
 }

@@ -94,10 +94,11 @@ public class ConcentratorList extends ActionSupport{
 				Map<String, Object> map=new HashMap<String, Object>();
 				
 				ChargingUnitReturn chargingUnit = chargingUnitService.getByUnitId(concentrator.getChargingUnitId());
+				map.put("hardwareId", concentrator.getHardwareId());
 				if (chargingUnit == null) {
 					map.put("chargingUnit", null);
 				}else{
-					map.put("chargingUnit", chargingUnit);
+					map.put("chargingUnit", chargingUnit.getName());
 				}
 				mapList.add(map);
 			}

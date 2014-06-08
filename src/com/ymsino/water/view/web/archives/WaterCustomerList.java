@@ -2,7 +2,9 @@ package com.ymsino.water.view.web.archives;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +20,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.waterCustomer.QueryParam;
 import com.ymsino.water.service.archives.waterCustomer.WaterCustomerReturn;
 import com.ymsino.water.service.archives.waterCustomer.WaterCustomerService;
+import com.ymsino.water.service.manager.chargingUnit.ChargingUnitReturn;
+import com.ymsino.water.service.manager.chargingUnit.ChargingUnitService;
 import com.ymsino.water.view.web.common.PageModel;
 
 public class WaterCustomerList extends ActionSupport {
@@ -25,13 +29,14 @@ public class WaterCustomerList extends ActionSupport {
 
 	private static final long serialVersionUID = 6970850564906342550L;
 	private WaterCustomerService waterCustomerService;
+	private ChargingUnitService chargingUnitService;
     private PageModel pageModel = new PageModel();
     private int pageIndex;
 	private int recordCount;
 	private int pageSize;
 	private String message = "";
     private List<WaterCustomerReturn> list = new ArrayList<WaterCustomerReturn>();
-    
+    private List<Map<String, Object>> mapList=new ArrayList<Map<String, Object>>();
     private String userId = null;
     private String userName;
     private String startDate;
@@ -93,6 +98,21 @@ public class WaterCustomerList extends ActionSupport {
 		list = waterCustomerService.getListpager(qpm, pageModel.getStartRow(), pageModel.getPageSize());
 		recordCount = waterCustomerService.getCount(qpm);
 		pageModel.setRecordCount(recordCount);
+		
+		if(list != null && list.size()>0){
+			for(WaterCustomerReturn waterCustomerReturn : list){
+				Map<String, Object> map=new HashMap<String, Object>();
+				
+				ChargingUnitReturn chargingUnit = chargingUnitService.getByUnitId(waterCustomerReturn.getChargingUnitId());
+				map.put("customerId", waterCustomerReturn.getCustomerId());
+				if (chargingUnit == null) {
+					map.put("chargingUnit", null);
+				}else{
+					map.put("chargingUnit", chargingUnit.getName());
+				}
+				mapList.add(map);
+			}
+		}
 		
 		return SUCCESS;
 	}
@@ -206,6 +226,14 @@ public class WaterCustomerList extends ActionSupport {
 
 	public void setCustomerStatus(String customerStatus) {
 		this.customerStatus = customerStatus;
+	}
+
+	public List<Map<String, Object>> getMapList() {
+		return mapList;
+	}
+
+	public void setChargingUnitService(ChargingUnitService chargingUnitService) {
+		this.chargingUnitService = chargingUnitService;
 	}
 
 }

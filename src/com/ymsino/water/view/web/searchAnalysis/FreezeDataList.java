@@ -19,9 +19,6 @@ import com.ymsino.water.view.web.common.PageModel;
 
 public class FreezeDataList extends ActionSupport {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private String unitId;//收费单位编号

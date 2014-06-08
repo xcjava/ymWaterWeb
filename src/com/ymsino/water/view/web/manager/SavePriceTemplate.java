@@ -13,6 +13,7 @@ import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.manager.priceTemplate.PriceTemplateSaveParam;
 import com.ymsino.water.service.manager.priceTemplate.PriceTemplateService;
+import com.ymsino.water.view.web.common.Arith;
 
 public class SavePriceTemplate extends ActionSupport {
 	
@@ -21,13 +22,13 @@ public class SavePriceTemplate extends ActionSupport {
 	private String name;
 	private String type;
 	private Float level1Num;//1阶最大值
-	private Long level1Cost;//1阶价格，单位毫
+	private String level1Cost;//1阶价格，单位毫
 	private Float level2Num;//1阶最大值
-	private Long level2Cost;//1阶价格，单位毫
+	private String level2Cost;//1阶价格，单位毫
 	private Float level3Num;//1阶最大值
-	private Long level3Cost;//1阶价格，单位毫
+	private String level3Cost;//1阶价格，单位毫
 	private Float level4Num;//1阶最大值
-	private Long level4Cost;//1阶价格，单位毫
+	private String level4Cost;//1阶价格，单位毫
 	private String billingPeriod;//结算周期
 	private String startDate;//开始日期
 	private String endDate;//结束日期
@@ -46,13 +47,13 @@ public class SavePriceTemplate extends ActionSupport {
 			priceTemplateSaveParam.setName(name);
 			priceTemplateSaveParam.setType(type);
 			priceTemplateSaveParam.setLevel1Num(level1Num);
-			priceTemplateSaveParam.setLevel1Cost(level1Cost);
+			priceTemplateSaveParam.setLevel1Cost(Long.valueOf(Arith.mul(level1Cost,"10000")));
 			priceTemplateSaveParam.setLevel2Num(level2Num);
-			priceTemplateSaveParam.setLevel2Cost(level2Cost);
+			priceTemplateSaveParam.setLevel2Cost(Long.valueOf(Arith.mul(level2Cost,"10000")));
 			priceTemplateSaveParam.setLevel3Num(level3Num);
-			priceTemplateSaveParam.setLevel3Cost(level3Cost);
+			priceTemplateSaveParam.setLevel3Cost(Long.valueOf(Arith.mul(level3Cost,"10000")));
 			priceTemplateSaveParam.setLevel4Num(level4Num);
-			priceTemplateSaveParam.setLevel4Cost(level4Cost);
+			priceTemplateSaveParam.setLevel4Cost(Long.valueOf(Arith.mul(level4Cost,"10000")));
 			priceTemplateSaveParam.setBillingPeriod(billingPeriod);
 			if(!StringUtil.isEmpty(startDate)){
 				priceTemplateSaveParam.setStartTimestamp(DateUtil.parseDate(startDate, "yyyy-MM-dd").getTime());
@@ -124,28 +125,12 @@ public class SavePriceTemplate extends ActionSupport {
 		this.level1Num = level1Num;
 	}
 
-	public Long getLevel1Cost() {
-		return level1Cost;
-	}
-
-	public void setLevel1Cost(Long level1Cost) {
-		this.level1Cost = level1Cost;
-	}
-
 	public Float getLevel2Num() {
 		return level2Num;
 	}
 
 	public void setLevel2Num(Float level2Num) {
 		this.level2Num = level2Num;
-	}
-
-	public Long getLevel2Cost() {
-		return level2Cost;
-	}
-
-	public void setLevel2Cost(Long level2Cost) {
-		this.level2Cost = level2Cost;
 	}
 
 	public Float getLevel3Num() {
@@ -156,28 +141,12 @@ public class SavePriceTemplate extends ActionSupport {
 		this.level3Num = level3Num;
 	}
 
-	public Long getLevel3Cost() {
-		return level3Cost;
-	}
-
-	public void setLevel3Cost(Long level3Cost) {
-		this.level3Cost = level3Cost;
-	}
-
 	public Float getLevel4Num() {
 		return level4Num;
 	}
 
 	public void setLevel4Num(Float level4Num) {
 		this.level4Num = level4Num;
-	}
-
-	public Long getLevel4Cost() {
-		return level4Cost;
-	}
-
-	public void setLevel4Cost(Long level4Cost) {
-		this.level4Cost = level4Cost;
 	}
 
 	public String getBillingPeriod() {
@@ -218,6 +187,38 @@ public class SavePriceTemplate extends ActionSupport {
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getLevel1Cost() {
+		return level1Cost;
+	}
+
+	public void setLevel1Cost(String level1Cost) {
+		this.level1Cost = level1Cost;
+	}
+
+	public String getLevel2Cost() {
+		return level2Cost;
+	}
+
+	public void setLevel2Cost(String level2Cost) {
+		this.level2Cost = level2Cost;
+	}
+
+	public String getLevel3Cost() {
+		return level3Cost;
+	}
+
+	public void setLevel3Cost(String level3Cost) {
+		this.level3Cost = level3Cost;
+	}
+
+	public String getLevel4Cost() {
+		return level4Cost;
+	}
+
+	public void setLevel4Cost(String level4Cost) {
+		this.level4Cost = level4Cost;
 	}
 
 }

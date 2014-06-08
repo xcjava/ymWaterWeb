@@ -4,12 +4,12 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 /**
- * 价格分转成元
+ * 价格毫转成元
  * 参数说明
  * longPrice					必要参数，以分为单位的long型价格；
- * scale						保留小数位，默认保留两位；
- * 例：<gdcct:price longPrice="${goodsSpec.price }" scale="2" ></gdcct:price>
- * @author xuyongbin 2013-8-13
+ * scale						保留小数位，默认保留4位；
+ * 例：<gdcct:price longPrice="${goodsSpec.price }" scale="4" ></gdcct:price>
+ * @author xuyongbin 2014-6-8
  *
  */
 public class PriceTag extends TagSupport {
@@ -44,7 +44,7 @@ public class PriceTag extends TagSupport {
 			if (longPrice == null) {
 				out.print("");
 			}else{
-				out.print(Arith.div(longPrice, 100, scale));
+				out.print(Arith.div(longPrice, 10000, scale));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -138,7 +138,6 @@ $(function(){
         <td width=""><div><span>客户姓名</span></div></td>
         <td width=""><div><span>产业分类</span></div></td>
         <td width=""><div><span>经济类型</span></div></td>
-        <td width=""><div><span>余额</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
@@ -150,8 +149,11 @@ $(function(){
         <td><div>${user.name }</div></td>
         <td><div>${user.industrial }</div></td>
         <td><div>${user.economicType }</div></td>
-        <td><div>$100</div></td>
-        <td><div>${user.chargingUnitId }</div></td>
+        <td><div>
+        	<c:forEach items="${mapList }" var="map">
+        		<c:if test="${map.userId == user.id }">${map.chargingUnit }</c:if>
+        	</c:forEach>
+        </div></td>
         <td><div><a target="main" href="${baseUrl }archives/userInfoTab.jspx?id=${user.id }">修改</a></div></td>
       </tr>
       </c:forEach>

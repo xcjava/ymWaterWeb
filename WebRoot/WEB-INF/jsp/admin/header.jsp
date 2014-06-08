@@ -77,13 +77,7 @@ border-style: none;
               <tr>
                 <td width="77%" height="25" valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td width="50" height="19"><div align="center"><img src="${baseUrl }images/main_12.gif" width="49" height="19"></div></td>
-                    <td width="50"><div align="center"><img src="${baseUrl }images/main_14.gif" width="48" height="19"></div></td>
-                    <td width="50"><div align="center"><img src="${baseUrl }images/main_16.gif" width="48" height="19"></div></td>
-                    <td width="50"><div align="center"><img src="${baseUrl }images/main_18.gif" width="48" height="19"></div></td>
-                    <td width="50"><div align="center"><img id="logout" src="${baseUrl }images/main_20.gif" width="48" height="19"></div></td>
-                    <td width="26"><div align="center"><img src="${baseUrl }images/main_21.gif" width="26" height="19"></div></td>
-                    <td width="100"><div align="center"><img src="${baseUrl }images/main_22.gif" width="98" height="19"></div></td>
+                    <td width="50"><div align="center"><img id="logout" style="cursor: pointer;" src="${baseUrl }images/main_20.gif" width="48" height="19"></div></td>
                     <td width="100%" valign="bottom"><div align="center" class="STYLE1">欢迎您：<span style="">${manager.managerId }</span></div></td>
                     <td>&nbsp;</td>
                   </tr>

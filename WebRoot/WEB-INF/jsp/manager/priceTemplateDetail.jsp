@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -52,43 +53,61 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯一价格：</td>
+						<td class="editLeftTd"><span></span>开始日期：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level1Cost" name="level1Cost" value="${priceTemplate.level1Cost }" />
+							<input class="Wdate" type="text" onClick="WdatePicker()" name="startDate" id="startDate" value="<gdcct:fld pattren="yyyy-MM-dd" longTime="${priceTemplate.startTimestamp }"></gdcct:fld>">
+						</td>
+						<td class="editLeftTd"><span></span>结束日期：</td>
+						<td class="editRightTd" width="250px">
+							<input class="Wdate" type="text" onClick="WdatePicker()" name="endDate" id="endDate" value="<gdcct:fld pattren="yyyy-MM-dd" longTime="${priceTemplate.endTimestamp }"></gdcct:fld>">
+						</td>
+					</tr>
+					<tr class="editTr">
+						<td class="editLeftTd"><span></span>阶梯一价格（元）：</td>
+						<td class="editRightTd" width="250px">
+							<input type="text" id="level1Cost" name="level1Cost" value="<gdcct:price longPrice="${priceTemplate.level1Cost }" scale="4" ></gdcct:price>" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！" />
+							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯一最大值：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level1Num" name="level1Num" value="${priceTemplate.level1Num }" />
+							<input type="text" id="level1Num" name="level1Num" value="${priceTemplate.level1Num }" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！" />
+							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯二价格：</td>
+						<td class="editLeftTd"><span></span>阶梯二价格（元）：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level2Cost" name="level2Cost" value="${priceTemplate.level2Cost }" />
+							<input type="text" id="level2Cost" name="level2Cost" value="<gdcct:price longPrice="${priceTemplate.level2Cost }" scale="4" ></gdcct:price>" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！"/>
+							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯二最大值：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level2Num" name="level2Num" value="${priceTemplate.level2Num }" />
+							<input type="text" id="level2Num" name="level2Num" value="${priceTemplate.level2Num }" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！"/>
+							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯三价格：</td>
+						<td class="editLeftTd"><span></span>阶梯三价格（元）：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level3Cost" name="level3Cost" value="${priceTemplate.level3Cost }" />
+							<input type="text" id="level3Cost" name="level3Cost" value="<gdcct:price longPrice="${priceTemplate.level3Cost }" scale="4" ></gdcct:price>" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！"/>
+							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯三最大值：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level3Num" name="level3Num" value="${priceTemplate.level3Num }" />
+							<input type="text" id="level3Num" name="level3Num" value="${priceTemplate.level3Num }" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！"/>
+							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯四价格：</td>
+						<td class="editLeftTd"><span></span>阶梯四价格（元）：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level4Cost" name="level4Cost" value="${priceTemplate.level4Cost }" />
+							<input type="text" id="level4Cost" name="level4Cost" value="<gdcct:price longPrice="${priceTemplate.level4Cost }" scale="4" ></gdcct:price>" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！"/>
+							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯四最大值：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level4Num" name="level4Num" value="${priceTemplate.level4Num }" />
+							<input type="text" id="level4Num" name="level4Num" value="${priceTemplate.level4Num }" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" ignore="ignore" errormsg="请输入正数字！"/>
+							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
@@ -109,6 +128,7 @@
 	
 <script src="${baseUrl }js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="${baseUrl }js/Validform_v5.3.2/Validform_v5.3.2_min.js"></script>
+<script src="${baseUrl }js/datePicker/WdatePicker.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
 	if('${param.message}' != ''){

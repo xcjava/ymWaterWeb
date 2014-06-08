@@ -148,7 +148,11 @@ $(function(){
         <td><div>${waterCustomer.userId }</div></td>
         <td><div>${waterCustomer.userName }</div></td>
         <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${waterCustomer.openTimestamp }"></gdcct:fld></div></td>
-        <td><div>${waterCustomer.chargingUnitId }</div></td>
+        <td><div>
+        	<c:forEach items="${mapList }" var="map">
+        		<c:if test="${map.customerId == waterCustomer.customerId }">${map.chargingUnit }</c:if>
+        	</c:forEach>
+        </div></td>
         <td><div>${waterCustomer.waterNature }</div></td>
         <td><div><a target="main" href="${baseUrl }archives/waterCustomerTab.jspx?customerId=${waterCustomer.customerId }">修改</a></div></td>
       </tr>

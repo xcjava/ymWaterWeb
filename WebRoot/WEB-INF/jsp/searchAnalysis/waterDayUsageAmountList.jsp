@@ -26,16 +26,31 @@ $(function(){
 		}
 		flag = !flag;
 	});
-	$.getJSON("${baseUrl }common/getChargingUnitListAjax.jspx", function(data){
-		  	var options = $('#unitId')[0].options;
-			options.length = 0;
-			options.add(new Option("-请选择-",""));
-			$.each(data,function(item,i){
-				var itemOption = new Option(item.name,item.unitId);
-				options.add(itemOption);
-			});
-			$('#unitId').value = '${unitId}';
-	});
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${unitId }');
 	$('#btnSubmit').click(function(){
 		$('#searchForm').submit();
 	});
@@ -43,7 +58,7 @@ $(function(){
 </script>
 </head>
 
-<body style="min-width: 1100px;">
+<body style="min-width: 2500px;">
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
@@ -60,7 +75,8 @@ $(function(){
 				      <tr>
 				        <td>收费单位：</td>
 				        <td>
-				        	<select id="unitId" name="unitId">
+				        	<select id="chargingUnitSel" name="unitId">
+								<option></option>
 							</select>
 						</td>
 				        <td>集中器编号：</td>

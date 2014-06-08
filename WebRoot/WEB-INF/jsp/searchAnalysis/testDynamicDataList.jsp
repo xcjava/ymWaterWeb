@@ -26,16 +26,31 @@ $(function(){
 		}
 		flag = !flag;
 	});
-	$.getJSON("${baseUrl }common/getChargingUnitListAjax.jspx", function(data){
-		  	var options = $('#unitId')[0].options;
-			options.length = 0;
-			options.add(new Option("-请选择-",""));
-			$.each(data,function(item,i){
-				var itemOption = new Option(item.name,item.unitId);
-				options.add(itemOption);
-			});
-			$('#unitId').value = '${unitId}';
-	});
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${unitId }');
 	$('#btnSubmit').click(function(){
 		$('#searchForm').submit();
 	});
@@ -60,7 +75,8 @@ $(function(){
 				      <tr>
 				        <td>收费单位：</td>
 				        <td>
-				        	<select id="unitId" name="unitId">
+				        	<select id="chargingUnitSel" name="unitId">
+								<option></option>
 							</select>
 						</td>
 				        <td>集中器编号：</td>
@@ -94,7 +110,6 @@ $(function(){
         <td width=""><div><span>数据答应</span></div></td>
         <td width=""><div><span>阀门状态</span></div></td>
         <td width=""><div><span>集中器抄表时间</span></div></td>
-        <td width=""><div><span>操作</span></div></td>
       </tr>
       <c:if test="${not empty list}">
       <c:forEach var="item"  items="${list }" varStatus="vs">
@@ -129,7 +144,6 @@ $(function(){
         <c:if test="${item.valveStatus==00}">未知</c:if>
         </div></td>
         <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${item.createTimestamp}"></gdcct:fld></div></td>
-        <td><div><a href="#">修改</a> | <a href="#">查看</a></div></td>
       </tr>
       </c:forEach>
       </c:if>

@@ -134,7 +134,7 @@ $(function(){
         <td><div>${item.address}</div></td>
         <td><div>
         	<c:forEach items="${mapList }" var="map">
-        		<c:if test="${map.chargingUnit.unitId == item.chargingUnitId }">${map.chargingUnit.name }</c:if>
+        		<c:if test="${map.hardwareId == item.hardwareId }">${map.chargingUnit }</c:if>
         	</c:forEach>
         </div></td>
         <td><div>${item.collectionAddress}</div></td>

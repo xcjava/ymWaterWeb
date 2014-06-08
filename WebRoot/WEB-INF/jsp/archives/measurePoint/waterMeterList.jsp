@@ -145,7 +145,11 @@ $(function(){
         <td><div>${waterMeter.userId }</div></td>
         <td><div>${waterMeter.userName }</div></td>
         <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${waterMeter.createTimestamp }"></gdcct:fld></div></td>
-        <td><div>${waterMeter.chargingUnitId }</div></td>
+        <td><div>
+        	<c:forEach items="${mapList }" var="map">
+        		<c:if test="${map.hardwareId == waterMeter.hardwareId }">${map.chargingUnit }</c:if>
+        	</c:forEach>
+        </div></td>
         <td><div><a target="main" href="${baseUrl }archives/waterMeterDetail.jspx?hardwareId=${waterMeter.hardwareId }&type=${type}">修改</a></div></td>
       </tr>
       </c:forEach>

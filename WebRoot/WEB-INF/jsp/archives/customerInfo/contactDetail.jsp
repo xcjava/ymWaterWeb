@@ -61,7 +61,7 @@
 								<option value="2">女</option>
 							</select>
 						</td>
-						<td class="editLeftTd"><span></span>部门编号(客户部门有疑惑?)：</td>
+						<td class="editLeftTd"><span></span>部门编号：</td>
 						<td class="editRightTd" width="250px">
 							<input type="text" id="departmentId" name="contact.departmentId" value="" />
 						</td>

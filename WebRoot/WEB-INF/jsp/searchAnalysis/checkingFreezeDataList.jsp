@@ -26,24 +26,42 @@ $(function(){
 		}
 		flag = !flag;
 	});
-	$.getJSON("${baseUrl }common/getChargingUnitListAjax.jspx", function(data){
-		  	var options = $('#unitId')[0].options;
-			options.length = 0;
-			options.add(new Option("-请选择-",""));
-			$.each(data,function(item,i){
-				var itemOption = new Option(item.name,item.unitId);
-				options.add(itemOption);
-			});
-			$('#unitId').value = '${unitId}';
-	});
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
+		$.ajax({
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
+			type:'get',
+			data:{},
+			dataType:'json',
+			success:function(response){
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
+			},
+			error:function(response){
+				alert("服务忙，请重试。");
+			}
+		});
+	}
+	loadChargingUnit('${unitId }');
 	$('#btnSubmit').click(function(){
 		$('#searchForm').submit();
 	});
+	if('${message}' != ''){
+		alert('${message}');
+	}
 });
 </script>
 </head>
 
-<body style="min-width: 1100px;">
+<body style="min-width: 2600px;">
 	<table class="position" border="0" cellSpacing="0" cellPadding="0" width="100%" align="center">
 		<tbody>
 			<tr class="position">
@@ -60,7 +78,8 @@ $(function(){
 				      <tr>
 				        <td>收费单位：</td>
 				        <td>
-				        	<select id="unitId" name="unitId">
+				        	<select id="chargingUnitSel" name="unitId">
+								<option></option>
 							</select>
 						</td>
 				        <td>集中器编号：</td>
@@ -91,37 +110,37 @@ $(function(){
         <td width=""><div><span>集中器编号</span></div></td>
         <td width=""><div><span>表号</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
-        <td width=""><div><span>1日表码</span></div></td>
-        <td width=""><div><span>2日表码</span></div></td>
-        <td width=""><div><span>3日表码</span></div></td>
-        <td width=""><div><span>4日表码</span></div></td>
-        <td width=""><div><span>5日表码</span></div></td>
-        <td width=""><div><span>6日表码</span></div></td>
-        <td width=""><div><span>7日表码</span></div></td>
-        <td width=""><div><span>8日表码</span></div></td>
-        <td width=""><div><span>9日表码</span></div></td>
-        <td width=""><div><span>10日表码</span></div></td>
-        <td width=""><div><span>11日表码</span></div></td>
-        <td width=""><div><span>12日表码</span></div></td>
-        <td width=""><div><span>13日表码</span></div></td>
-        <td width=""><div><span>14日表码</span></div></td>
-        <td width=""><div><span>15日表码</span></div></td>
-        <td width=""><div><span>16日表码</span></div></td>
-        <td width=""><div><span>17日表码</span></div></td>
-        <td width=""><div><span>18日表码</span></div></td>
-        <td width=""><div><span>19日表码</span></div></td>
-        <td width=""><div><span>20日表码</span></div></td>
-        <td width=""><div><span>21日表码</span></div></td>
-        <td width=""><div><span>22日表码</span></div></td>
-        <td width=""><div><span>23日表码</span></div></td>
-        <td width=""><div><span>24日表码</span></div></td>
-        <td width=""><div><span>25日表码</span></div></td>
-        <td width=""><div><span>26日表码</span></div></td>
-        <td width=""><div><span>27日表码</span></div></td>
-        <td width=""><div><span>28日表码</span></div></td>
-        <td width=""><div><span>29日表码</span></div></td>
-        <td width=""><div><span>30日表码</span></div></td>
-        <td width=""><div><span>31日表码</span></div></td>
+        <td width=""><div><span>1日表计读数</span></div></td>
+        <td width=""><div><span>2日表计读数</span></div></td>
+        <td width=""><div><span>3日表计读数</span></div></td>
+        <td width=""><div><span>4日表计读数</span></div></td>
+        <td width=""><div><span>5日表计读数</span></div></td>
+        <td width=""><div><span>6日表计读数</span></div></td>
+        <td width=""><div><span>7日表计读数</span></div></td>
+        <td width=""><div><span>8日表计读数</span></div></td>
+        <td width=""><div><span>9日表计读数</span></div></td>
+        <td width=""><div><span>10日表计读数</span></div></td>
+        <td width=""><div><span>11日表计读数</span></div></td>
+        <td width=""><div><span>12日表计读数</span></div></td>
+        <td width=""><div><span>13日表计读数</span></div></td>
+        <td width=""><div><span>14日表计读数</span></div></td>
+        <td width=""><div><span>15日表计读数</span></div></td>
+        <td width=""><div><span>16日表计读数</span></div></td>
+        <td width=""><div><span>17日表计读数</span></div></td>
+        <td width=""><div><span>18日表计读数</span></div></td>
+        <td width=""><div><span>19日表计读数</span></div></td>
+        <td width=""><div><span>20日表计读数</span></div></td>
+        <td width=""><div><span>21日表计读数</span></div></td>
+        <td width=""><div><span>22日表计读数</span></div></td>
+        <td width=""><div><span>23日表计读数</span></div></td>
+        <td width=""><div><span>24日表计读数</span></div></td>
+        <td width=""><div><span>25日表计读数</span></div></td>
+        <td width=""><div><span>26日表计读数</span></div></td>
+        <td width=""><div><span>27日表计读数</span></div></td>
+        <td width=""><div><span>28日表计读数</span></div></td>
+        <td width=""><div><span>29日表计读数</span></div></td>
+        <td width=""><div><span>30日表计读数</span></div></td>
+        <td width=""><div><span>31日表计读数</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
       <c:if test="${not empty list}">
@@ -164,11 +183,10 @@ $(function(){
         <td><div>${item.meterReading29}</div></td>
         <td><div>${item.meterReading30}</div></td>
         <td><div>${item.meterReading31}</div></td>
-        <td><div><a href="${baseUrl }searchAnalysis/checkingFreezeDataDetail.jspx?id=${item.id}">详细</a></div></td>
+        <td><div><a href="${baseUrl }searchAnalysis/checkingFreezeDataDetail.jspx?id=${item.id}">修改审核数据</a></div></td>
       </tr>
       </c:forEach>
       </c:if>
-      
 	 	<tr class="listFooterTr">
 		<td colSpan=40>
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }searchAnalysis/checkingFreezeDataList.jspx" pageDynamicURLFormat="${baseUrl }searchAnalysis/checkingFreezeDataList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>

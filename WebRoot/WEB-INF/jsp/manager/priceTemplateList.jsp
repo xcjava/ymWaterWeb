@@ -111,13 +111,13 @@ $(function(){
         <td width=""><div><span>开始日期</span></div></td>
         <td width=""><div><span>结束日期</span></div></td>
         <td width=""><div><span>结算周期</span></div></td>
-        <td width=""><div><span>阶梯一水价</span></div></td>
+        <td width=""><div><span>阶梯一水价(分)</span></div></td>
         <td width=""><div><span>阶梯一最大值</span></div></td>
-        <td width=""><div><span>阶梯二水价</span></div></td>
+        <td width=""><div><span>阶梯二水价(分)</span></div></td>
         <td width=""><div><span>阶梯二最大值</span></div></td>
-        <td width=""><div><span>阶梯三水价</span></div></td>
+        <td width=""><div><span>阶梯三水价(分)</span></div></td>
         <td width=""><div><span>阶梯三最大值</span></div></td>
-        <td width=""><div><span>阶梯四水价</span></div></td>
+        <td width=""><div><span>阶梯四水价(分)</span></div></td>
         <td width=""><div><span>阶梯四最大值</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>
@@ -127,16 +127,16 @@ $(function(){
         <td><div>${priceTemplate.id }</div></td>
         <td><div>${priceTemplate.name }</div></td>
         <td><div>${priceTemplate.type }</div></td>
-        <td><div>${priceTemplate.startTimestamp }</div></td>
-        <td><div>${priceTemplate.endTimestamp }</div></td>
+        <td><div><gdcct:fld pattren="yyyy-MM-dd" longTime="${priceTemplate.startTimestamp }"></gdcct:fld></div></td>
+        <td><div><gdcct:fld pattren="yyyy-MM-dd" longTime="${priceTemplate.endTimestamp }"></gdcct:fld></div></td>
         <td><div>${priceTemplate.billingPeriod }</div></td>
-        <td><div>${priceTemplate.level1Cost }</div></td>
+        <td><div><gdcct:price longPrice="${priceTemplate.level1Cost }" ></gdcct:price></div></td>
         <td><div>${priceTemplate.level1Num }</div></td>
-        <td><div>${priceTemplate.level2Cost }</div></td>
+        <td><div><gdcct:price longPrice="${priceTemplate.level2Cost }" ></gdcct:price></div></td>
         <td><div>${priceTemplate.level2Num }</div></td>
-        <td><div>${priceTemplate.level3Cost }</div></td>
+        <td><div><gdcct:price longPrice="${priceTemplate.level3Cost }" ></gdcct:price></div></td>
         <td><div>${priceTemplate.level3Num }</div></td>
-        <td><div>${priceTemplate.level4Cost }</div></td>
+        <td><div><gdcct:price longPrice="${priceTemplate.level4Cost }" ></gdcct:price></div></td>
         <td><div>${priceTemplate.level4Num }</div></td>
         <td><div><a href="${baseUrl }manager/priceTemplateDetail.jspx?id=${priceTemplate.id }">修改</a></div></td>
       </tr>

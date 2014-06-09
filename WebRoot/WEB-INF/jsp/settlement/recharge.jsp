@@ -39,9 +39,9 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>充值金额<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>充值金额（分）<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="price" name="price" value="" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="price" name="price" datatype="/^\d{1,9}$/" nullmsg="请输入信息！" errormsg="请输入正整数！"/>
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

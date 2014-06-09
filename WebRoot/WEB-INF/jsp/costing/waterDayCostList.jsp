@@ -187,37 +187,37 @@ $(function(){
         	<c:if test="${waterDayCost.checkPayStatus == -1}">未检查</c:if>
         </div></td>
         <td><div>${waterDayCost.chargingUnitId }</div></td>
-        <td><div>${waterDayCost.cost1 }</div></td>
-        <td><div>${waterDayCost.cost2 }</div></td>
-        <td><div>${waterDayCost.cost3 }</div></td>
-        <td><div>${waterDayCost.cost4 }</div></td>
-        <td><div>${waterDayCost.cost5 }</div></td>
-        <td><div>${waterDayCost.cost6 }</div></td>
-        <td><div>${waterDayCost.cost7 }</div></td>
-        <td><div>${waterDayCost.cost8 }</div></td>
-        <td><div>${waterDayCost.cost9 }</div></td>
-        <td><div>${waterDayCost.cost10 }</div></td>
-        <td><div>${waterDayCost.cost11 }</div></td>
-        <td><div>${waterDayCost.cost12 }</div></td>
-        <td><div>${waterDayCost.cost13 }</div></td>
-        <td><div>${waterDayCost.cost14 }</div></td>
-        <td><div>${waterDayCost.cost15 }</div></td>
-        <td><div>${waterDayCost.cost16 }</div></td>
-        <td><div>${waterDayCost.cost17 }</div></td>
-        <td><div>${waterDayCost.cost18 }</div></td>
-        <td><div>${waterDayCost.cost19 }</div></td>
-        <td><div>${waterDayCost.cost20 }</div></td>
-        <td><div>${waterDayCost.cost21 }</div></td>
-        <td><div>${waterDayCost.cost22 }</div></td>
-        <td><div>${waterDayCost.cost23 }</div></td>
-        <td><div>${waterDayCost.cost24 }</div></td>
-        <td><div>${waterDayCost.cost25 }</div></td>
-        <td><div>${waterDayCost.cost26 }</div></td>
-        <td><div>${waterDayCost.cost27 }</div></td>
-        <td><div>${waterDayCost.cost28 }</div></td>
-        <td><div>${waterDayCost.cost29 }</div></td>
-        <td><div>${waterDayCost.cost30 }</div></td>
-        <td><div>${waterDayCost.cost31 }</div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost1 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost2 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost3 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost4 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost5 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost6 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost7 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost8 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost9 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost10 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost11 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost12 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost13 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost14 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost15 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost16 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost17 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost18 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost19 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost20 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost21 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost22 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost23 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost24 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost25 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost25 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost27 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost28 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost29 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost30 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost31 }" ></gdcct:price></div></td>
         <td><div>${waterDayCost.totalCost }</div></td>
         <td><div>${waterDayCost.freezeYear }</div></td>
         <td><div>${waterDayCost.freezeMonth }</div></td>

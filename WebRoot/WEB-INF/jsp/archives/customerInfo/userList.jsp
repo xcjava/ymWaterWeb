@@ -136,6 +136,7 @@ $(function(){
         <td width=""><div><span>客户ID</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
         <td width=""><div><span>客户姓名</span></div></td>
+        <td width=""><div><span>余额</span></div></td>
         <td width=""><div><span>产业分类</span></div></td>
         <td width=""><div><span>经济类型</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
@@ -147,6 +148,11 @@ $(function(){
         <td><div>${user.id }</div></td>
         <td><div>${user.userId }</div></td>
         <td><div>${user.name }</div></td>
+        <td><div>
+        	<c:forEach items="${mapList }" var="map">
+        		<c:if test="${map.userId == user.id }">${map.userWallet }</c:if>
+        	</c:forEach>
+        </div></td>
         <td><div>${user.industrial }</div></td>
         <td><div>${user.economicType }</div></td>
         <td><div>
@@ -158,7 +164,7 @@ $(function(){
       </tr>
       </c:forEach>
 	  <tr class="listFooterTr">
-	  	<td colSpan="9">
+	  	<td colSpan="10">
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }archives/userList.jspx" pageDynamicURLFormat="${baseUrl }archives/userList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 	  </tr>      

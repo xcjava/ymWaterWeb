@@ -87,7 +87,6 @@ $(function(){
 				        <td>
 				        	<input class="textbox" id="userId" style="width: 120px" name="userId" value="${userId }" />
 				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
-				      		<input class="button" id="" type="button" value="导出" name="">
 				      		<input class="button" id="recharge" type="button" value="充值" >
 				      		<input class="button" id="deduction" type="button" value="减费" >
 				        </td>
@@ -106,7 +105,7 @@ $(function(){
         <td width=""><div><span>客户姓名</span></div></td>
         <td width=""><div><span>产业分类</span></div></td>
         <td width=""><div><span>经济类型</span></div></td>
-        <td width=""><div><span>余额</span></div></td>
+        <td width=""><div><span>余额(分)</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
       </tr>
       <c:forEach var="user" items="${list }">
@@ -117,8 +116,16 @@ $(function(){
         <td><div>${user.name }</div></td>
         <td><div>${user.industrial }</div></td>
         <td><div>${user.economicType }</div></td>
-        <td><div><a href="javascript:void(0);" id="searchBlance${user.id }">查询余额</a></div></td>
-        <td><div>${user.chargingUnitId }</div></td>
+        <td><div>
+        	<c:forEach items="${mapList }" var="map">
+        		<c:if test="${map.userId == user.id }">${map.userWallet }</c:if>
+        	</c:forEach>
+        </div></td>
+        <td><div>
+        	<c:forEach items="${mapList }" var="map">
+        		<c:if test="${map.userId == user.id }">${map.chargingUnit }</c:if>
+        	</c:forEach>
+        </div></td>
       </tr>
       </c:forEach>
 	  <tr class="listFooterTr">

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="gdcct" uri="http://www.xiaocong.net/gdcct/tags"%>
 <jsp:include page="/WEB-INF/jsp/common/domain.jsp"></jsp:include>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -40,9 +41,9 @@
 							<input type="text" id="user.name" name="user.name" value="${user.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>告警余额<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>告警余额(分)<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="user.warnPrice" name="user.warnPrice" value="${user.warnPrice }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
+							<input type="text" id="user.warnPrice" name="user.warnPrice" value="<gdcct:price longPrice="${user.warnPrice }" ></gdcct:price>" datatype="/^\d{1,16}$/" nullmsg="请输入信息！" errormsg="请输入正整数！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

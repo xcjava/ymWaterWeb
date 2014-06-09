@@ -144,14 +144,14 @@
 					<tr class="editTr">
 						<td class="editLeftTd">初始表码<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px"  colspan="3">
-							<input type="text" id="initialYards" name="waterMeter.initialYards" value="${waterMeter.initialYards }" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" nullmsg="请输入信息！" errormsg="请输入正数！" />
+							<input type="text" id="initialYards" name="waterMeter.initialYards" value="${waterMeter.initialYards }" datatype="/^\d{1,9}\.{0,1}(\d*)?$/" nullmsg="请输入信息！" errormsg="请输入正数！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>水价<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>适用水价、当前水价（分）<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<input type="text" id="price" name="waterMeter.price" value="${waterMeter.price }" ignore="ignore" datatype="/^\d{0,8}\.{0,1}(\d*)?$/"  errormsg="请输入正数！" />
+							<input type="text" id="price" name="waterMeter.price" ignore="ignore" value="<gdcct:price longPrice="${waterMeter.price }" ></gdcct:price>" datatype="/^\d{1,16}$/" errormsg="请输入正整数！" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

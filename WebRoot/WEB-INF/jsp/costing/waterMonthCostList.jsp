@@ -138,18 +138,18 @@ $(function(){
         <td><div>${waterMonthCost.concHardwareId }</div></td>
         <td><div>${waterMonthCost.meterHardwareId }</div></td>
         <td><div>${waterMonthCost.chargingUnitId }</div></td>
-        <td><div>${waterMonthCost.cost1 }</div></td>
-        <td><div>${waterMonthCost.cost2 }</div></td>
-        <td><div>${waterMonthCost.cost3 }</div></td>
-        <td><div>${waterMonthCost.cost4 }</div></td>
-        <td><div>${waterMonthCost.cost5 }</div></td>
-        <td><div>${waterMonthCost.cost6 }</div></td>
-        <td><div>${waterMonthCost.cost7 }</div></td>
-        <td><div>${waterMonthCost.cost8 }</div></td>
-        <td><div>${waterMonthCost.cost9 }</div></td>
-        <td><div>${waterMonthCost.cost10 }</div></td>
-        <td><div>${waterMonthCost.cost11 }</div></td>
-        <td><div>${waterMonthCost.cost12 }</div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost1 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost2 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost3 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost4 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost5 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost6 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost7 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost8 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost9 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost10 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost11 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterMonthCost.cost12 }" ></gdcct:price></div></td>
         <td><div>${waterMonthCost.freezeYear }</div></td>
         <td><div><gdcct:fld pattren="yyyy-MM-dd" longTime="${waterMonthCost.createTimestamp }"></gdcct:fld></div></td>
       </tr>

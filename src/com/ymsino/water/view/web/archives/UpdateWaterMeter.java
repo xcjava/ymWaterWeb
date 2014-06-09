@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterModifyParam;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterReturn;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterService;
+import com.ymsino.water.view.web.common.Arith;
 
 public class UpdateWaterMeter extends ActionSupport {
 	
@@ -31,6 +32,9 @@ public class UpdateWaterMeter extends ActionSupport {
 			if(waterMeterReturn == null){
 				message = "水表不存在！";
 				return SUCCESS;
+			}
+			if(waterMeter.getPrice() != null){
+				waterMeter.setPrice(Long.valueOf(Arith.mul(String.valueOf(waterMeter.getPrice()),"100")));
 			}
 			waterMeter.setHardwareId(hardwareId);
 			waterMeterService.modify(waterMeter);

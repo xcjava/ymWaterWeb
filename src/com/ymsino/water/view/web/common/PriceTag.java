@@ -4,10 +4,10 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 /**
- * 价格毫转成元
+ * 价格毫转成分
  * 参数说明
  * longPrice					必要参数，以分为单位的long型价格；
- * scale						保留小数位，默认保留4位；
+ * scale						保留小数位，默认保留0位；
  * 例：<gdcct:price longPrice="${goodsSpec.price }" scale="4" ></gdcct:price>
  * @author xuyongbin 2014-6-8
  *
@@ -17,7 +17,7 @@ public class PriceTag extends TagSupport {
 	private static final long serialVersionUID = 1L;
 
 	private Long longPrice;
-	private int scale = 2;
+	private int scale = 0;
 
 
 	public int getScale() {
@@ -44,7 +44,7 @@ public class PriceTag extends TagSupport {
 			if (longPrice == null) {
 				out.print("");
 			}else{
-				out.print(Arith.div(longPrice, 10000, scale));
+				out.print(Arith.div(String.valueOf(longPrice), "100", scale));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

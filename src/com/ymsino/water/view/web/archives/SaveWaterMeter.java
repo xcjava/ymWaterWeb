@@ -12,6 +12,7 @@ import com.ymsino.water.service.archives.waterMeter.QueryParam;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterReturn;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterSaveParam;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterService;
+import com.ymsino.water.view.web.common.Arith;
 
 public class SaveWaterMeter extends ActionSupport {
 	
@@ -51,12 +52,16 @@ public class SaveWaterMeter extends ActionSupport {
 				message = "该用水用户已经创建过此类型的水表，请选择其他用水用户！";
 				return SUCCESS;
 			}
+			if(waterMeter.getPrice() != null){
+				waterMeter.setPrice(Long.valueOf(Arith.mul(String.valueOf(waterMeter.getPrice()),"100")));
+			}
 			waterMeter.setHardwareId(hardwareId);
 			waterMeter.setType(Short.valueOf(type));
 			waterMeterService.save(waterMeter);
 			message = "添加成功！";
 		} catch (Exception e) {
 			message = e.getMessage();
+			e.printStackTrace();
 		}
 		return SUCCESS;
 	}

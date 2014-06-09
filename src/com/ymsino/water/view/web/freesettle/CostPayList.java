@@ -1,4 +1,4 @@
-package com.ymsino.water.view.web.archives;
+package com.ymsino.water.view.web.freesettle;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import com.ymsino.water.service.manager.chargingUnit.ChargingUnitService;
 import com.ymsino.water.view.web.common.Arith;
 import com.ymsino.water.view.web.common.PageModel;
 
-public class UserList extends ActionSupport {
+public class CostPayList extends ActionSupport {
 
 
 	private static final long serialVersionUID = 6970850564906342550L;

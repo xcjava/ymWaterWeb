@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.concentrator.ConcentratorModifyParam;
 import com.ymsino.water.service.archives.concentrator.ConcentratorReturn;
 import com.ymsino.water.service.archives.concentrator.ConcentratorService;
+import com.ymsino.water.view.web.common.Arith;
 
 public class UpdateConcentrator extends ActionSupport {
 	
@@ -41,6 +42,9 @@ public class UpdateConcentrator extends ActionSupport {
 			if(!StringUtil.isEmpty(channelStartDate)){
 				Long startTimestamp = DateUtil.parseDate(channelStartDate, "yyyy-MM-dd").getTime();
 				concentrator.setStartTimestamp(startTimestamp);
+			}
+			if(concentrator.getCommunicationCost() != null){
+				concentrator.setCommunicationCost(Long.valueOf(Arith.mul(String.valueOf(concentrator.getCommunicationCost()),"100")));
 			}
 			concentrator.setHardwareId(hardwareId);
 			concentratorService.modify(concentrator);

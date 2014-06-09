@@ -29,7 +29,7 @@ public class Reduction extends ActionSupport{
 				message = "金额不能为空！";
 				return SUCCESS;
 			}
-			userWalletService.deduction(Long.valueOf(id), Long.valueOf(Arith.mul(price,"10000")), sysRemark);
+			userWalletService.deduction(Long.valueOf(id), Long.valueOf(Arith.mul(price,"100")), sysRemark);
 			message = "减费成功！";
 		} catch (Exception e) {
 			message = e.getMessage();

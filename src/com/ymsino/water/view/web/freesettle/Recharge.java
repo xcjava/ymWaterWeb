@@ -29,7 +29,7 @@ public class Recharge extends ActionSupport{
 				message = "金额不能为空！";
 				return SUCCESS;
 			}
-			userWalletService.recharge(Long.valueOf(id), Long.valueOf(Arith.mul(price,"10000")), sysRemark);
+			userWalletService.recharge(Long.valueOf(id), Long.valueOf(Arith.mul(price,"100")), sysRemark);
 			message = "充值成功！";
 		} catch (Exception e) {
 			message = e.getMessage();

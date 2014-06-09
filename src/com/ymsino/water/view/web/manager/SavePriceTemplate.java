@@ -22,13 +22,13 @@ public class SavePriceTemplate extends ActionSupport {
 	private String name;
 	private String type;
 	private Float level1Num;//1阶最大值
-	private String level1Cost;//1阶价格，单位毫
+	private String level1Cost;//1阶价格，单位分（保存毫）
 	private Float level2Num;//1阶最大值
-	private String level2Cost;//1阶价格，单位毫
+	private String level2Cost;//1阶价格，单位分
 	private Float level3Num;//1阶最大值
-	private String level3Cost;//1阶价格，单位毫
+	private String level3Cost;//1阶价格，单位分
 	private Float level4Num;//1阶最大值
-	private String level4Cost;//1阶价格，单位毫
+	private String level4Cost;//1阶价格，单位分
 	private String billingPeriod;//结算周期
 	private String startDate;//开始日期
 	private String endDate;//结束日期
@@ -47,13 +47,13 @@ public class SavePriceTemplate extends ActionSupport {
 			priceTemplateSaveParam.setName(name);
 			priceTemplateSaveParam.setType(type);
 			priceTemplateSaveParam.setLevel1Num(level1Num);
-			priceTemplateSaveParam.setLevel1Cost(Long.valueOf(Arith.mul(level1Cost,"10000")));
+			priceTemplateSaveParam.setLevel1Cost(Long.valueOf(Arith.mul(level1Cost,"100")));
 			priceTemplateSaveParam.setLevel2Num(level2Num);
-			priceTemplateSaveParam.setLevel2Cost(Long.valueOf(Arith.mul(level2Cost,"10000")));
+			priceTemplateSaveParam.setLevel2Cost(Long.valueOf(Arith.mul(level2Cost,"100")));
 			priceTemplateSaveParam.setLevel3Num(level3Num);
-			priceTemplateSaveParam.setLevel3Cost(Long.valueOf(Arith.mul(level3Cost,"10000")));
+			priceTemplateSaveParam.setLevel3Cost(Long.valueOf(Arith.mul(level3Cost,"100")));
 			priceTemplateSaveParam.setLevel4Num(level4Num);
-			priceTemplateSaveParam.setLevel4Cost(Long.valueOf(Arith.mul(level4Cost,"10000")));
+			priceTemplateSaveParam.setLevel4Cost(Long.valueOf(Arith.mul(level4Cost,"100")));
 			priceTemplateSaveParam.setBillingPeriod(billingPeriod);
 			if(!StringUtil.isEmpty(startDate)){
 				priceTemplateSaveParam.setStartTimestamp(DateUtil.parseDate(startDate, "yyyy-MM-dd").getTime());

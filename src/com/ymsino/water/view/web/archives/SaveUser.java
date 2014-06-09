@@ -8,6 +8,7 @@ import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.user.UserSaveParam;
 import com.ymsino.water.service.archives.user.UserService;
+import com.ymsino.water.view.web.common.Arith;
 
 public class SaveUser extends ActionSupport {
 	
@@ -41,7 +42,9 @@ public class SaveUser extends ActionSupport {
 				Long credInvalidTimestamp = DateUtil.parseDate(credInvalidDate, "yyyy-MM-dd").getTime();
 				user.setCredInvalidTimestamp(credInvalidTimestamp);
 			}
-			
+			if(user.getWarnPrice() != null){
+				user.setWarnPrice(Long.valueOf(Arith.mul(String.valueOf(user.getWarnPrice()),"100")));
+			}
 			user.setUserId(userId);
 			id = userService.save(user);
 			message = "添加成功！";

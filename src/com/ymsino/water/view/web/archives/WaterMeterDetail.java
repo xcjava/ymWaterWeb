@@ -25,9 +25,11 @@ public class WaterMeterDetail extends ActionSupport{
 			return SUCCESS;
 		}
 		waterMeter = waterMeterService.getById(hardwareId);
-		WaterCustomerReturn waterCustomer = waterCustomerService.getById(waterMeter.getWaterCustomerId());
-		if(waterCustomer != null)
-			priceTemplateId = waterCustomer.getPriceTemplateId();
+		if(waterMeter != null){
+			WaterCustomerReturn waterCustomer = waterCustomerService.getById(waterMeter.getWaterCustomerId());
+			if(waterCustomer != null)
+				priceTemplateId = waterCustomer.getPriceTemplateId();
+		}
 		return SUCCESS;
 	}
 

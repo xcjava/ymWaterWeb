@@ -18,13 +18,13 @@ public class UpdatePriceTemplate extends ActionSupport {
 	private String name;
 	private String type;
 	private Float level1Num;//1阶最大值
-	private String level1Cost;//1阶价格，单位毫
+	private String level1Cost;//1阶价格，单位分
 	private Float level2Num;//1阶最大值
-	private String level2Cost;//1阶价格，单位毫
+	private String level2Cost;//1阶价格，单位分
 	private Float level3Num;//1阶最大值
-	private String level3Cost;//1阶价格，单位毫
+	private String level3Cost;//1阶价格，单位分
 	private Float level4Num;//1阶最大值
-	private String level4Cost;//1阶价格，单位毫
+	private String level4Cost;//1阶价格，单位分
 	private String billingPeriod;//结算周期
 	private String startDate;//开始日期
 	private String endDate;//结束日期
@@ -50,13 +50,13 @@ public class UpdatePriceTemplate extends ActionSupport {
 			priceTemplateModifyParam.setName(name);
 			priceTemplateModifyParam.setType(type);
 			priceTemplateModifyParam.setLevel1Num(level1Num);
-			priceTemplateModifyParam.setLevel1Cost(Long.valueOf(Arith.mul(level1Cost,"10000")));
+			priceTemplateModifyParam.setLevel1Cost(Long.valueOf(Arith.mul(level1Cost,"100")));
 			priceTemplateModifyParam.setLevel2Num(level2Num);
-			priceTemplateModifyParam.setLevel2Cost(Long.valueOf(Arith.mul(level2Cost,"10000")));
+			priceTemplateModifyParam.setLevel2Cost(Long.valueOf(Arith.mul(level2Cost,"100")));
 			priceTemplateModifyParam.setLevel3Num(level3Num);
-			priceTemplateModifyParam.setLevel3Cost(Long.valueOf(Arith.mul(level3Cost,"10000")));
+			priceTemplateModifyParam.setLevel3Cost(Long.valueOf(Arith.mul(level3Cost,"100")));
 			priceTemplateModifyParam.setLevel4Num(level4Num);
-			priceTemplateModifyParam.setLevel4Cost(Long.valueOf(Arith.mul(level4Cost,"10000")));
+			priceTemplateModifyParam.setLevel4Cost(Long.valueOf(Arith.mul(level4Cost,"100")));
 			priceTemplateModifyParam.setBillingPeriod(billingPeriod);
 			if(!StringUtil.isEmpty(startDate)){
 				priceTemplateModifyParam.setStartTimestamp(DateUtil.parseDate(startDate, "yyyy-MM-dd").getTime());

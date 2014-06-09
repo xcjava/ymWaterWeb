@@ -11,6 +11,7 @@ import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.concentrator.ConcentratorSaveParam;
 import com.ymsino.water.service.archives.concentrator.ConcentratorService;
+import com.ymsino.water.view.web.common.Arith;
 
 public class SaveConcentrator extends ActionSupport {
 	
@@ -50,6 +51,9 @@ public class SaveConcentrator extends ActionSupport {
 			if(concentratorService.getById(hardwareId) != null){
 				message = "集中器编号已存在！";
 				return "editError";
+			}
+			if(concentrator.getCommunicationCost() != null){
+				concentrator.setCommunicationCost(Long.valueOf(Arith.mul(String.valueOf(concentrator.getCommunicationCost()),"100")));
 			}
 			boolean flag = concentratorService.save(concentrator);
 			if(flag)

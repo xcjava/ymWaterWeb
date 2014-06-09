@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.user.UserModifyParam;
 import com.ymsino.water.service.archives.user.UserReturn;
 import com.ymsino.water.service.archives.user.UserService;
+import com.ymsino.water.view.web.common.Arith;
 
 public class UpdateUser extends ActionSupport {
 	
@@ -41,6 +42,9 @@ public class UpdateUser extends ActionSupport {
 			if(!StringUtil.isEmpty(credInvalidDate)){
 				Long credInvalidTimestamp = DateUtil.parseDate(credInvalidDate, "yyyy-MM-dd").getTime();
 				user.setCredInvalidTimestamp(credInvalidTimestamp);
+			}
+			if(user.getWarnPrice() != null){
+				user.setWarnPrice(Long.valueOf(Arith.mul(String.valueOf(user.getWarnPrice()),"100")));
 			}
 			user.setId(Long.valueOf(id));
 			userService.modify(user);

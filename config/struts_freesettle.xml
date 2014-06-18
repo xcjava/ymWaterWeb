@@ -25,7 +25,7 @@
 		</action>
 		
 		<!-- 客户充值列表 -->
-		<action name="costPayList" class="com.ymsino.water.view.web.archives.UserList">
+		<action name="costPayList" class="com.ymsino.water.view.web.freesettle.CostPayList">
 			<result name="success">/WEB-INF/jsp/settlement/costPayList.jsp</result>
 			<interceptor-ref name="adminInterceptor">
 				<param name="adminDefaultInterceptor.moduleCode">0013</param>

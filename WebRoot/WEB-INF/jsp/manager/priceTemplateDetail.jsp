@@ -122,7 +122,7 @@
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manager/priceTemplateList.jspx';"value="返 回">
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manage/priceTemplateList.jspx';"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -149,9 +149,9 @@ $(function(){
 		},
 		callback:function(form){
 			if('${priceTemplate.id }' == ''){
-				$(".registerform").attr('action','${baseUrl }manager/savePriceTemplate.jspx');
+				$(".registerform").attr('action','${baseUrl }manage/savePriceTemplate.jspx');
 			}else{
-				$(".registerform").attr('action','${baseUrl }manager/updatePriceTemplate.jspx');
+				$(".registerform").attr('action','${baseUrl }manage/updatePriceTemplate.jspx');
 			}
 			if(confirm("您确定要提交表单吗？")){
 				return true;

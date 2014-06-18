@@ -52,7 +52,7 @@
   </head>
   
   <body style="padding: 3px;">
-    <form action="${baseUrl }manager/updatePopedom.jspx?deptId=${deptId }" method="post" id="">
+    <form action="${baseUrl }manage/updatePopedom.jspx?deptId=${deptId }" method="post" id="">
     	<table class="editTable" border="0" cellspacing="1" cellpadding="0" width="100%" align="center">
     		<tbody>
     			<tr class="listHeaderTr">

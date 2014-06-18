@@ -76,7 +76,7 @@
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manager/chargingUnitList.jspx';"value="返 回">
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manage/chargingUnitList.jspx';"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -103,9 +103,9 @@ $(function(){
 		},
 		callback:function(form){
 			if('${chargingUnit.unitId }' == ''){
-				$(".registerform").attr('action','${baseUrl }manager/saveChargingUnit.jspx');
+				$(".registerform").attr('action','${baseUrl }manage/saveChargingUnit.jspx');
 			}else{
-				$(".registerform").attr('action','${baseUrl }manager/updateChargingUnit.jspx');
+				$(".registerform").attr('action','${baseUrl }manage/updateChargingUnit.jspx');
 			}
 			if(confirm("您确定要提交表单吗？")){
 				return true;

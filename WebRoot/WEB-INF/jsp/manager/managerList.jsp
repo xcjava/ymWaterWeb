@@ -26,7 +26,7 @@ $(function(){
         }
     });
 	$('#addManager').click(function(){
-		window.location = '${baseUrl }manager/managerDetail.jspx';
+		window.location = '${baseUrl }manage/managerDetail.jspx';
 	});
 	$('#status').val(${status});
 	$('#searchBtn').click(function(){
@@ -39,7 +39,7 @@ $(function(){
 			return false;
 		}
 		if(confirm('是否启用该部门？')){
-			window.location = '${baseUrl }manager/openManager.jspx?managerId='+managerId;
+			window.location = '${baseUrl }manage/openManager.jspx?managerId='+managerId;
 		}
 	});
 	$('#closeStatusBtn').click(function(){
@@ -49,7 +49,7 @@ $(function(){
 			return false;
 		}
 		if(confirm('是否禁用该部门？')){
-			window.location = '${baseUrl }manager/closeManager.jspx?managerId='+managerId;
+			window.location = '${baseUrl }manage/closeManager.jspx?managerId='+managerId;
 		}
 	});
 	
@@ -120,7 +120,7 @@ $(function(){
 	 		</tr>
 	 	</tbody>
 	</table>
-	<form action="${baseUrl }manager/managerList.jspx"  method="get" id="searchForm">
+	<form action="${baseUrl }manage/managerList.jspx"  method="get" id="searchForm">
 	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
@@ -187,12 +187,12 @@ $(function(){
         	<c:if test="${item.status == 1 }">启用</c:if>
         	<c:if test="${item.status == 0 }">新建</c:if></div>
         </td>
-        <td><div><a href="${baseUrl }manager/managerDetail.jspx?managerId=${item.managerId }">修改</a></div></td>
+        <td><div><a href="${baseUrl }manage/managerDetail.jspx?managerId=${item.managerId }">修改</a></div></td>
       </tr>
       </c:forEach>
 	 	<tr class="listFooterTr">
 		<td colSpan=7>
-	      <gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/managerList.jspx" pageDynamicURLFormat="${baseUrl }manager/managerList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+	      <gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manage/managerList.jspx" pageDynamicURLFormat="${baseUrl }manage/managerList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 		</tr>      
     </table>

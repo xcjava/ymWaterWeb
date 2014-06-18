@@ -25,7 +25,7 @@ $(function(){
         }
     });
 	$('#addDepartment').click(function(){
-		window.location = '${baseUrl }manager/departmentDetail.jspx';
+		window.location = '${baseUrl }manage/departmentDetail.jspx';
 	});
 	$('#status').val(${status});
 	$('#searchBtn').click(function(){
@@ -38,7 +38,7 @@ $(function(){
 			return false;
 		}
 		if(confirm('是否启用该部门？')){
-			window.location = '${baseUrl }manager/openDepartment.jspx?deptId='+deptId;
+			window.location = '${baseUrl }manage/openDepartment.jspx?deptId='+deptId;
 		}
 	});
 	$('#closeStatusBtn').click(function(){
@@ -48,7 +48,7 @@ $(function(){
 			return false;
 		}
 		if(confirm('是否禁用该部门？')){
-			window.location = '${baseUrl }manager/closeDepartment.jspx?deptId='+deptId;
+			window.location = '${baseUrl }manage/closeDepartment.jspx?deptId='+deptId;
 		}
 	});
 	
@@ -89,7 +89,7 @@ $(function(){
 	 		</tr>
 	 	</tbody>
 	</table>	
-	<form action="${baseUrl }manager/departmentList.jspx" method="get" id="searchForm">
+	<form action="${baseUrl }manage/departmentList.jspx" method="get" id="searchForm">
 	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
@@ -154,12 +154,12 @@ $(function(){
         	<c:if test="${department.status == 1 }">启用</c:if>
         	<c:if test="${department.status == -1 }">停用</c:if><div>
         </td>
-        <td><div><a href="${baseUrl }manager/departmentDetail.jspx?deptId=${department.deptId }">修改</a> | <a href="${baseUrl }manager/popedomList.jspx?deptId=${department.deptId }" target="_blank">权限</a></div></td>
+        <td><div><a href="${baseUrl }manage/departmentDetail.jspx?deptId=${department.deptId }">修改</a> | <a href="${baseUrl }manage/popedomList.jspx?deptId=${department.deptId }" target="_blank">权限</a></div></td>
       </tr>
       </c:forEach>
 	 	<tr class="listFooterTr">
 		<td colSpan=11>
-			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/departmentList.jspx" pageDynamicURLFormat="${baseUrl }manager/departmentList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manage/departmentList.jspx" pageDynamicURLFormat="${baseUrl }manage/departmentList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 		</tr>      
     </table>

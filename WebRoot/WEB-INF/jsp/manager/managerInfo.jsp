@@ -22,7 +22,7 @@
 	 	</tbody>
 	</table>
 	<div id="main">
-		<form class="registerform" method="post" action="${baseUrl }manager/updateManagerInfo.jspx">
+		<form class="registerform" method="post" action="${baseUrl }manage/updateManagerInfo.jspx">
 			<input type="hidden" name="managerId" value="${manager.managerId }" />
 			<table class="editTable" border="0" cellspacing="1" cellpadding="10" width="100%" align="center">
 				<tbody>

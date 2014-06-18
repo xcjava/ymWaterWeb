@@ -40,12 +40,12 @@ $(function(){
         }
     });
 	$('#addChargingUnit').click(function(){
-		window.location = '${baseUrl }manager/chargingUnitDetail.jspx';
+		window.location = '${baseUrl }manage/chargingUnitDetail.jspx';
 	});
 	$('a[id^="foreverDel-"]').click(function(){
 		var unitId = $(this).attr('id').substring(11,$(this).attr('id').length);
 		if(confirm('是否永久删除该收费单位？')){
-			window.location = '${baseUrl }manager/deleteChargingUnit.jspx?unitId='+unitId;
+			window.location = '${baseUrl }manage/deleteChargingUnit.jspx?unitId='+unitId;
 		}
 	});
 	$('#status').val(${status});
@@ -59,7 +59,7 @@ $(function(){
 			return false;
 		}
 		if(confirm('是否启用该收费单位？')){
-			window.location = '${baseUrl }manager/openChargingUnit.jspx?unitId='+unitId;
+			window.location = '${baseUrl }manage/openChargingUnit.jspx?unitId='+unitId;
 		}
 	});
 	$('#closeStatusBtn').click(function(){
@@ -69,7 +69,7 @@ $(function(){
 			return false;
 		}
 		if(confirm('是否禁用该收费单位？')){
-			window.location = '${baseUrl }manager/closeChargingUnit.jspx?unitId='+unitId;
+			window.location = '${baseUrl }manage/closeChargingUnit.jspx?unitId='+unitId;
 		}
 	});
 	
@@ -110,7 +110,7 @@ $(function(){
 	 		</tr>
 	 	</tbody>
 	</table>
-	<form action="${baseUrl }manager/chargingUnitList.jspx" method="get" id="searchForm">
+	<form action="${baseUrl }manage/chargingUnitList.jspx" method="get" id="searchForm">
 	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
@@ -176,12 +176,12 @@ $(function(){
         	<c:if test="${chargingUni.status == 1 }">启用</c:if>
         	<c:if test="${chargingUni.status == -1 }">停用</c:if><div>
         </td>
-        <td><div><a href="${baseUrl }manager/chargingUnitDetail.jspx?unitId=${chargingUni.unitId }">修改</a><c:if test="${chargingUni.status == 0 }"> | <a href="#" id="foreverDel-${chargingUni.unitId }">永久删除</a></c:if></div></td>
+        <td><div><a href="${baseUrl }manage/chargingUnitDetail.jspx?unitId=${chargingUni.unitId }">修改</a><c:if test="${chargingUni.status == 0 }"> | <a href="#" id="foreverDel-${chargingUni.unitId }">永久删除</a></c:if></div></td>
       </tr>
       </c:forEach>
 	 	<tr class="listFooterTr">
 		<td colSpan=10>
-			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/chargingUnitList.jspx?name=${urlName }&status=${status }" pageDynamicURLFormat="${baseUrl }manager/chargingUnitList.jspx?pageIndex={0}&name=${urlName }&status=${status }" pageSize="${pageModel.pageSize}"></gdcct:pager>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manage/chargingUnitList.jspx?name=${urlName }&status=${status }" pageDynamicURLFormat="${baseUrl }manage/chargingUnitList.jspx?pageIndex={0}&name=${urlName }&status=${status }" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 		</tr>      
     </table>

@@ -85,7 +85,7 @@
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">
-				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manager/managerList.jspx';"value="返 回">
+				<input type="submit" value="保 存" /> <input type="reset" value="重 置" /><input type="button" onclick="javascript:window.location='${baseUrl}manage/managerList.jspx';"value="返 回">
 			</div>
 		</form>
 	</div>
@@ -108,9 +108,9 @@ $(function(){
 		},
 		callback:function(form){
 			if('${managerReturn.managerId }' == ''){
-				$(".registerform").attr('action','${baseUrl }manager/saveManager.jspx');
+				$(".registerform").attr('action','${baseUrl }manage/saveManager.jspx');
 			}else{
-				$(".registerform").attr('action','${baseUrl }manager/updateManager.jspx');
+				$(".registerform").attr('action','${baseUrl }manage/updateManager.jspx');
 			}
 			if(confirm("您确定要提交表单吗？")){
 				return true;

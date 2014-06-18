@@ -28,7 +28,7 @@ $(function(){
     });
 	
     $('#addPriceTemplate').click(function(){
-		window.location = '${baseUrl }manager/priceTemplateDetail.jspx';
+		window.location = '${baseUrl }manage/priceTemplateDetail.jspx';
 	});
     
 	$('#status').val(${status});
@@ -72,7 +72,7 @@ $(function(){
 	 		</tr>
 	 	</tbody>
 	</table>
-	<form action="${baseUrl }manager/priceTemplateList.jspx" method="get" id="searchForm">
+	<form action="${baseUrl }manage/priceTemplateList.jspx" method="get" id="searchForm">
 	<input type="hidden" id="dataId" value="" />
 	<table width="100%" border="0" align="" cellpadding="0" cellspacing="0">
 		<tr><td>
@@ -138,12 +138,12 @@ $(function(){
         <td><div>${priceTemplate.level3Num }</div></td>
         <td><div><gdcct:price longPrice="${priceTemplate.level4Cost }" ></gdcct:price></div></td>
         <td><div>${priceTemplate.level4Num }</div></td>
-        <td><div><a href="${baseUrl }manager/priceTemplateDetail.jspx?id=${priceTemplate.id }">修改</a></div></td>
+        <td><div><a href="${baseUrl }manage/priceTemplateDetail.jspx?id=${priceTemplate.id }">修改</a></div></td>
       </tr>
       </c:forEach>
 	 	<tr class="listFooterTr">
 		<td colSpan="16">
-			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manager/priceTemplateList.jspx" pageDynamicURLFormat="${baseUrl }manager/priceTemplateList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
+			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }manage/priceTemplateList.jspx" pageDynamicURLFormat="${baseUrl }manage/priceTemplateList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 		</tr>      
     </table>

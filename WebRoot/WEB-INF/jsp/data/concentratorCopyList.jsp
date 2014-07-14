@@ -379,7 +379,7 @@ $(function(){
 	</table>	
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
-        <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
+        <td width=""><div align="center"></div></td>
         <td width=""><div><span>序号</span></div></td>
         <td width=""><div><span>集中器编号</span></div></td>
         <td width=""><div><span>集中器名称</span></div></td>

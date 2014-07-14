@@ -58,7 +58,7 @@
 						<td class="editLeftTd">上行通讯方式：</td>
 						<td class="editRightTd" width="250px">
 							<select id="communication" name="concentrator.communication">
-								<option value="拨号">拨号</option>
+								<option value="GPRS/以太网">GPRS/以太网</option>
 							</select>
 						</td>
 					</tr>

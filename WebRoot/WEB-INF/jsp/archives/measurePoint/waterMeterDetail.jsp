@@ -118,7 +118,7 @@
 								</td>
 								<td class="editLeftTd">告警量：</td>
 								<td class="editRightTd" width="250px">
-									<input type="text" id="alarmVolume" name="waterMeter.alarmVolume" value="${waterMeter.alarmVolume }aaaaaaa<s:fielderror ></s:fielderror>" />
+									<input type="text" id="alarmVolume" name="waterMeter.alarmVolume" value="${waterMeter.alarmVolume }<s:fielderror ></s:fielderror>" />
 								</td>
 							</tr>
 						</c:when>

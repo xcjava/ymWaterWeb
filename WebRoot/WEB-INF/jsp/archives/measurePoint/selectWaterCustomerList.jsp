@@ -117,14 +117,16 @@ $(function(){
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="${waterCustomer.customerId }" id="" class="cb" /></div></td>
         <td><div>${waterCustomer.customerId }</div></td>
-        <td><div>
-        	<c:if test="${waterCustomer.customerStatus  == '1'}">正常用水客户</c:if>
-        	<c:if test="${waterCustomer.customerStatus  == '2'}">当前新装客户</c:if>
-        	<c:if test="${waterCustomer.customerStatus  == '3'}">当前变更客户</c:if>
-        	<c:if test="${waterCustomer.customerStatus  == '4'}">已销户客户</c:if>
-        </div></td>
         <td><div>${waterCustomer.userId }</div></td>
         <td><div>${waterCustomer.userName }</div></td>
+        <td>
+	        <div>
+	        	<c:if test="${waterCustomer.customerStatus  == '1'}">正常用水客户</c:if>
+	        	<c:if test="${waterCustomer.customerStatus  == '2'}">当前新装客户</c:if>
+	        	<c:if test="${waterCustomer.customerStatus  == '3'}">当前变更客户</c:if>
+	        	<c:if test="${waterCustomer.customerStatus  == '4'}">已销户客户</c:if>
+	        </div>
+        </td>
         <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${waterCustomer.openTimestamp }"></gdcct:fld></div></td>
         <td><div>${waterCustomer.chargingUnitId }</div></td>
         <td><div>${waterCustomer.waterNature }</div></td>

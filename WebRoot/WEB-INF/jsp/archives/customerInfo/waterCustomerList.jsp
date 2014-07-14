@@ -104,7 +104,7 @@ $(function(){
 				        <td>用户状态</td>
 				        <td>
 				        	<select id="customerStatus" name="customerStatus">
-				        		<option value="0">全部状态</option>
+				        		<option value="">全部状态</option>
 								<option value="1" <c:if test="${customerStatus == '1' }">selected="selected"</c:if>>正常用水客户</option>
 								<option value="2" <c:if test="${customerStatus == '2' }">selected="selected"</c:if>>当前新装客户</option>
 								<option value="3" <c:if test="${customerStatus == '3' }">selected="selected"</c:if>>当前变更客户</option>

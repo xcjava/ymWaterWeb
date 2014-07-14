@@ -105,7 +105,7 @@ $(function(){
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
-        <td width=""><div><span>价目id</span></div></td>
+        <td width=""><div><span>价目代码</span></div></td>
         <td width=""><div><span>项目名称</span></div></td>
         <td width=""><div><span>价目类型</span></div></td>
         <td width=""><div><span>开始日期</span></div></td>

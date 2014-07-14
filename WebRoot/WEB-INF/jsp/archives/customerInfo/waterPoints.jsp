@@ -102,7 +102,7 @@
 									<tr class="listHeaderTr">
 										<td>序号<span id="ptId"></span></td>
 										<td>阶梯值</td>
-										<td>阶梯单价</td>
+										<td>阶梯单价(分)</td>
 									</tr>
 									<tr class="listTr">
 										<td>1</td>

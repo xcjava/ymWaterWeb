@@ -34,10 +34,10 @@ public class GetPriceTemplateAjax extends AbstractAjaxAction {
 				json.put("level2Num", priceTemplate.getLevel2Num());
 				json.put("level3Num", priceTemplate.getLevel3Num());
 				json.put("level4Num", priceTemplate.getLevel4Num());
-				json.put("level1Cost", priceTemplate.getLevel1Cost());
-				json.put("level2Cost", priceTemplate.getLevel2Cost());
-				json.put("level3Cost", priceTemplate.getLevel3Cost());
-				json.put("level4Cost", priceTemplate.getLevel4Cost());
+				json.put("level1Cost", Arith.div(String.valueOf(priceTemplate.getLevel1Cost()), "100", 0));
+				json.put("level2Cost", Arith.div(String.valueOf(priceTemplate.getLevel2Cost()), "100", 0));
+				json.put("level3Cost", Arith.div(String.valueOf(priceTemplate.getLevel3Cost()), "100", 0));
+				json.put("level4Cost", Arith.div(String.valueOf(priceTemplate.getLevel4Cost()), "100", 0));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

@@ -66,12 +66,13 @@ $(function(){
 	
 	/*读日冻结*/
 	$('#readDataByDate').click(function(){
-		/*
+		
 		var dataId = $("#dataId").val();
+		var wmSn = $("#wmSn").val();
 		if(dataId == ''){
 			asyncbox.alert('请选择一条数据！','提示');
 			return false;
-		}*/
+		}
 		asyncbox.open({
 			id : 'readDataByDateOpen',
 			title : '读日冻结数据',
@@ -97,7 +98,7 @@ $(function(){
 						if(!isUnsignedInteger(count)){
 							return false;
 						}
-						window.location = "${baseUrl}data/readDataByDate.jspx?concHardwareId=${concentrator.hardwareId }&wmSn="+dataId+"&count="+count+"&dataStr="+setupDate;
+						window.location = "${baseUrl}data/readDataByDate.jspx?concHardwareId=${concentrator.hardwareId }&wmSn="+wmSn+"&count="+count+"&dataStr="+setupDate;
 					}
    			   }
 		　});
@@ -244,7 +245,7 @@ $(function(){
 	</form>
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
-        <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
+        <td width=""><div align="center"></div></td>
         <td width=""><div><span>水表编号</span></div></td>
         <td width=""><div><span>用水性质</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
@@ -256,7 +257,7 @@ $(function(){
       </tr>
       <c:forEach var="waterMeter" items="${list }">
       <tr class="listTableTr">
-        <td><div><input type="checkbox" <c:if test="${waterMeter.wmSn == ''}">disabled="disabled"</c:if> name="${waterMeter.hardwareId }" title="${waterMeter.wmSn }" id="" class="cb" /></div></td>
+        <td><div><input type="checkbox" <c:if test="${empty waterMeter.wmSn}">disabled="disabled"</c:if> name="${waterMeter.hardwareId }" title="${waterMeter.wmSn }" id="" class="cb" /></div></td>
         <td><div>${waterMeter.hardwareId }</div></td>
         <td><div>${waterMeter.nature }</div></td>
         <td><div>${waterMeter.userId }</div></td>

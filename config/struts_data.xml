@@ -127,7 +127,7 @@
 		
 		<!-- 读水表参数 -->
 		<action name="readWaterMeter" class="com.ymsino.water.view.web.data.ReadWaterMeter">
-			<result name="success" >/WEB-INF/jsp/data/readWaterMeter.jspx</result>
+			<result name="success" >/WEB-INF/jsp/data/readWaterMeter.jsp</result>
 			<result name="check" type="redirect">/data/concentratorList.jspx?message=${message}</result>
 			<interceptor-ref name="adminInterceptor">
 				<param name="adminDefaultInterceptor.moduleCode">0010</param>

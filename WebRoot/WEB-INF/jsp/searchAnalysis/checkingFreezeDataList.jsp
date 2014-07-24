@@ -110,6 +110,7 @@ $(function(){
         <td width=""><div><span>集中器编号</span></div></td>
         <td width=""><div><span>表号</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
+        <td width=""><div><span>冻结时间</span></div></td>
         <td width=""><div><span>1日表计读数</span></div></td>
         <td width=""><div><span>2日表计读数</span></div></td>
         <td width=""><div><span>3日表计读数</span></div></td>
@@ -152,6 +153,7 @@ $(function(){
         <td><div>${item.concHardwareId}</div></td>
         <td><div>${item.meterHardwareId}</div></td>
         <td><div>${item.chargingUnitId}</div></td>
+        <td><div>${item.freezeYear}${item.freezeMonth}</div></td>
         <td><div>${item.meterReading1}</div></td>
         <td><div>${item.meterReading2}</div></td>
         <td><div>${item.meterReading3}</div></td>

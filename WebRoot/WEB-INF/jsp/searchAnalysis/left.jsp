@@ -107,6 +107,7 @@ body {
 	                        </tr>
 	                    </table></td>
 	                  </tr>
+	                  <!-- 
 	                  <tr>
 	                    <td width="16%" height="25"><div align="center"><img src="${baseUrl }images/left.gif" width="10" height="10" /></div></td>
 	                    <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
@@ -115,6 +116,7 @@ body {
 	                        </tr>
 	                    </table></td>
 	                  </tr>
+	                   -->
 	                </table>
                 </td>
               </tr>

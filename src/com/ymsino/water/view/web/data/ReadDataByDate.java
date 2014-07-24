@@ -34,7 +34,7 @@ public class ReadDataByDate extends ActionSupport {
 				return "check";
 			}
 			if(StringUtil.isEmpty(wmSn)){
-				message = "开始水表编号不能为空！";
+				message = "开始水表编号wmSn不能为空！";
 				return "check";
 			}
 			if(StringUtil.isEmpty(count)){
@@ -46,6 +46,7 @@ public class ReadDataByDate extends ActionSupport {
 			
 			list = readDataService.readDataByDate(concHardwareId, Integer.valueOf(wmSn),Integer.valueOf(count), stringdate);
 		} catch (Exception e) {
+			e.printStackTrace();
 			message = e.getMessage();
 			return "check";
 		}

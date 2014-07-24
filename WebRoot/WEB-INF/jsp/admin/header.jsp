@@ -52,6 +52,38 @@ border-style: none;
 				 parent.location.reload();
 				});
 		});
+		
+		function showDate()
+		{        
+		    var day="";        
+		    var month="";        
+		    var ampm="";        
+		    var ampmhour="";        
+		    var myweekday="";        
+		    var year="";        
+		    mydate=new Date();        
+		    myweekday=mydate.getDay();        
+		    mymonth=mydate.getMonth()+1;        
+		    myday= mydate.getDate();        
+		    myyear= mydate.getYear();        
+		    year=(myyear > 200) ? myyear : 1900 + myyear;        
+		    if(myweekday == 0)         
+		        weekday=" 星期日";        
+		    else if(myweekday == 1)        
+		        weekday=" 星期一";        
+		    else if(myweekday == 2)        
+		        weekday=" 星期二";        
+		    else if(myweekday == 3)        
+		        weekday=" 星期三";        
+		    else if(myweekday == 4)         
+		        weekday=" 星期四";        
+		    else if(myweekday == 5)        
+		        weekday=" 星期五";       
+		    else if(myweekday == 6)        
+		        weekday=" 星期六";        
+			$('#showDate').html(year+"年"+mymonth+"月"+myday+"日"+weekday);
+		}
+		showDate();
 	});
 </script>
 </head>
@@ -82,7 +114,7 @@ border-style: none;
                     <td>&nbsp;</td>
                   </tr>
                 </table></td>
-                <td width="220" valign="bottom"  nowrap="nowrap"><div align="right"><span class="STYLE1"><span class="STYLE2">■</span> 今天是：20087年5月12日 星期一</span></div></td>
+                <td width="220" valign="bottom"  nowrap="nowrap"><div align="right"><span class="STYLE1"><span class="STYLE2">■</span> 今天是：<span id="showDate"></span></span></div></td>
               </tr>
             </table></td>
             <td width="21"><img src="${baseUrl }images/main_11.gif" width="21" height="38"></td>

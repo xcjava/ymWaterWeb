@@ -153,7 +153,7 @@ $(function(){
         <td><div>${item.concHardwareId}</div></td>
         <td><div>${item.meterHardwareId}</div></td>
         <td><div>${item.chargingUnitId}</div></td>
-        <td><div>${item.freezeYear}${item.freezeMonth}</div></td>
+        <td><div>${item.freezeYear}年${item.freezeMonth}月</div></td>
         <td><div>${item.meterReading1}</div></td>
         <td><div>${item.meterReading2}</div></td>
         <td><div>${item.meterReading3}</div></td>

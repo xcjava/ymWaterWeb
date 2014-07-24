@@ -30,6 +30,12 @@
 			<table class="editTable" border="0" cellspacing="1" cellpadding="5" width="100%" align="center">
 				<tbody>
 					<tr class="editTr">
+						<td class="editLeftTd"><span></span>冻结日期：</td>
+						<td class="editRightTd" width="250px">
+							${checkingFreezeData.freezeYear }年${checkingFreezeData.freezeMonth }月
+						</td>
+					</tr>
+					<tr class="editTr">
 						<td class="editLeftTd"><span></span>1日表计读数<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
 							<input type="text" id="meterReading1" name="checkingFreezeData.meterReading1" value="${checkingFreezeData.meterReading1 }" datatype="/^\d{0,8}\.{0,1}(\d*)?$/" nullmsg="请输入信息！" errormsg="请输入正数字！" />

@@ -23,37 +23,37 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="freezeYear" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="meterHardwareId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="meterReading1" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading10" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading11" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading12" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading13" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading14" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading15" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading16" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading17" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading18" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading19" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading2" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading20" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading21" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading22" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading23" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading24" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading25" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading26" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading27" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading28" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading29" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading3" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading30" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading31" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading4" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading5" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading6" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading7" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading8" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="meterReading9" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="meterReading1" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading10" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading11" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading12" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading13" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading14" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading15" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading16" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading17" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading18" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading19" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading2" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading20" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading21" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading22" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading23" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading24" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading25" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading26" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading27" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading28" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading29" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading3" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading30" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading31" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading4" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading5" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading6" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading7" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading8" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="meterReading9" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
  *         &lt;element name="parentUnits" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="userId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="waterCustomerId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -76,37 +76,37 @@ public class CheckingFreezeDataReturn {
 	protected String freezeYear;
 	protected Long id;
 	protected String meterHardwareId;
-	protected Long meterReading1;
-	protected Long meterReading10;
-	protected Long meterReading11;
-	protected Long meterReading12;
-	protected Long meterReading13;
-	protected Long meterReading14;
-	protected Long meterReading15;
-	protected Long meterReading16;
-	protected Long meterReading17;
-	protected Long meterReading18;
-	protected Long meterReading19;
-	protected Long meterReading2;
-	protected Long meterReading20;
-	protected Long meterReading21;
-	protected Long meterReading22;
-	protected Long meterReading23;
-	protected Long meterReading24;
-	protected Long meterReading25;
-	protected Long meterReading26;
-	protected Long meterReading27;
-	protected Long meterReading28;
-	protected Long meterReading29;
-	protected Long meterReading3;
-	protected Long meterReading30;
-	protected Long meterReading31;
-	protected Long meterReading4;
-	protected Long meterReading5;
-	protected Long meterReading6;
-	protected Long meterReading7;
-	protected Long meterReading8;
-	protected Long meterReading9;
+	protected Float meterReading1;
+	protected Float meterReading10;
+	protected Float meterReading11;
+	protected Float meterReading12;
+	protected Float meterReading13;
+	protected Float meterReading14;
+	protected Float meterReading15;
+	protected Float meterReading16;
+	protected Float meterReading17;
+	protected Float meterReading18;
+	protected Float meterReading19;
+	protected Float meterReading2;
+	protected Float meterReading20;
+	protected Float meterReading21;
+	protected Float meterReading22;
+	protected Float meterReading23;
+	protected Float meterReading24;
+	protected Float meterReading25;
+	protected Float meterReading26;
+	protected Float meterReading27;
+	protected Float meterReading28;
+	protected Float meterReading29;
+	protected Float meterReading3;
+	protected Float meterReading30;
+	protected Float meterReading31;
+	protected Float meterReading4;
+	protected Float meterReading5;
+	protected Float meterReading6;
+	protected Float meterReading7;
+	protected Float meterReading8;
+	protected Float meterReading9;
 	protected String parentUnits;
 	protected String userId;
 	protected String waterCustomerId;
@@ -261,10 +261,10 @@ public class CheckingFreezeDataReturn {
 	/**
 	 * Gets the value of the meterReading1 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading1() {
+	public Float getMeterReading1() {
 		return meterReading1;
 	}
 
@@ -272,20 +272,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading1 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading1(Long value) {
+	public void setMeterReading1(Float value) {
 		this.meterReading1 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading10 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading10() {
+	public Float getMeterReading10() {
 		return meterReading10;
 	}
 
@@ -293,20 +293,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading10 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading10(Long value) {
+	public void setMeterReading10(Float value) {
 		this.meterReading10 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading11 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading11() {
+	public Float getMeterReading11() {
 		return meterReading11;
 	}
 
@@ -314,20 +314,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading11 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading11(Long value) {
+	public void setMeterReading11(Float value) {
 		this.meterReading11 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading12 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading12() {
+	public Float getMeterReading12() {
 		return meterReading12;
 	}
 
@@ -335,20 +335,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading12 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading12(Long value) {
+	public void setMeterReading12(Float value) {
 		this.meterReading12 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading13 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading13() {
+	public Float getMeterReading13() {
 		return meterReading13;
 	}
 
@@ -356,20 +356,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading13 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading13(Long value) {
+	public void setMeterReading13(Float value) {
 		this.meterReading13 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading14 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading14() {
+	public Float getMeterReading14() {
 		return meterReading14;
 	}
 
@@ -377,20 +377,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading14 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading14(Long value) {
+	public void setMeterReading14(Float value) {
 		this.meterReading14 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading15 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading15() {
+	public Float getMeterReading15() {
 		return meterReading15;
 	}
 
@@ -398,20 +398,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading15 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading15(Long value) {
+	public void setMeterReading15(Float value) {
 		this.meterReading15 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading16 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading16() {
+	public Float getMeterReading16() {
 		return meterReading16;
 	}
 
@@ -419,20 +419,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading16 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading16(Long value) {
+	public void setMeterReading16(Float value) {
 		this.meterReading16 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading17 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading17() {
+	public Float getMeterReading17() {
 		return meterReading17;
 	}
 
@@ -440,20 +440,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading17 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading17(Long value) {
+	public void setMeterReading17(Float value) {
 		this.meterReading17 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading18 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading18() {
+	public Float getMeterReading18() {
 		return meterReading18;
 	}
 
@@ -461,20 +461,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading18 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading18(Long value) {
+	public void setMeterReading18(Float value) {
 		this.meterReading18 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading19 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading19() {
+	public Float getMeterReading19() {
 		return meterReading19;
 	}
 
@@ -482,20 +482,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading19 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading19(Long value) {
+	public void setMeterReading19(Float value) {
 		this.meterReading19 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading2 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading2() {
+	public Float getMeterReading2() {
 		return meterReading2;
 	}
 
@@ -503,20 +503,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading2 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading2(Long value) {
+	public void setMeterReading2(Float value) {
 		this.meterReading2 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading20 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading20() {
+	public Float getMeterReading20() {
 		return meterReading20;
 	}
 
@@ -524,20 +524,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading20 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading20(Long value) {
+	public void setMeterReading20(Float value) {
 		this.meterReading20 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading21 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading21() {
+	public Float getMeterReading21() {
 		return meterReading21;
 	}
 
@@ -545,20 +545,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading21 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading21(Long value) {
+	public void setMeterReading21(Float value) {
 		this.meterReading21 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading22 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading22() {
+	public Float getMeterReading22() {
 		return meterReading22;
 	}
 
@@ -566,20 +566,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading22 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading22(Long value) {
+	public void setMeterReading22(Float value) {
 		this.meterReading22 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading23 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading23() {
+	public Float getMeterReading23() {
 		return meterReading23;
 	}
 
@@ -587,20 +587,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading23 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading23(Long value) {
+	public void setMeterReading23(Float value) {
 		this.meterReading23 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading24 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading24() {
+	public Float getMeterReading24() {
 		return meterReading24;
 	}
 
@@ -608,20 +608,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading24 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading24(Long value) {
+	public void setMeterReading24(Float value) {
 		this.meterReading24 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading25 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading25() {
+	public Float getMeterReading25() {
 		return meterReading25;
 	}
 
@@ -629,20 +629,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading25 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading25(Long value) {
+	public void setMeterReading25(Float value) {
 		this.meterReading25 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading26 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading26() {
+	public Float getMeterReading26() {
 		return meterReading26;
 	}
 
@@ -650,20 +650,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading26 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading26(Long value) {
+	public void setMeterReading26(Float value) {
 		this.meterReading26 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading27 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading27() {
+	public Float getMeterReading27() {
 		return meterReading27;
 	}
 
@@ -671,20 +671,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading27 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading27(Long value) {
+	public void setMeterReading27(Float value) {
 		this.meterReading27 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading28 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading28() {
+	public Float getMeterReading28() {
 		return meterReading28;
 	}
 
@@ -692,20 +692,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading28 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading28(Long value) {
+	public void setMeterReading28(Float value) {
 		this.meterReading28 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading29 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading29() {
+	public Float getMeterReading29() {
 		return meterReading29;
 	}
 
@@ -713,20 +713,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading29 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading29(Long value) {
+	public void setMeterReading29(Float value) {
 		this.meterReading29 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading3 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading3() {
+	public Float getMeterReading3() {
 		return meterReading3;
 	}
 
@@ -734,20 +734,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading3 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading3(Long value) {
+	public void setMeterReading3(Float value) {
 		this.meterReading3 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading30 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading30() {
+	public Float getMeterReading30() {
 		return meterReading30;
 	}
 
@@ -755,20 +755,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading30 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading30(Long value) {
+	public void setMeterReading30(Float value) {
 		this.meterReading30 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading31 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading31() {
+	public Float getMeterReading31() {
 		return meterReading31;
 	}
 
@@ -776,20 +776,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading31 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading31(Long value) {
+	public void setMeterReading31(Float value) {
 		this.meterReading31 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading4 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading4() {
+	public Float getMeterReading4() {
 		return meterReading4;
 	}
 
@@ -797,20 +797,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading4 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading4(Long value) {
+	public void setMeterReading4(Float value) {
 		this.meterReading4 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading5 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading5() {
+	public Float getMeterReading5() {
 		return meterReading5;
 	}
 
@@ -818,20 +818,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading5 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading5(Long value) {
+	public void setMeterReading5(Float value) {
 		this.meterReading5 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading6 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading6() {
+	public Float getMeterReading6() {
 		return meterReading6;
 	}
 
@@ -839,20 +839,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading6 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading6(Long value) {
+	public void setMeterReading6(Float value) {
 		this.meterReading6 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading7 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading7() {
+	public Float getMeterReading7() {
 		return meterReading7;
 	}
 
@@ -860,20 +860,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading7 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading7(Long value) {
+	public void setMeterReading7(Float value) {
 		this.meterReading7 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading8 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading8() {
+	public Float getMeterReading8() {
 		return meterReading8;
 	}
 
@@ -881,20 +881,20 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading8 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading8(Long value) {
+	public void setMeterReading8(Float value) {
 		this.meterReading8 = value;
 	}
 
 	/**
 	 * Gets the value of the meterReading9 property.
 	 * 
-	 * @return possible object is {@link Long }
+	 * @return possible object is {@link Float }
 	 * 
 	 */
-	public Long getMeterReading9() {
+	public Float getMeterReading9() {
 		return meterReading9;
 	}
 
@@ -902,10 +902,10 @@ public class CheckingFreezeDataReturn {
 	 * Sets the value of the meterReading9 property.
 	 * 
 	 * @param value
-	 *            allowed object is {@link Long }
+	 *            allowed object is {@link Float }
 	 * 
 	 */
-	public void setMeterReading9(Long value) {
+	public void setMeterReading9(Float value) {
 		this.meterReading9 = value;
 	}
 

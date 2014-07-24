@@ -31,51 +31,11 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetListpagerResponse }
+	 * Create an instance of {@link CheckingFreezeDataReturn }
 	 * 
 	 */
-	public GetListpagerResponse createGetListpagerResponse() {
-		return new GetListpagerResponse();
-	}
-
-	/**
-	 * Create an instance of {@link GetCount }
-	 * 
-	 */
-	public GetCount createGetCount() {
-		return new GetCount();
-	}
-
-	/**
-	 * Create an instance of {@link ModifyResponse }
-	 * 
-	 */
-	public ModifyResponse createModifyResponse() {
-		return new ModifyResponse();
-	}
-
-	/**
-	 * Create an instance of {@link GetById }
-	 * 
-	 */
-	public GetById createGetById() {
-		return new GetById();
-	}
-
-	/**
-	 * Create an instance of {@link Modify }
-	 * 
-	 */
-	public Modify createModify() {
-		return new Modify();
-	}
-
-	/**
-	 * Create an instance of {@link GetCountResponse }
-	 * 
-	 */
-	public GetCountResponse createGetCountResponse() {
-		return new GetCountResponse();
+	public CheckingFreezeDataReturn createCheckingFreezeDataReturn() {
+		return new CheckingFreezeDataReturn();
 	}
 
 	/**
@@ -87,19 +47,11 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link CheckingFreezeDataReturn }
+	 * Create an instance of {@link GetByIdResponse }
 	 * 
 	 */
-	public CheckingFreezeDataReturn createCheckingFreezeDataReturn() {
-		return new CheckingFreezeDataReturn();
-	}
-
-	/**
-	 * Create an instance of {@link QueryParam }
-	 * 
-	 */
-	public QueryParam createQueryParam() {
-		return new QueryParam();
+	public GetByIdResponse createGetByIdResponse() {
+		return new GetByIdResponse();
 	}
 
 	/**
@@ -111,11 +63,59 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetByIdResponse }
+	 * Create an instance of {@link QueryParam }
 	 * 
 	 */
-	public GetByIdResponse createGetByIdResponse() {
-		return new GetByIdResponse();
+	public QueryParam createQueryParam() {
+		return new QueryParam();
+	}
+
+	/**
+	 * Create an instance of {@link Modify }
+	 * 
+	 */
+	public Modify createModify() {
+		return new Modify();
+	}
+
+	/**
+	 * Create an instance of {@link GetById }
+	 * 
+	 */
+	public GetById createGetById() {
+		return new GetById();
+	}
+
+	/**
+	 * Create an instance of {@link GetListpagerResponse }
+	 * 
+	 */
+	public GetListpagerResponse createGetListpagerResponse() {
+		return new GetListpagerResponse();
+	}
+
+	/**
+	 * Create an instance of {@link ModifyResponse }
+	 * 
+	 */
+	public ModifyResponse createModifyResponse() {
+		return new ModifyResponse();
+	}
+
+	/**
+	 * Create an instance of {@link GetCountResponse }
+	 * 
+	 */
+	public GetCountResponse createGetCountResponse() {
+		return new GetCountResponse();
+	}
+
+	/**
+	 * Create an instance of {@link GetCount }
+	 * 
+	 */
+	public GetCount createGetCount() {
+		return new GetCount();
 	}
 
 	/**

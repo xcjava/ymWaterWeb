@@ -41,8 +41,8 @@ public class ReadDataByDate extends ActionSupport {
 				message = "连续数量不能为空！";
 				return "check";
 			}
-			Date date = DateUtil.parseDate(dataStr, "yyyyMMdd");
-			String stringdate = DateUtil.formatDate(date, "yyyyMMdd");
+			Date date = DateUtil.parseDate(dataStr, "yyyy-MM-dd");
+			String stringdate = DateUtil.formatDate(date, "yyMMdd");
 			
 			list = readDataService.readDataByDate(concHardwareId, Integer.valueOf(wmSn),Integer.valueOf(count), stringdate);
 		} catch (Exception e) {

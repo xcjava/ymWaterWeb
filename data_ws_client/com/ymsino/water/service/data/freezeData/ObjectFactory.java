@@ -29,11 +29,11 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link QueryParam }
+	 * Create an instance of {@link GetCountResponse }
 	 * 
 	 */
-	public QueryParam createQueryParam() {
-		return new QueryParam();
+	public GetCountResponse createGetCountResponse() {
+		return new GetCountResponse();
 	}
 
 	/**
@@ -45,14 +45,6 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetListpager }
-	 * 
-	 */
-	public GetListpager createGetListpager() {
-		return new GetListpager();
-	}
-
-	/**
 	 * Create an instance of {@link GetListpagerResponse }
 	 * 
 	 */
@@ -61,19 +53,19 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link FreezeDataReturn }
+	 * Create an instance of {@link GetListpager }
 	 * 
 	 */
-	public FreezeDataReturn createFreezeDataReturn() {
-		return new FreezeDataReturn();
+	public GetListpager createGetListpager() {
+		return new GetListpager();
 	}
 
 	/**
-	 * Create an instance of {@link GetById }
+	 * Create an instance of {@link QueryParam }
 	 * 
 	 */
-	public GetById createGetById() {
-		return new GetById();
+	public QueryParam createQueryParam() {
+		return new QueryParam();
 	}
 
 	/**
@@ -85,11 +77,19 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetCountResponse }
+	 * Create an instance of {@link GetById }
 	 * 
 	 */
-	public GetCountResponse createGetCountResponse() {
-		return new GetCountResponse();
+	public GetById createGetById() {
+		return new GetById();
+	}
+
+	/**
+	 * Create an instance of {@link FreezeDataReturn }
+	 * 
+	 */
+	public FreezeDataReturn createFreezeDataReturn() {
+		return new FreezeDataReturn();
 	}
 
 	/**

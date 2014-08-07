@@ -29,11 +29,11 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetListpager }
+	 * Create an instance of {@link GetCount }
 	 * 
 	 */
-	public GetListpager createGetListpager() {
-		return new GetListpager();
+	public GetCount createGetCount() {
+		return new GetCount();
 	}
 
 	/**
@@ -45,30 +45,6 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetByIdResponse }
-	 * 
-	 */
-	public GetByIdResponse createGetByIdResponse() {
-		return new GetByIdResponse();
-	}
-
-	/**
-	 * Create an instance of {@link QueryParam }
-	 * 
-	 */
-	public QueryParam createQueryParam() {
-		return new QueryParam();
-	}
-
-	/**
-	 * Create an instance of {@link GetCount }
-	 * 
-	 */
-	public GetCount createGetCount() {
-		return new GetCount();
-	}
-
-	/**
 	 * Create an instance of {@link GetListpagerResponse }
 	 * 
 	 */
@@ -77,11 +53,35 @@ public class ObjectFactory {
 	}
 
 	/**
+	 * Create an instance of {@link GetByIdResponse }
+	 * 
+	 */
+	public GetByIdResponse createGetByIdResponse() {
+		return new GetByIdResponse();
+	}
+
+	/**
 	 * Create an instance of {@link GetById }
 	 * 
 	 */
 	public GetById createGetById() {
 		return new GetById();
+	}
+
+	/**
+	 * Create an instance of {@link GetListpager }
+	 * 
+	 */
+	public GetListpager createGetListpager() {
+		return new GetListpager();
+	}
+
+	/**
+	 * Create an instance of {@link QueryParam }
+	 * 
+	 */
+	public QueryParam createQueryParam() {
+		return new QueryParam();
 	}
 
 	/**

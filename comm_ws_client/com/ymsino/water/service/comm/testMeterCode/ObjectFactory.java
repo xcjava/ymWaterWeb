@@ -33,19 +33,19 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link TestMeterCodeResponse }
-	 * 
-	 */
-	public TestMeterCodeResponse createTestMeterCodeResponse() {
-		return new TestMeterCodeResponse();
-	}
-
-	/**
 	 * Create an instance of {@link MeterDataVo }
 	 * 
 	 */
 	public MeterDataVo createMeterDataVo() {
 		return new MeterDataVo();
+	}
+
+	/**
+	 * Create an instance of {@link TestMeterCodeResponse }
+	 * 
+	 */
+	public TestMeterCodeResponse createTestMeterCodeResponse() {
+		return new TestMeterCodeResponse();
 	}
 
 	/**

@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="meterHardwareId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="meterReading" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
  *         &lt;element name="parentUnits" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="realTimestamp" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="replyStatus" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="userId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="valveStatus" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -40,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "testDynamicDataReturn", propOrder = { "batteryVoltage", "chargingUnitId", "concHardwareId", "createTimestamp", "dataType", "errorStatus", "id", "magneticAttack", "meterHardwareId", "meterReading", "parentUnits", "replyStatus", "userId", "valveStatus", "waterCustomerId" })
+@XmlType(name = "testDynamicDataReturn", propOrder = { "batteryVoltage", "chargingUnitId", "concHardwareId", "createTimestamp", "dataType", "errorStatus", "id", "magneticAttack", "meterHardwareId", "meterReading", "parentUnits", "realTimestamp", "replyStatus", "userId", "valveStatus", "waterCustomerId" })
 public class TestDynamicDataReturn {
 
 	protected Float batteryVoltage;
@@ -54,6 +55,7 @@ public class TestDynamicDataReturn {
 	protected String meterHardwareId;
 	protected Float meterReading;
 	protected String parentUnits;
+	protected Long realTimestamp;
 	protected String replyStatus;
 	protected String userId;
 	protected String valveStatus;
@@ -288,6 +290,27 @@ public class TestDynamicDataReturn {
 	 */
 	public void setParentUnits(String value) {
 		this.parentUnits = value;
+	}
+
+	/**
+	 * Gets the value of the realTimestamp property.
+	 * 
+	 * @return possible object is {@link Long }
+	 * 
+	 */
+	public Long getRealTimestamp() {
+		return realTimestamp;
+	}
+
+	/**
+	 * Sets the value of the realTimestamp property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Long }
+	 * 
+	 */
+	public void setRealTimestamp(Long value) {
+		this.realTimestamp = value;
 	}
 
 	/**

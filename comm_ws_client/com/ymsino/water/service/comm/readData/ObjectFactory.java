@@ -33,19 +33,19 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link ReadDataByDateResponse }
-	 * 
-	 */
-	public ReadDataByDateResponse createReadDataByDateResponse() {
-		return new ReadDataByDateResponse();
-	}
-
-	/**
 	 * Create an instance of {@link ReadDataByDate }
 	 * 
 	 */
 	public ReadDataByDate createReadDataByDate() {
 		return new ReadDataByDate();
+	}
+
+	/**
+	 * Create an instance of {@link ReadDataByDateResponse }
+	 * 
+	 */
+	public ReadDataByDateResponse createReadDataByDateResponse() {
+		return new ReadDataByDateResponse();
 	}
 
 	/**

@@ -25,19 +25,19 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link MeterDataVo }
-	 * 
-	 */
-	public MeterDataVo createMeterDataVo() {
-		return new MeterDataVo();
-	}
-
-	/**
 	 * Create an instance of {@link TestDataResponse }
 	 * 
 	 */
 	public TestDataResponse createTestDataResponse() {
 		return new TestDataResponse();
+	}
+
+	/**
+	 * Create an instance of {@link MeterDataVo }
+	 * 
+	 */
+	public MeterDataVo createMeterDataVo() {
+		return new MeterDataVo();
 	}
 
 	/**

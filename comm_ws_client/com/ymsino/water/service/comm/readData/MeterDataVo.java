@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="measure" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
  *         &lt;element name="meterId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="readDateStr" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="realDateStr" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="replyStatus" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="valveStatus" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -34,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "meterDataVo", propOrder = { "batteryVoltage", "dataType", "errorStatus", "magneticAttack", "measure", "meterId", "readDateStr", "replyStatus", "valveStatus" })
+@XmlType(name = "meterDataVo", propOrder = { "batteryVoltage", "dataType", "errorStatus", "magneticAttack", "measure", "meterId", "readDateStr", "realDateStr", "replyStatus", "valveStatus" })
 public class MeterDataVo {
 
 	protected Float batteryVoltage;
@@ -44,6 +45,7 @@ public class MeterDataVo {
 	protected Float measure;
 	protected String meterId;
 	protected String readDateStr;
+	protected String realDateStr;
 	protected String replyStatus;
 	protected String valveStatus;
 
@@ -192,6 +194,27 @@ public class MeterDataVo {
 	 */
 	public void setReadDateStr(String value) {
 		this.readDateStr = value;
+	}
+
+	/**
+	 * Gets the value of the realDateStr property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRealDateStr() {
+		return realDateStr;
+	}
+
+	/**
+	 * Sets the value of the realDateStr property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRealDateStr(String value) {
+		this.realDateStr = value;
 	}
 
 	/**

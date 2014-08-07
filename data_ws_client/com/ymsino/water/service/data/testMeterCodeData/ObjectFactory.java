@@ -29,43 +29,11 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetListpager }
+	 * Create an instance of {@link GetCount }
 	 * 
 	 */
-	public GetListpager createGetListpager() {
-		return new GetListpager();
-	}
-
-	/**
-	 * Create an instance of {@link GetListpagerResponse }
-	 * 
-	 */
-	public GetListpagerResponse createGetListpagerResponse() {
-		return new GetListpagerResponse();
-	}
-
-	/**
-	 * Create an instance of {@link GetByIdResponse }
-	 * 
-	 */
-	public GetByIdResponse createGetByIdResponse() {
-		return new GetByIdResponse();
-	}
-
-	/**
-	 * Create an instance of {@link TestMeterCodeDataReturn }
-	 * 
-	 */
-	public TestMeterCodeDataReturn createTestMeterCodeDataReturn() {
-		return new TestMeterCodeDataReturn();
-	}
-
-	/**
-	 * Create an instance of {@link GetById }
-	 * 
-	 */
-	public GetById createGetById() {
-		return new GetById();
+	public GetCount createGetCount() {
+		return new GetCount();
 	}
 
 	/**
@@ -85,11 +53,43 @@ public class ObjectFactory {
 	}
 
 	/**
-	 * Create an instance of {@link GetCount }
+	 * Create an instance of {@link GetListpager }
 	 * 
 	 */
-	public GetCount createGetCount() {
-		return new GetCount();
+	public GetListpager createGetListpager() {
+		return new GetListpager();
+	}
+
+	/**
+	 * Create an instance of {@link GetById }
+	 * 
+	 */
+	public GetById createGetById() {
+		return new GetById();
+	}
+
+	/**
+	 * Create an instance of {@link TestMeterCodeDataReturn }
+	 * 
+	 */
+	public TestMeterCodeDataReturn createTestMeterCodeDataReturn() {
+		return new TestMeterCodeDataReturn();
+	}
+
+	/**
+	 * Create an instance of {@link GetByIdResponse }
+	 * 
+	 */
+	public GetByIdResponse createGetByIdResponse() {
+		return new GetByIdResponse();
+	}
+
+	/**
+	 * Create an instance of {@link GetListpagerResponse }
+	 * 
+	 */
+	public GetListpagerResponse createGetListpagerResponse() {
+		return new GetListpagerResponse();
 	}
 
 	/**

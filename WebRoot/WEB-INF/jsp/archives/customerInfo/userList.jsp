@@ -122,7 +122,7 @@ $(function(){
 				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
 				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
 				      	<td><input class="button" id="addUser" type="button" value="新增" name=""></td>
-				      	<td><input class="button" id="" type="button" value="充值" name=""></td>
+				      	<!-- <td><input class="button" id="" type="button" value="充值" name=""></td> -->
 				      </tr>
 			      </tbody>
 			    </table>	
@@ -136,7 +136,7 @@ $(function(){
         <td width=""><div><span>客户ID</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
         <td width=""><div><span>客户姓名</span></div></td>
-        <td width=""><div><span>余额(分)</span></div></td>
+        <td width=""><div><span>余额(元)</span></div></td>
         <td width=""><div><span>产业分类</span></div></td>
         <td width=""><div><span>经济类型</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>

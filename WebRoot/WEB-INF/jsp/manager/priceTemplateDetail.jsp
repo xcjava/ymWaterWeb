@@ -63,9 +63,9 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯一价格（分）：</td>
+						<td class="editLeftTd"><span></span>阶梯一价格（元）：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level1Cost" name="level1Cost" value="<gdcct:price longPrice="${priceTemplate.level1Cost }" ></gdcct:price>" datatype="/^\d{0,9}$/" ignore="ignore" errormsg="请输入正整数！" />
+							<input type="text" id="level1Cost" name="level1Cost" value="<gdcct:price longPrice="${priceTemplate.level1Cost }" ></gdcct:price>" datatype="/^[0-9]+([.]\d{1,4})?$/" ignore="ignore" errormsg="请输入数字(例:0.00),最高保留四位小数!" />
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯一最大值：</td>
@@ -75,9 +75,9 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯二价格（分）：</td>
+						<td class="editLeftTd"><span></span>阶梯二价格（元）：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level2Cost" name="level2Cost" value="<gdcct:price longPrice="${priceTemplate.level2Cost }" ></gdcct:price>" datatype="/^\d{0,9}$/" ignore="ignore" errormsg="请输入正整数！"/>
+							<input type="text" id="level2Cost" name="level2Cost" value="<gdcct:price longPrice="${priceTemplate.level2Cost }" ></gdcct:price>" datatype="/^[0-9]+([.]\d{1,4})?$/" ignore="ignore" errormsg="请输入数字(例:0.00),最高保留四位小数!"/>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯二最大值：</td>
@@ -87,9 +87,9 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯三价格（分）：</td>
+						<td class="editLeftTd"><span></span>阶梯三价格（元）：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level3Cost" name="level3Cost" value="<gdcct:price longPrice="${priceTemplate.level3Cost }" ></gdcct:price>" datatype="/^\d{0,9}$/" ignore="ignore" errormsg="请输入正整数！"/>
+							<input type="text" id="level3Cost" name="level3Cost" value="<gdcct:price longPrice="${priceTemplate.level3Cost }" ></gdcct:price>" datatype="/^[0-9]+([.]\d{1,4})?$/" ignore="ignore" errormsg="请输入数字(例:0.00),最高保留四位小数!"/>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯三最大值：</td>
@@ -99,9 +99,9 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>阶梯四价格（分）：</td>
+						<td class="editLeftTd"><span></span>阶梯四价格（元）：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="level4Cost" name="level4Cost" value="<gdcct:price longPrice="${priceTemplate.level4Cost }" ></gdcct:price>" datatype="/^\d{0,9}$/" ignore="ignore" errormsg="请输入正整数！"/>
+							<input type="text" id="level4Cost" name="level4Cost" value="<gdcct:price longPrice="${priceTemplate.level4Cost }" ></gdcct:price>" datatype="/^[0-9]+([.]\d{1,4})?$/" ignore="ignore" errormsg="请输入数字(例:0.00),最高保留四位小数!"/>
 							<span class="Validform_checktip"></span>
 						</td>
 						<td class="editLeftTd"><span></span>阶梯四最大值：</td>

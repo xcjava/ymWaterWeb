@@ -111,13 +111,13 @@ $(function(){
         <td width=""><div><span>开始日期</span></div></td>
         <td width=""><div><span>结束日期</span></div></td>
         <td width=""><div><span>结算周期</span></div></td>
-        <td width=""><div><span>阶梯一水价(分)</span></div></td>
+        <td width=""><div><span>阶梯一水价(元)</span></div></td>
         <td width=""><div><span>阶梯一最大值</span></div></td>
-        <td width=""><div><span>阶梯二水价(分)</span></div></td>
+        <td width=""><div><span>阶梯二水价(元)</span></div></td>
         <td width=""><div><span>阶梯二最大值</span></div></td>
-        <td width=""><div><span>阶梯三水价(分)</span></div></td>
+        <td width=""><div><span>阶梯三水价(元)</span></div></td>
         <td width=""><div><span>阶梯三最大值</span></div></td>
-        <td width=""><div><span>阶梯四水价(分)</span></div></td>
+        <td width=""><div><span>阶梯四水价(元)</span></div></td>
         <td width=""><div><span>阶梯四最大值</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>

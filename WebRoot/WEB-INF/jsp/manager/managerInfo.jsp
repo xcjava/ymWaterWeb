@@ -50,13 +50,6 @@
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>
-					<tr class="editTr">
-						<td class="editLeftTd"><span></span>描      述<span style="color: red;">*</span>：</td>
-						<td class="editRightTd" colspan="3" >
-							<textarea style="float: left;" rows="3" cols="50" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！">木有此字段</textarea>
-							<span class="Validform_checktip"></span>
-						</td>
-					</tr>
 				</tbody>
 			</table>
 			<div class="editBtn" style="margin-top: 20px;" align="center">

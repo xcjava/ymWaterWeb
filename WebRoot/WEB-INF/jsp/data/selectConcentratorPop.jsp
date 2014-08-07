@@ -103,6 +103,7 @@ $(function(){
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" id="selectAllBtn" /></div></td>
         <td width=""><div><span>序号</span></div></td>
+        <td width=""><div><span>ID</span></div></td>
         <td width=""><div><span>集中器编号</span></div></td>
         <td width=""><div><span>集中器名称</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
@@ -115,6 +116,7 @@ $(function(){
         <td><div><input type="checkbox" name="checkbox" value="${item.hardwareId}" title="${item.name}" class="cb" /></div></td>
         <td><div>${vs.index+1}</div></td>
         <td><div>${item.hardwareId}</div></td>
+        <td><div>${item.areaCode}${item.logicCode}</div></td>
         <td><div>${item.name}</div></td>
         <td><div>
         	<c:forEach items="${mapList }" var="map">
@@ -127,7 +129,7 @@ $(function(){
       </c:forEach>
       </c:if>
       <tr class="listFooterTr">
-	  	<td colSpan="7">
+	  	<td colSpan="8">
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }data/selectConcentratorPop.jspx?pageSize=999" pageDynamicURLFormat="${baseUrl }data/selectConcentratorPop.jspx?pageIndex={0}&pageSize=999" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 	  </tr>

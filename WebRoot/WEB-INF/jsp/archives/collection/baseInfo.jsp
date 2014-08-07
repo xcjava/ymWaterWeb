@@ -28,7 +28,7 @@
 							</select>
 							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd">集中器ID<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd">集中器编号<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
 							<input style="width: 70px;" type="text" id="areaCode" name="concentrator.areaCode" value="${concentrator.areaCode }" datatype="n4-4" nullmsg="请输入信息！" errormsg="请输入4位数字！" />
 							<span>&nbsp;+ </span>

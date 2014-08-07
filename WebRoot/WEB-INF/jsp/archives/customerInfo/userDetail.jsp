@@ -41,9 +41,9 @@
 							<input type="text" id="user.name" name="user.name" value="${user.name }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！" />
 							<span class="Validform_checktip"></span>
 						</td>
-						<td class="editLeftTd"><span></span>告警余额(分)<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>告警余额(元)<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="user.warnPrice" name="user.warnPrice" value="<gdcct:price longPrice="${user.warnPrice }" ></gdcct:price>" datatype="/^\d{1,16}$/" nullmsg="请输入信息！" errormsg="请输入正整数！" />
+							<input type="text" id="user.warnPrice" name="warnPriceStr" value="<gdcct:price longPrice="${user.warnPrice }" ></gdcct:price>" datatype="/^[0-9]+([.]\d{1,4})?$/" nullmsg="请输入信息！" errormsg="请输入数字(例:0.00),最高保留四位小数!" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

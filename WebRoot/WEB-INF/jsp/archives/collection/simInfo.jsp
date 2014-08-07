@@ -26,9 +26,9 @@
 						<td class="editRightTd" width="250px">
 							<input type="text" id="terminalId" name="concentrator.terminalId" value="${concentrator.terminalId }" />
 						</td>
-						<td class="editLeftTd">通讯费(分)：</td>
+						<td class="editLeftTd">通讯费(元)：</td>
 						<td class="editRightTd" width="250px">
-							<input type="text" id="communicationCost" name="concentrator.communicationCost" value="<gdcct:price longPrice="${concentrator.communicationCost }" ></gdcct:price>" datatype="/^\d{1,16}$/" ignore="ignore" errormsg="请输入正整数！" />
+							<input type="text" id="communicationCost" name="communicationCostStr" value="<gdcct:price longPrice="${concentrator.communicationCost }" ></gdcct:price>" datatype="/^[0-9]+([.]\d{1,4})?$/" ignore="ignore" errormsg="请输入数字(例:0.00),最高保留四位小数!" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

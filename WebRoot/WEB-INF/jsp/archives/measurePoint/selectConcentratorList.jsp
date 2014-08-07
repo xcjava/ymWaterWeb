@@ -79,7 +79,7 @@ $(function(){
 								<option></option>
 							</select>
 				        </td>
-				        <td>集中器ID：</td>
+				        <td>集中器编号：</td>
 				        <td><input class="textbox" id="hardwareId" name="hardwareId" value="${hardwareId}"/></td>
 				        <td>集中器名称</td>
 				        <td><input class=textbox id="name" name="name" value="${name}"></td>
@@ -110,7 +110,7 @@ $(function(){
       <tr class="listTableTr">
         <td><div><input type="checkbox" name="${item.hardwareId}" title="${item.name}" class="cb" /></div></td>
         <td><div>${vs.index+1}</div></td>
-        <td><div>${item.hardwareId}</div></td>
+        <td><div>${item.areaCode}${item.logicCode}</div></td>
         <td><div>${item.name}</div></td>
         <td><div>
         	<c:forEach items="${mapList }" var="map">

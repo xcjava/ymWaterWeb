@@ -42,6 +42,7 @@ $(function(){
       <tr class="listTableHead">
         <td width=""><div><span>智能水表编号</span></div></td>
         <td width=""><div><span>冻结日期</span></div></td>
+        <td width=""><div><span>真实抄表日期</span></div></td>
         <td width=""><div><span>读数</span></div></td>
         <td width=""><div><span>电池电压</span></div></td>
         <td width=""><div><span>阀门状态</span></div></td>
@@ -53,6 +54,7 @@ $(function(){
       <tr class="listTableTr">
         <td><div>${meterDataVo.meterId}</div></td>
         <td><div>${meterDataVo.readDateStr}</div></td>
+        <td><div>${meterDataVo.realDateStr}</div></td>
         <td><div>${meterDataVo.measure}</div></td>
         <td><div>${meterDataVo.batteryVoltage}</div></td>
         <td><div>

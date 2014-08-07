@@ -400,7 +400,7 @@ $(function(){
       <tr class="listTableTr">
         <td><div><input <c:if test="${item.status == -1}">disabled="disabled"</c:if> type="checkbox" name="${item.hardwareId}" class="cb" /></div></td>
         <td><div>${vs.index+1}</div></td>
-        <td><div>${item.hardwareId}</div></td>
+        <td><div>${item.areaCode}${item.logicCode}</div></td>
         <td><div>${item.name}</div></td>
         <td><div>${item.tel}</div></td>
         <td><div>

@@ -81,7 +81,7 @@
 							<td class="editLeftTd">集中器<span style="color: red;">*</span>：</td>
 							<td class="editRightTd" width="250px">
 								<input type="hidden" id="concHardwareId" name="waterMeter.concHardwareId" value="${waterMeter.concHardwareId }" />
-								<input type="text" id="concName" readonly="readonly" value="${waterMeter.concHardwareId }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"/>
+								<input type="text" id="concName" readonly="readonly" value="${concName }" datatype="*" nullmsg="请输入信息！" errormsg="请输入信息！"/>
 								<button type="button" id="selectConcHardwareId">选择</button>
 								<span class="Validform_checktip"></span>
 							</td>
@@ -149,9 +149,9 @@
 						</td>
 					</tr>
 					<tr class="editTr">
-						<td class="editLeftTd"><span></span>适用水价、当前水价（分）<span style="color: red;">*</span>：</td>
+						<td class="editLeftTd"><span></span>适用水价、当前水价（元）<span style="color: red;">*</span>：</td>
 						<td class="editRightTd" colspan="3" >
-							<input type="text" id="price" name="waterMeter.price" ignore="ignore" value="<gdcct:price longPrice="${waterMeter.price }" ></gdcct:price>" datatype="/^\d{1,16}$/" errormsg="请输入正整数！" />
+							<input type="text" id="price" name="priceStr" ignore="ignore" value="<gdcct:price longPrice="${waterMeter.price }" ></gdcct:price>" datatype="/^[0-9]+([.]\d{1,4})?$/" errormsg="请输入数字(例:0.00),最高保留四位小数!" />
 							<span class="Validform_checktip"></span>
 						</td>
 					</tr>

@@ -110,7 +110,8 @@ $(function(){
         <td width=""><div><span>数据异常</span></div></td>
         <td width=""><div><span>数据答应</span></div></td>
         <td width=""><div><span>阀门状态</span></div></td>
-        <td width=""><div><span>集中器抄表时间</span></div></td>
+        <td width=""><div><span>创建时间</span></div></td>
+        <td width=""><div><span>真实抄表时间</span></div></td>
       </tr>
       <c:if test="${not empty list}">
       <c:forEach var="item"  items="${list }" varStatus="vs">
@@ -146,11 +147,12 @@ $(function(){
         <c:if test="${item.valveStatus==00}">未知</c:if>
         </div></td>
         <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${item.createTimestamp}"></gdcct:fld></div></td>
+        <td><div><gdcct:fld pattren="yyyy-MM-dd HH:mm:ss" longTime="${item.realTimestamp}"></gdcct:fld></div></td>
       </tr>
       </c:forEach>
       </c:if>
 	 	<tr class="listFooterTr">
-		<td colSpan=20>
+		<td colSpan=21>
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }searchAnalysis/freezeDataList.jspx" pageDynamicURLFormat="${baseUrl }searchAnalysis/freezeDataList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 		</tr>     

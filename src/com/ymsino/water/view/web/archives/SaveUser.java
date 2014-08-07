@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.archives.user.UserSaveParam;
 import com.ymsino.water.service.archives.user.UserService;
 import com.ymsino.water.view.web.common.Arith;
+import com.ymsino.water.view.web.common.PriceTool;
 
 public class SaveUser extends ActionSupport {
 	
@@ -21,6 +22,7 @@ public class SaveUser extends ActionSupport {
 	private String credValidDate;
 	private String credInvalidDate;
 	private String curr;
+	private String warnPriceStr;//告警余额
 	
 	@Override
 	public String execute() throws Exception {
@@ -42,8 +44,8 @@ public class SaveUser extends ActionSupport {
 				Long credInvalidTimestamp = DateUtil.parseDate(credInvalidDate, "yyyy-MM-dd").getTime();
 				user.setCredInvalidTimestamp(credInvalidTimestamp);
 			}
-			if(user.getWarnPrice() != null){
-				user.setWarnPrice(Long.valueOf(Arith.mul(String.valueOf(user.getWarnPrice()),"100")));
+			if(!StringUtil.isEmpty(warnPriceStr)){
+				user.setWarnPrice(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(warnPriceStr.trim(),"10000"))));
 			}
 			user.setUserId(userId);
 			id = userService.save(user);
@@ -116,6 +118,14 @@ public class SaveUser extends ActionSupport {
 
 	public void setCredInvalidDate(String credInvalidDate) {
 		this.credInvalidDate = credInvalidDate;
+	}
+
+	public String getWarnPriceStr() {
+		return warnPriceStr;
+	}
+
+	public void setWarnPriceStr(String warnPriceStr) {
+		this.warnPriceStr = warnPriceStr;
 	}
 
 }

@@ -13,6 +13,7 @@ import com.ymsino.water.service.archives.waterMeter.WaterMeterReturn;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterSaveParam;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterService;
 import com.ymsino.water.view.web.common.Arith;
+import com.ymsino.water.view.web.common.PriceTool;
 
 public class SaveWaterMeter extends ActionSupport {
 	
@@ -23,6 +24,7 @@ public class SaveWaterMeter extends ActionSupport {
 	private WaterMeterSaveParam waterMeter;
 	private String curr;
 	private String type;
+	private String priceStr;
 	
 	@Override
 	public String execute() throws Exception {
@@ -52,8 +54,8 @@ public class SaveWaterMeter extends ActionSupport {
 				message = "该用水用户已经创建过此类型的水表，请选择其他用水用户！";
 				return SUCCESS;
 			}
-			if(waterMeter.getPrice() != null){
-				waterMeter.setPrice(Long.valueOf(Arith.mul(String.valueOf(waterMeter.getPrice()),"100")));
+			if(!StringUtil.isEmpty(priceStr)){
+				waterMeter.setPrice(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(priceStr.trim(),"10000"))));
 			}
 			waterMeter.setHardwareId(hardwareId);
 			waterMeter.setType(Short.valueOf(type));
@@ -116,6 +118,14 @@ public class SaveWaterMeter extends ActionSupport {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getPriceStr() {
+		return priceStr;
+	}
+
+	public void setPriceStr(String priceStr) {
+		this.priceStr = priceStr;
 	}
 
 }

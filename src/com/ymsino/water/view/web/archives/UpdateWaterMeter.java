@@ -9,6 +9,7 @@ import com.ymsino.water.service.archives.waterMeter.WaterMeterModifyParam;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterReturn;
 import com.ymsino.water.service.archives.waterMeter.WaterMeterService;
 import com.ymsino.water.view.web.common.Arith;
+import com.ymsino.water.view.web.common.PriceTool;
 
 public class UpdateWaterMeter extends ActionSupport {
 	
@@ -20,6 +21,7 @@ public class UpdateWaterMeter extends ActionSupport {
 	private String message = "";
 	private String curr;
 	private String type;
+	private String priceStr;
 	
 	@Override
 	public String execute() throws Exception {
@@ -33,8 +35,8 @@ public class UpdateWaterMeter extends ActionSupport {
 				message = "水表不存在！";
 				return SUCCESS;
 			}
-			if(waterMeter.getPrice() != null){
-				waterMeter.setPrice(Long.valueOf(Arith.mul(String.valueOf(waterMeter.getPrice()),"100")));
+			if(!StringUtil.isEmpty(priceStr)){
+				waterMeter.setPrice(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(priceStr.trim(),"10000"))));
 			}
 			waterMeter.setHardwareId(hardwareId);
 			waterMeterService.modify(waterMeter);
@@ -96,5 +98,11 @@ public class UpdateWaterMeter extends ActionSupport {
 	public void setType(String type) {
 		this.type = type;
 	}
+	public String getPriceStr() {
+		return priceStr;
+	}
 
+	public void setPriceStr(String priceStr) {
+		this.priceStr = priceStr;
+	}
 }

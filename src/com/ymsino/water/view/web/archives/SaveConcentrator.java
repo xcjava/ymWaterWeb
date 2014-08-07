@@ -53,7 +53,7 @@ public class SaveConcentrator extends ActionSupport {
 				return "editError";
 			}
 			if(concentrator.getCommunicationCost() != null){
-				concentrator.setCommunicationCost(Long.valueOf(Arith.mul(String.valueOf(concentrator.getCommunicationCost()),"100")));
+				concentrator.setCommunicationCost(Long.valueOf(Arith.mul(String.valueOf(concentrator.getCommunicationCost()),"10000")));
 			}
 			boolean flag = concentratorService.save(concentrator);
 			if(flag)

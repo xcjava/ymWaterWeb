@@ -7,6 +7,7 @@ import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.freesettle.userWallet.UserWalletService;
 import com.ymsino.water.view.web.common.Arith;
+import com.ymsino.water.view.web.common.PriceTool;
 
 public class Recharge extends ActionSupport{
 
@@ -29,7 +30,7 @@ public class Recharge extends ActionSupport{
 				message = "金额不能为空！";
 				return SUCCESS;
 			}
-			userWalletService.recharge(Long.valueOf(id), Long.valueOf(Arith.mul(price,"100")), sysRemark);
+			userWalletService.recharge(Long.valueOf(id), Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(price,"10000"))), sysRemark);
 			message = "充值成功！";
 		} catch (Exception e) {
 			message = e.getMessage();

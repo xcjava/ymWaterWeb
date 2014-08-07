@@ -28,7 +28,7 @@ public class ConcentratorList extends ActionSupport{
 	private ChargingUnitService chargingUnitService;
 	private String chargingUnitId;	//收费单位id
 	private String name; 			//集中器名称
-	private String hardwareId;		//集中器ID
+	private String hardwareId;		//集中器ID(区域码areaCode+逻辑地址logicCode)
 	private String status;
 	private String tel;
 	private String province;
@@ -63,7 +63,15 @@ public class ConcentratorList extends ActionSupport{
 			qpw.addQueryParam("name", name, QueryCondition.QC_EQ);
 		}
 		if(!StringUtil.isEmpty(hardwareId)){
-			qpw.addQueryParam("hardwareId", hardwareId, QueryCondition.QC_EQ);
+			try {
+				String areaCode = hardwareId.substring(0, 4);
+				String logicCode = hardwareId.substring(4, 8);
+				qpw.addQueryParam("areaCode", areaCode, QueryCondition.QC_EQ);
+				qpw.addQueryParam("logicCode", logicCode, QueryCondition.QC_EQ);
+				//qpw.addQueryParam("hardwareId", hardwareId, QueryCondition.QC_EQ);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(!StringUtil.isEmpty(status)){

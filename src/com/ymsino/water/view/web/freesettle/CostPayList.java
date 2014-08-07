@@ -27,6 +27,7 @@ import com.ymsino.water.service.manager.chargingUnit.ChargingUnitReturn;
 import com.ymsino.water.service.manager.chargingUnit.ChargingUnitService;
 import com.ymsino.water.view.web.common.Arith;
 import com.ymsino.water.view.web.common.PageModel;
+import com.ymsino.water.view.web.common.PriceTool;
 
 public class CostPayList extends ActionSupport {
 
@@ -119,7 +120,7 @@ public class CostPayList extends ActionSupport {
 				if (userWalletReturn == null) {
 					map.put("userWallet", null);
 				}else{
-					map.put("userWallet", Arith.div(String.valueOf(userWalletReturn.getCashAmount()), "100", 0) );
+					map.put("userWallet", PriceTool.subZeroAndDot(Arith.div(String.valueOf(userWalletReturn.getCashAmount()), "10000", 4)));
 				}
 				mapList.add(map);
 			}

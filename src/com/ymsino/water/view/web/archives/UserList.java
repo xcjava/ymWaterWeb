@@ -119,7 +119,7 @@ public class UserList extends ActionSupport {
 				if (userWalletReturn == null) {
 					map.put("userWallet", null);
 				}else{
-					map.put("userWallet", Arith.div(String.valueOf(userWalletReturn.getCashAmount()), "100", 0) );
+					map.put("userWallet", Arith.div(String.valueOf(userWalletReturn.getCashAmount()), "10000", 4) );
 				}
 				mapList.add(map);
 			}

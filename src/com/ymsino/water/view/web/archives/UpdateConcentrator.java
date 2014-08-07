@@ -10,6 +10,7 @@ import com.ymsino.water.service.archives.concentrator.ConcentratorModifyParam;
 import com.ymsino.water.service.archives.concentrator.ConcentratorReturn;
 import com.ymsino.water.service.archives.concentrator.ConcentratorService;
 import com.ymsino.water.view.web.common.Arith;
+import com.ymsino.water.view.web.common.PriceTool;
 
 public class UpdateConcentrator extends ActionSupport {
 	
@@ -22,6 +23,7 @@ public class UpdateConcentrator extends ActionSupport {
 	private String hardwareId;
 	private String message = "";
 	private String curr;
+	private String communicationCostStr;
 	
 	@Override
 	public String execute() throws Exception {
@@ -44,7 +46,10 @@ public class UpdateConcentrator extends ActionSupport {
 				concentrator.setStartTimestamp(startTimestamp);
 			}
 			if(concentrator.getCommunicationCost() != null){
-				concentrator.setCommunicationCost(Long.valueOf(Arith.mul(String.valueOf(concentrator.getCommunicationCost()),"100")));
+				concentrator.setCommunicationCost(Long.valueOf(Arith.mul(String.valueOf(concentrator.getCommunicationCost()),"10000")));
+			}
+			if(!StringUtil.isEmpty(communicationCostStr)){
+				concentrator.setCommunicationCost(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(communicationCostStr.trim(),"10000"))));
 			}
 			concentrator.setHardwareId(hardwareId);
 			concentratorService.modify(concentrator);
@@ -113,6 +118,14 @@ public class UpdateConcentrator extends ActionSupport {
 
 	public void setChannelStartDate(String channelStartDate) {
 		this.channelStartDate = channelStartDate;
+	}
+
+	public String getCommunicationCostStr() {
+		return communicationCostStr;
+	}
+
+	public void setCommunicationCostStr(String communicationCostStr) {
+		this.communicationCostStr = communicationCostStr;
 	}
 
 }

@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ymsino.water.service.manager.priceTemplate.PriceTemplateSaveParam;
 import com.ymsino.water.service.manager.priceTemplate.PriceTemplateService;
 import com.ymsino.water.view.web.common.Arith;
+import com.ymsino.water.view.web.common.PriceTool;
 
 public class SavePriceTemplate extends ActionSupport {
 	
@@ -22,13 +23,13 @@ public class SavePriceTemplate extends ActionSupport {
 	private String name;
 	private String type;
 	private Float level1Num;//1阶最大值
-	private String level1Cost;//1阶价格，单位分（保存毫）
+	private String level1Cost;//1阶价格，单位元（保存毫）
 	private Float level2Num;//1阶最大值
-	private String level2Cost;//1阶价格，单位分
+	private String level2Cost;//1阶价格，单位元
 	private Float level3Num;//1阶最大值
-	private String level3Cost;//1阶价格，单位分
+	private String level3Cost;//1阶价格，单位元
 	private Float level4Num;//1阶最大值
-	private String level4Cost;//1阶价格，单位分
+	private String level4Cost;//1阶价格，单位元
 	private String billingPeriod;//结算周期
 	private String startDate;//开始日期
 	private String endDate;//结束日期
@@ -47,13 +48,29 @@ public class SavePriceTemplate extends ActionSupport {
 			priceTemplateSaveParam.setName(name);
 			priceTemplateSaveParam.setType(type);
 			priceTemplateSaveParam.setLevel1Num(level1Num);
-			priceTemplateSaveParam.setLevel1Cost(Long.valueOf(Arith.mul(level1Cost,"100")));
+			if(!StringUtil.isEmpty(level1Cost)){
+				priceTemplateSaveParam.setLevel1Cost(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(level1Cost,"10000"))));
+			}else{
+				priceTemplateSaveParam.setLevel1Cost(null);
+			}
 			priceTemplateSaveParam.setLevel2Num(level2Num);
-			priceTemplateSaveParam.setLevel2Cost(Long.valueOf(Arith.mul(level2Cost,"100")));
+			if(!StringUtil.isEmpty(level2Cost)){
+				priceTemplateSaveParam.setLevel2Cost(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(level2Cost,"10000"))));
+			}else{
+				priceTemplateSaveParam.setLevel2Cost(null);
+			}
 			priceTemplateSaveParam.setLevel3Num(level3Num);
-			priceTemplateSaveParam.setLevel3Cost(Long.valueOf(Arith.mul(level3Cost,"100")));
+			if(!StringUtil.isEmpty(level3Cost)){
+				priceTemplateSaveParam.setLevel3Cost(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(level3Cost,"10000"))));
+			}else{
+				priceTemplateSaveParam.setLevel3Cost(null);
+			}
 			priceTemplateSaveParam.setLevel4Num(level4Num);
-			priceTemplateSaveParam.setLevel4Cost(Long.valueOf(Arith.mul(level4Cost,"100")));
+			if(!StringUtil.isEmpty(level4Cost)){
+				priceTemplateSaveParam.setLevel4Cost(Long.valueOf(PriceTool.subZeroAndDot(Arith.mul(level4Cost,"10000"))));
+			}else{
+				priceTemplateSaveParam.setLevel4Cost(null);
+			}
 			priceTemplateSaveParam.setBillingPeriod(billingPeriod);
 			if(!StringUtil.isEmpty(startDate)){
 				priceTemplateSaveParam.setStartTimestamp(DateUtil.parseDate(startDate, "yyyy-MM-dd").getTime());

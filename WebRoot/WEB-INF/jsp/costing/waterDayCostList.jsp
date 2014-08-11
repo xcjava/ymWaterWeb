@@ -212,7 +212,7 @@ $(function(){
         <td><div><gdcct:price longPrice="${waterDayCost.cost23 }" ></gdcct:price></div></td>
         <td><div><gdcct:price longPrice="${waterDayCost.cost24 }" ></gdcct:price></div></td>
         <td><div><gdcct:price longPrice="${waterDayCost.cost25 }" ></gdcct:price></div></td>
-        <td><div><gdcct:price longPrice="${waterDayCost.cost25 }" ></gdcct:price></div></td>
+        <td><div><gdcct:price longPrice="${waterDayCost.cost26 }" ></gdcct:price></div></td>
         <td><div><gdcct:price longPrice="${waterDayCost.cost27 }" ></gdcct:price></div></td>
         <td><div><gdcct:price longPrice="${waterDayCost.cost28 }" ></gdcct:price></div></td>
         <td><div><gdcct:price longPrice="${waterDayCost.cost29 }" ></gdcct:price></div></td>

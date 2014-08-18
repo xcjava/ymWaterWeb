@@ -51,7 +51,7 @@
 
   </head>
   
-  <body style="padding: 3px;">
+  <body style="padding: 3px; min-width: 1100px;">
     <form action="${baseUrl }manage/updatePopedom.jspx?deptId=${deptId }" method="post" id="">
     	<table class="editTable" border="0" cellspacing="1" cellpadding="0" width="100%" align="center">
     		<tbody>
@@ -97,6 +97,7 @@
     			<tr class="editFooterTr">
     				<td colspan="3" class="editFooterTd">
     					<input type="submit" value=" 确定 "/>
+    					<input type="button" onclick="javascript:window.location='${baseUrl}manage/departmentList.jspx';"value=" 返回">
     				</td>
     			</tr>
     		</tbody>

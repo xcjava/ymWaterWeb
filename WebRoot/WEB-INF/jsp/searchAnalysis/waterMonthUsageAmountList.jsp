@@ -105,6 +105,7 @@ $(function(){
         <td width=""><div><span>集中器编号</span></div></td>
         <td width=""><div><span>表号</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
+        <td width=""><div><span>冻结时间(年)</span></div></td>
         <td width=""><div><span>1月用水量</span></div></td>
         <td width=""><div><span>2月用水量</span></div></td>
         <td width=""><div><span>3月用水量</span></div></td>
@@ -127,6 +128,7 @@ $(function(){
         <td><div>${item.concHardwareId}</div></td>
         <td><div>${item.meterHardwareId}</div></td>
         <td><div>${item.chargingUnitId}</div></td>
+        <td><div>${item.freezeYear }</div></td>
         <td><div>${item.usageAmount1}</div></td>
         <td><div>${item.usageAmount2}</div></td>
         <td><div>${item.usageAmount3}</div></td>
@@ -143,7 +145,7 @@ $(function(){
       </c:forEach>
       </c:if>
 	 	<tr class="listFooterTr">
-		<td colSpan=20>
+		<td colSpan=21>
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }searchAnalysis/waterMonthUsageAmountList.jspx" pageDynamicURLFormat="${baseUrl }searchAnalysis/waterMonthUsageAmountList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 		</tr>      

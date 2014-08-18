@@ -34,8 +34,10 @@ public class UpdatePopedom extends ActionSupport {
 			return ERROR;
 		}
 		Set<String> set = new HashSet<String>();
-		for(String s : selectedOpers){
-			set.add(s.split("[-]")[0]);
+		if(selectedOpers != null && selectedOpers.length > 0){
+			for(String s : selectedOpers){
+				set.add(s.split("[-]")[0]);
+			}
 		}
 		
 		JSONObject json = new JSONObject();

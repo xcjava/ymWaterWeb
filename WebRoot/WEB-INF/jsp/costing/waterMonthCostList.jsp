@@ -94,6 +94,8 @@ $(function(){
 				        <td><input class="textbox" id="meterHardwareId" value="${meterHardwareId }" style="width: 120px" name="meterHardwareId" /></td>
 				      	<td>集中器ID</td>
 				        <td><input class="textbox" id="concHardwareId" value="${concHardwareId }" style="width: 120px" name="concHardwareId" /></td>
+				        <td>冻结时间（年）</td>
+				        <td><input class="textbox" id="freezeYear" value="${freezeYear }" style="width: 60px" name="freezeYear" /></td>
 				      	<td>
 				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
 				      		<input class="button" id="" type="button" value="导出" name="">

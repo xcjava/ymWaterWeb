@@ -35,6 +35,8 @@ public class WaterDayCostList extends ActionSupport {
     private String checkPayStatus;//扣费检查状态-1:未检查;1已检查
     private String meterHardwareId;//无线智能水表ID
     private String concHardwareId;//集中器逻辑地址
+    private String freezeYear;//冻结时间（年）
+    private String freezeMonth;//冻结时间（月）
     
 	public String execute() throws Exception{
 		
@@ -77,6 +79,12 @@ public class WaterDayCostList extends ActionSupport {
 		}
 		if(!StringUtil.isEmpty(checkPayStatus)){
 			qpw.addQueryParam("checkPayStatus", Short.valueOf(checkPayStatus), QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(freezeYear)){
+			qpw.addQueryParam("freezeYear", freezeYear.trim(), QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(freezeMonth)){
+			qpw.addQueryParam("freezeMonth", freezeMonth.trim(), QueryCondition.QC_EQ);
 		}
 		
 		QueryParam qpm = new QueryParam();
@@ -199,6 +207,22 @@ public class WaterDayCostList extends ActionSupport {
 
 	public void setConcHardwareId(String concHardwareId) {
 		this.concHardwareId = concHardwareId;
+	}
+
+	public String getFreezeYear() {
+		return freezeYear;
+	}
+
+	public void setFreezeYear(String freezeYear) {
+		this.freezeYear = freezeYear;
+	}
+
+	public String getFreezeMonth() {
+		return freezeMonth;
+	}
+
+	public void setFreezeMonth(String freezeMonth) {
+		this.freezeMonth = freezeMonth;
 	}
 
 }

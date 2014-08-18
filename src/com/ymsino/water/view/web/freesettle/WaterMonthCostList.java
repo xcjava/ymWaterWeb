@@ -33,6 +33,7 @@ public class WaterMonthCostList extends ActionSupport {
     private String waterCustomerId;
     private String meterHardwareId;//无线智能水表ID
     private String concHardwareId;//集中器逻辑地址
+    private String freezeYear;//冻结时间（年）
     
 	public String execute() throws Exception{
 		
@@ -69,6 +70,10 @@ public class WaterMonthCostList extends ActionSupport {
 		if(!StringUtil.isEmpty(concHardwareId)){
 			concHardwareId = concHardwareId.trim();
 			qpw.addQueryParam("concHardwareId", concHardwareId, QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(freezeYear)){
+			freezeYear = freezeYear.trim();
+			qpw.addQueryParam("freezeYear", freezeYear, QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
@@ -174,6 +179,14 @@ public class WaterMonthCostList extends ActionSupport {
 
 	public void setWaterMonthCostService(WaterMonthCostService waterMonthCostService) {
 		this.waterMonthCostService = waterMonthCostService;
+	}
+
+	public String getFreezeYear() {
+		return freezeYear;
+	}
+
+	public void setFreezeYear(String freezeYear) {
+		this.freezeYear = freezeYear;
 	}
 
 }

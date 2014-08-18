@@ -41,9 +41,9 @@ public class BusiAddressList extends ActionSupport {
 		String managerUnitId = (String)session.getAttribute("sessionUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
-		if(!StringUtil.isEmpty(managerUnitId)){
+		/*if(!StringUtil.isEmpty(managerUnitId)){
 			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
-		}
+		}*/
 		
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());

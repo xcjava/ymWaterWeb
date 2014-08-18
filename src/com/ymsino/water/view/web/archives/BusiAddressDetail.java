@@ -42,9 +42,9 @@ public class BusiAddressDetail extends ActionSupport{
 		String managerUnitId = (String)session.getAttribute("sessionUnitId");
 		
 		QueryParamWriter qpw = new QueryParamWriter();
-		if(!StringUtil.isEmpty(managerUnitId)){
+		/*if(!StringUtil.isEmpty(managerUnitId)){
 			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
-		}
+		}*/
 		
 		if(!StringUtil.isEmpty(id)){
 			qpw.addQueryParam("uid", Long.valueOf(id), QueryCondition.QC_EQ);

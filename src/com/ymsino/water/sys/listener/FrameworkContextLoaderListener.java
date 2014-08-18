@@ -21,7 +21,7 @@ public class FrameworkContextLoaderListener extends ContextLoaderListener
 		
 		System.out.println("----------初始化系统超级管理员----------");
 		ManagerService managerService = (ManagerService) context.getBean("managerService");
-		ManagerReturn manager = managerService.login("administrator", "123456");
+		ManagerReturn manager = managerService.getByManagerId("administrator");
 		if(manager == null){
 			ManagerSaveParam managerSaveParam = new ManagerSaveParam();
 			managerSaveParam.setName("超级管理员");

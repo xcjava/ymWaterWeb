@@ -35,6 +35,16 @@ $(function(){
 		$('#searchForm').submit();
 	});
     
+    $('#exportBtn').click(function(){
+    	var chargingUnitSel = $('#chargingUnitSel').val();
+    	var userId = $('#userId').val();
+    	var userName = $('#userName').val();
+    	var startDate = $('#startDate').val();
+    	var endDate = $('#endDate').val();
+    	var customerStatus = $('#customerStatus').val();
+    	window.open('${baseUrl }archives/downloadWaterCustomerList.jspx?chargingUnitSel=' + chargingUnitSel +'&userId='+userId +'&userName='+userName+'&customerStatus='+customerStatus+'&startDate=' + startDate + '&endDate=' + endDate + '&random=' + Math.random());
+    });
+    
 	//加载收费单位
 	function loadChargingUnit(unitId){
 		var _loadSelObj=$("#chargingUnitSel");
@@ -112,7 +122,7 @@ $(function(){
 							</select>
 				        </td>
 				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
+				      	<td><input class="button" id="exportBtn" type="button" value="导出" name=""></td>
 				      	<td><input class="button" id="addWaterCustomer" type="button" value="新增" name=""></td>
 				      </tr>
 				      <tr>

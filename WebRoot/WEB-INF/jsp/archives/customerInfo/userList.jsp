@@ -35,6 +35,17 @@ $(function(){
 		$('#searchForm').submit();
 	});
     
+    $('#exportBtn').click(function(){
+    	var chargingUnitSel = $('#chargingUnitSel').val();
+    	var userId = $('#userId').val();
+    	var name = $('#name').val();
+    	var economicType = $('#economicType').val();
+    	var industrial = $('#industrial').val();
+    	var startDate = $('#startDate').val();
+    	var endDate = $('#endDate').val();
+    	window.open('${baseUrl }archives/downloadUserList.jspx?chargingUnitSel=' + chargingUnitSel +'&userId='+userId +'&name='+name+'&economicType='+economicType+'&industrial=' + industrial + '&startDate=' + startDate + '&endDate=' + endDate + '&random=' + Math.random());
+    });
+    
 	//加载收费单位
 	function loadChargingUnit(unitId){
 		var _loadSelObj=$("#chargingUnitSel");
@@ -120,7 +131,7 @@ $(function(){
   							<input class="Wdate" type="text" onClick="WdatePicker()" name="endDate" id="endDate" value="${endDate}">
 				        </td>
 				      	<td><input class="button" id="searchBtn" type="button" value="查询" name="searchBtn"></td>
-				      	<td><input class="button" id="" type="button" value="导出" name=""></td>
+				      	<td><input class="button" id="exportBtn" type="button" value="导出" name=""></td>
 				      	<td><input class="button" id="addUser" type="button" value="新增" name=""></td>
 				      	<!-- <td><input class="button" id="" type="button" value="充值" name=""></td> -->
 				      </tr>

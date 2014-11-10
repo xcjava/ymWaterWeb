@@ -13,6 +13,13 @@
 				<param name="adminDefaultInterceptor.operaCode">0001</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出客户信息列表 -->
+	    <action name="downloadUserList" class="com.ymsino.water.view.web.archives.DownloadUserList">
+	     	<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0001</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
+	    </action>
 		<!-- 客户信息Tab -->
 		<action name="userInfoTab" class="com.ymsino.water.view.web.archives.UserInfoTab">
 			<result>/WEB-INF/jsp/archives/customerInfo/userInfoTab.jsp</result>
@@ -220,6 +227,13 @@
 				<param name="adminDefaultInterceptor.operaCode">0001</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出用水用户 列表 -->
+	    <action name="downloadWaterCustomerList" class="com.ymsino.water.view.web.archives.DownloadWaterCustomerList">
+	     	<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0006</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
+	    </action>
 		<!-- 用水用户Tab -->
 		<action name="waterCustomerTab" class="com.ymsino.water.view.web.archives.WaterCustomerTab">
 			<result>/WEB-INF/jsp/archives/customerInfo/waterCustomerTab.jsp</result>

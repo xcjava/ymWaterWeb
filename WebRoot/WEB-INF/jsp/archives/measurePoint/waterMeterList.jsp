@@ -35,6 +35,18 @@ $(function(){
 		$('#searchForm').submit();
 	});
     
+    $('#exportBtn').click(function(){
+    	var type = $('#type').val();
+    	var chargingUnitId = $('#chargingUnitSel').val();
+    	var userId = $('#userId').val();
+    	var userName = $('#userName').val();
+    	var hardwareId = $('#hardwareId').val();
+    	var dataType = $('#dataType').val();
+    	var startDate = $('#startDate').val();
+    	var endDate = $('#endDate').val();
+    	window.open('${baseUrl }archives/downloadWaterMeterList.jspx?type=' + type +'&chargingUnitId='+chargingUnitId +'&userId='+userId +'&userName='+userName+'&hardwareId='+hardwareId+'&dataType=' + dataType + '&startDate=' + startDate + '&endDate=' + endDate + '&random=' + Math.random());
+    });
+    
 	//加载收费单位
 	function loadChargingUnit(unitId){
 		var _loadSelObj=$("#chargingUnitSel");
@@ -113,7 +125,7 @@ $(function(){
 				      	<td></td>
 				      	<td>
 				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
-				      		<input class="button" id="" type="button" value="导出" name="">
+				      		<input class="button" id="exportBtn" type="button" value="导出" name="">
 				      		<input class="button" id="addWaterMeter" type="button" value="新增" name="">
 				      	</td>
 				      	<td></td>
@@ -133,7 +145,7 @@ $(function(){
         <td width=""><div><span>用水性质</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
         <td width=""><div><span>客户姓名</span></div></td>
-        <td width=""><div><span>开始时间</span></div></td>
+        <td width=""><div><span>创建时间</span></div></td>
         <td width=""><div><span>收费单位</span></div></td>
         <td width=""><div><span>操作</span></div></td>
       </tr>

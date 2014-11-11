@@ -34,6 +34,13 @@ $(function(){
 	$('#btnSubmit').click(function(){
 		$('#searchForm').submit();
 	});
+	
+    $('#exportBtn').click(function(){
+    	var chargingUnitId = $('#chargingUnitSel').val();
+    	var name = $('#name').val();
+    	var hardwareId = $('#hardwareId').val();
+    	window.open('${baseUrl }archives/downloadConcentratorList.jspx?chargingUnitId='+chargingUnitId +'&name='+name +'&hardwareId='+hardwareId+ '&random=' + Math.random());
+    });
     
 	//加载收费单位
 	function loadChargingUnit(unitId){
@@ -92,7 +99,7 @@ $(function(){
 				        <td><input class=textbox id="name" name="name" value="${name}"></td>
 				        <td>
 				        	<input class="button" id="btnSubmit" type="button" value="查询">
-				        	<input class="button" id="" type="button" value="导出" name="">
+				        	<input class="button" id="exportBtn" type="button" value="导出" name="">
 				        	<input class="button" id="addConcentrator" type="button" value="新增" name="">
 				        </td>
 				      </tr>

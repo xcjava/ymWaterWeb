@@ -15,6 +15,14 @@
 			</interceptor-ref>
 		</action>
 		
+		<!-- 导出水表日费用列表 -->
+	    <action name="downloadWaterDayCostList" class="com.ymsino.water.view.web.freesettle.DownloadWaterDayCostList">
+	     	<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0011</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
+	    </action>
+		
 		<!-- 水表月费用列表 -->
 		<action name="waterMonthCostList" class="com.ymsino.water.view.web.freesettle.WaterMonthCostList">
 			<result name="success">/WEB-INF/jsp/costing/waterMonthCostList.jsp</result>

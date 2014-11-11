@@ -276,6 +276,15 @@
 				<param name="adminDefaultInterceptor.operaCode">0001</param>
 			</interceptor-ref>
 		</action>
+		
+		<!-- 导出无线智能水表 -->
+	    <action name="downloadWaterMeterList" class="com.ymsino.water.view.web.archives.DownloadWaterMeterList">
+	     	<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0007</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
+	    </action>
+		
 		<!-- 水表详细页 -->
 		<action name="waterMeterDetail" class="com.ymsino.water.view.web.archives.WaterMeterDetail">
 			<result name="success">/WEB-INF/jsp/archives/measurePoint/waterMeterDetail.jsp</result>
@@ -310,6 +319,15 @@
 				<param name="adminDefaultInterceptor.operaCode">0001</param>
 			</interceptor-ref>
 		</action>
+		
+		<!-- 导出集中器水表 -->
+	    <action name="downloadConcentratorList" class="com.ymsino.water.view.web.archives.DownloadConcentratorList">
+	     	<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0008</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
+	    </action>
+		
 		<!-- 集中器Tab -->
 		<action name="concentratorTab" class="com.ymsino.water.view.web.archives.ConcentratorTab">
 			<result>/WEB-INF/jsp/archives/collection/concentratorTab.jsp</result>

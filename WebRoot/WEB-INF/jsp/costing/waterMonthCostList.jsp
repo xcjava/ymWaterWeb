@@ -30,6 +30,20 @@ $(function(){
     $('#searchBtn').click(function(){
 		$('#searchForm').submit();
 	});
+
+    $('#exportBtn').click(function(){
+    	var chargingUnitId = $('#chargingUnitSel').val();
+    	var userId = $('#userId').val();
+    	var waterCustomerId = $('#waterCustomerId').val();
+    	var meterHardwareId = $('#meterHardwareId').val();
+    	var concHardwareId = $('#concHardwareId').val();
+    	var freezeYear = $('#freezeYear').val();
+    	window.open('${baseUrl }freesettle/downloadWaterMonthCostList.jspx?chargingUnitId='+chargingUnitId +'&userId='+userId +'&waterCustomerId='+waterCustomerId 
+    			+'&meterHardwareId='+meterHardwareId
+    			+'&concHardwareId='+concHardwareId
+    			+'&freezeYear='+freezeYear
+    			+'&random=' + Math.random());
+    });
     
 	//加载收费单位
 	function loadChargingUnit(unitId){
@@ -98,7 +112,7 @@ $(function(){
 				        <td><input class="textbox" id="freezeYear" value="${freezeYear }" style="width: 60px" name="freezeYear" /></td>
 				      	<td>
 				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
-				      		<input class="button" id="" type="button" value="导出" name="">
+				      		<input class="button" id="exportBtn" type="button" value="导出" name="">
 				      	</td>
 				      </tr>
 				      <tr>

@@ -13,6 +13,13 @@
 				<param name="adminDefaultInterceptor.operaCode">0001</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出日用水量列表 -->
+		<action name="downloadWaterWaterDayUsageAmountList" class="com.ymsino.water.view.web.searchAnalysis.DownloadWaterWaterDayUsageAmountList">
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0014</param>
+				<param name="adminDefaultInterceptor.operaCode">0001</param>
+			</interceptor-ref>
+		</action>
 		<!-- 月用水量查询 -->
 		<action name="waterMonthUsageAmountList" class="com.ymsino.water.view.web.searchAnalysis.WaterMonthUsageAmountList">
 			<result name="success">/WEB-INF/jsp/searchAnalysis/waterMonthUsageAmountList.jsp</result>
@@ -21,6 +28,14 @@
 				<param name="adminDefaultInterceptor.operaCode">0002</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出月用水量列表 -->
+		<action name="downloadWaterMonthUsageAmountList" class="com.ymsino.water.view.web.searchAnalysis.DownloadWaterMonthUsageAmountList">
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0014</param>
+				<param name="adminDefaultInterceptor.operaCode">0002</param>
+			</interceptor-ref>
+		</action>
+		
 		<!-- 实招数据查询 -->
 		<action name="testMeterCodeDataList" class="com.ymsino.water.view.web.searchAnalysis.TestMeterCodeDataList">
 			<result name="success">/WEB-INF/jsp/searchAnalysis/testMeterCodeDataList.jsp</result>
@@ -29,6 +44,14 @@
 				<param name="adminDefaultInterceptor.operaCode">0003</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出实招数据列表 -->
+		<action name="downloadTestMeterCodeDataList" class="com.ymsino.water.view.web.searchAnalysis.DownloadTestMeterCodeDataList">
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0014</param>
+				<param name="adminDefaultInterceptor.operaCode">0003</param>
+			</interceptor-ref>
+		</action>
+		
 		<!-- 本机数据查询 -->
 		<action name="testDynamicDataList" class="com.ymsino.water.view.web.searchAnalysis.TestDynamicDataList">
 			<result name="success">/WEB-INF/jsp/searchAnalysis/testDynamicDataList.jsp</result>
@@ -37,6 +60,14 @@
 				<param name="adminDefaultInterceptor.operaCode">0004</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出本机数据 -->
+		<action name="downloadTestDynamicDataList" class="com.ymsino.water.view.web.searchAnalysis.DownloadTestDynamicDataList">
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0014</param>
+				<param name="adminDefaultInterceptor.operaCode">0004</param>
+			</interceptor-ref>
+		</action>
+		
 		<!-- 日冻结数据查询 -->
 		<action name="freezeDataList" class="com.ymsino.water.view.web.searchAnalysis.FreezeDataList">
 			<result name="success">/WEB-INF/jsp/searchAnalysis/freezeDataList.jsp</result>
@@ -45,6 +76,14 @@
 				<param name="adminDefaultInterceptor.operaCode">0005</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出日冻结数据 -->
+		<action name="downloadFreezeDataList" class="com.ymsino.water.view.web.searchAnalysis.DownloadFreezeDataList">
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0014</param>
+				<param name="adminDefaultInterceptor.operaCode">0005</param>
+			</interceptor-ref>
+		</action>
+		
 		<!-- 数据审核 -->
 		<action name="checkingFreezeDataList" class="com.ymsino.water.view.web.searchAnalysis.CheckingFreezeDataList">
 			<result name="success">/WEB-INF/jsp/searchAnalysis/checkingFreezeDataList.jsp</result>
@@ -53,6 +92,14 @@
 				<param name="adminDefaultInterceptor.operaCode">0006</param>
 			</interceptor-ref>
 		</action>
+		<!-- 导出数据审核 -->
+		<action name="downloadCheckingFreezeDataList" class="com.ymsino.water.view.web.searchAnalysis.DownloadCheckingFreezeDataList">
+			<interceptor-ref name="adminInterceptor">
+				<param name="adminDefaultInterceptor.moduleCode">0014</param>
+				<param name="adminDefaultInterceptor.operaCode">0006</param>
+			</interceptor-ref>
+		</action>
+		
 		<!-- 审核数据详细 -->
 		<action name="checkingFreezeDataDetail" class="com.ymsino.water.view.web.searchAnalysis.CheckingFreezeDataDetail">
 			<result name="success">/WEB-INF/jsp/searchAnalysis/checkingFreezeDataDetail.jsp</result>

@@ -54,6 +54,15 @@ $(function(){
 	$('#btnSubmit').click(function(){
 		$('#searchForm').submit();
 	});
+    $('#exportBtn').click(function(){
+    	var chargingUnitId = $('#chargingUnitSel').val();
+    	var concHardwareId = $('#concHardwareId').val();
+    	var userId = $('#userId').val();
+    	var meterHardwareId = $('#meterHardwareId').val();
+    	window.open('${baseUrl }searchAnalysis/downloadTestDynamicDataList.jspx?unitId='+chargingUnitId +'&userId='+userId +'&concHardwareId='+concHardwareId 
+    			+'&meterHardwareId='+meterHardwareId
+    			+'&random=' + Math.random());
+    });
 });
 </script>
 </head>
@@ -86,7 +95,7 @@ $(function(){
 				        <td>表号：</td>
 				        <td><input class="textbox" id="meterHardwareId" style="width: 90px" name="meterHardwareId"  value="${meterHardwareId }"/></td>
 				      	<td><input class="button" id="btnSubmit" type="button" value="查询" name="btnSubmit"></td>
-				      	<td><input class="button" id="btnExport" type="button" value="导出" name="btnExport"></td>
+				      	<td><input class="button" id="exportBtn" type="button" value="导出" name=""></td>
 				      </tr>
 			      </tbody>
 			    </table>

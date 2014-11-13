@@ -2,7 +2,6 @@ package com.ymsino.water.view.web.freesettle;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,17 +11,17 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.gmail.xcjava.base.date.DateUtil;
 import com.gmail.xcjava.base.hql.QueryCondition;
-import com.gmail.xcjava.base.hql.QueryLink;
 import com.gmail.xcjava.base.hql.QueryParamWriter;
 import com.opensymphony.oscache.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ymsino.water.service.archives.user.QueryParam;
 import com.ymsino.water.service.archives.user.UserReturn;
 import com.ymsino.water.service.archives.user.UserService;
 import com.ymsino.water.service.freesettle.userWallet.UserWalletReturn;
 import com.ymsino.water.service.freesettle.userWallet.UserWalletService;
+import com.ymsino.water.service.freesettle.waterDayCost.QueryParam;
+import com.ymsino.water.service.freesettle.waterDayCost.WaterDayCostReturn;
+import com.ymsino.water.service.freesettle.waterDayCost.WaterDayCostService;
 import com.ymsino.water.service.manager.chargingUnit.ChargingUnitReturn;
 import com.ymsino.water.service.manager.chargingUnit.ChargingUnitService;
 import com.ymsino.water.view.web.common.Arith;
@@ -33,23 +32,25 @@ public class CostPayList extends ActionSupport {
 
 
 	private static final long serialVersionUID = 6970850564906342550L;
-	private UserService userService;
+    private UserService userService;
 	private ChargingUnitService chargingUnitService;
 	private UserWalletService userWalletService;
-    private String userId = null;
-    private String name;
-    private String economicType;//经济类型
-    private String industrial;//产业分类
-    private String startDate;
-	private String endDate;
-    private String chargingUnitId = null;
+	private WaterDayCostService waterDayCostService;
     private PageModel pageModel = new PageModel();
     private int pageIndex;
 	private int recordCount;
 	private int pageSize;
 	private String message = "";
-    private List<UserReturn> list = new ArrayList<UserReturn>();
+    private List<WaterDayCostReturn> list = new ArrayList<WaterDayCostReturn>();
     private List<Map<String, Object>> mapList=new ArrayList<Map<String, Object>>();
+    private String chargingUnitId;
+    private String userId;
+    private String payStatus = "1";//支付状态-1:未支付;1已支付
+    private String checkPayStatus;//扣费检查状态-1:未检查;1已检查
+    private String meterHardwareId;//无线智能水表ID
+    private String concHardwareId;//集中器逻辑地址
+    
+	@SuppressWarnings("unused")
 	public String execute() throws Exception, UnsupportedEncodingException{
 		
 		if (pageSize == 0)	pageSize = 20;
@@ -66,56 +67,54 @@ public class CostPayList extends ActionSupport {
 		if(!StringUtil.isEmpty(managerUnitId)){
 			qpw.addQueryParam("parentUnits", "%|"+managerUnitId+"|%", QueryCondition.QC_LIKE);
 		}
-		if(!StringUtil.isEmpty(userId)){
-			qpw.addQueryParam("userId", userId, QueryCondition.QC_EQ);
-		}
 		if(!StringUtil.isEmpty(chargingUnitId)){
 			chargingUnitId = chargingUnitId.trim();
 			qpw.addQueryParam("chargingUnitId", chargingUnitId, QueryCondition.QC_EQ);
 		}
-		if(!StringUtil.isEmpty(name)){
-			name = name.trim();
-			qpw.addQueryParam("name", name, QueryCondition.QC_EQ);
+		if(!StringUtil.isEmpty(userId)){
+			userId = userId.trim();
+			qpw.addQueryParam("userId", userId, QueryCondition.QC_EQ);
 		}
-		if(!StringUtil.isEmpty(economicType)){
-			economicType = economicType.trim();
-			qpw.addQueryParam("economicType", economicType, QueryCondition.QC_EQ);
+		if(!StringUtil.isEmpty(meterHardwareId)){
+			meterHardwareId = meterHardwareId.trim();
+			qpw.addQueryParam("meterHardwareId", meterHardwareId, QueryCondition.QC_EQ);
 		}
-		if(!StringUtil.isEmpty(industrial)){
-			industrial = industrial.trim();
-			qpw.addQueryParam("industrial", industrial, QueryCondition.QC_EQ);
+		if(!StringUtil.isEmpty(concHardwareId)){
+			concHardwareId = concHardwareId.trim();
+			qpw.addQueryParam("concHardwareId", concHardwareId, QueryCondition.QC_EQ);
 		}
-		
-		if(!StringUtil.isEmpty(startDate) && !StringUtil.isEmpty(endDate)){
-			if(DateUtil.parseDate(startDate, "yyyy-MM-dd").getTime() > DateUtil.parseDate(endDate , "yyyy-MM-dd").getTime()){
-				Date date1 = DateUtil.parseDate(startDate + " 23:59:59","yyyy-MM-dd HH:mm:ss");
-				Date date2 = DateUtil.parseDate(endDate + " 00:00:00","yyyy-MM-dd HH:mm:ss");
-				qpw.addQueryParams(new String[]{"createTimestamp","createTimestamp"},  new Object[]{date2.getTime(),date1.getTime()} , new QueryCondition[]{QueryCondition.QC_GE,QueryCondition.QC_LE},new QueryLink[]{QueryLink.QL_AND});
-			}else{
-				Date date1 = DateUtil.parseDate(startDate + " 00:00:00","yyyy-MM-dd HH:mm:ss");
-				Date date2 = DateUtil.parseDate(endDate + " 23:59:59","yyyy-MM-dd HH:mm:ss");
-				qpw.addQueryParams(new String[]{"createTimestamp","createTimestamp"},  new Object[]{date1.getTime(),date2.getTime()} , new QueryCondition[]{QueryCondition.QC_GE,QueryCondition.QC_LE},new QueryLink[]{QueryLink.QL_AND});
-			}
+		if(!StringUtil.isEmpty(payStatus)){
+			qpw.addQueryParam("payStatus", Short.valueOf(payStatus), QueryCondition.QC_EQ);
+		}
+		if(!StringUtil.isEmpty(checkPayStatus)){
+			qpw.addQueryParam("checkPayStatus", Short.valueOf(checkPayStatus), QueryCondition.QC_EQ);
 		}
 		QueryParam qpm = new QueryParam();
 		qpm.setQueryCon(qpw.getQueryCon());
 		qpm.setQueryLink(qpw.getQueryLink());
 		qpm.setQueryValue(qpw.getQueryValue());
-		list = userService.getListpager(qpm, pageModel.getStartRow(), pageModel.getPageSize());
-		recordCount = userService.getCount(qpm);
+		list = waterDayCostService.getListpager(qpm, pageModel.getStartRow(), pageModel.getPageSize());
+		recordCount = waterDayCostService.getCount(qpm);
 		pageModel.setRecordCount(recordCount);
 		
 		if(list != null && list.size()>0){
-			for(UserReturn userReturn : list){
+			for(WaterDayCostReturn waterDayCostReturn : list){
 				Map<String, Object> map=new HashMap<String, Object>();
-				
-				ChargingUnitReturn chargingUnit = chargingUnitService.getByUnitId(userReturn.getChargingUnitId());
+				UserReturn userReturn = userService.getByUserId(waterDayCostReturn.getUserId());
+				ChargingUnitReturn chargingUnit = chargingUnitService.getByUnitId(waterDayCostReturn.getChargingUnitId());
 				UserWalletReturn userWalletReturn = userWalletService.getByUid(userReturn.getId());
-				map.put("userId", userReturn.getId().toString());
+				map.put("userId", waterDayCostReturn.getUserId());
 				if (chargingUnit == null) {
 					map.put("chargingUnit", null);
 				}else{
 					map.put("chargingUnit", chargingUnit.getName());
+				}
+				if(userReturn == null){
+					map.put("userName", null);
+					map.put("warnPrice", null);
+				}else{
+					map.put("userName", userReturn.getName());
+					map.put("warnPrice", PriceTool.subZeroAndDot(Arith.div(String.valueOf(userReturn.getWarnPrice()), "10000", 4)));
 				}
 				if (userWalletReturn == null) {
 					map.put("userWallet", null);
@@ -196,58 +195,8 @@ public class CostPayList extends ActionSupport {
 		this.userId = userId;
 	}
 
-
-	public List<UserReturn> getList() {
-		return list;
-	}
-
-
 	public void setUserService(UserService userService) {
 		this.userService = userService;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEconomicType() {
-		return economicType;
-	}
-
-	public void setEconomicType(String economicType) {
-		this.economicType = economicType;
-	}
-
-	public String getIndustrial() {
-		return industrial;
-	}
-
-	public void setIndustrial(String industrial) {
-		this.industrial = industrial;
-	}
-
-	public String getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-
-	public String getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-
-	public List<Map<String, Object>> getMapList() {
-		return mapList;
 	}
 
 	public void setChargingUnitService(ChargingUnitService chargingUnitService) {
@@ -257,5 +206,49 @@ public class CostPayList extends ActionSupport {
 	public void setUserWalletService(UserWalletService userWalletService) {
 		this.userWalletService = userWalletService;
 	}
-	
+
+	public String getPayStatus() {
+		return payStatus;
+	}
+
+	public void setPayStatus(String payStatus) {
+		this.payStatus = payStatus;
+	}
+
+	public String getCheckPayStatus() {
+		return checkPayStatus;
+	}
+
+	public void setCheckPayStatus(String checkPayStatus) {
+		this.checkPayStatus = checkPayStatus;
+	}
+
+	public String getMeterHardwareId() {
+		return meterHardwareId;
+	}
+
+	public void setMeterHardwareId(String meterHardwareId) {
+		this.meterHardwareId = meterHardwareId;
+	}
+
+	public String getConcHardwareId() {
+		return concHardwareId;
+	}
+
+	public void setConcHardwareId(String concHardwareId) {
+		this.concHardwareId = concHardwareId;
+	}
+
+	public List<WaterDayCostReturn> getList() {
+		return list;
+	}
+
+	public List<Map<String, Object>> getMapList() {
+		return mapList;
+	}
+
+	public void setWaterDayCostService(WaterDayCostService waterDayCostService) {
+		this.waterDayCostService = waterDayCostService;
+	}
+
 }

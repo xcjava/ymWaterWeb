@@ -22,7 +22,8 @@ public class CostPayDetail extends ActionSupport{
 		if(StringUtil.isEmpty(type)){
 			return ERROR;
 		}
-		user = userService.getById(Long.valueOf(id));
+//		user = userService.getById(Long.valueOf(id));s
+		user = userService.getByUserId(id);
 		return type;
 	}
 

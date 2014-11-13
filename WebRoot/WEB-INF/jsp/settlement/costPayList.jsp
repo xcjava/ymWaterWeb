@@ -46,22 +46,32 @@ $(function(){
 		}
 		window.location = '${baseUrl }freesettle/costPayDetail.jspx?id='+uid+'&type=reduction';
 	});
-	//查询余额
-	$('a[id^="searchBlance"]').click(function(){
-		var uid = this.id.substring('12',this.id.length);
+	
+	//加载收费单位
+	function loadChargingUnit(unitId){
+		var _loadSelObj=$("#chargingUnitSel");
+    	_loadSelObj.empty();
 		$.ajax({
-			url:'${baseUrl}freesettle/getUserBlanceAjax.jspx?rand=' + Math.random(),
+			url:'${baseUrl}common/getChargingUnitListAjax.jspx?rand=' + Math.random(),
 			type:'get',
-			data:{uid:uid},
+			data:{},
 			dataType:'json',
 			success:function(response){
-				alert('用户id'+uid+'余额：' + response.blance);
+				var optStr="<option value=''>-请选择-</option>";
+				if(response.length>0){
+					for(var i=0;i<response.length;i++){
+						optStr+="<option value='"+response[i].unitId+"'>"+response[i].name+"</option>";
+   					}
+				}				
+				_loadSelObj.append(optStr);
+				_loadSelObj.val(unitId);
 			},
 			error:function(response){
 				alert("服务忙，请重试。");
 			}
 		});
-	});
+	}
+	loadChargingUnit('${chargingUnitId }');
 	
 });
 </script>
@@ -83,9 +93,19 @@ $(function(){
 			    <table cellSpacing=0 cellPadding=2 border=0>
 			      <tbody>
 				      <tr>
-				        <td>客户编号：</td>
+				        <td>收费单位：</td>
 				        <td>
-				        	<input class="textbox" id="userId" style="width: 120px" name="userId" value="${userId }" />
+				        	<select id="chargingUnitSel" name="chargingUnitId">
+								<option></option>
+							</select>
+				        </td>
+				        <td>集中器ID</td>
+				        <td><input class="textbox" id="concHardwareId" value="${concHardwareId }" style="width: 120px" name="concHardwareId" /></td>
+				        <td>客户编号：</td>
+				        <td><input class="textbox" id="userId" style="width: 120px" name="userId" value="${userId }" /></td>
+				      	<td>表计编号：</td>
+				        <td><input class="textbox" id="meterHardwareId" value="${meterHardwareId }" style="width: 120px" name="meterHardwareId" /></td>
+				        <td>
 				      		<input class="button" id="searchBtn" type="button" value="查询" name="searchBtn">
 				      		<input class="button" id="recharge" type="button" value="充值" >
 				      		<input class="button" id="deduction" type="button" value="减费" >
@@ -100,36 +120,46 @@ $(function(){
     <table class="ymlistTable" width="100%" cellpadding="0" cellspacing="1" >
       <tr class="listTableHead">
         <td width=""><div align="center"><input type="checkbox" name="checkbox" id="selectAllBtn" /></div></td>
-        <td width=""><div><span>客户ID</span></div></td>
+        <td width=""><div><span>序号</span></div></td>
+        <td width=""><div><span>收费单位</span></div></td>
         <td width=""><div><span>客户编号</span></div></td>
         <td width=""><div><span>客户姓名</span></div></td>
-        <td width=""><div><span>产业分类</span></div></td>
-        <td width=""><div><span>经济类型</span></div></td>
-        <td width=""><div><span>余额(元)</span></div></td>
-        <td width=""><div><span>收费单位</span></div></td>
+        <td width=""><div><span>集中器编号</span></div></td>
+        <td width=""><div><span>表计编号</span></div></td>
+        <td width=""><div><span>告警金额(元)</span></div></td>
+        <td width=""><div><span>账户余额(元)</span></div></td>
       </tr>
-      <c:forEach var="user" items="${list }">
+      <c:forEach var="waterDayCost" items="${list }">
       <tr class="listTableTr">
-      	<td><div><input type="checkbox" name="${user.id }" class="cb" /></div></td>
-        <td><div>${user.id }</div></td>
-        <td><div>${user.userId }</div></td>
-        <td><div>${user.name }</div></td>
-        <td><div>${user.industrial }</div></td>
-        <td><div>${user.economicType }</div></td>
+      	<td><div><input type="checkbox" name="${waterDayCost.userId }" class="cb" /></div></td>
+        <td><div>${waterDayCost.id }</div></td>
         <td><div>
         	<c:forEach items="${mapList }" var="map">
-        		<c:if test="${map.userId == user.id }">${map.userWallet }</c:if>
+        		<c:if test="${map.userId == waterDayCost.userId }">${map.chargingUnit }</c:if>
         	</c:forEach>
         </div></td>
+        <td><div>${waterDayCost.userId }</div></td>
         <td><div>
         	<c:forEach items="${mapList }" var="map">
-        		<c:if test="${map.userId == user.id }">${map.chargingUnit }</c:if>
+        		<c:if test="${map.userId == waterDayCost.userId }">${map.userName }</c:if>
         	</c:forEach>
         </div></td>
+        <td><div>${waterDayCost.concHardwareId }</div></td>
+        <td><div>${waterDayCost.meterHardwareId }</div></td>
+       	<c:forEach items="${mapList }" var="map">
+       		<c:if test="${map.userId == waterDayCost.userId }">
+       		<td><div>
+       			${map.warnPrice }
+       		</div></td>
+       		<td><div>
+       			${map.userWallet }
+       		</div></td>
+       		</c:if>
+       	</c:forEach>
       </tr>
       </c:forEach>
 	  <tr class="listFooterTr">
-	  	<td colSpan="9">
+	  	<td colSpan="15">
 			<gdcct:pager id="pagerID" fontPageCSS="currentFont" pageStaticMax="0" pageIndex="${pageModel.pageIndex}" recordCount="${pageModel.recordCount }" pageFirstURL="${baseUrl }freesettle/costPayList.jspx" pageDynamicURLFormat="${baseUrl }freesettle/costPayList.jspx?pageIndex={0}" pageSize="${pageModel.pageSize}"></gdcct:pager>
 		</td>
 	  </tr>

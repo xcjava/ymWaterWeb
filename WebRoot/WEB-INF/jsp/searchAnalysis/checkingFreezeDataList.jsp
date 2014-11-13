@@ -62,7 +62,7 @@ $(function(){
     	var meterHardwareId = $('#meterHardwareId').val();
     	var freezeYear = $('#freezeYear').val();
     	var freezeMonth = $('#freezeMonth').val();
-    	window.open('${baseUrl }searchAnalysis/downloadFreezeDataList.jspx?unitId='+chargingUnitId +'&userId='+userId +'&concHardwareId='+concHardwareId 
+    	window.open('${baseUrl }searchAnalysis/downloadCheckingFreezeDataList.jspx?unitId='+chargingUnitId +'&userId='+userId +'&concHardwareId='+concHardwareId 
     			+'&meterHardwareId='+meterHardwareId
     			+'&freezeYear='+freezeYear
     			+'&freezeMonth='+freezeMonth
